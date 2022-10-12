@@ -1,8 +1,8 @@
 {
   "version": "1",
   "cognitoConfig": {
-    "resourceNameTruncated": "scaven178a6dd5",
-    "userPoolName": "scavenger178a6dd5_userpool_178a6dd5",
+    "resourceNameTruncated": "scavena8be8093",
+    "userPoolName": "scavengera8be8093_userpool_a8be8093",
     "autoVerifiedAttributes": [
       "email"
     ],
@@ -23,11 +23,11 @@
       "Requires Symbols"
     ],
     "requiredAttributes": [
-      "address",
       "birthdate",
       "email",
       "family_name",
-      "given_name"
+      "given_name",
+      "phone_number"
     ],
     "aliasAttributes": [],
     "userpoolClientGenerateSecret": false,
@@ -38,17 +38,17 @@
     "userpoolClientReadAttributes": [
       "email"
     ],
-    "userpoolClientLambdaRole": "scaven178a6dd5_userpoolclient_lambda_role",
+    "userpoolClientLambdaRole": "scavena8be8093_userpoolclient_lambda_role",
     "userpoolClientSetAttributes": false,
-    "sharedId": "178a6dd5",
-    "resourceName": "scavenger178a6dd5178a6dd5",
+    "sharedId": "a8be8093",
+    "resourceName": "scavengera8be8093a8be8093",
     "authSelections": "userPoolOnly",
     "useDefault": "manual",
     "userPoolGroups": false,
     "adminQueries": false,
     "triggers": {},
     "hostedUI": true,
-    "hostedUIDomainName": "scavenger178a6dd5-178a6dd5",
+    "hostedUIDomainName": "scavengera8be8093-a8be8093",
     "authProvidersUserPool": [],
     "hostedUIProviderMeta": "[]",
     "oAuthMetadata": "{\"AllowedOAuthFlows\":[\"implicit\"],\"AllowedOAuthScopes\":[\"phone\",\"email\",\"openid\",\"profile\",\"aws.cognito.signin.user.admin\"],\"CallbackURLs\":[\"http://localhost:3000/\"],\"LogoutURLs\":[\"http://localhost:3000/signOut/\"]}",
