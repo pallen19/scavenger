@@ -4,6 +4,16 @@ import { withAuthenticator, Button, Heading } from '@aws-amplify/ui-react';
 import '@aws-amplify/ui-react/styles.css';
 
 /* src/App.js */
+const formFields = {
+  signIn: {
+    username: {
+      labelHidden: false,
+      placeholder: 'Enter your username here',
+      isRequired: true,
+      label: 'Username:'
+    },
+  },
+}
 function App({ signOut, user }) {
   // Todo logic here
 
