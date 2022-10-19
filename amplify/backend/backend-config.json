@@ -18,7 +18,7 @@
     }
   },
   "auth": {
-    "scavenger178a6dd5178a6dd5": {
+    "scavengera8be8093a8be8093": {
       "service": "Cognito",
       "providerPlugin": "awscloudformation",
       "dependsOn": [],
@@ -27,11 +27,12 @@
         "socialProviders": [],
         "usernameAttributes": [],
         "signupAttributes": [
-          "ADDRESS",
           "BIRTHDATE",
           "EMAIL",
           "FAMILY_NAME",
-          "GIVEN_NAME"
+          "GIVEN_NAME",
+          "PHONE_NUMBER",
+          "ADDRESS" 
         ],
         "passwordProtectionSettings": {
           "passwordPolicyMinLength": 8,
