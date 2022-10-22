@@ -7,9 +7,7 @@
 import React from "react";
 import { EscapeHatchProps } from "@aws-amplify/ui-react/internal";
 import { ViewProps } from "@aws-amplify/ui-react";
-export declare type NavbarProps = React.PropsWithChildren<Partial<ViewProps> & {
-    property1?: "Default";
-} & {
+export declare type NewAcctForm2Props = React.PropsWithChildren<Partial<ViewProps> & {
     overrides?: EscapeHatchProps | undefined | null;
 }>;
-export default function Navbar(props: NavbarProps): React.ReactElement;
+export default function NewAcctForm2(props: NewAcctForm2Props): React.ReactElement;

@@ -7,9 +7,9 @@
 import React from "react";
 import { EscapeHatchProps } from "@aws-amplify/ui-react/internal";
 import { ViewProps } from "@aws-amplify/ui-react";
-export declare type NavbarProps = React.PropsWithChildren<Partial<ViewProps> & {
-    property1?: "Default";
+export declare type ListboxComponentProps = React.PropsWithChildren<Partial<ViewProps> & {
+    property1?: "Default" | "Security Dropdown" | "Statement Dropdown" | "Variant2" | "Variant4" | "Variant5" | "Variant6" | "Variant7" | "Variant9";
 } & {
     overrides?: EscapeHatchProps | undefined | null;
 }>;
-export default function Navbar(props: NavbarProps): React.ReactElement;
+export default function ListboxComponent(props: ListboxComponentProps): React.ReactElement;
