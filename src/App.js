@@ -2,7 +2,7 @@ import logo from './logo.svg';
 import './App.css';
 import { withAuthenticator, Button, Heading } from '@aws-amplify/ui-react';
 import '@aws-amplify/ui-react/styles.css';
-import { ActionCard } from './ui-components';
+import CustomAuthentiator from './CustomAuthenticator';
 
 /* src/App.js */
 const formFields = {
@@ -24,10 +24,11 @@ function App({ signOut, user }) {
 
 
       {/* Add Todo JSX here  */}
-      <Heading level={1}>Hello {user.username}</Heading>
-      <Button onClick={signOut}>Sign out</Button>
+     <CustomAuthentiator>
+
+     </CustomAuthentiator>
     </>
   );
 }
 
-export default withAuthenticator(App);
+export default App;
