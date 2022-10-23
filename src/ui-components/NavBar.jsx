@@ -8,15 +8,112 @@
 import React from "react";
 import { getOverrideProps } from "@aws-amplify/ui-react/internal";
 import {
-  Flex,
-  Icon,
-  Image,
-  SearchField,
-  Text,
-  View,
-} from "@aws-amplify/ui-react";
-export default function NavBar(props) {
-  const { overrides, ...rest } = props;
+  getOverrideProps,
+  getOverridesFromVariants,
+  mergeVariantsAndOverrides,
+} from "@aws-amplify/ui-react/internal";
+import { View } from "@aws-amplify/ui-react";
+import NavBar2 from "./NavBar2";
+export default function Navbar(props) {
+  const { overrides: overridesProp, ...rest } = props;
+  const variants = [
+    {
+      overrides: {
+        "Rectangle 3": {},
+        NavBar2: {},
+        "Rectangle 478": {},
+        Navbar: {},
+      },
+      variantValues: { property1: "Default" },
+    },
+    {
+      overrides: {
+        "Rectangle 3": {},
+        NavBar2: {},
+        "Rectangle 478": { backgroundColor: "rgba(89,157,149,1)" },
+        Navbar: {},
+      },
+      variantValues: { property1: "AdminViewHomeBar" },
+    },
+    {
+      overrides: {
+        "Rectangle 3": {},
+        NavBar2: {},
+        "Rectangle 478": {
+          left: "32.21%",
+          right: "64.26%",
+          backgroundColor: "rgba(89,157,149,1)",
+        },
+        Navbar: {},
+      },
+      variantValues: { property1: "AdminViewUser" },
+    },
+    {
+      overrides: {
+        "Rectangle 3": {},
+        NavBar2: {},
+        "Rectangle 478": {
+          left: "32.21%",
+          right: "64.26%",
+          backgroundColor: "rgba(89,157,149,1)",
+        },
+        Navbar: {},
+      },
+      variantValues: { property1: "ManagerViewUserBar" },
+    },
+    {
+      overrides: {
+        "Rectangle 3": {},
+        NavBar2: {},
+        "Rectangle 478": {
+          left: "38.31%",
+          right: "56.03%",
+          backgroundColor: "rgba(89,157,149,1)",
+        },
+        Navbar: {},
+      },
+      variantValues: { property1: "ManagerViewAcctsBar" },
+    },
+    {
+      overrides: {
+        "Rectangle 3": {},
+        NavBar2: {},
+        "Rectangle 478": { backgroundColor: "rgba(89,157,149,1)" },
+        Navbar: {},
+      },
+      variantValues: { property1: "ManagerViewHomeBar" },
+    },
+    {
+      overrides: {
+        "Rectangle 3": {},
+        NavBar2: {},
+        "Rectangle 478": {
+          left: "38.31%",
+          right: "56.03%",
+          backgroundColor: "rgba(89,157,149,1)",
+        },
+        Navbar: {},
+      },
+      variantValues: { property1: "AdminViewAcctsBar" },
+    },
+    {
+      overrides: {
+        "Rectangle 3": {},
+        NavBar2: {},
+        "Rectangle 478": {
+          left: "46.76%",
+          right: "38.09%",
+          backgroundColor: "rgba(89,157,149,1)",
+        },
+        Navbar: {},
+      },
+      variantValues: { property1: "AdminViewPwBar" },
+    },
+  ];
+  const overrides = mergeVariantsAndOverrides(
+    getOverridesFromVariants(variants, props),
+    overridesProp || {}
+  );
   return (
     <Flex
       gap="20px"
@@ -78,47 +175,24 @@ export default function NavBar(props) {
         gap="40px"
         width="100%"
         alignItems="center"
-        grow="1"
-        height="24px"
-        position="relative"
+        padding="24px 32px 24px 32px"
+        backgroundColor="rgba(255,255,255,1)"
+        {...getOverrideProps(overrides, "NavBar2")}
+      ></NavBar2>
+      <View
+        position="absolute"
+        top="68.63%"
+        bottom="30.83%"
+        left="25.81%"
+        right="70.51%"
         padding="0px 0px 0px 0px"
-        {...getOverrideProps(overrides, "Frame 32129767076")}
-      >
-        <Text
-          fontFamily="Inter"
-          fontSize="16px"
-          fontWeight="400"
-          color="rgba(0,0,0,1)"
-          lineHeight="24px"
-          textAlign="left"
-          display="flex"
-          direction="column"
-          justifyContent="flex-start"
-          letterSpacing="0.01px"
-          shrink="0"
-          position="relative"
-          padding="0px 0px 0px 0px"
-          whiteSpace="pre-wrap"
-          children="Dashboard"
-          {...getOverrideProps(overrides, "Dashboard")}
-        ></Text>
-        <Text
-          fontFamily="Inter"
-          fontSize="16px"
-          fontWeight="400"
-          color="rgba(0,0,0,1)"
-          lineHeight="24px"
-          textAlign="left"
-          display="flex"
-          direction="column"
-          justifyContent="flex-start"
-          letterSpacing="0.01px"
-          shrink="0"
-          position="relative"
-          padding="0px 0px 0px 0px"
-          whiteSpace="pre-wrap"
-          children="Jobs"
-          {...getOverrideProps(overrides, "Jobs")}
+        display="block"
+        {...getOverrideProps(overrides, "Rectangle 478")}
+      ></View>
+    </View>
+  );
+}
+verrideProps(overrides, "Jobs")}
         ></Text>
         <Text
           fontFamily="Inter"
