@@ -2,7 +2,7 @@ import logo from './logo.svg';
 import './App.css';
 import { withAuthenticator, Button, Heading } from '@aws-amplify/ui-react';
 import '@aws-amplify/ui-react/styles.css';
-import CustomAuthentiator from './CustomAuthenticator';
+import CustomAuthenticator from './CustomAuthenticator';
 
 /* src/App.js */
 const formFields = {
@@ -20,13 +20,10 @@ function App({ signOut, user }) {
 
   return (
     <>
-
-
-
+      <Heading level={1}>Hello {user.username}</Heading>
+      <Button onClick={signOut}>Sign out</Button>
       {/* Add Todo JSX here  */}
-     <CustomAuthentiator>
-
-     </CustomAuthentiator>
+   
     </>
   );
 }

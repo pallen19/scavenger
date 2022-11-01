@@ -2,11 +2,12 @@ import logo from './logo.svg';
 import awsExports from './aws-exports'
 import './App.css';
 import {Amplify,Auth} from 'aws-amplify'
-import { Authenticator} from '@aws-amplify/ui-react';
+import { Authenticator, Heading} from '@aws-amplify/ui-react';
 import '@aws-amplify/ui-react/styles.css';
+import { BrowserRouter,Routes,Route } from "react-router-dom";  
 Amplify.configure(awsExports);
 
-export default function CustomAuthentiator(){
+export default function CustomAuthenticator(){
 
   function generatedUserName(firstname,lastname){
     let initial = firstname.charAt(0);
@@ -16,7 +17,7 @@ export default function CustomAuthentiator(){
     let month = date.getMonth() + 1;
     let generatedName = initial + lName + month+ day;
     console.log(day)
-    console.log("name generated = " +generatedName);
+    console.log("name generated = " + generatedName);
 return generatedName
 }
 const services={
@@ -31,9 +32,23 @@ const services={
   },
 };
   return (
-  <Authenticator services={services} initialState="signUp">
-{({signOut}) => <button onClick={signOut}>Sign Out</button>}
-  </Authenticator>
+
+<Authenticator services={services} initialState="signUp">
+  
+{
+  ({signOut, user}) => (
+  <>
+
+  
+  <Heading level={1}>Hello {user.username}</Heading>
+
+  <button onClick={signOut}>Sign Out</button>
+  </>
+  
+  )
+}
+</Authenticator>
+
   );
 }
 
