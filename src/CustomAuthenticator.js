@@ -1,14 +1,16 @@
 import logo from './logo.svg';
 import awsExports from './aws-exports'
 import './App.css';
-import {Amplify,Auth} from 'aws-amplify'
-import { Authenticator} from '@aws-amplify/ui-react';
+import {Amplify,Auth, toast} from 'aws-amplify'
+import { Authenticator, Heading} from '@aws-amplify/ui-react';
 import '@aws-amplify/ui-react/styles.css';
+import { BrowserRouter,Routes,Route } from "react-router-dom";  
+import { useEffect, useState } from 'react';
 import lambda from 'aws-sdk/clients/lambda'
 Amplify.configure(awsExports);
 
-export default function CustomAuthentiator(){
-
+export default function CustomAuthenticator(){
+const [level,setLevel] = useState();
   function generatedUserName(firstname,lastname){
     let initial = firstname.charAt(0);
     let lName = lastname;
@@ -17,20 +19,24 @@ export default function CustomAuthentiator(){
     let month = date.getMonth() + 1;
     let generatedName = initial + lName + month+ day;
     console.log(day)
-    console.log("name generated = " +generatedName);
+    console.log("name generated = " + generatedName);
 return generatedName
 }
-getUserGroups(username,).then()
-const formFields={
-  signUp:{
-    username:{
-      label:'Username'
-    },
-    password:{
-      label:'password'
-    },
-  }
+
+function getUserGroup(Username){
+fetch("https://dsxdo0hm4c.execute-api.us-east-2.amazonaws.com/default",{
+method:'POST', 
+headers:{'Content-Type':'application/json'},
+body: JSON.stringify({
+  "UserPoolId": 'us-east-2_yq4Klaavu',
+  "Username": Username,
+  
+})})}
+
+function elevateAccount(Username,accountLevel){
+  fetch("")
 }
+
 const services={
   async handleSignUp(formData){
     let {username,password,attributes} = formData;
@@ -45,16 +51,25 @@ const services={
   },
 };
   return (
-  <Authenticator services={services} initialState="signUp">
-{({signOut,user,}) => (
-<> 
-{console.log(user.attributes)}
-<button onClick={signOut}>Sign Out</button>
-<button onClick={getUserGroups}>Get User Groups</button>
-</>
+
+<Authenticator services={services} initialState="signUp">
   
-  )}
-  </Authenticator>
+{
+  ({signOut, user}) => (
+  <>
+
+  
+  <Heading level={1}>Hello {user.username}</Heading>
+
+  <button onClick={signOut}>Sign Out</button>
+  <button onClick={() => getUserGroup(user.username)}>Get groups</button>
+  <button onClick={() => elevateAccount(user.username,level)}>Elevate Account</button>
+  </>
+  
+  )
+}
+</Authenticator>
+
   );
 }
 
