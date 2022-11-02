@@ -24,7 +24,6 @@ export { default as ReviewCard } from "./ReviewCard";
 export { default as ManagerViewUsersFilter } from "./ManagerViewUsersFilter";
 export { default as NewUserForm } from "./NewUserForm";
 export { default as ForgotPassword } from "./ForgotPassword";
-export { default as NavBar } from "./NavBar";
 export { default as ContactUs } from "./ContactUs";
 export { default as NavBar2 } from "./NavBar2";
 export { default as FAQItem } from "./FAQItem";

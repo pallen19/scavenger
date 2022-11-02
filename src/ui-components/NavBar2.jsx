@@ -6,10 +6,17 @@
 
 /* eslint-disable */
 import React from "react";
-import { getOverrideProps } from "@aws-amplify/ui-react/internal";
+import {
+  getOverrideProps,
+  useNavigateAction,
+} from "@aws-amplify/ui-react/internal";
 import { Flex, Image, Text } from "@aws-amplify/ui-react";
 export default function NavBar2(props) {
-  const { overrides, ...rest } = props;
+  const { Accounts, overrides, ...rest } = props;
+  const homeOnClick = useNavigateAction({ type: "url", url: "Home" });
+  const usersOnClick = useNavigateAction({ type: "url", url: "/Users" });
+  const accountsOnClick = useNavigateAction({ type: "url", url: "Accounts" });
+  const reportsOnClick = useNavigateAction({ type: "url", url: "/Reports" });
   return (
     <Flex
       gap="20px"
@@ -87,6 +94,9 @@ export default function NavBar2(props) {
           padding="0px 0px 0px 0px"
           whiteSpace="pre-wrap"
           children="Home"
+          onClick={() => {
+            homeOnClick();
+          }}
           {...getOverrideProps(overrides, "Home")}
         ></Text>
         <Text
@@ -105,6 +115,9 @@ export default function NavBar2(props) {
           padding="0px 0px 0px 0px"
           whiteSpace="pre-wrap"
           children="Users"
+          onClick={() => {
+            usersOnClick();
+          }}
           {...getOverrideProps(overrides, "Users")}
         ></Text>
         <Text
@@ -123,6 +136,9 @@ export default function NavBar2(props) {
           padding="0px 0px 0px 0px"
           whiteSpace="pre-wrap"
           children="Accounts"
+          onClick={() => {
+            accountsOnClick();
+          }}
           {...getOverrideProps(overrides, "Accounts")}
         ></Text>
         <Text
@@ -141,6 +157,9 @@ export default function NavBar2(props) {
           padding="0px 0px 0px 0px"
           whiteSpace="pre-wrap"
           children="Reports"
+          onClick={() => {
+            reportsOnClick();
+          }}
           {...getOverrideProps(overrides, "Reports")}
         ></Text>
       </Flex>

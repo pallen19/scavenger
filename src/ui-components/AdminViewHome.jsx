@@ -6,11 +6,18 @@
 
 /* eslint-disable */
 import React from "react";
-import { getOverrideProps } from "@aws-amplify/ui-react/internal";
+import {
+  getOverrideProps,
+  useNavigateAction,
+} from "@aws-amplify/ui-react/internal";
 import { Button, Divider, Icon, Text, View } from "@aws-amplify/ui-react";
 import Navbar from "./Navbar";
 export default function AdminViewHome(props) {
   const { overrides, ...rest } = props;
+  const buttonThreeFiveTwoTwoOneSixFiveTwoSixOnClick = useNavigateAction({
+    type: "url",
+    url: "",
+  });
   return (
     <View
       width="1391px"
@@ -177,6 +184,9 @@ export default function AdminViewHome(props) {
         isDisabled={false}
         variation="primary"
         children="Create New User"
+        onClick={() => {
+          buttonThreeFiveTwoTwoOneSixFiveTwoSixOnClick();
+        }}
         {...getOverrideProps(overrides, "Button352216526")}
       ></Button>
       <Button

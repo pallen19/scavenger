@@ -6,11 +6,22 @@
 
 /* eslint-disable */
 import React from "react";
-import { getOverrideProps } from "@aws-amplify/ui-react/internal";
+import {
+  getOverrideProps,
+  useNavigateAction,
+} from "@aws-amplify/ui-react/internal";
 import { Button, Divider, Icon, Text, View } from "@aws-amplify/ui-react";
 import Navbar from "./Navbar";
 export default function ManagerViewHome(props) {
   const { overrides, ...rest } = props;
+  const buttonThreeFiveFourEightFourFourSevenFourOnClick = useNavigateAction({
+    type: "url",
+    url: "/manager_view/new_user_form",
+  });
+  const buttonThreeFiveFourEightFourFourSevenFiveOnClick = useNavigateAction({
+    type: "url",
+    url: "manager_view/create_new_account",
+  });
   return (
     <View
       width="1376px"
@@ -177,6 +188,9 @@ export default function ManagerViewHome(props) {
         isDisabled={false}
         variation="primary"
         children="Create New User"
+        onClick={() => {
+          buttonThreeFiveFourEightFourFourSevenFourOnClick();
+        }}
         {...getOverrideProps(overrides, "Button35484474")}
       ></Button>
       <Button
@@ -194,6 +208,9 @@ export default function ManagerViewHome(props) {
         isDisabled={false}
         variation="primary"
         children="Create New Account"
+        onClick={() => {
+          buttonThreeFiveFourEightFourFourSevenFiveOnClick();
+        }}
         {...getOverrideProps(overrides, "Button35484475")}
       ></Button>
       <Button
