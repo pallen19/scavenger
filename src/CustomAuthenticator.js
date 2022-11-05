@@ -6,11 +6,12 @@ import { Authenticator, Heading} from '@aws-amplify/ui-react';
 import '@aws-amplify/ui-react/styles.css';
 import { BrowserRouter,Routes,Route } from "react-router-dom";  
 import { useEffect, useState } from 'react';
-import lambda from 'aws-sdk/clients/lambda'
+
+
 Amplify.configure(awsExports);
 
 export default function CustomAuthenticator(){
-const [level,setLevel] = useState();
+const [level,setLevel] = useState("Managers");
   function generatedUserName(firstname,lastname){
     let initial = firstname.charAt(0);
     let lName = lastname;
@@ -24,7 +25,8 @@ return generatedName
 }
 
 function getUserGroup(Username){
-fetch("https://dsxdo0hm4c.execute-api.us-east-2.amazonaws.com/default",{
+console.log("Fetcing user groups")
+fetch("https://dsxdo0hm4c.execute-api.us-east-2.amazonaws.com/default/",{
 method:'POST', 
 headers:{'Content-Type':'application/json'},
 body: JSON.stringify({
@@ -34,7 +36,16 @@ body: JSON.stringify({
 })})}
 
 function elevateAccount(Username,accountLevel){
-  fetch("")
+  fetch("https://7eiwgt5u32.execute-api.us-east-2.amazonaws.com/default/",{
+    method: 'POST',
+    headers: {'Content-Type':"application/json"},
+    body : JSON.stringify({
+      "Username": Username,
+      "UserPoolId": 'us-east-2_yq4Klaavu',
+      "newGroup": accountLevel
+
+    })
+  })
 }
 
 const services={
@@ -57,12 +68,13 @@ const services={
 {
   ({signOut, user}) => (
   <>
-
   
   <Heading level={1}>Hello {user.username}</Heading>
 
   <button onClick={signOut}>Sign Out</button>
+
   <button onClick={() => getUserGroup(user.username)}>Get groups</button>
+
   <button onClick={() => elevateAccount(user.username,level)}>Elevate Account</button>
   </>
   
