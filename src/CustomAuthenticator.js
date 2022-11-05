@@ -12,6 +12,7 @@ Amplify.configure(awsExports);
 
 export default function CustomAuthenticator(){
 const [level,setLevel] = useState("Managers");
+const [userData,setUserData] = useState([]);
   function generatedUserName(firstname,lastname){
     let initial = firstname.charAt(0);
     let lName = lastname;
@@ -62,6 +63,15 @@ function TestApiCall(){
      
   //empty body
     })
+  }).then(function(response){
+
+    console.log(response)
+
+    return response.json();
+
+  }).then(function(JsonData){
+    console.log(JsonData);
+    setUserData(JsonData)
   })
 }
 
@@ -95,10 +105,12 @@ const services={
   <button onClick={signOut}>Sign Out</button>
 
   <button onClick={() => TestApiCall()}>TEST BUTTON</button>
-
+  <button onClick={() => {console.log(userData)}}>LogData</button>
+  
   <button onClick={() => getUserGroup(user.username)}>Get groups</button>
 
   <button onClick={() => elevateAccount(user.username,"Managers","add")}>Elevate Account</button>
+  
   <button onClick={() => elevateAccount(user.username,"Managers","remove")}>remove Account from managers</button>
   </>
   
