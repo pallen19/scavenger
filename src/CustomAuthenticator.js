@@ -35,18 +35,39 @@ body: JSON.stringify({
   
 })})}
 
-function elevateAccount(Username,accountLevel){
+function elevateAccount(Username,accountLevel,Method){
+  //account method should be add,remove, or disabled/enable
   fetch("https://7eiwgt5u32.execute-api.us-east-2.amazonaws.com/default/",{
     method: 'POST',
     headers: {'Content-Type':"application/json"},
     body : JSON.stringify({
-      "Username": Username,
+      "UserName": Username,
       "UserPoolId": 'us-east-2_yq4Klaavu',
-      "newGroup": accountLevel
+      "newGroup": accountLevel,
+      "method": Method
 
     })
   })
 }
+
+function TestApiCall(){
+  //put url of api in the fetch
+  fetch(" https://qdkw8owsn3.execute-api.us-east-2.amazonaws.com/default",{
+    method: 'POST',
+    headers: {'Content-Type':"application/json"},
+    body : JSON.stringify({
+      
+        "AttributesToGet":  [],
+        "UserPoolId": "us-east-2_yq4Klaavu"
+     
+  //empty body
+    })
+  })
+}
+
+
+
+
 
 const services={
   async handleSignUp(formData){
@@ -73,9 +94,12 @@ const services={
 
   <button onClick={signOut}>Sign Out</button>
 
+  <button onClick={() => TestApiCall()}>TEST BUTTON</button>
+
   <button onClick={() => getUserGroup(user.username)}>Get groups</button>
 
-  <button onClick={() => elevateAccount(user.username,level)}>Elevate Account</button>
+  <button onClick={() => elevateAccount(user.username,"Managers","add")}>Elevate Account</button>
+  <button onClick={() => elevateAccount(user.username,"Managers","remove")}>remove Account from managers</button>
   </>
   
   )
