@@ -20,7 +20,16 @@ function Register(props) {
     const [comment,setComment]= useState("")
     const accountsColRef = collection(db, "accounts");
 
-    
+    const handleSubmit = event =>{
+      console.log('handleSubmit ran');
+      event.preventDefault();
+
+      console.log('Credit', credit);
+      console.log('Debit', debit);
+
+      setDebit('');
+      setCredit('');
+    };
     const createNewAccount = async (accountCategory, accountDescription, accountName, accountNo, accountSubcategory, balance, comment, creationDate, credit,
          debit, initialBalance, orderNo, statement, userID) => {
         try {

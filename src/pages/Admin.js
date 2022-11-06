@@ -32,7 +32,7 @@ export const Admin = () => {
     <ExpiredPasswordsReport/>
     
     
-        </div>
+        </div> 
   </div>*/}
 
   <AdminViewHome/>
