@@ -26,6 +26,10 @@ export default function ManagerViewHome(props) {
     <View
       width="1376px"
       height="1070px"
+      display="block"
+      gap="unset"
+      alignItems="unset"
+      justifyContent="unset"
       position="relative"
       padding="0px 0px 0px 0px"
       {...rest}
@@ -35,6 +39,10 @@ export default function ManagerViewHome(props) {
         padding="0px 0px 0px 0px"
         width="1350px"
         height="1152px"
+        display="block"
+        gap="unset"
+        alignItems="unset"
+        justifyContent="unset"
         position="absolute"
         top="-145px"
         left="0px"
@@ -43,6 +51,10 @@ export default function ManagerViewHome(props) {
         <View
           width="1160px"
           height="965px"
+          display="block"
+          gap="unset"
+          alignItems="unset"
+          justifyContent="unset"
           position="absolute"
           top="187px"
           left="95px"
@@ -53,6 +65,10 @@ export default function ManagerViewHome(props) {
         <Navbar
           width="1350px"
           height="373px"
+          display="block"
+          gap="unset"
+          alignItems="unset"
+          justifyContent="unset"
           position="absolute"
           top="0px"
           left="0px"
@@ -63,6 +79,10 @@ export default function ManagerViewHome(props) {
         <View
           width="1105px"
           height="695px"
+          display="block"
+          gap="unset"
+          alignItems="unset"
+          justifyContent="unset"
           position="absolute"
           top="457px"
           left="122px"
@@ -77,9 +97,13 @@ export default function ManagerViewHome(props) {
           color="rgba(88,80,236,1)"
           lineHeight="14px"
           textAlign="left"
-          display="flex"
+          display="block"
           direction="column"
-          justifyContent="flex-start"
+          justifyContent="unset"
+          width="unset"
+          height="unset"
+          gap="unset"
+          alignItems="unset"
           position="absolute"
           top="478px"
           left="151px"
@@ -100,6 +124,10 @@ export default function ManagerViewHome(props) {
               strokeWidth: 1,
             },
           ]}
+          display="block"
+          gap="unset"
+          alignItems="unset"
+          justifyContent="unset"
           position="absolute"
           top="507px"
           left="135px"
@@ -117,6 +145,10 @@ export default function ManagerViewHome(props) {
               strokeWidth: 2,
             },
           ]}
+          display="block"
+          gap="unset"
+          alignItems="unset"
+          justifyContent="unset"
           position="absolute"
           top="507px"
           left="135px"
@@ -130,11 +162,13 @@ export default function ManagerViewHome(props) {
         color="rgba(33,33,33,1)"
         lineHeight="14px"
         textAlign="left"
-        display="flex"
+        display="block"
         direction="column"
-        justifyContent="flex-start"
+        justifyContent="unset"
         width="195px"
         height="25px"
+        gap="unset"
+        alignItems="unset"
         position="absolute"
         top="203px"
         left="129px"
@@ -146,6 +180,10 @@ export default function ManagerViewHome(props) {
       <View
         width="394px"
         height="212px"
+        display="block"
+        gap="unset"
+        alignItems="unset"
+        justifyContent="unset"
         position="absolute"
         top="407px"
         left="124px"
@@ -156,6 +194,10 @@ export default function ManagerViewHome(props) {
       <View
         width="327px"
         height="212px"
+        display="block"
+        gap="unset"
+        alignItems="unset"
+        justifyContent="unset"
         position="absolute"
         top="407px"
         left="519px"
@@ -166,6 +208,10 @@ export default function ManagerViewHome(props) {
       <View
         width="374px"
         height="212px"
+        display="block"
+        gap="unset"
+        alignItems="unset"
+        justifyContent="unset"
         position="absolute"
         top="407px"
         left="847px"
@@ -176,13 +222,14 @@ export default function ManagerViewHome(props) {
       <Button
         display="flex"
         gap="0"
-        position="absolute"
-        top="565px"
-        left="157px"
+        direction="row"
         width="300px"
         height="36px"
         justifyContent="center"
         alignItems="center"
+        position="absolute"
+        top="565px"
+        left="157px"
         backgroundColor="rgba(0,64,77,1)"
         size="default"
         isDisabled={false}
@@ -196,13 +243,14 @@ export default function ManagerViewHome(props) {
       <Button
         display="flex"
         gap="0"
-        position="absolute"
-        top="565px"
-        left="517px"
+        direction="row"
         width="300px"
         height="36px"
         justifyContent="center"
         alignItems="center"
+        position="absolute"
+        top="565px"
+        left="517px"
         backgroundColor="rgba(0,64,77,1)"
         size="default"
         isDisabled={false}
@@ -216,13 +264,14 @@ export default function ManagerViewHome(props) {
       <Button
         display="flex"
         gap="0"
-        position="absolute"
-        top="565px"
-        left="897px"
+        direction="row"
         width="300px"
         height="36px"
         justifyContent="center"
         alignItems="center"
+        position="absolute"
+        top="565px"
+        left="897px"
         backgroundColor="rgba(0,64,77,1)"
         size="default"
         isDisabled={false}
@@ -237,11 +286,14 @@ export default function ManagerViewHome(props) {
         color="rgba(48,64,80,1)"
         lineHeight="24px"
         textAlign="center"
-        display="flex"
+        display="block"
         direction="column"
-        justifyContent="flex-start"
+        justifyContent="unset"
         letterSpacing="0.01px"
         width="250px"
+        height="unset"
+        gap="unset"
+        alignItems="unset"
         position="absolute"
         top="450px"
         left="185px"
@@ -260,11 +312,14 @@ export default function ManagerViewHome(props) {
         color="rgba(48,64,80,1)"
         lineHeight="24px"
         textAlign="center"
-        display="flex"
+        display="block"
         direction="column"
-        justifyContent="flex-start"
+        justifyContent="unset"
         letterSpacing="0.01px"
         width="250px"
+        height="unset"
+        gap="unset"
+        alignItems="unset"
         position="absolute"
         top="447px"
         left="543px"
@@ -283,11 +338,14 @@ export default function ManagerViewHome(props) {
         color="rgba(48,64,80,1)"
         lineHeight="24px"
         textAlign="center"
-        display="flex"
+        display="block"
         direction="column"
-        justifyContent="flex-start"
+        justifyContent="unset"
         letterSpacing="0.01px"
         width="250px"
+        height="unset"
+        gap="unset"
+        alignItems="unset"
         position="absolute"
         top="456px"
         left="922px"
@@ -302,15 +360,17 @@ export default function ManagerViewHome(props) {
       <Text
         fontFamily="Inter"
         fontSize="22px"
-        fontWeight="400"
+        fontWeight="600"
         color="rgba(48,64,80,1)"
         lineHeight="30px"
         textAlign="center"
-        display="flex"
+        display="block"
         direction="column"
-        justifyContent="flex-start"
+        justifyContent="unset"
         width="196px"
         height="14px"
+        gap="unset"
+        alignItems="unset"
         position="absolute"
         top="404px"
         left="204px"
@@ -322,15 +382,17 @@ export default function ManagerViewHome(props) {
       <Text
         fontFamily="Inter"
         fontSize="22px"
-        fontWeight="400"
+        fontWeight="600"
         color="rgba(48,64,80,1)"
         lineHeight="30px"
         textAlign="center"
-        display="flex"
+        display="block"
         direction="column"
-        justifyContent="flex-start"
+        justifyContent="unset"
         width="220px"
         height="14px"
+        gap="unset"
+        alignItems="unset"
         position="absolute"
         top="404px"
         left="566px"
@@ -342,15 +404,17 @@ export default function ManagerViewHome(props) {
       <Text
         fontFamily="Inter"
         fontSize="22px"
-        fontWeight="400"
+        fontWeight="600"
         color="rgba(48,64,80,1)"
         lineHeight="30px"
         textAlign="center"
-        display="flex"
+        display="block"
         direction="column"
-        justifyContent="flex-start"
+        justifyContent="unset"
         width="300px"
         height="14px"
+        gap="unset"
+        alignItems="unset"
         position="absolute"
         top="404px"
         left="897px"
@@ -362,6 +426,10 @@ export default function ManagerViewHome(props) {
       <Divider
         width="300px"
         height="2px"
+        display="block"
+        gap="unset"
+        alignItems="unset"
+        justifyContent="unset"
         position="absolute"
         top="537px"
         left="154px"
@@ -373,6 +441,10 @@ export default function ManagerViewHome(props) {
       <Divider
         width="300px"
         height="2px"
+        display="block"
+        gap="unset"
+        alignItems="unset"
+        justifyContent="unset"
         position="absolute"
         top="535px"
         left="518px"
@@ -384,6 +456,10 @@ export default function ManagerViewHome(props) {
       <Divider
         width="300px"
         height="2px"
+        display="block"
+        gap="unset"
+        alignItems="unset"
+        justifyContent="unset"
         position="absolute"
         top="535px"
         left="897px"
@@ -395,6 +471,10 @@ export default function ManagerViewHome(props) {
       <Divider
         width="250px"
         height="2px"
+        display="block"
+        gap="unset"
+        alignItems="unset"
+        justifyContent="unset"
         position="absolute"
         top="611px"
         left="857px"
@@ -408,6 +488,10 @@ export default function ManagerViewHome(props) {
       <Divider
         width="250px"
         height="2px"
+        display="block"
+        gap="unset"
+        alignItems="unset"
+        justifyContent="unset"
         position="absolute"
         top="611px"
         left="486px"
@@ -422,6 +506,10 @@ export default function ManagerViewHome(props) {
         padding="0px 0px 0px 0px"
         width="200px"
         height="42px"
+        display="block"
+        gap="unset"
+        alignItems="unset"
+        justifyContent="unset"
         position="absolute"
         top="207px"
         left="1027px"
@@ -430,6 +518,10 @@ export default function ManagerViewHome(props) {
         <View
           width="201px"
           height="43px"
+          display="block"
+          gap="unset"
+          alignItems="unset"
+          justifyContent="unset"
           position="absolute"
           top="-0.5px"
           left="-0.5px"
@@ -443,6 +535,10 @@ export default function ManagerViewHome(props) {
           padding="0px 0px 0px 0px"
           width="88px"
           height="21px"
+          display="block"
+          gap="unset"
+          alignItems="unset"
+          justifyContent="unset"
           position="absolute"
           top="11px"
           left="12px"
@@ -453,13 +549,15 @@ export default function ManagerViewHome(props) {
             fontSize="13px"
             fontWeight="500"
             color="rgba(150,155,160,1)"
-            lineHeight="15.234375px"
+            lineHeight="19.5px"
             textAlign="left"
-            display="flex"
+            display="block"
             direction="column"
-            justifyContent="flex-start"
+            justifyContent="unset"
             width="60px"
             height="21px"
+            gap="unset"
+            alignItems="unset"
             position="absolute"
             top="0px"
             left="28px"
@@ -471,6 +569,10 @@ export default function ManagerViewHome(props) {
           <View
             width="16px"
             height="16px"
+            display="block"
+            gap="unset"
+            alignItems="unset"
+            justifyContent="unset"
             position="absolute"
             top="2px"
             left="0px"
@@ -478,12 +580,12 @@ export default function ManagerViewHome(props) {
             {...getOverrideProps(overrides, "24 / basic / search")}
           >
             <Icon
-              width="13.138069152832031px"
-              height="13.1380615234375px"
+              width="13.14px"
+              height="13.14px"
               viewBox={{
                 minX: 0,
                 minY: 0,
-                width: 13.138069152832031,
+                width: 13.138076782226562,
                 height: 13.1380615234375,
               }}
               paths={[
@@ -493,6 +595,10 @@ export default function ManagerViewHome(props) {
                   fillRule: "evenodd",
                 },
               ]}
+              display="block"
+              gap="unset"
+              alignItems="unset"
+              justifyContent="unset"
               position="absolute"
               top="8.33%"
               bottom="9.55%"
@@ -506,7 +612,7 @@ export default function ManagerViewHome(props) {
                 viewBox={{
                   minX: 0,
                   minY: 0,
-                  width: 13.138053894042969,
+                  width: 13.138046264648438,
                   height: 13.1380615234375,
                 }}
                 paths={[
@@ -516,21 +622,29 @@ export default function ManagerViewHome(props) {
                     fillRule: "evenodd",
                   },
                 ]}
+                display="block"
+                gap="unset"
+                alignItems="unset"
+                justifyContent="unset"
                 position="absolute"
                 top="0px"
                 left="0px"
                 {...getOverrideProps(overrides, "Union")}
               >
                 <Icon
-                  width="10.666664123535156px"
-                  height="10.6666259765625px"
+                  width="10.67px"
+                  height="10.67px"
                   viewBox={{
                     minX: 0,
                     minY: 0,
-                    width: 10.666664123535156,
+                    width: 10.666671752929688,
                     height: 10.6666259765625,
                   }}
                   paths={[]}
+                  display="block"
+                  gap="unset"
+                  alignItems="unset"
+                  justifyContent="unset"
                   position="absolute"
                   top="0%"
                   bottom="33.33%"
@@ -539,8 +653,8 @@ export default function ManagerViewHome(props) {
                   {...getOverrideProps(overrides, "Path35484495")}
                 ></Icon>
                 <Icon
-                  width="4.94281005859375px"
-                  height="4.9427490234375px"
+                  width="4.94px"
+                  height="4.94px"
                   viewBox={{
                     minX: 0,
                     minY: 0,
@@ -548,6 +662,10 @@ export default function ManagerViewHome(props) {
                     height: 4.9427490234375,
                   }}
                   paths={[]}
+                  display="block"
+                  gap="unset"
+                  alignItems="unset"
+                  justifyContent="unset"
                   position="absolute"
                   top="51.22%"
                   bottom="17.89%"
@@ -561,6 +679,10 @@ export default function ManagerViewHome(props) {
                 height="8px"
                 viewBox={{ minX: 0, minY: 0, width: 8, height: 8 }}
                 paths={[]}
+                display="block"
+                gap="unset"
+                alignItems="unset"
+                justifyContent="unset"
                 position="absolute"
                 top="8.33%"
                 bottom="41.67%"

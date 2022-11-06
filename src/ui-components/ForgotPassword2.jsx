@@ -8,12 +8,12 @@
 import React from "react";
 import { getOverrideProps } from "@aws-amplify/ui-react/internal";
 import { Button, Text, TextField, View } from "@aws-amplify/ui-react";
-export default function ForgotPassword(props) {
+export default function ForgotPassword2(props) {
   const { overrides, ...rest } = props;
   return (
     <View
-      width="474px"
-      height="423px"
+      width="495px"
+      height="582px"
       display="block"
       gap="unset"
       alignItems="unset"
@@ -21,18 +21,18 @@ export default function ForgotPassword(props) {
       position="relative"
       padding="0px 0px 0px 0px"
       {...rest}
-      {...getOverrideProps(overrides, "ForgotPassword")}
+      {...getOverrideProps(overrides, "ForgotPassword2")}
     >
       <View
         width="475px"
-        height="424px"
+        height="565px"
         display="block"
         gap="unset"
         alignItems="unset"
         justifyContent="unset"
         position="absolute"
-        top="-0.5px"
-        left="-0.5px"
+        top="7.5px"
+        left="7.5px"
         border="0.5px SOLID rgba(102,102,102,1)"
         padding="0px 0px 0px 0px"
         backgroundColor="rgba(255,255,255,1)"
@@ -53,14 +53,38 @@ export default function ForgotPassword(props) {
         gap="unset"
         alignItems="unset"
         position="absolute"
-        top="9.69%"
-        bottom="80.38%"
-        left="28.27%"
-        right="24.89%"
+        top="8.42%"
+        bottom="84.36%"
+        left="28.69%"
+        right="26.46%"
         padding="0px 0px 0px 0px"
         whiteSpace="pre-wrap"
         children="Forgot Password?"
-        {...getOverrideProps(overrides, "label")}
+        {...getOverrideProps(overrides, "label35564969")}
+      ></Text>
+      <Text
+        fontFamily="Inter"
+        fontSize="18px"
+        fontWeight="600"
+        color="rgba(48,64,80,1)"
+        lineHeight="27px"
+        textAlign="left"
+        display="block"
+        direction="column"
+        justifyContent="unset"
+        width="342px"
+        height="42px"
+        gap="unset"
+        alignItems="unset"
+        position="absolute"
+        top="15.98%"
+        bottom="76.8%"
+        left="16.57%"
+        right="14.34%"
+        padding="0px 0px 0px 0px"
+        whiteSpace="pre-wrap"
+        children="Please answer your security questions &#xA;These will help us verify your identity"
+        {...getOverrideProps(overrides, "label35564999")}
       ></Text>
       <TextField
         display="flex"
@@ -71,18 +95,18 @@ export default function ForgotPassword(props) {
         justifyContent="center"
         alignItems="flex-start"
         position="absolute"
-        top="22.93%"
-        bottom="60.05%"
-        left="14.35%"
-        right="14.56%"
+        top="28.35%"
+        bottom="59.28%"
+        left="15.35%"
+        right="16.57%"
         padding="0px 0px 0px 0px"
-        label="Email"
-        placeholder="Enter email"
+        label="Who was your childhood best friend?"
+        placeholder="Enter security question answer"
         size="default"
         isDisabled={false}
         labelHidden={false}
         variation="default"
-        {...getOverrideProps(overrides, "TextField35564917")}
+        {...getOverrideProps(overrides, "TextField35564970")}
       ></TextField>
       <TextField
         display="flex"
@@ -93,18 +117,40 @@ export default function ForgotPassword(props) {
         justifyContent="center"
         alignItems="flex-start"
         position="absolute"
-        top="45.86%"
-        bottom="37.12%"
-        left="14.35%"
-        right="14.56%"
+        top="45.02%"
+        bottom="42.61%"
+        left="15.35%"
+        right="16.57%"
         padding="0px 0px 0px 0px"
-        label="User ID"
-        placeholder="Enter user ID"
+        label="What was the name of your first pet?"
+        placeholder="Enter security question answer"
         size="default"
         isDisabled={false}
         labelHidden={false}
         variation="default"
-        {...getOverrideProps(overrides, "TextField35564924")}
+        {...getOverrideProps(overrides, "TextField35564971")}
+      ></TextField>
+      <TextField
+        display="flex"
+        gap="8px"
+        direction="column"
+        width="337px"
+        height="unset"
+        justifyContent="center"
+        alignItems="flex-start"
+        position="absolute"
+        top="63.92%"
+        bottom="23.71%"
+        left="15.35%"
+        right="16.57%"
+        padding="0px 0px 0px 0px"
+        label="What is your mother’s maiden name?"
+        placeholder="Enter security question answer"
+        size="default"
+        isDisabled={false}
+        labelHidden={false}
+        variation="default"
+        {...getOverrideProps(overrides, "TextField35564992")}
       ></TextField>
       <Button
         display="flex"
@@ -115,13 +161,13 @@ export default function ForgotPassword(props) {
         justifyContent="center"
         alignItems="center"
         position="absolute"
-        top="318px"
-        left="258px"
+        top="495px"
+        left="265px"
         size="default"
         isDisabled={false}
         variation="primary"
-        children="Next"
-        {...getOverrideProps(overrides, "Button35564932")}
+        children="Submit"
+        {...getOverrideProps(overrides, "Button35564972")}
       ></Button>
       <Button
         display="flex"
@@ -132,10 +178,10 @@ export default function ForgotPassword(props) {
         justifyContent="center"
         alignItems="center"
         position="absolute"
-        top="74.94%"
-        bottom="15.13%"
-        left="14.14%"
-        right="53.8%"
+        top="84.88%"
+        bottom="7.9%"
+        left="14.95%"
+        right="54.34%"
         border="1px SOLID rgba(0,85,102,1)"
         borderRadius="5px"
         padding="8px 16px 8px 16px"
@@ -143,7 +189,7 @@ export default function ForgotPassword(props) {
         isDisabled={false}
         variation="default"
         children="Cancel"
-        {...getOverrideProps(overrides, "Button35564936")}
+        {...getOverrideProps(overrides, "Button35564973")}
       ></Button>
     </View>
   );

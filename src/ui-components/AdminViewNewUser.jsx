@@ -6,7 +6,10 @@
 
 /* eslint-disable */
 import React from "react";
-import { getOverrideProps } from "@aws-amplify/ui-react/internal";
+import {
+  getOverrideProps,
+  useNavigateAction,
+} from "@aws-amplify/ui-react/internal";
 import {
   Button,
   Card,
@@ -16,10 +19,22 @@ import {
   View,
 } from "@aws-amplify/ui-react";
 export default function AdminViewNewUser(props) {
-  const { overrides, ...rest } = props;
+  const { phoneNumber, createNewUser2, overrides, ...rest } = props;
+  const buttonThreeFiveFourEightFiveEightFourThreeOnClick = useNavigateAction({
+    type: "url",
+    url: "createNewUser2",
+  });
+  const buttonThreeFiveFourEightFiveEightFourFourOnClick = useNavigateAction({
+    type: "url",
+    url: "/",
+  });
   return (
     <Flex
       gap="10px"
+      direction="row"
+      width="unset"
+      height="unset"
+      justifyContent="flex-start"
       alignItems="flex-start"
       position="relative"
       padding="8px 7px 8px 7px"
@@ -30,6 +45,10 @@ export default function AdminViewNewUser(props) {
       <View
         width="450px"
         height="909px"
+        display="block"
+        gap="unset"
+        alignItems="unset"
+        justifyContent="unset"
         shrink="0"
         position="relative"
         border="1px SOLID rgba(102,102,102,1)"
@@ -39,15 +58,16 @@ export default function AdminViewNewUser(props) {
         <Card
           display="flex"
           gap="0"
+          direction="column"
+          width="449px"
+          height="907.74px"
+          justifyContent="center"
+          alignItems="flex-start"
           position="absolute"
           top="0%"
           bottom="0.03%"
           left="0%"
           right="0%"
-          direction="column"
-          width="449px"
-          height="907.74px"
-          justifyContent="center"
           padding="16px 16px 16px 16px"
           backgroundColor="rgba(255,255,255,1)"
           opacity="0.4699999988079071"
@@ -57,14 +77,16 @@ export default function AdminViewNewUser(props) {
         <TextField
           display="flex"
           gap="8px"
+          direction="column"
+          width="337px"
+          height="unset"
+          justifyContent="center"
+          alignItems="flex-start"
           position="absolute"
           top="29.52%"
           bottom="62.56%"
           left="12.47%"
           right="12.47%"
-          direction="column"
-          width="337px"
-          justifyContent="center"
           padding="0px 0px 0px 0px"
           label="Phone Number"
           placeholder="(___) ___ - _____"
@@ -77,14 +99,16 @@ export default function AdminViewNewUser(props) {
         <TextField
           display="flex"
           gap="8px"
+          direction="column"
+          width="337px"
+          height="unset"
+          justifyContent="center"
+          alignItems="flex-start"
           position="absolute"
           top="39.65%"
           bottom="52.42%"
           left="12.47%"
           right="12.47%"
-          direction="column"
-          width="337px"
-          justifyContent="center"
           padding="0px 0px 0px 0px"
           label="Street Address"
           placeholder="Enter street address"
@@ -97,14 +121,16 @@ export default function AdminViewNewUser(props) {
         <TextField
           display="flex"
           gap="8px"
+          direction="column"
+          width="337px"
+          height="unset"
+          justifyContent="center"
+          alignItems="flex-start"
           position="absolute"
           top="49.78%"
           bottom="42.29%"
           left="12.47%"
           right="12.47%"
-          direction="column"
-          width="337px"
-          justifyContent="center"
           padding="0px 0px 0px 0px"
           label="City"
           placeholder="Enter city"
@@ -117,14 +143,16 @@ export default function AdminViewNewUser(props) {
         <TextField
           display="flex"
           gap="8px"
+          direction="column"
+          width="337px"
+          height="unset"
+          justifyContent="center"
+          alignItems="flex-start"
           position="absolute"
           top="59.91%"
           bottom="32.16%"
           left="12.47%"
           right="12.47%"
-          direction="column"
-          width="337px"
-          justifyContent="center"
           padding="0px 0px 0px 0px"
           label="State"
           placeholder="Enter state"
@@ -137,14 +165,16 @@ export default function AdminViewNewUser(props) {
         <TextField
           display="flex"
           gap="8px"
+          direction="column"
+          width="337px"
+          height="unset"
+          justifyContent="center"
+          alignItems="flex-start"
           position="absolute"
           top="70.04%"
           bottom="22.03%"
           left="12.47%"
           right="12.47%"
-          direction="column"
-          width="337px"
-          justifyContent="center"
           padding="0px 0px 0px 0px"
           label="Country"
           placeholder="Enter country"
@@ -157,14 +187,16 @@ export default function AdminViewNewUser(props) {
         <TextField
           display="flex"
           gap="8px"
+          direction="column"
+          width="337px"
+          height="unset"
+          justifyContent="center"
+          alignItems="flex-start"
           position="absolute"
           top="19.49%"
           bottom="72.58%"
           left="12.47%"
           right="12.47%"
-          direction="column"
-          width="337px"
-          justifyContent="center"
           padding="0px 0px 0px 0px"
           label="Email Address"
           placeholder="Enter email address"
@@ -177,14 +209,16 @@ export default function AdminViewNewUser(props) {
         <TextField
           display="flex"
           gap="8px"
+          direction="column"
+          width="337px"
+          height="unset"
+          justifyContent="center"
+          alignItems="flex-start"
           position="absolute"
           top="9.25%"
           bottom="82.82%"
           left="12.47%"
           right="12.47%"
-          direction="column"
-          width="337px"
-          justifyContent="center"
           padding="0px 0px 0px 0px"
           label="Full Name"
           placeholder="Enter full name"
@@ -201,10 +235,13 @@ export default function AdminViewNewUser(props) {
           color="rgba(48,64,80,1)"
           lineHeight="24px"
           textAlign="left"
-          display="flex"
+          display="block"
           direction="column"
-          justifyContent="flex-start"
+          justifyContent="unset"
           width="33px"
+          height="24.21px"
+          gap="unset"
+          alignItems="unset"
           position="absolute"
           top="95.31%"
           bottom="2.03%"
@@ -221,9 +258,13 @@ export default function AdminViewNewUser(props) {
           color="rgba(48,64,80,1)"
           lineHeight="36px"
           textAlign="left"
-          display="flex"
+          display="block"
           direction="column"
-          justifyContent="flex-start"
+          justifyContent="unset"
+          width="208px"
+          height="44px"
+          gap="unset"
+          alignItems="unset"
           position="absolute"
           top="2.09%"
           bottom="93.06%"
@@ -235,49 +276,26 @@ export default function AdminViewNewUser(props) {
           {...getOverrideProps(overrides, "label34523750")}
         ></Text>
         <Flex
-          gap="43px"
-          position="absolute"
-          top="791px"
-          left="53px"
-          alignItems="flex-end"
-          padding="0px 0px 0px 0px"
-          {...getOverrideProps(overrides, "Frame 429")}
-        >
-          <Button
-            display="flex"
-            gap="0"
-            width="152px"
-            justifyContent="center"
-            alignItems="center"
-            shrink="0"
-            height="42px"
-            position="relative"
-            border="1px SOLID rgba(0,85,102,1)"
-            borderRadius="5px"
-            padding="8px 16px 8px 16px"
-            size="default"
-            isDisabled={false}
-            variation="default"
-            children="Cancel"
-            {...getOverrideProps(overrides, "Button35485844")}
-          ></Button>
-        </Flex>
-        <Flex
           gap="10px"
+          direction="column"
+          width="170px"
+          height="unset"
+          justifyContent="flex-start"
+          alignItems="flex-start"
           position="absolute"
           top="85.9%"
           bottom="8.15%"
           left="52.34%"
           right="9.8%"
-          direction="column"
-          width="170px"
           padding="10px 45px 2px 10px"
           {...getOverrideProps(overrides, "Frame 421")}
         >
           <Button
             display="flex"
             gap="0"
+            direction="row"
             width="150px"
+            height="unset"
             justifyContent="center"
             alignItems="center"
             shrink="0"
@@ -286,7 +304,46 @@ export default function AdminViewNewUser(props) {
             isDisabled={false}
             variation="primary"
             children="Next"
+            onClick={() => {
+              buttonThreeFiveFourEightFiveEightFourThreeOnClick();
+            }}
             {...getOverrideProps(overrides, "Button35485843")}
+          ></Button>
+        </Flex>
+        <Flex
+          gap="43px"
+          direction="row"
+          width="unset"
+          height="unset"
+          justifyContent="flex-start"
+          alignItems="flex-end"
+          position="absolute"
+          top="791px"
+          left="53px"
+          padding="0px 0px 0px 0px"
+          {...getOverrideProps(overrides, "Frame 429")}
+        >
+          <Button
+            display="flex"
+            gap="0"
+            direction="row"
+            width="152px"
+            height="unset"
+            justifyContent="center"
+            alignItems="center"
+            shrink="0"
+            position="relative"
+            border="1px SOLID rgba(0,85,102,1)"
+            borderRadius="5px"
+            padding="8px 16px 8px 16px"
+            size="default"
+            isDisabled={false}
+            variation="default"
+            children="Cancel"
+            onClick={() => {
+              buttonThreeFiveFourEightFiveEightFourFourOnClick();
+            }}
+            {...getOverrideProps(overrides, "Button35485844")}
           ></Button>
         </Flex>
       </View>

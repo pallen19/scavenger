@@ -6,12 +6,8 @@
 
 import React from "react";
 import { EscapeHatchProps } from "@aws-amplify/ui-react/internal";
-import { FlexProps } from "@aws-amplify/ui-react";
-import { SyntheticEvent } from "react";
-export declare type AdminViewNewUserProps = React.PropsWithChildren<Partial<FlexProps> & {
-    phoneNumber?: (event: SyntheticEvent) => void;
-    createNewUser2?: (event: SyntheticEvent) => void;
-} & {
+import { ViewProps } from "@aws-amplify/ui-react";
+export declare type ForceSetPasswordProps = React.PropsWithChildren<Partial<ViewProps> & {
     overrides?: EscapeHatchProps | undefined | null;
 }>;
-export default function AdminViewNewUser(props: AdminViewNewUserProps): React.ReactElement;
+export default function ForceSetPassword(props: ForceSetPasswordProps): React.ReactElement;

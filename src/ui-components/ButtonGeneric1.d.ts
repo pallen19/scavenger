@@ -7,11 +7,7 @@
 import React from "react";
 import { EscapeHatchProps } from "@aws-amplify/ui-react/internal";
 import { FlexProps } from "@aws-amplify/ui-react";
-import { SyntheticEvent } from "react";
-export declare type AdminViewNewUserProps = React.PropsWithChildren<Partial<FlexProps> & {
-    phoneNumber?: (event: SyntheticEvent) => void;
-    createNewUser2?: (event: SyntheticEvent) => void;
-} & {
+export declare type ButtonGeneric1Props = React.PropsWithChildren<Partial<FlexProps> & {
     overrides?: EscapeHatchProps | undefined | null;
 }>;
-export default function AdminViewNewUser(props: AdminViewNewUserProps): React.ReactElement;
+export default function ButtonGeneric1(props: ButtonGeneric1Props): React.ReactElement;
