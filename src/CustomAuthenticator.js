@@ -1,18 +1,24 @@
-import logo from './logo.svg';
 import awsExports from './aws-exports'
 import './App.css';
-import {Amplify,Auth, toast} from 'aws-amplify'
+import {Amplify,Auth} from 'aws-amplify'
 import { Authenticator, Heading} from '@aws-amplify/ui-react';
 import '@aws-amplify/ui-react/styles.css';
-import { BrowserRouter,Routes,Route } from "react-router-dom";  
+import {Routes,Route, Navigate, Outlet, redirect,useNavigate } from "react-router-dom";  
 import { useEffect, useState } from 'react';
+import ManagerView from "./ManagerView"
+import AdminView from "./AdminView"
+import Redirect from "./Redirect"
+
+
 
 
 Amplify.configure(awsExports);
 
 export default function CustomAuthenticator(){
-const [level,setLevel] = useState("Managers");
+const [level,setLevel] = useState("");
 const [userData,setUserData] = useState([]);
+const [accountType,setAccountType] = useState([]);
+
   function generatedUserName(firstname,lastname){
     let initial = firstname.charAt(0);
     let lName = lastname;
@@ -34,7 +40,15 @@ body: JSON.stringify({
   "UserPoolId": 'us-east-2_yq4Klaavu',
   "Username": Username,
   
-})})}
+})
+}).then(function(response){
+  //console.log(response)
+  return response.json();
+}).then(function(Data){
+  //console.log(Data.Groups[0].GroupName);
+  setLevel(Data.Groups[0].GroupName);
+})
+}
 
 function elevateAccount(Username,accountLevel,Method){
   //account method should be add,remove, or disabled/enable
@@ -72,6 +86,8 @@ function TestApiCall(username,method){
     setUserData(JsonData)
   })
 }
+
+
 function GetUser(username,method){
   //put url of api in the fetch
   fetch(" https://qdkw8owsn3.execute-api.us-east-2.amazonaws.com/default",{
@@ -94,7 +110,13 @@ function GetUser(username,method){
   })
 }
 
-
+const ProtectedRoute = ({allowed,redirectPath,children}) => {
+  console.log(allowed);
+  if(!allowed){
+    return <Navigate to={redirectPath} replace/>
+  }
+  return children ? children : <Outlet/>;
+}
 
 
 
@@ -111,34 +133,42 @@ const services={
     });
   },
 };
+
   return (
 
 <Authenticator services={services} initialState="signUp">
   
 {
   ({signOut, user}) => (
-  <>
+    
+   
+  <div>
+  {getUserGroup(user.username)}
   
   <Heading level={1}>Hello {user.username}</Heading>
-
+  <p>account level is {level}</p>
+  
   <button onClick={signOut}>Sign Out</button>
-
-  <button onClick={() => TestApiCall()}>TEST BUTTON</button>
-  <button onClick={() => GetUser(user.username,"single")}>Get Single User</button>
-  <button onClick={() => GetUser(user.username,"all")}>Get All Users</button>
-
-  <button onClick={() => {console.log(userData)}}>LogData</button>
+  <Routes>
+    <Route path="admin" element={<ProtectedRoute redirectPath="*" allowed={level === "Administrators"}>
+      <AdminView callSignout={signOut}/>
+    </ProtectedRoute>}></Route>
+    <Route path="manager" element={<ProtectedRoute redirectPath="*" allowed={level ==="Managers"}>
+      <ManagerView callSignout={signOut}/>
+    </ProtectedRoute>}></Route>
+    <Route path="*" element={
+     <Redirect accountType={level}></Redirect>
+    }/>
+  </Routes>
   
-  <button onClick={() => getUserGroup(user.username)}>Get groups</button>
-
-  <button onClick={() => elevateAccount(user.username,"Managers","add")}>Elevate Account</button>
-  
-  <button onClick={() => elevateAccount(user.username,"Managers","remove")}>remove Account from managers</button>
-  </>
+  </div>
   
   )
+  
 }
+
 </Authenticator>
+
 
   );
 }
