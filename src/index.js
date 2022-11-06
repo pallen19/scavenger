@@ -1,19 +1,26 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import  {BrowserRouter}  from 'react-router-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
-import { Amplify } from 'aws-amplify';
-import awsExports from './aws-exports';
-Amplify.configure(awsExports);
+import React from "react";
+import ReactDOM from "react-dom/client";
+import { BrowserRouter, Route,Routes } from "react-router-dom";
+import CustomAuthenticator from "./CustomAuthenticator";
+import Layout from "./Layout";
+
+
+export default function Entrypoint() {
+    return (
+        <BrowserRouter>
+        <Routes>
+            {/* <Route path = "/" element = {<Layout/>}></Route> */}
+            {/* public routes */}
+            <Route path = "*" element={<CustomAuthenticator/>}></Route>
+            {/* Private routes */}
+            {/* catch missing routes */}
+        </Routes>
+        </BrowserRouter>
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <BrowserRouter>
     <App />
-    </BrowserRouter>
   </React.StrictMode>
 );
 
@@ -21,3 +28,7 @@ root.render(
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();
+
+const element = document.getElementById('root');
+const root = ReactDOM.createRoot(element);
+root.render(<Entrypoint />);

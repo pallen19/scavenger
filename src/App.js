@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Link , Navigate, Routes, Route } from 'react-r
 import './App.css';
 import { withAuthenticator, Button, Heading, Placeholder } from '@aws-amplify/ui-react';
 import '@aws-amplify/ui-react/styles.css';
+import CustomAuthenticator from './CustomAuthenticator';
 import Admin from './pages/Admin';
 import { AdminViewUserF} from './pages/AdminViewUserF';
 import { AdminViewNewAccount} from './pages/AdminViewNewAccount';
@@ -56,4 +57,4 @@ function App({ signOut, user }) {
   
   }
 
-export default withAuthenticator(App);
+export default App;
