@@ -13,10 +13,6 @@ import {
 import { Card, Flex, Text, TextField, View } from "@aws-amplify/ui-react";
 export default function AdminViewNewAcct(props) {
   const { overrides, ...rest } = props;
-  const buttonThreeFourFiveThreeThreeTwoFiveSixOnClick = useNavigateAction({
-    type: "url",
-    url: "/createAccount2",
-  });
   const buttonThreeFourFiveThreeThreeTwoSixZeroOnClick = useNavigateAction({
     type: "url",
     url: "/",
@@ -276,9 +272,6 @@ export default function AdminViewNewAcct(props) {
             borderRadius="4px"
             padding="7px 15px 7px 15px"
             backgroundColor="rgba(4,125,149,1)"
-            onClick={() => {
-              buttonThreeFourFiveThreeThreeTwoFiveSixOnClick();
-            }}
             {...getOverrideProps(overrides, "Button34533256")}
           >
             <Text

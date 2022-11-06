@@ -13,10 +13,6 @@ import {
 import { Card, Flex, Text, TextField, View } from "@aws-amplify/ui-react";
 export default function AdminViewNewAcct2(props) {
   const { overrides, ...rest } = props;
-  const labelThreeFiveOneNineOneTwoSixZeroSixOnClick = useNavigateAction({
-    type: "url",
-    url: "/",
-  });
   const buttonThreeFiveOneNineOneTwoSixZeroZeroOnClick = useNavigateAction({
     type: "url",
     url: "/",
@@ -321,9 +317,6 @@ export default function AdminViewNewAcct2(props) {
             padding="0px 0px 0px 0px"
             whiteSpace="pre-wrap"
             children="Submit"
-            onClick={() => {
-              labelThreeFiveOneNineOneTwoSixZeroSixOnClick();
-            }}
             {...getOverrideProps(overrides, "label351912606")}
           ></Text>
         </Flex>

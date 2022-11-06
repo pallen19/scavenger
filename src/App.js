@@ -3,7 +3,8 @@ import './App.css';
 import { withAuthenticator, Button, Heading, Placeholder } from '@aws-amplify/ui-react';
 import '@aws-amplify/ui-react/styles.css';
 import Admin from './pages/Admin';
-import Manager from './pages/Manager';
+import { AdminViewUserF} from './pages/AdminViewUserF';
+import { AdminViewNewAccount} from './pages/AdminViewNewAccount';
 import placeHolder from './components/placeHolder.png';
 import { AdminViewAccts, AdminViewUsers, AdminViewPwReport, AdminViewNewUser, AdminViewNewAcct, AdminViewNewUser2, AdminViewNewAcct2 } from './ui-components';
 /* src/App.js */
@@ -38,17 +39,17 @@ function App({ signOut, user }) {
    {/*<Admin/>*/} 
    <Routes>
     <Route path="/" element={<Admin/>}/>
-    <Route path="/Users" element={<AdminViewUsers/>}/>
+    <Route path="/Users" element={<AdminViewUserF/>}/>
     <Route path="/Accounts" element={<AdminViewAccts/>}/>
     <Route path="/Reports" element={<AdminViewPwReport/>}/>
     <Route path="/createNewUser" element={<AdminViewNewUser/>}/>
     <Route path="/createNewUser2" element={<AdminViewNewUser2/>}/>
-    <Route path="/createAccount" element={<AdminViewNewAcct/>}/>
+    <Route path="/createAccount" element={<AdminViewNewAccount/>}/>
     <Route path="/createAccount2" element={<AdminViewNewAcct2/>}/>
    
    </Routes>
 
-   <Manager/> 
+   {/*<Manager/> */}
   </div>  
     </>
   );
