@@ -7,9 +7,7 @@
 import React from "react";
 import { EscapeHatchProps } from "@aws-amplify/ui-react/internal";
 import { ViewProps } from "@aws-amplify/ui-react";
-export declare type NavbarProps = React.PropsWithChildren<Partial<ViewProps> & {
-    property1?: "AdminViewAcctsBar" | "AdminViewHomeBar" | "AdminViewPwBar" | "AdminViewUser" | "Default" | "ManagerViewAcctsBar" | "ManagerViewHomeBar" | "ManagerViewUserBar";
-} & {
+export declare type ForgotPasswordProps = React.PropsWithChildren<Partial<ViewProps> & {
     overrides?: EscapeHatchProps | undefined | null;
 }>;
-export default function Navbar(props: NavbarProps): React.ReactElement;
+export default function ForgotPassword(props: ForgotPasswordProps): React.ReactElement;

@@ -6,15 +6,22 @@
 
 /* eslint-disable */
 import React from "react";
-import { getOverrideProps } from "@aws-amplify/ui-react/internal";
+import {
+  getOverrideProps,
+  useNavigateAction,
+} from "@aws-amplify/ui-react/internal";
 import { Flex, Icon, Text, View } from "@aws-amplify/ui-react";
-import NavBar2 from "./NavBar2";
-export default function AccountsScreen4(props) {
+import Navbar from "./Navbar";
+export default function AdminViewUsers(props) {
   const { overrides, ...rest } = props;
+  const uploadThreeFourEightZeroFourSevenOneNineOnClick = useNavigateAction({
+    type: "url",
+    url: "/createNewAccount",
+  });
   return (
     <View
       width="1165px"
-      height="999px"
+      height="986px"
       display="block"
       gap="unset"
       alignItems="unset"
@@ -24,7 +31,7 @@ export default function AccountsScreen4(props) {
       padding="0px 0px 0px 0px"
       backgroundColor="rgba(241,245,249,1)"
       {...rest}
-      {...getOverrideProps(overrides, "AccountsScreen4")}
+      {...getOverrideProps(overrides, "AdminViewUsers")}
     >
       <Text
         fontFamily="Poppins"
@@ -41,12 +48,12 @@ export default function AccountsScreen4(props) {
         gap="unset"
         alignItems="unset"
         position="absolute"
-        top="206px"
+        top="193px"
         left="30px"
         padding="0px 0px 0px 0px"
         whiteSpace="pre-wrap"
-        children="Dashboard >  Accounts"
-        {...getOverrideProps(overrides, "Dashboard > Accounts")}
+        children="Home >  Users"
+        {...getOverrideProps(overrides, "Home > Users")}
       ></Text>
       <Text
         fontFamily="Poppins"
@@ -63,12 +70,34 @@ export default function AccountsScreen4(props) {
         gap="unset"
         alignItems="unset"
         position="absolute"
-        top="175px"
+        top="162px"
         left="30px"
         padding="0px 0px 0px 0px"
         whiteSpace="pre-wrap"
-        children="Accounts"
-        {...getOverrideProps(overrides, "Accounts34804825")}
+        children="Users"
+        {...getOverrideProps(overrides, "Users34804154")}
+      ></Text>
+      <Text
+        fontFamily="Poppins"
+        fontSize="24px"
+        fontWeight="600"
+        color="rgba(33,33,33,1)"
+        lineHeight="14px"
+        textAlign="left"
+        display="block"
+        direction="column"
+        justifyContent="unset"
+        width="195px"
+        height="25px"
+        gap="unset"
+        alignItems="unset"
+        position="absolute"
+        top="162px"
+        left="30px"
+        padding="0px 0px 0px 0px"
+        whiteSpace="pre-wrap"
+        children="Users"
+        {...getOverrideProps(overrides, "Users34804687")}
       ></Text>
       <View
         width="1105px"
@@ -78,12 +107,12 @@ export default function AccountsScreen4(props) {
         alignItems="unset"
         justifyContent="unset"
         position="absolute"
-        top="260px"
+        top="247px"
         left="30px"
         boxShadow="0px 4px 3px rgba(0, 0, 0, 0.05999999865889549)"
         padding="0px 0px 0px 0px"
         backgroundColor="rgba(255,255,255,1)"
-        {...getOverrideProps(overrides, "table_body_bg34804829")}
+        {...getOverrideProps(overrides, "table_body_bg34804156")}
       ></View>
       <View
         width="1105px"
@@ -93,12 +122,12 @@ export default function AccountsScreen4(props) {
         alignItems="unset"
         justifyContent="unset"
         position="absolute"
-        top="260px"
+        top="247px"
         left="30px"
         boxShadow="0px 4px 3px rgba(0, 0, 0, 0.05999999865889549)"
         padding="0px 0px 0px 0px"
         backgroundColor="rgba(255,255,255,1)"
-        {...getOverrideProps(overrides, "table_body_bg34804830")}
+        {...getOverrideProps(overrides, "table_body_bg34804689")}
       ></View>
       <View
         padding="0px 0px 0px 0px"
@@ -109,7 +138,7 @@ export default function AccountsScreen4(props) {
         alignItems="unset"
         justifyContent="unset"
         position="absolute"
-        top="177px"
+        top="164px"
         left="554px"
         {...getOverrideProps(overrides, "Group 754")}
       >
@@ -127,7 +156,7 @@ export default function AccountsScreen4(props) {
           borderRadius="5.5px"
           padding="0px 0px 0px 0px"
           backgroundColor="rgba(255,255,255,1)"
-          {...getOverrideProps(overrides, "Input Style34804846")}
+          {...getOverrideProps(overrides, "Input Style34804165")}
         ></View>
         <View
           padding="0px 0px 0px 0px"
@@ -140,7 +169,7 @@ export default function AccountsScreen4(props) {
           position="absolute"
           top="11px"
           left="12.18px"
-          {...getOverrideProps(overrides, "Search34804847")}
+          {...getOverrideProps(overrides, "Search34804166")}
         >
           <Text
             fontFamily="Poppins"
@@ -162,7 +191,7 @@ export default function AccountsScreen4(props) {
             padding="0px 0px 0px 0px"
             whiteSpace="pre-wrap"
             children="Search..."
-            {...getOverrideProps(overrides, "Search...34804848")}
+            {...getOverrideProps(overrides, "Search...")}
           ></Text>
           <View
             width="16.24px"
@@ -175,7 +204,7 @@ export default function AccountsScreen4(props) {
             top="2px"
             left="0px"
             padding="0px 0px 0px 0px"
-            {...getOverrideProps(overrides, "24 / basic / search34804849")}
+            {...getOverrideProps(overrides, "24 / basic / search")}
           >
             <Icon
               width="13.34px"
@@ -183,8 +212,8 @@ export default function AccountsScreen4(props) {
               viewBox={{
                 minX: 0,
                 minY: 0,
-                width: 13.3349609375,
-                height: 13.13818359375,
+                width: 13.3350830078125,
+                height: 13.138076782226562,
               }}
               paths={[
                 {
@@ -202,7 +231,7 @@ export default function AccountsScreen4(props) {
               bottom="9.55%"
               left="8.33%"
               right="9.55%"
-              {...getOverrideProps(overrides, "icon34804850")}
+              {...getOverrideProps(overrides, "icon")}
             >
               <Icon
                 width="13.34px"
@@ -210,8 +239,8 @@ export default function AccountsScreen4(props) {
                 viewBox={{
                   minX: 0,
                   minY: 0,
-                  width: 13.3349609375,
-                  height: 13.13818359375,
+                  width: 13.3350830078125,
+                  height: 13.1380615234375,
                 }}
                 paths={[
                   {
@@ -227,7 +256,7 @@ export default function AccountsScreen4(props) {
                 position="absolute"
                 top="0px"
                 left="0px"
-                {...getOverrideProps(overrides, "Union34804851")}
+                {...getOverrideProps(overrides, "Union")}
               >
                 <Icon
                   width="10.83px"
@@ -236,7 +265,7 @@ export default function AccountsScreen4(props) {
                     minX: 0,
                     minY: 0,
                     width: 10.82666015625,
-                    height: 10.66650390625,
+                    height: 10.666671752929688,
                   }}
                   paths={[]}
                   display="block"
@@ -248,7 +277,7 @@ export default function AccountsScreen4(props) {
                   bottom="33.33%"
                   left="0%"
                   right="33.33%"
-                  {...getOverrideProps(overrides, "Path34804852")}
+                  {...getOverrideProps(overrides, "Path34804171")}
                 ></Icon>
                 <Icon
                   width="5.02px"
@@ -256,8 +285,8 @@ export default function AccountsScreen4(props) {
                   viewBox={{
                     minX: 0,
                     minY: 0,
-                    width: 5.01708984375,
-                    height: 4.94287109375,
+                    width: 5.0169677734375,
+                    height: 4.94281005859375,
                   }}
                   paths={[]}
                   display="block"
@@ -269,205 +298,18 @@ export default function AccountsScreen4(props) {
                   bottom="17.89%"
                   left="51.22%"
                   right="17.89%"
-                  {...getOverrideProps(overrides, "Path34804853")}
+                  {...getOverrideProps(overrides, "Path34804172")}
                 ></Icon>
               </Icon>
               <Icon
                 width="8.12px"
                 height="8px"
-                viewBox={{ minX: 0, minY: 0, width: 8.1201171875, height: 8 }}
-                paths={[]}
-                display="block"
-                gap="unset"
-                alignItems="unset"
-                justifyContent="unset"
-                position="absolute"
-                top="8.33%"
-                bottom="41.67%"
-                left="8.33%"
-                right="41.67%"
-                {...getOverrideProps(overrides, "Path34804854")}
-              ></Icon>
-            </Icon>
-          </View>
-        </View>
-      </View>
-      <View
-        padding="0px 0px 0px 0px"
-        width="203px"
-        height="42px"
-        display="block"
-        gap="unset"
-        alignItems="unset"
-        justifyContent="unset"
-        position="absolute"
-        top="177px"
-        left="554px"
-        {...getOverrideProps(overrides, "Group 1019")}
-      >
-        <View
-          width="204px"
-          height="43px"
-          display="block"
-          gap="unset"
-          alignItems="unset"
-          justifyContent="unset"
-          position="absolute"
-          top="-0.5px"
-          left="-0.5px"
-          border="1px SOLID rgba(214,214,214,1)"
-          borderRadius="5.5px"
-          padding="0px 0px 0px 0px"
-          backgroundColor="rgba(255,255,255,1)"
-          {...getOverrideProps(overrides, "Input Style34804856")}
-        ></View>
-        <View
-          padding="0px 0px 0px 0px"
-          width="89.32px"
-          height="21px"
-          display="block"
-          gap="unset"
-          alignItems="unset"
-          justifyContent="unset"
-          position="absolute"
-          top="11px"
-          left="12.18px"
-          {...getOverrideProps(overrides, "Search34804857")}
-        >
-          <Text
-            fontFamily="Poppins"
-            fontSize="13px"
-            fontWeight="500"
-            color="rgba(150,155,160,1)"
-            lineHeight="19.5px"
-            textAlign="left"
-            display="block"
-            direction="column"
-            justifyContent="unset"
-            width="60.9px"
-            height="21px"
-            gap="unset"
-            alignItems="unset"
-            position="absolute"
-            top="0px"
-            left="28.42px"
-            padding="0px 0px 0px 0px"
-            whiteSpace="pre-wrap"
-            children="Search..."
-            {...getOverrideProps(overrides, "Search...34804858")}
-          ></Text>
-          <View
-            width="16.24px"
-            height="16px"
-            display="block"
-            gap="unset"
-            alignItems="unset"
-            justifyContent="unset"
-            position="absolute"
-            top="2px"
-            left="0px"
-            padding="0px 0px 0px 0px"
-            {...getOverrideProps(overrides, "24 / basic / search34804859")}
-          >
-            <Icon
-              width="13.34px"
-              height="13.14px"
-              viewBox={{
-                minX: 0,
-                minY: 0,
-                width: 13.3349609375,
-                height: 13.13818359375,
-              }}
-              paths={[
-                {
-                  d: "M5.41333 10.6667C2.42363 10.6667 0 8.27885 0 5.33333C0 2.38781 2.42363 0 5.41333 0C8.40304 0 10.8267 2.38781 10.8267 5.33333C10.8267 6.56581 10.4023 7.70065 9.68977 8.60377L13.3351 12.1953L12.3782 13.1381L8.73281 9.54658C7.81614 10.2486 6.66429 10.6667 5.41333 10.6667ZM9.47335 5.33327C9.47335 7.54241 7.65563 9.33327 5.41335 9.33327C3.17108 9.33327 1.35335 7.54241 1.35335 5.33327C1.35335 3.12413 3.17108 1.33327 5.41335 1.33327C7.65563 1.33327 9.47335 3.12413 9.47335 5.33327Z",
-                  fill: "rgba(150,155,160,1)",
-                  fillRule: "evenodd",
-                },
-              ]}
-              display="block"
-              gap="unset"
-              alignItems="unset"
-              justifyContent="unset"
-              position="absolute"
-              top="8.33%"
-              bottom="9.55%"
-              left="8.33%"
-              right="9.55%"
-              {...getOverrideProps(overrides, "icon34804860")}
-            >
-              <Icon
-                width="13.34px"
-                height="13.14px"
                 viewBox={{
                   minX: 0,
                   minY: 0,
-                  width: 13.3349609375,
-                  height: 13.13818359375,
+                  width: 8.1199951171875,
+                  height: 8,
                 }}
-                paths={[
-                  {
-                    d: "M0 5.33333C0 8.27885 2.42363 10.6667 5.41333 10.6667C6.66429 10.6667 7.81614 10.2486 8.73281 9.54658L12.3782 13.1381L13.3351 12.1953L9.68977 8.60377C10.4023 7.70065 10.8267 6.56581 10.8267 5.33333C10.8267 2.38781 8.40304 0 5.41333 0C2.42363 0 0 2.38781 0 5.33333Z",
-                    fill: "rgba(218,218,218,1)",
-                    fillRule: "evenodd",
-                  },
-                ]}
-                display="block"
-                gap="unset"
-                alignItems="unset"
-                justifyContent="unset"
-                position="absolute"
-                top="0px"
-                left="0px"
-                {...getOverrideProps(overrides, "Union34804861")}
-              >
-                <Icon
-                  width="10.83px"
-                  height="10.67px"
-                  viewBox={{
-                    minX: 0,
-                    minY: 0,
-                    width: 10.82666015625,
-                    height: 10.66650390625,
-                  }}
-                  paths={[]}
-                  display="block"
-                  gap="unset"
-                  alignItems="unset"
-                  justifyContent="unset"
-                  position="absolute"
-                  top="0%"
-                  bottom="33.33%"
-                  left="0%"
-                  right="33.33%"
-                  {...getOverrideProps(overrides, "Path34804862")}
-                ></Icon>
-                <Icon
-                  width="5.02px"
-                  height="4.94px"
-                  viewBox={{
-                    minX: 0,
-                    minY: 0,
-                    width: 5.01708984375,
-                    height: 4.94287109375,
-                  }}
-                  paths={[]}
-                  display="block"
-                  gap="unset"
-                  alignItems="unset"
-                  justifyContent="unset"
-                  position="absolute"
-                  top="51.22%"
-                  bottom="17.89%"
-                  left="51.22%"
-                  right="17.89%"
-                  {...getOverrideProps(overrides, "Path34804863")}
-                ></Icon>
-              </Icon>
-              <Icon
-                width="8.12px"
-                height="8px"
-                viewBox={{ minX: 0, minY: 0, width: 8.1201171875, height: 8 }}
                 paths={[]}
                 display="block"
                 gap="unset"
@@ -478,7 +320,7 @@ export default function AccountsScreen4(props) {
                 bottom="41.67%"
                 left="8.33%"
                 right="41.67%"
-                {...getOverrideProps(overrides, "Path34804864")}
+                {...getOverrideProps(overrides, "Path34804173")}
               ></Icon>
             </Icon>
           </View>
@@ -493,7 +335,7 @@ export default function AccountsScreen4(props) {
         alignItems="unset"
         justifyContent="unset"
         position="absolute"
-        top="177px"
+        top="164px"
         left="766px"
         {...getOverrideProps(overrides, "Group 1004")}
       >
@@ -511,7 +353,7 @@ export default function AccountsScreen4(props) {
           borderRadius="5.5px"
           padding="0px 0px 0px 0px"
           backgroundColor="rgba(255,255,255,1)"
-          {...getOverrideProps(overrides, "Input Style34804866")}
+          {...getOverrideProps(overrides, "Input Style34804175")}
         ></View>
         <View
           padding="0px 0px 0px 0px"
@@ -524,7 +366,7 @@ export default function AccountsScreen4(props) {
           position="absolute"
           top="11px"
           left="9.24px"
-          {...getOverrideProps(overrides, "Search34804867")}
+          {...getOverrideProps(overrides, "Search34804176")}
         >
           <Text
             fontFamily="Poppins"
@@ -546,7 +388,7 @@ export default function AccountsScreen4(props) {
             padding="0px 0px 0px 0px"
             whiteSpace="pre-wrap"
             children="New first"
-            {...getOverrideProps(overrides, "New first34804868")}
+            {...getOverrideProps(overrides, "New first34804177")}
           ></Text>
           <View
             width="19px"
@@ -561,12 +403,12 @@ export default function AccountsScreen4(props) {
             transformOrigin="top left"
             transform="rotate(90deg)"
             padding="0px 0px 0px 0px"
-            {...getOverrideProps(overrides, "chevron_right_24px34804869")}
+            {...getOverrideProps(overrides, "chevron_right_24px34804178")}
           >
             <Icon
               width="7px"
               height="13.35px"
-              viewBox={{ minX: 0, minY: 0, width: 13.34814453125, height: 7 }}
+              viewBox={{ minX: 0, minY: 0, width: 13.3482666015625, height: 7 }}
               paths={[
                 {
                   d: "M0.636364 0.11312L0.083004 0.686264C-0.027668 0.837091 -0.027668 1.07842 0.083004 1.19908L5.09091 6.65902L0.083004 12.1491C-0.027668 12.2698 -0.027668 12.5111 0.083004 12.662L0.636364 13.2351C0.774704 13.3859 0.96838 13.3859 1.10672 13.2351L6.917 6.93051C7.02767 6.77969 7.02767 6.56853 6.917 6.4177L1.10672 0.11312C0.96838 -0.0377068 0.774704 -0.0377068 0.636364 0.11312Z",
@@ -583,7 +425,7 @@ export default function AccountsScreen4(props) {
               bottom="10.53%"
               left="31.58%"
               right="31.58%"
-              {...getOverrideProps(overrides, "chevron-right34804870")}
+              {...getOverrideProps(overrides, "chevron-right34804179")}
             ></Icon>
           </View>
         </View>
@@ -597,7 +439,7 @@ export default function AccountsScreen4(props) {
         alignItems="unset"
         justifyContent="unset"
         position="absolute"
-        top="177px"
+        top="164px"
         left="766px"
         {...getOverrideProps(overrides, "Group 1020")}
       >
@@ -615,7 +457,7 @@ export default function AccountsScreen4(props) {
           borderRadius="5.5px"
           padding="0px 0px 0px 0px"
           backgroundColor="rgba(255,255,255,1)"
-          {...getOverrideProps(overrides, "Input Style34804872")}
+          {...getOverrideProps(overrides, "Input Style34804708")}
         ></View>
         <View
           padding="0px 0px 0px 0px"
@@ -628,7 +470,7 @@ export default function AccountsScreen4(props) {
           position="absolute"
           top="11px"
           left="9.24px"
-          {...getOverrideProps(overrides, "Search34804873")}
+          {...getOverrideProps(overrides, "Search34804709")}
         >
           <Text
             fontFamily="Poppins"
@@ -650,7 +492,7 @@ export default function AccountsScreen4(props) {
             padding="0px 0px 0px 0px"
             whiteSpace="pre-wrap"
             children="New first"
-            {...getOverrideProps(overrides, "New first34804874")}
+            {...getOverrideProps(overrides, "New first34804710")}
           ></Text>
           <View
             width="19px"
@@ -665,12 +507,12 @@ export default function AccountsScreen4(props) {
             transformOrigin="top left"
             transform="rotate(90deg)"
             padding="0px 0px 0px 0px"
-            {...getOverrideProps(overrides, "chevron_right_24px34804875")}
+            {...getOverrideProps(overrides, "chevron_right_24px34804711")}
           >
             <Icon
               width="7px"
               height="13.35px"
-              viewBox={{ minX: 0, minY: 0, width: 13.34814453125, height: 7 }}
+              viewBox={{ minX: 0, minY: 0, width: 13.3482666015625, height: 7 }}
               paths={[
                 {
                   d: "M0.636364 0.11312L0.083004 0.686264C-0.027668 0.837091 -0.027668 1.07842 0.083004 1.19908L5.09091 6.65902L0.083004 12.1491C-0.027668 12.2698 -0.027668 12.5111 0.083004 12.662L0.636364 13.2351C0.774704 13.3859 0.96838 13.3859 1.10672 13.2351L6.917 6.93051C7.02767 6.77969 7.02767 6.56853 6.917 6.4177L1.10672 0.11312C0.96838 -0.0377068 0.774704 -0.0377068 0.636364 0.11312Z",
@@ -687,7 +529,7 @@ export default function AccountsScreen4(props) {
               bottom="10.53%"
               left="31.58%"
               right="31.58%"
-              {...getOverrideProps(overrides, "chevron-right34804876")}
+              {...getOverrideProps(overrides, "chevron-right34804712")}
             ></Icon>
           </View>
         </View>
@@ -701,7 +543,7 @@ export default function AccountsScreen4(props) {
         alignItems="unset"
         justifyContent="unset"
         position="absolute"
-        top="177px"
+        top="164px"
         left="890px"
         {...getOverrideProps(overrides, "Group 1010")}
       >
@@ -719,7 +561,7 @@ export default function AccountsScreen4(props) {
           borderRadius="5.5px"
           padding="0px 0px 0px 0px"
           backgroundColor="rgba(255,255,255,1)"
-          {...getOverrideProps(overrides, "Input Style34804878")}
+          {...getOverrideProps(overrides, "Input Style34804181")}
         ></View>
         <View
           padding="0px 0px 0px 0px"
@@ -732,7 +574,7 @@ export default function AccountsScreen4(props) {
           position="absolute"
           top="11px"
           left="9px"
-          {...getOverrideProps(overrides, "Search34804879")}
+          {...getOverrideProps(overrides, "Search34804182")}
         >
           <Text
             fontFamily="Poppins"
@@ -769,7 +611,7 @@ export default function AccountsScreen4(props) {
             transformOrigin="top left"
             transform="rotate(90deg)"
             padding="0px 0px 0px 0px"
-            {...getOverrideProps(overrides, "chevron_right_24px34804881")}
+            {...getOverrideProps(overrides, "chevron_right_24px34804184")}
           >
             <Icon
               width="7px"
@@ -791,7 +633,7 @@ export default function AccountsScreen4(props) {
               bottom="10.53%"
               left="31.58%"
               right="31.58%"
-              {...getOverrideProps(overrides, "chevron-right34804882")}
+              {...getOverrideProps(overrides, "chevron-right34804185")}
             ></Icon>
           </View>
         </View>
@@ -805,7 +647,7 @@ export default function AccountsScreen4(props) {
         alignItems="unset"
         justifyContent="unset"
         position="absolute"
-        top="177px"
+        top="164px"
         left="890px"
         {...getOverrideProps(overrides, "Group 1021")}
       >
@@ -823,7 +665,7 @@ export default function AccountsScreen4(props) {
           borderRadius="5.5px"
           padding="0px 0px 0px 0px"
           backgroundColor="rgba(255,255,255,1)"
-          {...getOverrideProps(overrides, "Input Style34804884")}
+          {...getOverrideProps(overrides, "Input Style34804714")}
         ></View>
         <View
           padding="0px 0px 0px 0px"
@@ -836,7 +678,7 @@ export default function AccountsScreen4(props) {
           position="absolute"
           top="11px"
           left="9px"
-          {...getOverrideProps(overrides, "Search34804885")}
+          {...getOverrideProps(overrides, "Search34804715")}
         >
           <Text
             fontFamily="Poppins"
@@ -873,7 +715,7 @@ export default function AccountsScreen4(props) {
             transformOrigin="top left"
             transform="rotate(90deg)"
             padding="0px 0px 0px 0px"
-            {...getOverrideProps(overrides, "chevron_right_24px34804887")}
+            {...getOverrideProps(overrides, "chevron_right_24px34804717")}
           >
             <Icon
               width="7px"
@@ -895,7 +737,7 @@ export default function AccountsScreen4(props) {
               bottom="10.53%"
               left="31.58%"
               right="31.58%"
-              {...getOverrideProps(overrides, "chevron-right34804888")}
+              {...getOverrideProps(overrides, "chevron-right34804718")}
             ></Icon>
           </View>
         </View>
@@ -908,13 +750,13 @@ export default function AccountsScreen4(props) {
         justifyContent="center"
         alignItems="center"
         position="absolute"
-        top="177px"
+        top="164px"
         left="991px"
         border="0px SOLID rgba(43,172,226,1)"
         borderRadius="5px"
         padding="19px 22px 19px 22px"
         backgroundColor="rgba(88,80,236,1)"
-        {...getOverrideProps(overrides, "upload34804889")}
+        {...getOverrideProps(overrides, "upload34804186")}
       >
         <Icon
           width="12.25px"
@@ -933,7 +775,7 @@ export default function AccountsScreen4(props) {
           justifyContent="unset"
           shrink="0"
           position="relative"
-          {...getOverrideProps(overrides, "plus34804890")}
+          {...getOverrideProps(overrides, "plus34804187")}
         ></Icon>
         <Text
           fontFamily="Poppins"
@@ -954,7 +796,7 @@ export default function AccountsScreen4(props) {
           padding="0px 0px 0px 0px"
           whiteSpace="pre-wrap"
           children="Add Account"
-          {...getOverrideProps(overrides, "Add Account34804891")}
+          {...getOverrideProps(overrides, "Add Account34804188")}
         ></Text>
       </Flex>
       <Flex
@@ -965,13 +807,16 @@ export default function AccountsScreen4(props) {
         justifyContent="center"
         alignItems="center"
         position="absolute"
-        top="177px"
+        top="164px"
         left="991px"
         border="0px SOLID rgba(43,172,226,1)"
         borderRadius="5px"
         padding="19px 22px 19px 22px"
         backgroundColor="rgba(88,80,236,1)"
-        {...getOverrideProps(overrides, "upload34804892")}
+        onClick={() => {
+          uploadThreeFourEightZeroFourSevenOneNineOnClick();
+        }}
+        {...getOverrideProps(overrides, "upload34804719")}
       >
         <Icon
           width="12.25px"
@@ -990,7 +835,7 @@ export default function AccountsScreen4(props) {
           justifyContent="unset"
           shrink="0"
           position="relative"
-          {...getOverrideProps(overrides, "plus34804893")}
+          {...getOverrideProps(overrides, "plus34804720")}
         ></Icon>
         <Text
           fontFamily="Poppins"
@@ -1011,7 +856,7 @@ export default function AccountsScreen4(props) {
           padding="0px 0px 0px 0px"
           whiteSpace="pre-wrap"
           children="Add Account"
-          {...getOverrideProps(overrides, "Add Account34804894")}
+          {...getOverrideProps(overrides, "Add Account34804721")}
         ></Text>
       </Flex>
       <Text
@@ -1029,12 +874,34 @@ export default function AccountsScreen4(props) {
         gap="unset"
         alignItems="unset"
         position="absolute"
-        top="278px"
+        top="265px"
         left="85px"
         padding="0px 0px 0px 0px"
         whiteSpace="pre-wrap"
-        children="Accounts"
-        {...getOverrideProps(overrides, "Accounts34804895")}
+        children="Users"
+        {...getOverrideProps(overrides, "Users34804189")}
+      ></Text>
+      <Text
+        fontFamily="Poppins"
+        fontSize="13px"
+        fontWeight="600"
+        color="rgba(88,80,236,1)"
+        lineHeight="14px"
+        textAlign="left"
+        display="block"
+        direction="column"
+        justifyContent="unset"
+        width="unset"
+        height="unset"
+        gap="unset"
+        alignItems="unset"
+        position="absolute"
+        top="265px"
+        left="85px"
+        padding="0px 0px 0px 0px"
+        whiteSpace="pre-wrap"
+        children="Users"
+        {...getOverrideProps(overrides, "Users34804722")}
       ></Text>
       <Text
         fontFamily="Poppins"
@@ -1051,12 +918,34 @@ export default function AccountsScreen4(props) {
         gap="unset"
         alignItems="unset"
         position="absolute"
-        top="278px"
+        top="265px"
         left="212px"
         padding="0px 0px 0px 0px"
         whiteSpace="pre-wrap"
-        children="Account Reports"
-        {...getOverrideProps(overrides, "Account Reports")}
+        children="User Reports"
+        {...getOverrideProps(overrides, "User Reports34804190")}
+      ></Text>
+      <Text
+        fontFamily="Poppins"
+        fontSize="13px"
+        fontWeight="500"
+        color="rgba(130,134,143,1)"
+        lineHeight="14px"
+        textAlign="left"
+        display="block"
+        direction="column"
+        justifyContent="unset"
+        width="unset"
+        height="unset"
+        gap="unset"
+        alignItems="unset"
+        position="absolute"
+        top="265px"
+        left="212px"
+        padding="0px 0px 0px 0px"
+        whiteSpace="pre-wrap"
+        children="User Reports"
+        {...getOverrideProps(overrides, "User Reports34804723")}
       ></Text>
       <Icon
         width="1055px"
@@ -1075,7 +964,7 @@ export default function AccountsScreen4(props) {
         alignItems="unset"
         justifyContent="unset"
         position="absolute"
-        top="307px"
+        top="294px"
         left="55px"
         {...getOverrideProps(overrides, "Line 9")}
       ></Icon>
@@ -1096,7 +985,7 @@ export default function AccountsScreen4(props) {
         alignItems="unset"
         justifyContent="unset"
         position="absolute"
-        top="307px"
+        top="294px"
         left="55px"
         {...getOverrideProps(overrides, "Line 11")}
       ></Icon>
@@ -1117,7 +1006,7 @@ export default function AccountsScreen4(props) {
         alignItems="unset"
         justifyContent="unset"
         position="absolute"
-        top="307px"
+        top="294px"
         left="55px"
         {...getOverrideProps(overrides, "Line 10")}
       ></Icon>
@@ -1138,25 +1027,24 @@ export default function AccountsScreen4(props) {
         alignItems="unset"
         justifyContent="unset"
         position="absolute"
-        top="307px"
+        top="294px"
         left="55px"
         {...getOverrideProps(overrides, "Line 12")}
       ></Icon>
-      <NavBar2
-        display="flex"
-        gap="20px"
-        direction="row"
-        width="1165px"
-        height="117px"
-        justifyContent="center"
-        alignItems="center"
+      <Navbar
+        width="1360px"
+        height="373px"
+        display="block"
+        gap="unset"
+        alignItems="unset"
+        justifyContent="unset"
         position="absolute"
-        top="0px"
-        left="-8px"
-        padding="24px 32px 24px 32px"
-        backgroundColor="rgba(255,255,255,1)"
-        {...getOverrideProps(overrides, "NavBar2")}
-      ></NavBar2>
+        top="-186px"
+        left="-97px"
+        padding="0px 0px 0px 0px"
+        property1="AdminViewUser"
+        {...getOverrideProps(overrides, "Navbar")}
+      ></Navbar>
     </View>
   );
 }

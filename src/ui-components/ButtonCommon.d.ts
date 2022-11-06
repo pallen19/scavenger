@@ -6,10 +6,8 @@
 
 import React from "react";
 import { EscapeHatchProps } from "@aws-amplify/ui-react/internal";
-import { ViewProps } from "@aws-amplify/ui-react";
-export declare type NavbarProps = React.PropsWithChildren<Partial<ViewProps> & {
-    property1?: "AdminViewAcctsBar" | "AdminViewHomeBar" | "AdminViewPwBar" | "AdminViewUser" | "Default" | "ManagerViewAcctsBar" | "ManagerViewHomeBar" | "ManagerViewUserBar";
-} & {
+import { FlexProps } from "@aws-amplify/ui-react";
+export declare type ButtonCommonProps = React.PropsWithChildren<Partial<FlexProps> & {
     overrides?: EscapeHatchProps | undefined | null;
 }>;
-export default function Navbar(props: NavbarProps): React.ReactElement;
+export default function ButtonCommon(props: ButtonCommonProps): React.ReactElement;

@@ -6,8 +6,8 @@
 
 import React from "react";
 import { EscapeHatchProps } from "@aws-amplify/ui-react/internal";
-import { FlexProps } from "@aws-amplify/ui-react";
-export declare type ActionCardProps = React.PropsWithChildren<Partial<FlexProps> & {
+import { ViewProps } from "@aws-amplify/ui-react";
+export declare type AdminViewNewUser2Props = React.PropsWithChildren<Partial<ViewProps> & {
     overrides?: EscapeHatchProps | undefined | null;
 }>;
-export default function ActionCard(props: ActionCardProps): React.ReactElement;
+export default function AdminViewNewUser2(props: AdminViewNewUser2Props): React.ReactElement;
