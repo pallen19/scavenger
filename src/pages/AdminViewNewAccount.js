@@ -136,7 +136,8 @@ const DefaultView=(props)=>{
       console.log(comments)
     };
 
-  const addToDB=() =>{
+    const addToDB=() =>{
+    console.log("add accounts worked");
     {addDoc(accountName,accountNumber,accountDescription,
       accountCategory,accountSubcategory,userID,order,debit,credit,initialBalance,endingBalance,
       accountCreation)}
