@@ -151,10 +151,10 @@ const services={
   <button onClick={signOut}>Sign Out</button>
   <Routes>
     <Route path="admin" element={<ProtectedRoute redirectPath="*" allowed={level === "Administrators"}>
-      <AdminView callSignout={signOut}/>
+      <AdminView/>
     </ProtectedRoute>}></Route>
     <Route path="manager" element={<ProtectedRoute redirectPath="*" allowed={level ==="Managers"}>
-      <ManagerView callSignout={signOut}/>
+      <ManagerView/>
     </ProtectedRoute>}></Route>
     <Route path="*" element={
      <Redirect accountType={level}></Redirect>
