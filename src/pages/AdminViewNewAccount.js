@@ -1,8 +1,8 @@
 import {React,useState} from 'react'
-import { db } from './firebase'
+import { db } from '../database/firebase'
 import { AdminViewNewAcct2 } from '../ui-components'
 import AdminViewNewAcct from '../ui-components/AdminViewNewAcct'
-import { Firestore } from 'firebase/firestore'
+import { Firestore, collection, addDoc} from 'firebase/firestore'
 
 export const AdminViewNewAccount = () => {
   const [accountName, setAccountName]= useState("")
@@ -20,7 +20,17 @@ export const AdminViewNewAccount = () => {
   const [comments,setComment]= useState("")
   const [onSubmitchange,setSubmitchange]= useState(false)
   const [defaultView,setDefaultView]= useState(true)
+  const accountsColRef = collection(db, "accounts")
+  const addAccount = async (accountName,accountNumber,accountDescription,accountCategory,
+    accountSubcategory,userID,order,debit,credit,initialBalance,endingBalance,accountCreation) => {
+    
+    await addDoc(accountsColRef, { AccountName : accountName, AccountNumber : accountNumber,
+    AccountDescription : accountDescription, AccountCategory: accountCategory, AccountSubcategory 
+    : accountSubcategory, UserID : userID, Order: order, Debit: debit, Credit: credit, InitialBalance
+    : initialBalance, EndingBalance : endingBalance, AccountCreation : accountCreation, Comments:comments
+  })
 
+}
 const DefaultView=(props)=>{
   if(defaultView){
     <AdminViewNewAcct style={{position:'relative' , left:'30em'}}
@@ -73,12 +83,12 @@ const DefaultView=(props)=>{
     console.log(userID);
   }
   const onNextButton = (event) => {
-    setSubmitchange(true);
+    { /* setSubmitchange(true);
     if(onSubmitchange){
       
         alert('button was clicked bitch!');
       <div>
-       
+      
       <AdminViewNewAcct2 
       overrides={{
         
@@ -92,8 +102,8 @@ const DefaultView=(props)=>{
         'TextField351912594':{onChange: Comments}
       }}/>
       
-      </div>
     }
+      </div>*/}
    
   }
   
@@ -125,6 +135,13 @@ const DefaultView=(props)=>{
     setComment(event.target.value);
       console.log(comments)
     };
+
+  const addToDB=() =>{
+    {addDoc(accountName,accountNumber,accountDescription,
+      accountCategory,accountSubcategory,userID,order,debit,credit,initialBalance,endingBalance,
+      accountCreation)}
+      console.log("add accounts worked");
+  }
   
   return (
     <>
@@ -137,7 +154,7 @@ const DefaultView=(props)=>{
     'TextField34533247':{onChange:onSubmitAccountCategory},
     'TextField34533248':{onChange:onSubmitAccountSubCategory},
     'TextField34692999':{onChange:onSubmitUserID},
-    'Button34533256':{onClick:onNextButton},
+   
    }}/> 
     <AdminViewNewAcct2 style={{position:'relative' , left:'30em'}}
       overrides={{
@@ -149,9 +166,11 @@ const DefaultView=(props)=>{
         'TextField351912599':{onChange:InitialBalance},
         'TextField351912598':{onChange:finalBalance},
         'TextField351912595':{onChange: AccountCreation},
-        'TextField351912594':{onChange: Comments}
+        'TextField351912594':{onChange: Comments},
+        'Button351912604'   :{onClick : () => {addToDB()}}
+
       }}/>
-     
+     {/*'Button351912604':{onClick:addDoc*/}
       </div>
     </>
     )
