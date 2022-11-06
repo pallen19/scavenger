@@ -15,10 +15,16 @@ export default function NavBar2(props) {
   const { Accounts, overrides, ...rest } = props;
   const logoTwoOneOnClick = useNavigateAction({ type: "url", url: "/" });
   const bitterBeanOnClick = useNavigateAction({ type: "url", url: "/" });
-  const homeOnClick = useNavigateAction({ type: "url", url: "/" });
-  const usersOnClick = useNavigateAction({ type: "url", url: "/Users" });
-  const accountsOnClick = useNavigateAction({ type: "url", url: "Accounts" });
-  const reportsOnClick = useNavigateAction({ type: "url", url: "/Reports" });
+  const homeOnClick = useNavigateAction({ type: "url", url: "admin" });
+  const usersOnClick = useNavigateAction({ type: "url", url: "admin/Users" });
+  const accountsOnClick = useNavigateAction({
+    type: "url",
+    url: "users/Accounts",
+  });
+  const reportsOnClick = useNavigateAction({
+    type: "url",
+    url: "admin/Reports",
+  });
   return (
     <Flex
       gap="20px"

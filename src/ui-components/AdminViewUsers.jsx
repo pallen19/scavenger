@@ -1031,6 +1031,245 @@ export default function AdminViewUsers(props) {
         left="55px"
         {...getOverrideProps(overrides, "Line 12")}
       ></Icon>
+      <View
+        padding="0px 0px 0px 0px"
+        width="520px"
+        height="162px"
+        display="block"
+        gap="unset"
+        alignItems="unset"
+        justifyContent="unset"
+        position="absolute"
+        top="309px"
+        left="55px"
+        {...getOverrideProps(overrides, "Group 1007")}
+      >
+        <View
+          width="520px"
+          height="162px"
+          display="block"
+          gap="unset"
+          alignItems="unset"
+          justifyContent="unset"
+          position="absolute"
+          top="0px"
+          left="0px"
+          border="1px SOLID rgba(230,231,233,1)"
+          borderRadius="5px"
+          padding="0px 0px 0px 0px"
+          backgroundColor="rgba(255,255,255,1)"
+          {...getOverrideProps(overrides, "table_body_bg34804194")}
+        ></View>
+        <Icon
+          width="21.19px"
+          height="17.97px"
+          viewBox={{
+            minX: 0,
+            minY: 0,
+            width: 21.1900634765625,
+            height: 17.9736328125,
+          }}
+          paths={[
+            {
+              d: "M14.8082 12.1025C14.7345 12.1729 14.7345 12.2432 14.7345 12.3135L14.7345 16.2861L1.76814 16.2861L1.76814 3.91113L10.6457 3.91113C10.7194 3.91113 10.793 3.91113 10.8667 3.84082L12.0455 2.71582C12.2296 2.54004 12.0823 2.22363 11.8244 2.22363L1.76814 2.22363C0.773562 2.22363 0 2.99707 0 3.91113L0 16.2861C0 17.2354 0.773562 17.9736 1.76814 17.9736L14.7345 17.9736C15.6923 17.9736 16.5027 17.2354 16.5027 16.2861L16.5027 11.1885C16.5027 10.9424 16.1711 10.8018 15.9869 10.9775L14.8082 12.1025ZM20.5546 5.03613C21.4019 4.22754 21.4019 2.92676 20.5546 2.11816L18.9707 0.606445C18.1234 -0.202148 16.7605 -0.202148 15.9133 0.606445L6.26217 9.81738L5.89381 13.0166C5.7833 13.9307 6.59369 14.7041 7.55144 14.5986L10.9035 14.2471L20.5546 5.03613ZM16.9447 6.09082L10.0931 12.6299L7.66195 12.9111L7.95664 10.5908L14.8082 4.05176L16.9447 6.09082ZM19.3022 3.31348C19.4864 3.4541 19.4864 3.66504 19.339 3.84082L18.1971 4.93066L16.0606 2.85645L17.1657 1.80176C17.3131 1.62598 17.5709 1.62598 17.7183 1.80176L19.3022 3.31348Z",
+              fill: "rgba(130,136,148,1)",
+              fillRule: "nonzero",
+            },
+          ]}
+          display="block"
+          gap="unset"
+          alignItems="unset"
+          justifyContent="unset"
+          position="absolute"
+          top="20.03px"
+          left="442px"
+          {...getOverrideProps(overrides, "edit")}
+        ></Icon>
+        <Icon
+          width="16.5px"
+          height="18px"
+          viewBox={{ minX: 0, minY: 0, width: 16.502685546875, height: 18 }}
+          paths={[
+            {
+              d: "M9.87212 14.625L10.7562 14.625C10.9772 14.625 11.1982 14.4492 11.1982 14.2031L11.1982 6.60938C11.1982 6.39844 10.9772 6.1875 10.7562 6.1875L9.87212 6.1875C9.61427 6.1875 9.43009 6.39844 9.43009 6.60938L9.43009 14.2031C9.43009 14.4492 9.61427 14.625 9.87212 14.625ZM15.9133 2.8125L12.8559 2.8125L11.6034 0.84375C11.3087 0.386719 10.6457 0 10.0931 0L6.37268 0C5.82013 0 5.15708 0.386719 4.86239 0.84375L3.60996 2.8125L0.589381 2.8125C0.257854 2.8125 0 3.09375 0 3.375L0 3.9375C0 4.25391 0.257854 4.5 0.589381 4.5L1.17876 4.5L1.17876 16.3125C1.17876 17.2617 1.95232 18 2.9469 18L13.5558 18C14.5135 18 15.3239 17.2617 15.3239 16.3125L15.3239 4.5L15.9133 4.5C16.208 4.5 16.5027 4.25391 16.5027 3.9375L16.5027 3.375C16.5027 3.09375 16.208 2.8125 15.9133 2.8125ZM6.299 1.79297C6.33584 1.75781 6.44635 1.6875 6.48319 1.6875L6.52002 1.6875L9.98263 1.6875C10.0195 1.6875 10.13 1.75781 10.1668 1.79297L10.793 2.8125L5.67279 2.8125L6.299 1.79297ZM13.5558 16.3125L2.9469 16.3125L2.9469 4.5L13.5558 4.5L13.5558 16.3125ZM5.74646 14.625L6.63053 14.625C6.85155 14.625 7.07257 14.4492 7.07257 14.2031L7.07257 6.60938C7.07257 6.39844 6.85155 6.1875 6.63053 6.1875L5.74646 6.1875C5.48861 6.1875 5.30443 6.39844 5.30443 6.60938L5.30443 14.2031C5.30443 14.4492 5.48861 14.625 5.74646 14.625Z",
+              fill: "rgba(130,136,148,1)",
+              fillRule: "nonzero",
+            },
+          ]}
+          display="block"
+          gap="unset"
+          alignItems="unset"
+          justifyContent="unset"
+          position="absolute"
+          top="20px"
+          left="483.82px"
+          {...getOverrideProps(overrides, "trash-alt")}
+        ></Icon>
+        <Text
+          fontFamily="Poppins"
+          fontSize="16px"
+          fontWeight="600"
+          color="rgba(33,33,33,1)"
+          lineHeight="24px"
+          textAlign="left"
+          display="block"
+          direction="column"
+          justifyContent="unset"
+          width="unset"
+          height="unset"
+          gap="unset"
+          alignItems="unset"
+          position="absolute"
+          top="16px"
+          left="20px"
+          padding="0px 0px 0px 0px"
+          whiteSpace="pre-wrap"
+          children="Akshay Syal"
+          {...getOverrideProps(overrides, "Akshay Syal")}
+        ></Text>
+        <Text
+          fontFamily="Poppins"
+          fontSize="14px"
+          fontWeight="400"
+          color="rgba(33,33,33,1)"
+          lineHeight="21px"
+          textAlign="left"
+          display="block"
+          direction="column"
+          justifyContent="unset"
+          width="unset"
+          height="unset"
+          gap="unset"
+          alignItems="unset"
+          position="absolute"
+          top="53px"
+          left="20px"
+          padding="0px 0px 0px 0px"
+          whiteSpace="pre-wrap"
+          children="Jose Kennedy"
+          {...getOverrideProps(overrides, "Jose Kennedy")}
+        ></Text>
+        <Text
+          fontFamily="Poppins"
+          fontSize="14px"
+          fontWeight="400"
+          color="rgba(33,33,33,1)"
+          lineHeight="21px"
+          textAlign="left"
+          display="block"
+          direction="column"
+          justifyContent="unset"
+          width="unset"
+          height="unset"
+          gap="unset"
+          alignItems="unset"
+          position="absolute"
+          top="79px"
+          left="20px"
+          padding="0px 0px 0px 0px"
+          whiteSpace="pre-wrap"
+          children="Gst : 09898989898"
+          {...getOverrideProps(overrides, "Gst : 09898989898")}
+        ></Text>
+        <Text
+          fontFamily="Poppins"
+          fontSize="14px"
+          fontWeight="400"
+          color="rgba(33,33,33,1)"
+          lineHeight="21px"
+          textAlign="left"
+          display="block"
+          direction="column"
+          justifyContent="unset"
+          width="336px"
+          height="unset"
+          gap="unset"
+          alignItems="unset"
+          position="absolute"
+          top="105px"
+          left="20px"
+          padding="0px 0px 0px 0px"
+          whiteSpace="pre-wrap"
+          children="Fonseca Compound, 541, Akurli Rd, &#xA;Near Post Office, Kandivali (east)"
+          {...getOverrideProps(
+            overrides,
+            "Fonseca Compound, 541, Akurli Rd, Near Post Office, Kandivali (east)"
+          )}
+        ></Text>
+        <Text
+          fontFamily="Poppins"
+          fontSize="14px"
+          fontWeight="600"
+          color="rgba(33,33,33,1)"
+          lineHeight="21px"
+          textAlign="left"
+          display="block"
+          direction="column"
+          justifyContent="unset"
+          width="unset"
+          height="unset"
+          gap="unset"
+          alignItems="unset"
+          position="absolute"
+          top="105px"
+          left="342px"
+          padding="0px 0px 0px 0px"
+          whiteSpace="pre-wrap"
+          children="Phone no : 9876543210"
+          {...getOverrideProps(overrides, "Phone no : 9876543210")}
+        ></Text>
+        <View
+          padding="0px 0px 0px 0px"
+          width="81px"
+          height="22px"
+          display="block"
+          gap="unset"
+          alignItems="unset"
+          justifyContent="unset"
+          position="absolute"
+          top="17px"
+          left="127px"
+          {...getOverrideProps(overrides, "Group 1005")}
+        >
+          <View
+            width="81px"
+            height="22px"
+            display="block"
+            gap="unset"
+            alignItems="unset"
+            justifyContent="unset"
+            position="absolute"
+            top="0px"
+            left="0px"
+            borderRadius="7px"
+            padding="0px 0px 0px 0px"
+            backgroundColor="rgba(205,203,249,1)"
+            {...getOverrideProps(overrides, "Rectangle 477")}
+          ></View>
+          <Text
+            fontFamily="Poppins"
+            fontSize="11px"
+            fontWeight="500"
+            color="rgba(88,80,236,1)"
+            lineHeight="16.5px"
+            textAlign="left"
+            display="block"
+            direction="column"
+            justifyContent="unset"
+            width="unset"
+            height="unset"
+            gap="unset"
+            alignItems="unset"
+            position="absolute"
+            top="3px"
+            left="8px"
+            padding="0px 0px 0px 0px"
+            whiteSpace="pre-wrap"
+            children="Accountant"
+            {...getOverrideProps(overrides, "Accountant")}
+          ></Text>
+        </View>
+      </View>
       <Navbar
         width="1360px"
         height="373px"

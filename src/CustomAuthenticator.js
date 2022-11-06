@@ -3,11 +3,19 @@ import './App.css';
 import {Amplify,Auth} from 'aws-amplify'
 import { Authenticator, Heading} from '@aws-amplify/ui-react';
 import '@aws-amplify/ui-react/styles.css';
-import {Routes,Route, Navigate, Outlet, redirect,useNavigate } from "react-router-dom";  
+import {Routes,Route, Navigate, Outlet, redirect,useNavigate, Link } from "react-router-dom";  
 import { useEffect, useState } from 'react';
 import ManagerView from "./ManagerView"
 import AdminView from "./AdminView"
 import Redirect from "./Redirect"
+import Admin from './pages/Admin';
+import { AdminViewUserF} from './pages/AdminViewUserF';
+import { AdminViewNewAccount} from './pages/AdminViewNewAccount';
+import placeHolder from './components/placeHolder.png';
+import {AdminViewAcct,AdminHome,AdminNewAcct,AdminNewUser} from './AdminView';
+import Layout  from './Layout';
+import TestNav from './testnav';
+import { AdminViewHome, AdminViewAccts, AdminViewUsers, AdminViewPwReport, AdminViewNewUser, AdminViewNewAcct, AdminViewNewUser2, AdminViewNewAcct2 } from './ui-components';
 
 
 
@@ -17,7 +25,21 @@ Amplify.configure(awsExports);
 export default function CustomAuthenticator(){
 const [level,setLevel] = useState("");
 const [userData,setUserData] = useState([]);
+const [currentUser,setCurrentUser] = useState("")
 const [accountType,setAccountType] = useState([]);
+
+useEffect(()=>{
+  localStorage.setItem('role',"Administrators");
+},[currentUser]);
+
+useEffect(()=>{
+  const role = localStorage.getItem('role');
+  if(role){
+    setLevel(role);
+  }
+},[])
+
+
 
   function generatedUserName(firstname,lastname){
     let initial = firstname.charAt(0);
@@ -115,7 +137,7 @@ const ProtectedRoute = ({allowed,redirectPath,children}) => {
   if(!allowed){
     return <Navigate to={redirectPath} replace/>
   }
-  return children ? children : <Outlet/>;
+  return children;
 }
 
 
@@ -134,31 +156,34 @@ const services={
   },
 };
 
+
   return (
 
 <Authenticator services={services} initialState="signUp">
-  
+ 
 {
   ({signOut, user}) => (
-    
+  
    
   <div>
-  {getUserGroup(user.username)}
   
+  
+
   <Heading level={1}>Hello {user.username}</Heading>
+
+  <TestNav></TestNav>
   <p>account level is {level}</p>
-  
+  {console.log("is currently " + level )}
   <button onClick={signOut}>Sign Out</button>
+  
   <Routes>
-    <Route path="admin" element={<ProtectedRoute redirectPath="*" allowed={level === "Administrators"}>
-      <AdminView/>
-    </ProtectedRoute>}></Route>
-    <Route path="manager" element={<ProtectedRoute redirectPath="*" allowed={level ==="Managers"}>
-      <ManagerView/>
-    </ProtectedRoute>}></Route>
-    <Route path="*" element={
-     <Redirect accountType={level}></Redirect>
-    }/>
+    <Route path="/" element={<Layout />}>
+        <Route path='/adminHome' element={<ProtectedRoute allowed={level === "Administrators"} redirectPath="*"><AdminHome/></ProtectedRoute>}/>
+        <Route path='/adminNewUser' element={<ProtectedRoute allowed={level === "Administrators"} redirectPath="*"><AdminViewNewUser/></ProtectedRoute>}/>
+        <Route path='/adminNewAccount' element={<ProtectedRoute allowed={level === "Administrators"} redirectPath="*"><AdminNewAcct/></ProtectedRoute>}/>
+        <Route path='/adminAccounts' element={<ProtectedRoute allowed={level === "Administrators"} redirectPath="*"><AdminViewAcct/></ProtectedRoute>}/>
+      <Route path="*" element={<Redirect accountType={level}/>}/>
+    </Route>
   </Routes>
   
   </div>

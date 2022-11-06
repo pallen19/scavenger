@@ -9,8 +9,10 @@ export default function Entrypoint() {
     return (
         <BrowserRouter>
         <Routes>
-            {/* <Route path = "/" element = {<Layout/>}></Route> */}
+        
+            {<Route path = "/" element = {<Layout/>}></Route>}
             {/* public routes */}
+
             <Route path = "*" element={<CustomAuthenticator/>}></Route>
             {/* Private routes */}
             {/* catch missing routes */}

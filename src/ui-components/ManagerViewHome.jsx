@@ -22,6 +22,10 @@ export default function ManagerViewHome(props) {
     type: "url",
     url: "manager_view/create_new_account",
   });
+  const buttonThreeFiveFourEightFourFourSevenSixOnClick = useNavigateAction({
+    type: "url",
+    url: "manager_view_expired_passwords",
+  });
   return (
     <View
       width="1376px"
@@ -234,7 +238,7 @@ export default function ManagerViewHome(props) {
         size="default"
         isDisabled={false}
         variation="primary"
-        children="Create New User"
+        children="View Users"
         onClick={() => {
           buttonThreeFiveFourEightFourFourSevenFourOnClick();
         }}
@@ -277,6 +281,9 @@ export default function ManagerViewHome(props) {
         isDisabled={false}
         variation="primary"
         children="View Expired Passwords"
+        onClick={() => {
+          buttonThreeFiveFourEightFourFourSevenSixOnClick();
+        }}
         {...getOverrideProps(overrides, "Button35484476")}
       ></Button>
       <Text
@@ -299,11 +306,8 @@ export default function ManagerViewHome(props) {
         left="185px"
         padding="0px 0px 0px 0px"
         whiteSpace="pre-wrap"
-        children="Register new Administrator, Manager, or Accountant"
-        {...getOverrideProps(
-          overrides,
-          "Register new Administrator, Manager, or Accountant"
-        )}
+        children="View Accounts"
+        {...getOverrideProps(overrides, "View Accounts35484477")}
       ></Text>
       <Text
         fontFamily="Inter"
@@ -399,7 +403,7 @@ export default function ManagerViewHome(props) {
         padding="0px 0px 0px 0px"
         whiteSpace="pre-wrap"
         children="View Accounts"
-        {...getOverrideProps(overrides, "View Accounts")}
+        {...getOverrideProps(overrides, "View Accounts35484481")}
       ></Text>
       <Text
         fontFamily="Inter"

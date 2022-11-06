@@ -23,11 +23,11 @@ function Redirection(type){
 
 
  const RedirectUser = (props) => {
-    console.log(props.accountType)
+    console.log("redirecting " + props.accountType)
     if(props.accountType === 'Administrators'){
         return(
             <>
-            <Navigate to="/admin"></Navigate>
+            <Navigate to="/adminHome"></Navigate>
             </>
         )
     }
