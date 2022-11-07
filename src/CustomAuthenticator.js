@@ -179,7 +179,7 @@ const services={
   <Routes>
     <Route path="/" element={<Layout />}>
         <Route path='/admin' element={<ProtectedRoute allowed={level === "Administrators"} redirectPath="*"><AdminViewHome/></ProtectedRoute>}/>
-        <Route path='/User' element={<ProtectedRoute allowed={level === "Administrators"} redirectPath="*"><AdminViewNewUser/></ProtectedRoute>}/>
+        <Route path='/Users' element={<ProtectedRoute allowed={level === "Administrators"} redirectPath="*"><AdminViewNewUser/></ProtectedRoute>}/>
         <Route path='/Accounts' element={<ProtectedRoute allowed={level === "Administrators"} redirectPath="*"><AdminViewAccts/></ProtectedRoute>}/>
         <Route path='/Reports' element={<ProtectedRoute allowed={level === "Administrators"} redirectPath="*"><AdminViewPwReport/></ProtectedRoute>}/>
       <Route path="*" element={<Redirect accountType={level}/>}/>
