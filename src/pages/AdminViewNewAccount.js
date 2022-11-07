@@ -136,19 +136,12 @@ const DefaultView=(props)=>{
       console.log(comments)
     };
 
-   const addToDB=async() =>{
-    console.log("add accounts worked");
-    await addDoc(accountName,accountNumber,accountDescription,
+  const addToDB=() =>{
+    {addDoc(accountName,accountNumber,accountDescription,
       accountCategory,accountSubcategory,userID,order,debit,credit,initialBalance,endingBalance,
-      accountCreation)
-      alert("add accounts is successful");
+      accountCreation)}
+      console.log("add accounts worked");
   }
-
-  const addAccountToDB = async () => {
-    await addDoc(accountsColRef, {acountName : accountName, accountNumber : accountNumber, accountDescription : accountDescription,
-      accountCategory : accountCategory, accountSubcategory : accountSubcategory, userID : userID})
-  console.log("works");
-    }
   
   return (
     <>
@@ -166,7 +159,7 @@ const DefaultView=(props)=>{
     <AdminViewNewAcct2 style={{position:'relative' , left:'30em'}}
       overrides={{
         
-      //  'TextField34533248':{onChange:onSubmitAccountSubCategory},
+        'TextField34533248':{onChange:onSubmitAccountSubCategory},
         'TextField351912593':{onChange:Order},
         'TextField351912596':{onChange:Debit},
         'TextField351912597':{onChange:Credit},
@@ -174,7 +167,7 @@ const DefaultView=(props)=>{
         'TextField351912598':{onChange:finalBalance},
         'TextField351912595':{onChange: AccountCreation},
         'TextField351912594':{onChange: Comments},
-        'Button351912604'   :{onClick : () => {addAccountToDB()}}
+        'Button351912604'   :{onClick : () => {addToDB()}}
 
       }}/>
      {/*'Button351912604':{onClick:addDoc*/}

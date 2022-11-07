@@ -27,7 +27,7 @@ function Redirection(type){
     if(props.accountType === 'Administrators'){
         return(
             <>
-            <Navigate to="/adminHome"></Navigate>
+            <Navigate to="/admin"></Navigate>
             </>
         )
     }
