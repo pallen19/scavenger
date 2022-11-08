@@ -5,7 +5,7 @@
  **************************************************************************/
 
 /* eslint-disable */
-import * as React from "react";
+import React from "react";
 import { getOverrideProps } from "@aws-amplify/ui-react/internal";
 import { Image, Text, View } from "@aws-amplify/ui-react";
 export default function UserProfileButton(props) {

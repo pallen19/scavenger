@@ -5,11 +5,10 @@
  **************************************************************************/
 
 /* eslint-disable */
-import * as React from "react";
+import React from "react";
 import { getOverrideProps } from "@aws-amplify/ui-react/internal";
 import { Icon, Text, View } from "@aws-amplify/ui-react";
-import Navigation from "./Navigation";
-import AccountCard from "./AccountCard";
+import NavBar3 from "./NavBar3";
 export default function AdminAccounts(props) {
   const { overrides, ...rest } = props;
   return (
@@ -113,7 +112,7 @@ export default function AdminAccounts(props) {
         left="54px"
         {...getOverrideProps(overrides, "TabHighlight")}
       ></Icon>
-      <Navigation
+      <NavBar3
         width="1166px"
         height="117px"
         display="block"
@@ -126,21 +125,8 @@ export default function AdminAccounts(props) {
         padding="0px 0px 0px 0px"
         backgroundColor="rgba(255,255,255,1)"
         property1="Default"
-        {...getOverrideProps(overrides, "Navigation")}
-      ></Navigation>
-      <AccountCard
-        width="520px"
-        height="162px"
-        display="block"
-        gap="unset"
-        alignItems="unset"
-        justifyContent="unset"
-        position="absolute"
-        top="321px"
-        left="31px"
-        padding="0px 0px 0px 0px"
-        {...getOverrideProps(overrides, "AccountCard")}
-      ></AccountCard>
+        {...getOverrideProps(overrides, "NavBar3")}
+      ></NavBar3>
     </View>
   );
 }

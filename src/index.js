@@ -3,10 +3,12 @@ import ReactDOM from "react-dom/client";
 import { BrowserRouter, Route,Routes } from "react-router-dom";
 import CustomAuthenticator from "./CustomAuthenticator";
 import Layout from "./Layout";
+import { AmplifyProvider } from "@aws-amplify/ui-react";
 
 
 export default function Entrypoint() {
     return (
+        <AmplifyProvider>
         <BrowserRouter>
         <Routes>
 
@@ -16,6 +18,7 @@ export default function Entrypoint() {
            
         </Routes>
         </BrowserRouter>
+        </AmplifyProvider>
     )
 }
 

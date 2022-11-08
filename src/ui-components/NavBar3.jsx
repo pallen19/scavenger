@@ -5,14 +5,14 @@
  **************************************************************************/
 
 /* eslint-disable */
-import * as React from "react";
+import React from "react";
 import { getOverrideProps } from "@aws-amplify/ui-react/internal";
 import Logo from "./Logo";
 import { Button, Flex, View } from "@aws-amplify/ui-react";
 import EmailButton from "./EmailButton";
 import UserProfileButton from "./UserProfileButton";
 export default function NavBar3(props) {
-  const { foo, overrides, ...rest } = props;
+  const { overrides, ...rest } = props;
   return (
     <View
       width="1165px"

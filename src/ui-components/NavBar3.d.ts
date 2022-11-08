@@ -4,12 +4,10 @@
  * Any changes to this file will be overwritten when running amplify pull. *
  **************************************************************************/
 
-import * as React from "react";
+import React from "react";
 import { EscapeHatchProps } from "@aws-amplify/ui-react/internal";
 import { ViewProps } from "@aws-amplify/ui-react";
 export declare type NavBar3Props = React.PropsWithChildren<Partial<ViewProps> & {
-    foo?: String;
-} & {
     overrides?: EscapeHatchProps | undefined | null;
 }>;
 export default function NavBar3(props: NavBar3Props): React.ReactElement;
