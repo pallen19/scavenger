@@ -15,7 +15,8 @@ import placeHolder from './components/placeHolder.png';
 import {AdminViewAcct,AdminHome,AdminNewAcct,AdminNewUser} from './AdminView';
 import Layout  from './Layout';
 import TestNav from './testnav';
-import { AdminViewHome, AdminViewAccts, AdminViewUsers, AdminViewPwReport, AdminViewNewUser, AdminViewNewAcct, AdminViewNewUser2, AdminViewNewAcct2 } from './ui-components';
+import {Navigation} from './ui-components'
+import {AdminViewHome, AdminViewAccts, AdminAccounts, AdminViewUsers, AdminViewPwReport, AdminViewNewUser, AdminViewNewAcct, AdminViewNewUser2, AdminViewNewAcct2 } from './ui-components';
 
 
 
@@ -172,6 +173,9 @@ const services={
   <Heading level={1}>Hello {user.username}</Heading>
 
   <TestNav></TestNav>
+  <Navigation/>
+
+  
   <p>account level is {level}</p>
   {console.log("is currently " + level )}
   <button onClick={signOut}>Sign Out</button>
@@ -180,7 +184,7 @@ const services={
     <Route path="/" element={<Layout />}>
         <Route path='/admin' element={<ProtectedRoute allowed={level === "Administrators"} redirectPath="*"><AdminViewHome/></ProtectedRoute>}/>
         <Route path='/Users' element={<ProtectedRoute allowed={level === "Administrators"} redirectPath="*"><AdminViewNewUser/></ProtectedRoute>}/>
-        <Route path='/Accounts' element={<ProtectedRoute allowed={level === "Administrators"} redirectPath="*"><AdminViewAccts/></ProtectedRoute>}/>
+        <Route path='/Accounts' element={<ProtectedRoute allowed={level === "Administrators"} redirectPath="*"><AdminViewAcct/></ProtectedRoute>}/>
         <Route path='/Reports' element={<ProtectedRoute allowed={level === "Administrators"} redirectPath="*"><AdminViewPwReport/></ProtectedRoute>}/>
       <Route path="*" element={<Redirect accountType={level}/>}/>
     </Route>
