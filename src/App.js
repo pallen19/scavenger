@@ -7,7 +7,7 @@ import Admin from './pages/Admin';
 import { AdminViewUserF} from './pages/AdminViewUserF';
 import { AdminViewNewAccount} from './pages/AdminViewNewAccount';
 import placeHolder from './components/placeHolder.png';
-import { AdminViewAccts, AdminViewUsers, AdminViewPwReport, AdminViewNewUser, AdminViewNewAcct, AdminViewNewUser2, AdminViewNewAcct2 } from './ui-components';
+import { AdminViewAcct, AdminViewUsers, AdminViewPwReport, AdminViewNewUser, AdminViewNewAcct, AdminViewNewUser2, AdminViewNewAcct2 } from './ui-components';
 /* src/App.js */
 function App({ signOut, user }) {
   // Todo logic here
@@ -41,7 +41,7 @@ function App({ signOut, user }) {
    <Routes>
     <Route path="/" element={<Admin/>}/>
     <Route path="/Users" element={<AdminViewUserF/>}/>
-    <Route path="/Accounts" element={<AdminViewAccts/>}/>
+    <Route path="/Accounts" element={<AdminViewAcct/>}/>
     <Route path="/Reports" element={<AdminViewPwReport/>}/>
     <Route path="/createNewUser" element={<AdminViewNewUser/>}/>
     <Route path="/createNewUser2" element={<AdminViewNewUser2/>}/>
