@@ -10,15 +10,14 @@ import {
   getOverrideProps,
   useNavigateAction,
 } from "@aws-amplify/ui-react/internal";
+import Logo from "./Logo";
 import { Flex, Image, Text } from "@aws-amplify/ui-react";
 export default function NavBar2(props) {
   const { Accounts, overrides, ...rest } = props;
-  const logoTwoOneOnClick = useNavigateAction({ type: "url", url: "/" });
-  const bitterBeanOnClick = useNavigateAction({ type: "url", url: "/" });
-  const homeOnClick = useNavigateAction({ type: "url", url: "/" });
-  const usersOnClick = useNavigateAction({ type: "url", url: "/Users" });
+  const homeOnClick = useNavigateAction({ type: "url", url: "admin" });
+  const usersOnClick = useNavigateAction({ type: "url", url: "Users" });
   const accountsOnClick = useNavigateAction({ type: "url", url: "Accounts" });
-  const reportsOnClick = useNavigateAction({ type: "url", url: "/Reports" });
+  const reportsOnClick = useNavigateAction({ type: "url", url: "Reports" });
   return (
     <Flex
       gap="20px"
@@ -33,61 +32,19 @@ export default function NavBar2(props) {
       {...rest}
       {...getOverrideProps(overrides, "NavBar2")}
     >
-      <Flex
+      <Logo
+        display="flex"
         gap="2px"
         direction="row"
         width="unset"
-        height="unset"
+        height="69px"
         justifyContent="center"
         alignItems="center"
         shrink="0"
-        alignSelf="stretch"
         position="relative"
         padding="0px 0px 0px 0px"
         {...getOverrideProps(overrides, "Logo")}
-      >
-        <Image
-          width="95px"
-          height="102.05px"
-          display="block"
-          gap="unset"
-          alignItems="unset"
-          justifyContent="unset"
-          shrink="0"
-          position="relative"
-          padding="0px 0px 0px 0px"
-          objectFit="cover"
-          onClick={() => {
-            logoTwoOneOnClick();
-          }}
-          {...getOverrideProps(overrides, "logo2 1")}
-        ></Image>
-        <Text
-          fontFamily="Inter"
-          fontSize="20px"
-          fontWeight="600"
-          color="rgba(0,0,0,1)"
-          textTransform="capitalize"
-          lineHeight="24.204544067382812px"
-          textAlign="left"
-          display="block"
-          direction="column"
-          justifyContent="unset"
-          width="unset"
-          height="unset"
-          gap="unset"
-          alignItems="unset"
-          shrink="0"
-          position="relative"
-          padding="0px 0px 0px 0px"
-          whiteSpace="pre-wrap"
-          children=" BitterBean"
-          onClick={() => {
-            bitterBeanOnClick();
-          }}
-          {...getOverrideProps(overrides, "BitterBean")}
-        ></Text>
-      </Flex>
+      ></Logo>
       <Flex
         gap="40px"
         direction="row"

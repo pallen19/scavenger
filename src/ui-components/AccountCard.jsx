@@ -108,16 +108,16 @@ export default function AccountCard(props) {
         top="9.88%"
         bottom="75.31%"
         left="3.85%"
-        right="70.96%"
+        right="73.46%"
         padding="0px 0px 0px 0px"
         whiteSpace="pre-wrap"
-        children="Cafe Equipment"
-        {...getOverrideProps(overrides, "Cafe Equipment")}
+        children="AccountName"
+        {...getOverrideProps(overrides, "AccountName")}
       ></Text>
       <Text
         fontFamily="Poppins"
         fontSize="14px"
-        fontWeight="400"
+        fontWeight="700"
         color="rgba(33,33,33,1)"
         lineHeight="21px"
         textAlign="left"
@@ -132,16 +132,16 @@ export default function AccountCard(props) {
         top="32.72%"
         bottom="54.32%"
         left="3.85%"
-        right="74.04%"
+        right="73.08%"
         padding="0px 0px 0px 0px"
         whiteSpace="pre-wrap"
-        children="Account no:  109"
-        {...getOverrideProps(overrides, "Account no: 109")}
+        children="AccountNumber"
+        {...getOverrideProps(overrides, "AccountNumber")}
       ></Text>
       <Text
         fontFamily="Poppins"
         fontSize="14px"
-        fontWeight="400"
+        fontWeight="600"
         color="rgba(33,33,33,1)"
         lineHeight="21px"
         textAlign="left"
@@ -156,11 +156,11 @@ export default function AccountCard(props) {
         top="48.77%"
         bottom="38.27%"
         left="3.85%"
-        right="61.54%"
+        right="78.46%"
         padding="0px 0px 0px 0px"
         whiteSpace="pre-wrap"
-        children="Subcategory : equipment"
-        {...getOverrideProps(overrides, "Subcategory : equipment")}
+        children="Subcategory"
+        {...getOverrideProps(overrides, "Subcategory")}
       ></Text>
       <Text
         fontFamily="Poppins"
@@ -178,16 +178,13 @@ export default function AccountCard(props) {
         alignItems="unset"
         position="absolute"
         top="64.81%"
-        bottom="9.26%"
+        bottom="22.22%"
         left="3.85%"
-        right="40%"
+        right="80.96%"
         padding="0px 0px 0px 0px"
         whiteSpace="pre-wrap"
-        children="Coffee & espresso machines, coffee bean&#xA;grinder, ice makers, blenders"
-        {...getOverrideProps(
-          overrides,
-          "Coffee & espresso machines, coffee bean grinder, ice makers, blenders"
-        )}
+        children="Description"
+        {...getOverrideProps(overrides, "AccountDescription")}
       ></Text>
       <Text
         fontFamily="Poppins"
@@ -207,11 +204,11 @@ export default function AccountCard(props) {
         top="64.81%"
         bottom="22.22%"
         left="70.38%"
-        right="3.85%"
+        right="18.27%"
         padding="0px 0px 0px 0px"
         whiteSpace="pre-wrap"
-        children="Balance: $13,872.78"
-        {...getOverrideProps(overrides, "Balance: $13,872.78")}
+        children="Balance"
+        {...getOverrideProps(overrides, "Balance")}
       ></Text>
       <View
         padding="0px 0px 0px 0px"
@@ -226,7 +223,7 @@ export default function AccountCard(props) {
         bottom="75.93%"
         left="32.31%"
         right="52.12%"
-        {...getOverrideProps(overrides, "Group 1005")}
+        {...getOverrideProps(overrides, "AccountLabel")}
       >
         <View
           width="81px"
@@ -243,7 +240,7 @@ export default function AccountCard(props) {
           borderRadius="7px"
           padding="0px 0px 0px 0px"
           backgroundColor="rgba(88,80,236,0.3)"
-          {...getOverrideProps(overrides, "Rectangle 477")}
+          {...getOverrideProps(overrides, "AccountLabelFrame")}
         ></View>
         <Text
           fontFamily="Poppins"
@@ -267,7 +264,7 @@ export default function AccountCard(props) {
           padding="0px 0px 0px 0px"
           whiteSpace="pre-wrap"
           children="Asset"
-          {...getOverrideProps(overrides, "Asset")}
+          {...getOverrideProps(overrides, "Label")}
         ></Text>
       </View>
       <SwitchField
