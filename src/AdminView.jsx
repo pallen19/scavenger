@@ -41,6 +41,7 @@ export function GetAccountData(){
 
 export function getTestData(){
 let accountTestData = [];
+accountTestData.push(new Account("12345",19,"edibles","Objects capable of being comsumed",14265,true));
 accountTestData.push(new Account("Bananas",19,"edibles","Objects capable of being comsumed",14265,true));
 accountTestData.push(new Account("Weggs",765,"diffrent edibles","diffrent Objects capable of being comsumed",14885,false));
 accountTestData.push(new Account("Anime",1337,"UwU","I hate myself for making this",12345,false));
