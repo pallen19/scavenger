@@ -10,7 +10,7 @@ const sourceEmail = 'hotajed147@lidely.com';
 export default class PersonalizationComponent extends PureComponent {
 
   componentDidMount() {
-    this.load();
+    this.load();s
   }
 
   constructor(props) {
