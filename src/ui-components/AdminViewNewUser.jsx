@@ -6,10 +6,7 @@
 
 /* eslint-disable */
 import * as React from "react";
-import {
-  getOverrideProps,
-  useNavigateAction,
-} from "@aws-amplify/ui-react/internal";
+import { getOverrideProps } from "@aws-amplify/ui-react/internal";
 import {
   Button,
   Card,
@@ -19,15 +16,7 @@ import {
   View,
 } from "@aws-amplify/ui-react";
 export default function AdminViewNewUser(props) {
-  const { phoneNumber, createNewUser2, overrides, ...rest } = props;
-  const buttonThreeFiveFourEightFiveEightFourThreeOnClick = useNavigateAction({
-    type: "url",
-    url: "createNewUser2",
-  });
-  const buttonThreeFiveFourEightFiveEightFourFourOnClick = useNavigateAction({
-    type: "url",
-    url: "/",
-  });
+  const { overrides, ...rest } = props;
   return (
     <Flex
       gap="10px"
@@ -304,9 +293,6 @@ export default function AdminViewNewUser(props) {
             isDisabled={false}
             variation="primary"
             children="Next"
-            onClick={() => {
-              buttonThreeFiveFourEightFiveEightFourThreeOnClick();
-            }}
             {...getOverrideProps(overrides, "Button35485843")}
           ></Button>
         </Flex>
@@ -340,9 +326,6 @@ export default function AdminViewNewUser(props) {
             isDisabled={false}
             variation="default"
             children="Cancel"
-            onClick={() => {
-              buttonThreeFiveFourEightFiveEightFourFourOnClick();
-            }}
             {...getOverrideProps(overrides, "Button35485844")}
           ></Button>
         </Flex>

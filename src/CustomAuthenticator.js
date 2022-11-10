@@ -16,7 +16,7 @@ import Layout  from './Layout';
 import TestNav from './testnav';
 import {Navigation} from './ui-components'
 import {AdminViewHome, AdminViewAccts, AdminAccounts, AdminViewUsers, AdminViewPwReport, AdminViewNewUser, AdminViewNewAcct, AdminViewNewUser2, AdminViewNewAcct2 } from './ui-components';
-
+import {emailForm} from "./EmailForm.jsx"
 
 
 
@@ -181,10 +181,11 @@ const services={
   
   <Routes>
     <Route path="/" element={<Layout />}>
-        <Route path='/admin' element={<ProtectedRoute allowed={level === "Administrators"} redirectPath="*"><AdminViewHome/></ProtectedRoute>}/>
-        <Route path='/Users' element={<ProtectedRoute allowed={level === "Administrators"} redirectPath="*"><AdminViewNewUser/></ProtectedRoute>}/>
         <Route path='/Accounts' element={<ProtectedRoute allowed={level === "Administrators"} redirectPath="*"><AdminViewAcct/></ProtectedRoute>}/>
-        <Route path='/Reports' element={<ProtectedRoute allowed={level === "Administrators"} redirectPath="*"><AdminViewPwReport/></ProtectedRoute>}/>
+        <Route path='/Reports' element={<ProtectedRoute allowed={level === "Administrators"} redirectPath="*"><emailForm/></ProtectedRoute>}/>
+        <Route path='/admin' element={<ProtectedRoute allowed={level === "Administrators"} redirectPath="*"></ProtectedRoute>}/>
+        <Route path='/Users' element={<ProtectedRoute allowed={level === "Administrators"} redirectPath="*"></ProtectedRoute>}/>
+        <Route path='/Reports' element={<ProtectedRoute allowed={level === "Administrators"} redirectPath="*"></ProtectedRoute>}/>
       <Route path="*" element={<Redirect accountType={level}/>}/>
     </Route>
   </Routes>

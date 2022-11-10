@@ -5,11 +5,36 @@
  **************************************************************************/
 
 /* eslint-disable */
-import React from "react";
-import { getOverrideProps } from "@aws-amplify/ui-react/internal";
+import * as React from "react";
+import {
+  getOverrideProps,
+  getOverridesFromVariants,
+  mergeVariantsAndOverrides,
+} from "@aws-amplify/ui-react/internal";
 import { Image, View } from "@aws-amplify/ui-react";
 export default function EmailButton(props) {
-  const { overrides, ...rest } = props;
+  const { overrides: overridesProp, ...rest } = props;
+  const variants = [
+    {
+      overrides: { "image 1": {}, EmailButton: {} },
+      variantValues: {
+        property1: "Navigation",
+        property2: "EmailButton",
+        property3: "Default",
+      },
+    },
+    {
+      overrides: {
+        "image 1": { border: "2px SOLID rgba(120,205,144,1)" },
+        EmailButton: {},
+      },
+      variantValues: { property1: "Highlighted" },
+    },
+  ];
+  const overrides = mergeVariantsAndOverrides(
+    getOverridesFromVariants(variants, props),
+    overridesProp || {}
+  );
   return (
     <View
       width="51px"

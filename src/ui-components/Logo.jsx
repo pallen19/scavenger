@@ -5,7 +5,7 @@
  **************************************************************************/
 
 /* eslint-disable */
-import React from "react";
+import * as React from "react";
 import { getOverrideProps } from "@aws-amplify/ui-react/internal";
 import { Flex, Image, Text } from "@aws-amplify/ui-react";
 export default function Logo(props) {
@@ -34,7 +34,7 @@ export default function Logo(props) {
         position="relative"
         padding="0px 0px 0px 0px"
         objectFit="cover"
-        {...getOverrideProps(overrides, "logo2 1")}
+        {...getOverrideProps(overrides, "image")}
       ></Image>
       <Text
         fontFamily="Inter"

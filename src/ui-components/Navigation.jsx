@@ -91,6 +91,9 @@ export default function Navigation(props) {
         top="43px"
         left="890px"
         padding="0px 0px 0px 0px"
+        property1="Navigation"
+        property2="EmailButton"
+        property3="Default"
         {...getOverrideProps(overrides, "EmailButton")}
       ></EmailButton>
       <UserProfileButton

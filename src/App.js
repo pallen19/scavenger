@@ -7,7 +7,7 @@ import Admin from './pages/Admin';
 import { AdminViewUserF} from './pages/AdminViewUserF';
 import { AdminViewNewAccount} from './pages/AdminViewNewAccount';
 import placeHolder from './components/placeHolder.png';
-import { AdminViewAcct, AdminViewUsers, AdminViewPwReport, AdminViewNewUser, AdminViewNewAcct, AdminViewNewUser2, AdminViewNewAcct2 } from './ui-components';
+import { AdminViewAcct, EmailForm, AdminViewUsers, AdminViewPwReport, AdminViewNewUser, AdminViewNewAcct, AdminViewNewUser2, AdminViewNewAcct2 } from './ui-components';
 /* src/App.js */
 function App({ signOut, user }) {
   // Todo logic here
@@ -47,6 +47,7 @@ function App({ signOut, user }) {
     <Route path="/createNewUser2" element={<AdminViewNewUser2/>}/>
     <Route path="/createAccount" element={<AdminViewNewAccount/>}/>
     <Route path="/createAccount2" element={<AdminViewNewAcct2/>}/>
+    <Route path="/" element={<EmailForm/>}/>
    
    </Routes>
 

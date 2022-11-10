@@ -1,6 +1,8 @@
 {
   "version": "1",
   "cognitoConfig": {
+    "identityPoolName": "scavengera8be8093a8be8093_identitypool_961483f0",
+    "allowUnauthenticatedIdentities": true,
     "resourceNameTruncated": "scavena8be8093",
     "userPoolName": "scavengera8be8093_userpool_a8be8093",
     "autoVerifiedAttributes": [
@@ -42,7 +44,7 @@
     "userpoolClientSetAttributes": false,
     "sharedId": "a8be8093",
     "resourceName": "scavengera8be8093a8be8093",
-    "authSelections": "userPoolOnly",
+    "authSelections": "identityPoolAndUserPool",
     "useDefault": "manual",
     "userPoolGroups": false,
     "adminQueries": false,
@@ -55,6 +57,20 @@
     "userPoolGroupList": [],
     "serviceName": "Cognito",
     "usernameCaseSensitive": false,
-    "useEnabledMfas": true
+    "useEnabledMfas": true,
+    "authRoleArn": {
+      "Fn::GetAtt": [
+        "AuthRole",
+        "Arn"
+      ]
+    },
+    "unauthRoleArn": {
+      "Fn::GetAtt": [
+        "UnauthRole",
+        "Arn"
+      ]
+    },
+    "breakCircularDependency": true,
+    "dependsOn": []
   }
 }
