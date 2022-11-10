@@ -3,12 +3,19 @@ import ReactDOM from 'react-dom/client';
 import  {SendEmailCommand } from '@aws-sdk/client-ses';
 import  {sesClient } from './libs/sesClient';
 
+
 //const DEFAULT_TEMPLATE_IMG = '/content/images/CS.jpg';
-const sourceEmail = 'hotajed147@lidely.com';
-
-
+const sourceEmail = 'smcken16@students.kennesaw.edu';
+var AWS = require("aws-sdk");
+AWS.config.update({
+    accessKeyId: "AKIA2ZP4XPBPVAM7BG5J",
+    secretAccessKey: "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",
+    "region": "us-east-2"   
+});
 export default class PersonalizationComponent extends PureComponent {
 
+    
+  
   componentDidMount() {
     this.load();
   }
@@ -71,7 +78,7 @@ export default class PersonalizationComponent extends PureComponent {
             this.setState({emailForm: {...this.state.emailForm, validationMessages: validationMessages}} );  
         }
         else{
-            let sendEmailCommand = createSendEmailCommand(...this.state.emailForm)
+            let sendEmailCommand = createSendEmailCommand(this.state.emailForm)
             try {
                 return sesClient.send(sendEmailCommand);
             } catch (e) {
@@ -167,11 +174,12 @@ export default class PersonalizationComponent extends PureComponent {
 }
 }
 
+
 class FieldValidationErrorMessageComponent extends Component {
     constructor(props) {
         super(props);
     }
-
+   
     render() {
         let messages = (this.props.errorMessages || []).filter(m => m.controlName === this.props.controlName) ??'';
 
