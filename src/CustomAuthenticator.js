@@ -6,7 +6,6 @@ import '@aws-amplify/ui-react/styles.css';
 import {Routes,Route, Navigate, Outlet, redirect,useNavigate, Link } from "react-router-dom";  
 import { useEffect, useState } from 'react';
 import ManagerView from "./ManagerView"
-import AdminView from "./AdminView"
 import Redirect from "./Redirect"
 import Admin from './pages/Admin';
 import { AdminViewUserF} from './pages/AdminViewUserF';
