@@ -24,6 +24,7 @@ export default function ActiveSwitchField(props) {
       {...getOverrideProps(overrides, "ActiveSwitchField")}
     >
       <SwitchField
+        onClick={()=>handleSwitchChange()}
         display="flex"
         gap="8px"
         direction="row"
