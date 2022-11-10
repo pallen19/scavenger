@@ -1,0 +1,108 @@
+{
+  "providers": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-scavenger-user-154500-authRole",
+      "UnauthRoleArn": "arn:aws:iam::741948749919:role/amplify-scavenger-user-154500-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::741948749919:role/amplify-scavenger-user-154500-authRole",
+      "Region": "us-east-2",
+      "DeploymentBucketName": "amplify-scavenger-user-154500-deployment",
+      "UnauthRoleName": "amplify-scavenger-user-154500-unauthRole",
+      "StackName": "amplify-scavenger-user-154500",
+      "StackId": "arn:aws:cloudformation:us-east-2:741948749919:stack/amplify-scavenger-user-154500/09d04d60-441d-11ed-bd53-0677ff87f958",
+      "AmplifyAppId": "d3rknb0emo3i4k"
+    }
+  },
+  "api": {
+    "scavenger": {
+      "service": "AppSync",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": [],
+      "output": {
+        "authConfig": {
+          "defaultAuthentication": {
+            "authenticationType": "API_KEY",
+            "apiKeyConfig": {
+              "apiKeyExpirationDays": 7
+            }
+          },
+          "additionalAuthenticationProviders": []
+        },
+        "GraphQLAPIIdOutput": "rbmc77zdynctrdndhhl6ace3bm",
+        "GraphQLAPIEndpointOutput": "https://fgqszx7lnnbzzktjejxrjmgugy.appsync-api.us-east-2.amazonaws.com/graphql",
+        "GraphQLAPIKeyOutput": "da2-pzccdq7aivhttjvqic4fsosjcq"
+      },
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-scavenger-user-154500-deployment/amplify-cfn-templates/api/cloudformation-template.json",
+        "logicalId": "apiscavenger"
+      },
+      "lastPushTimeStamp": "2022-10-31T20:39:52.186Z",
+      "lastPushDirHash": "KXF44R2ZQ8KgjiRhlkKA1yNUx7g="
+    }
+  },
+  "auth": {
+    "scavengera8be8093a8be8093": {
+      "service": "Cognito",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": [],
+      "customAuth": false,
+      "frontendAuthConfig": {
+        "socialProviders": [],
+        "usernameAttributes": [],
+        "signupAttributes": [
+          "BIRTHDATE",
+          "EMAIL",
+          "FAMILY_NAME",
+          "GIVEN_NAME",
+          "PHONE_NUMBER"
+        ],
+        "passwordProtectionSettings": {
+          "passwordPolicyMinLength": 8,
+          "passwordPolicyCharacters": [
+            "REQUIRES_LOWERCASE",
+            "REQUIRES_UPPERCASE",
+            "REQUIRES_NUMBERS",
+            "REQUIRES_SYMBOLS"
+          ]
+        },
+        "mfaConfiguration": "OFF",
+        "mfaTypes": [
+          "SMS"
+        ],
+        "verificationMechanisms": [
+          "EMAIL"
+        ]
+      },
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-scavenger-user-154500-deployment/amplify-cfn-templates/auth/scavengera8be8093a8be8093-cloudformation-template.json",
+        "logicalId": "authscavengera8be8093a8be8093"
+      },
+      "lastPushTimeStamp": "2022-10-31T20:39:52.192Z",
+      "output": {
+        "CreatedSNSRole": "arn:aws:iam::741948749919:role/snsa8be8093154500-user",
+        "UserPoolId": "us-east-2_yq4Klaavu",
+        "AppClientIDWeb": "3dlpcfa5febo59u7ht43jg8jgv",
+        "AppClientID": "5l9b6so8tnanns0vuvhc1fd7tf",
+        "HostedUIDomain": "scavengera8be8093-a8be8093-user",
+        "UserPoolArn": "arn:aws:cognito-idp:us-east-2:741948749919:userpool/us-east-2_yq4Klaavu",
+        "OAuthMetadata": "{\"AllowedOAuthFlows\":[\"implicit\"],\"AllowedOAuthScopes\":[\"phone\",\"email\",\"openid\",\"profile\",\"aws.cognito.signin.user.admin\"],\"CallbackURLs\":[\"http://localhost:3000/\"],\"LogoutURLs\":[\"http://localhost:3000/signOut/\"]}",
+        "UserPoolName": "scavengera8be8093_userpool_a8be8093"
+      },
+      "lastPushDirHash": "agKhuqmFO2OYOrKmVUJ4udm8D+0="
+    }
+  },
+  "function": {},
+  "hosting": {
+    "amplifyhosting": {
+      "service": "amplifyhosting",
+      "providerPlugin": "awscloudformation",
+      "type": "manual",
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-scavenger-user-154500-deployment/amplify-cfn-templates/hosting/amplifyhosting-template.json",
+        "logicalId": "hostingamplifyhosting"
+      },
+      "lastPushTimeStamp": "2022-10-31T20:39:52.199Z",
+      "output": {},
+      "lastPushDirHash": "ApJz7HJsxEsoBFL0W48XxIX/ISA="
+    }
+  }
+}

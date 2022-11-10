@@ -22,31 +22,27 @@ constructor(name,number,subCategory,description,balance,isActive){
 
 
 
-
-export function getAccountData(){
-    
+export function GetAccountData(){
     const accountsColRef = collection(db, "accounts");
+    const [docID, setDocID] = useState([])
+    const [myArr, setMyArr] = useState([])
 
      let accountData = [];
     getDoc(accountsColRef)
-   // .then(snapshot => {
-     //   snapshot.forEach(account => {
-       //     accountData.push(
-         //       new Account(account.name, account.number, account.subCategory, account.description, account.balance,
-         //  account.isActive))
-        
-         
-         return accountData;
-    
-        };
-
-  //  });
-  
-//}
+    .then(snapshot => {
+        snapshot.forEach(account => {
+            setDocID = account;
+        });
+    }); 
+    accountData.push(setDocID)
+    // arrayUnion(setDocID, accountsColRef)   
+    return accountData;
+}
 
 export function getTestData(){
 let accountTestData = [];
-accountTestData.push(new Account("Bananas",19,"edibles","Objects capable of being comsumed",14265,false));
+accountTestData.push(new Account("12345",19,"edibles","Objects capable of being comsumed",14265,true));
+accountTestData.push(new Account("Bananas",19,"edibles","Objects capable of being comsumed",14265,true));
 accountTestData.push(new Account("Weggs",765,"diffrent edibles","diffrent Objects capable of being comsumed",14885,false));
 accountTestData.push(new Account("Anime",1337,"UwU","I hate myself for making this",12345,false));
 accountTestData.push(new Account("Rocks",4,"not edibles","Objects you should not comsume",11,false));
@@ -85,8 +81,8 @@ export function AdminHome(){
 
 export function AdminViewAcct(){
      
-   // const testAccounts = [...getTestData()];
-    const accounts = [...getAccountData()];
+    const testAccounts = [...getTestData()];
+    const accounts = [...GetAccountData()];
 
     // const accountsColRef = collection(db, "accounts");
     // let count = accountsColRef.size;
@@ -116,7 +112,7 @@ function getAccountCards(account){
                   Subcategory : {children: account.subCategory},
                   AccountDescription : {children: account.description},
                   Balance : {children: account.balance},
-                  SwitchField: {isDisabled: account.isActive},
+                  SwitchField: {defaultChecked: account.isActive},
                 }
               }></AccountCard>
 </>

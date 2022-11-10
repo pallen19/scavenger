@@ -1,4 +1,5 @@
 import { Button } from '@aws-amplify/ui-react';
+import { AdminAccounts } from 'aws-sdk/clients/guardduty';
 import React from 'react'
 import { BrowserRouter as Router, Link , Navigate, Routes,Route, useNavigate } from 'react-router-dom';
 import { AdminButtons } from '../components/AdminButtons';
@@ -35,9 +36,9 @@ export const Admin = () => {
         </div> 
   </div>*/}
 
-  <AdminViewHome/>
+  <AdminAccounts/>
     </>
   )
       }
 
-export default Admin;
+export default AdminAccounts;

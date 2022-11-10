@@ -1,6 +1,6 @@
 import { Flex } from '@aws-amplify/ui-react';
 import React from 'react'
-import { AdminViewUsers,AccountCard } from '../ui-components';
+import { AccountCard } from '../ui-components';
 
 export const AdminViewUserF = () => {
 
@@ -16,7 +16,6 @@ export const AdminViewUserF = () => {
   } 
   return ( 
     <>
-    <div><AdminViewUsers/></div>
     <div id='populateCard' style={{position:'absolute', width:'1040px', 
     height:'162px', left:'55px', top:'309px', maxWidth:'60em'}}>
       <Flex>
