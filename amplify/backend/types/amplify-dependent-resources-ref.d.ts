@@ -8,6 +8,8 @@ export type AmplifyDependentResourcesAttributes = {
     },
     "auth": {
         "scavengera8be8093a8be8093": {
+            "IdentityPoolId": "string",
+            "IdentityPoolName": "string",
             "HostedUIDomain": "string",
             "OAuthMetadata": "string",
             "UserPoolId": "string",
@@ -16,6 +18,12 @@ export type AmplifyDependentResourcesAttributes = {
             "AppClientIDWeb": "string",
             "AppClientID": "string",
             "CreatedSNSRole": "string"
+        }
+    },
+    "storage": {
+        "s3scavengerstorage482dd7d1": {
+            "BucketName": "string",
+            "Region": "string"
         }
     }
 }

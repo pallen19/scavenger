@@ -5,7 +5,7 @@
  **************************************************************************/
 
 /* eslint-disable */
-import React from "react";
+import * as React from "react";
 import { getOverrideProps } from "@aws-amplify/ui-react/internal";
 import { Button, Text, TextField, View } from "@aws-amplify/ui-react";
 export default function ForgotPassword(props) {
@@ -14,6 +14,10 @@ export default function ForgotPassword(props) {
     <View
       width="474px"
       height="423px"
+      display="block"
+      gap="unset"
+      alignItems="unset"
+      justifyContent="unset"
       position="relative"
       padding="0px 0px 0px 0px"
       {...rest}
@@ -22,6 +26,10 @@ export default function ForgotPassword(props) {
       <View
         width="475px"
         height="424px"
+        display="block"
+        gap="unset"
+        alignItems="unset"
+        justifyContent="unset"
         position="absolute"
         top="-0.5px"
         left="-0.5px"
@@ -37,9 +45,13 @@ export default function ForgotPassword(props) {
         color="rgba(48,64,80,1)"
         lineHeight="36px"
         textAlign="left"
-        display="flex"
+        display="block"
         direction="column"
-        justifyContent="flex-start"
+        justifyContent="unset"
+        width="222px"
+        height="42px"
+        gap="unset"
+        alignItems="unset"
         position="absolute"
         top="9.69%"
         bottom="80.38%"
@@ -53,14 +65,16 @@ export default function ForgotPassword(props) {
       <TextField
         display="flex"
         gap="8px"
+        direction="column"
+        width="337px"
+        height="unset"
+        justifyContent="center"
+        alignItems="flex-start"
         position="absolute"
         top="22.93%"
         bottom="60.05%"
         left="14.35%"
         right="14.56%"
-        direction="column"
-        width="337px"
-        justifyContent="center"
         padding="0px 0px 0px 0px"
         label="Email"
         placeholder="Enter email"
@@ -73,14 +87,16 @@ export default function ForgotPassword(props) {
       <TextField
         display="flex"
         gap="8px"
+        direction="column"
+        width="337px"
+        height="unset"
+        justifyContent="center"
+        alignItems="flex-start"
         position="absolute"
         top="45.86%"
         bottom="37.12%"
         left="14.35%"
         right="14.56%"
-        direction="column"
-        width="337px"
-        justifyContent="center"
         padding="0px 0px 0px 0px"
         label="User ID"
         placeholder="Enter user ID"
@@ -93,29 +109,33 @@ export default function ForgotPassword(props) {
       <Button
         display="flex"
         gap="0"
+        direction="row"
+        width="150px"
+        height="unset"
+        justifyContent="center"
+        alignItems="center"
         position="absolute"
         top="318px"
         left="258px"
-        width="150px"
-        justifyContent="center"
-        alignItems="center"
         size="default"
         isDisabled={false}
         variation="primary"
-        children="Netxt"
+        children="Next"
         {...getOverrideProps(overrides, "Button35564932")}
       ></Button>
       <Button
         display="flex"
         gap="0"
+        direction="row"
+        width="152px"
+        height="unset"
+        justifyContent="center"
+        alignItems="center"
         position="absolute"
         top="74.94%"
         bottom="15.13%"
         left="14.14%"
         right="53.8%"
-        width="152px"
-        justifyContent="center"
-        alignItems="center"
         border="1px SOLID rgba(0,85,102,1)"
         borderRadius="5px"
         padding="8px 16px 8px 16px"
