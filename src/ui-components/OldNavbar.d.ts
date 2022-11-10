@@ -7,11 +7,9 @@
 import React from "react";
 import { EscapeHatchProps } from "@aws-amplify/ui-react/internal";
 import { ViewProps } from "@aws-amplify/ui-react";
-export declare type EmailButtonProps = React.PropsWithChildren<Partial<ViewProps> & {
-    property1?: "Highlighted" | "Navigation";
-    property2?: "EmailButton";
-    property3?: "Default";
+export declare type OldNavbarProps = React.PropsWithChildren<Partial<ViewProps> & {
+    property1?: "AdminViewAcctsBar" | "AdminViewHomeBar" | "AdminViewPwBar" | "AdminViewUser" | "Default" | "ManagerViewAcctsBar" | "ManagerViewHomeBar" | "ManagerViewUserBar";
 } & {
     overrides?: EscapeHatchProps | undefined | null;
 }>;
-export default function EmailButton(props: EmailButtonProps): React.ReactElement;
+export default function OldNavbar(props: OldNavbarProps): React.ReactElement;

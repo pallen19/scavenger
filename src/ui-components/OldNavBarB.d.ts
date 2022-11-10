@@ -6,12 +6,8 @@
 
 import React from "react";
 import { EscapeHatchProps } from "@aws-amplify/ui-react/internal";
-import { ViewProps } from "@aws-amplify/ui-react";
-export declare type EmailButtonProps = React.PropsWithChildren<Partial<ViewProps> & {
-    property1?: "Highlighted" | "Navigation";
-    property2?: "EmailButton";
-    property3?: "Default";
-} & {
+import { FlexProps } from "@aws-amplify/ui-react";
+export declare type OldNavBarBProps = React.PropsWithChildren<Partial<FlexProps> & {
     overrides?: EscapeHatchProps | undefined | null;
 }>;
-export default function EmailButton(props: EmailButtonProps): React.ReactElement;
+export default function OldNavBarB(props: OldNavBarBProps): React.ReactElement;

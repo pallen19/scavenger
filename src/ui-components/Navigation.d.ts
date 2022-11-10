@@ -7,11 +7,9 @@
 import React from "react";
 import { EscapeHatchProps } from "@aws-amplify/ui-react/internal";
 import { ViewProps } from "@aws-amplify/ui-react";
-export declare type EmailButtonProps = React.PropsWithChildren<Partial<ViewProps> & {
-    property1?: "Highlighted" | "Navigation";
-    property2?: "EmailButton";
-    property3?: "Default";
+export declare type NavigationProps = React.PropsWithChildren<Partial<ViewProps> & {
+    property1?: "Default";
 } & {
     overrides?: EscapeHatchProps | undefined | null;
 }>;
-export default function EmailButton(props: EmailButtonProps): React.ReactElement;
+export default function Navigation(props: NavigationProps): React.ReactElement;

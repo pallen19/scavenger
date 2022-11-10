@@ -6,18 +6,14 @@
 
 /* eslint-disable */
 import React from "react";
-import {
-  getOverrideProps,
-  useNavigateAction,
-} from "@aws-amplify/ui-react/internal";
-import { Image, Text, View } from "@aws-amplify/ui-react";
-export default function UserProfileButton(props) {
+import { getOverrideProps } from "@aws-amplify/ui-react/internal";
+import { Text, View } from "@aws-amplify/ui-react";
+export default function ReportRow(props) {
   const { overrides, ...rest } = props;
-  const imageOnClick = useNavigateAction({ type: "url", url: "/404" });
   return (
     <View
-      width="150px"
-      height="45px"
+      width="222px"
+      height="38px"
       display="block"
       gap="unset"
       alignItems="unset"
@@ -25,54 +21,49 @@ export default function UserProfileButton(props) {
       position="relative"
       padding="0px 0px 0px 0px"
       {...rest}
-      {...getOverrideProps(overrides, "UserProfileButton")}
+      {...getOverrideProps(overrides, "ReportRow")}
     >
-      <Image
-        width="30%"
-        height="100%"
+      <View
+        width="223px"
+        height="39px"
         display="block"
         gap="unset"
         alignItems="unset"
         justifyContent="unset"
         position="absolute"
-        top="0%"
-        bottom="0%"
-        left="70%"
-        right="0%"
-        border="2px SOLID rgba(0,0,0,1)"
-        borderRadius="160px"
+        top="-1.32%"
+        bottom="-1.32%"
+        left="-0.23%"
+        right="-0.23%"
+        border="0.5px SOLID rgba(102,102,102,1)"
         padding="0px 0px 0px 0px"
-        objectFit="cover"
-        src="/Images/DefaultProfileImage.jpg"
-        onClick={() => {
-          imageOnClick();
-        }}
-        {...getOverrideProps(overrides, "image")}
-      ></Image>
+        backgroundColor="rgba(217,217,217,1)"
+        {...getOverrideProps(overrides, "DataFrame")}
+      ></View>
       <Text
-        fontFamily="Inter"
+        fontFamily="Poppins"
         fontSize="16px"
-        fontWeight="700"
-        color="rgba(0,0,0,1)"
+        fontWeight="600"
+        color="rgba(33,33,33,1)"
         lineHeight="24px"
-        textAlign="left"
+        textAlign="center"
         display="block"
         direction="column"
         justifyContent="unset"
-        letterSpacing="0.01px"
-        width="unset"
-        height="unset"
+        textDecoration="underline"
+        width="222px"
+        height="38px"
         gap="unset"
         alignItems="unset"
         position="absolute"
-        top="24.44%"
-        bottom="22.22%"
+        top="0%"
+        bottom="0%"
         left="0%"
-        right="45.33%"
+        right="0%"
         padding="0px 0px 0px 0px"
         whiteSpace="pre-wrap"
-        children="Username"
-        {...getOverrideProps(overrides, "Username")}
+        children="Data"
+        {...getOverrideProps(overrides, "Data")}
       ></Text>
     </View>
   );
