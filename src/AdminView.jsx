@@ -4,9 +4,10 @@ import { AccountCard } from "./ui-components";
 import { useState } from "react";
 import { db, storage } from './database/firebase';
 import * as firebase from 'firebase/app';
-import { collection, getDocs, getDoc, updateDoc, query, where, arrayUnion, documentId, doc, arrayRemove, addDoc } from 'firebase/firestore';
+import { collection, getDocs, getDoc, updateDoc, query, where, arrayUnion, documentId, doc, arrayRemove, addDoc, setDoc } from 'firebase/firestore';
 import "firebase/firestore";
 import { ref, uploadBytes } from 'firebase/storage';
+// import 'package:cloud_firestore/cloud_firestore';
 
 class Account{
 constructor(name,number,subCategory,description,balance,isActive){
@@ -21,19 +22,18 @@ constructor(name,number,subCategory,description,balance,isActive){
 }
 
 
-
+// accountData.push(
+//     new Account(account.name, account.number, account.subCategory, account.description, account.balance,  account.isActive))
 
 export function getAccountData(){
     const accountsColRef = collection(db, "accounts");
-
-    let accountData = [];
+    let accounts = []
     getDoc(accountsColRef)
     .then(snapshot => {
         snapshot.forEach(account => {
-            accountData.push(
-                new Account(account.name, account.number, account.subCategory, account.description, account.balance,  account.isActive))
-        });
-        return accountData;
+            setDoc(account)
+        })
+        return setDoc;
     });
     
 }
@@ -78,7 +78,7 @@ export function AdminHome(){
 export function AdminViewAcct(){
      
     const testAccounts = [...getTestData()];
-    // const accounts = [...getAccountData()];
+    const accounts = [...getAccountData()];
 
     // const accountsColRef = collection(db, "accounts");
     // let count = accountsColRef.size;
@@ -87,8 +87,8 @@ export function AdminViewAcct(){
         <>
         <h1>ADMIN view accounts</h1>
         <div className="d-inline-flex p-2">
-       {testAccounts.map(account => getAccountCards(account))}
-       {/* {accounts.map(account => getAccountCards(account))} */}
+       {/* {testAccounts.map(account => getAccountCards(account))} */}
+       {accounts.map(account => getAccountCards(account))}
         
         </div>
 
