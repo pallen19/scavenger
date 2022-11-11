@@ -1,7 +1,15 @@
+<<<<<<< Updated upstream
 import React, { Fragment, PureComponent, Component } from "react";
 import ReactDOM from 'react-dom/client';
 import  {SendEmailCommand } from '@aws-sdk/client-ses';
 import  {sesClient } from './libs/sesClient';
+=======
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import  SendEmailCommand  from '@aws-sdk/client-ses';
+import  sesClient  from './libs/sesClient.js';
+
+>>>>>>> Stashed changes
 
 //const DEFAULT_TEMPLATE_IMG = '/content/images/CS.jpg';
 const sourceEmail = 'hotajed147@lidely.com';
@@ -31,6 +39,18 @@ export default class PersonalizationComponent extends PureComponent {
     }
     
 
+<<<<<<< Updated upstream
+=======
+    //idk if this is needed but for the love of god
+    var AWS = require("aws-sdk");
+    AWS.config.update({
+        accessKeyId: "AKIA2ZP4XPBPVAM7BG5J",
+        secretAccessKey: "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",
+        "region": "us-east-2"  
+    })
+
+    //ensure all form fields are filled out
+>>>>>>> Stashed changes
     this.validateEmailForm = () => {
         let form = {...this.state.emailForm};
         let validationMessages = [];
@@ -64,6 +84,8 @@ export default class PersonalizationComponent extends PureComponent {
         });
     }
 
+
+    //Submit Email Form
     this.submit = () => {
         let validationMessages = this.validateEmailForm();
         if(validationMessages.length > 0)
@@ -82,6 +104,8 @@ export default class PersonalizationComponent extends PureComponent {
 
     }
 
+
+    //Onclick essentially
     this.handleEmailFormChange = (event, callback) => {
         let value = event.target.value;
         const name = event.target.name;
