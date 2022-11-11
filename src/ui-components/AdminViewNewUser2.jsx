@@ -6,10 +6,7 @@
 
 /* eslint-disable */
 import React from "react";
-import {
-  getOverrideProps,
-  useNavigateAction,
-} from "@aws-amplify/ui-react/internal";
+import { getOverrideProps } from "@aws-amplify/ui-react/internal";
 import {
   Button,
   Flex,
@@ -20,14 +17,6 @@ import {
 } from "@aws-amplify/ui-react";
 export default function AdminViewNewUser2(props) {
   const { overrides, ...rest } = props;
-  const buttonThreeFiveFiveSixFourSevenNineFourOnClick = useNavigateAction({
-    type: "url",
-    url: "/",
-  });
-  const buttonThreeFiveFiveSixFourSevenNineFiveOnClick = useNavigateAction({
-    type: "url",
-    url: "/",
-  });
   return (
     <View
       width="472px"
@@ -177,9 +166,6 @@ export default function AdminViewNewUser2(props) {
             isDisabled={false}
             variation="primary"
             children="Submit"
-            onClick={() => {
-              buttonThreeFiveFiveSixFourSevenNineFourOnClick();
-            }}
             {...getOverrideProps(overrides, "Button35564794")}
           ></Button>
         </Flex>
@@ -346,9 +332,6 @@ export default function AdminViewNewUser2(props) {
           isDisabled={false}
           variation="default"
           children="Cancel"
-          onClick={() => {
-            buttonThreeFiveFiveSixFourSevenNineFiveOnClick();
-          }}
           {...getOverrideProps(overrides, "Button35564795")}
         ></Button>
       </View>

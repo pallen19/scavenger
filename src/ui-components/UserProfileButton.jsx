@@ -6,10 +6,14 @@
 
 /* eslint-disable */
 import React from "react";
-import { getOverrideProps } from "@aws-amplify/ui-react/internal";
+import {
+  getOverrideProps,
+  useNavigateAction,
+} from "@aws-amplify/ui-react/internal";
 import { Image, Text, View } from "@aws-amplify/ui-react";
 export default function UserProfileButton(props) {
   const { overrides, ...rest } = props;
+  const imageOnClick = useNavigateAction({ type: "url", url: "/404" });
   return (
     <View
       width="150px"
@@ -35,9 +39,14 @@ export default function UserProfileButton(props) {
         bottom="0%"
         left="70%"
         right="0%"
+        border="2px SOLID rgba(0,0,0,1)"
         borderRadius="160px"
         padding="0px 0px 0px 0px"
         objectFit="cover"
+        src="/Images/DefaultProfileImage.jpg"
+        onClick={() => {
+          imageOnClick();
+        }}
         {...getOverrideProps(overrides, "image")}
       ></Image>
       <Text

@@ -18,7 +18,7 @@ export const AdminButtons = () => {
       }
   else
       if(goToExpiredPasswords){
-        return <AdminViewPwReport />
+        return
       }
   return (<
 

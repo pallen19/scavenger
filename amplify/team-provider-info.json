@@ -26,6 +26,9 @@
       },
       "auth": {
         "scavengera8be8093a8be8093": {}
+      },
+      "storage": {
+        "s3scavengerstorage482dd7d1": {}
       }
     }
   },

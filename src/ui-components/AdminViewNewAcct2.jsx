@@ -6,17 +6,10 @@
 
 /* eslint-disable */
 import React from "react";
-import {
-  getOverrideProps,
-  useNavigateAction,
-} from "@aws-amplify/ui-react/internal";
+import { getOverrideProps } from "@aws-amplify/ui-react/internal";
 import { Card, Flex, Text, TextField, View } from "@aws-amplify/ui-react";
 export default function AdminViewNewAcct2(props) {
   const { overrides, ...rest } = props;
-  const buttonThreeFiveOneNineOneTwoSixZeroZeroOnClick = useNavigateAction({
-    type: "url",
-    url: "/",
-  });
   return (
     <View
       width="472px"
@@ -335,9 +328,6 @@ export default function AdminViewNewAcct2(props) {
           border="1px SOLID rgba(0,85,102,1)"
           borderRadius="5px"
           padding="8px 16px 8px 16px"
-          onClick={() => {
-            buttonThreeFiveOneNineOneTwoSixZeroZeroOnClick();
-          }}
           {...getOverrideProps(overrides, "Button351912600")}
         >
           <Text

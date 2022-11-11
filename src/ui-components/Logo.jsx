@@ -6,10 +6,14 @@
 
 /* eslint-disable */
 import React from "react";
-import { getOverrideProps } from "@aws-amplify/ui-react/internal";
+import {
+  getOverrideProps,
+  useNavigateAction,
+} from "@aws-amplify/ui-react/internal";
 import { Flex, Image, Text } from "@aws-amplify/ui-react";
 export default function Logo(props) {
   const { overrides, ...rest } = props;
+  const imageOnClick = useNavigateAction({ type: "url", url: "/404" });
   return (
     <Flex
       gap="2px"
@@ -34,7 +38,11 @@ export default function Logo(props) {
         position="relative"
         padding="0px 0px 0px 0px"
         objectFit="cover"
-        {...getOverrideProps(overrides, "logo2 1")}
+        src="/Images/BusinessLogo.jpg"
+        onClick={() => {
+          imageOnClick();
+        }}
+        {...getOverrideProps(overrides, "image")}
       ></Image>
       <Text
         fontFamily="Inter"

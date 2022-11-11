@@ -5,10 +5,10 @@ import{Link} from "react-router-dom"
 export default function TestNav(){
  return(
     <>
-    <Link to="adminAccounts">   accounts  </Link>
-    <Link to="adminHome">   adminHome  </Link>
-    <Link to="adminNewUser">   adminNewUser  </Link>
-    <Link to="AdminNewAccount">   AdminNewAccount  </Link>
+    <Link to="Accounts">   accounts  </Link>
+    <Link to="Home">   adminHome  </Link>
+    <Link to="NewUser">   adminNewUser  </Link>
+    <Link to="NewAccount">   AdminNewAccount  </Link>
     </>
  
  )

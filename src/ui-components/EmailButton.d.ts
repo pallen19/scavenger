@@ -4,10 +4,14 @@
  * Any changes to this file will be overwritten when running amplify pull. *
  **************************************************************************/
 
-import React from "react";
+import * as React from "react";
 import { EscapeHatchProps } from "@aws-amplify/ui-react/internal";
 import { ViewProps } from "@aws-amplify/ui-react";
 export declare type EmailButtonProps = React.PropsWithChildren<Partial<ViewProps> & {
+    property1?: "Highlighted" | "Navigation";
+    property2?: "EmailButton";
+    property3?: "Default";
+} & {
     overrides?: EscapeHatchProps | undefined | null;
 }>;
 export default function EmailButton(props: EmailButtonProps): React.ReactElement;

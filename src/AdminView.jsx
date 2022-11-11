@@ -22,29 +22,34 @@ constructor(name,number,subCategory,description,balance,isActive){
 }
 
 
-// accountData.push(
-//     new Account(account.name, account.number, account.subCategory, account.description, account.balance,  account.isActive))
 
-export function getAccountData(){
+export function GetAccountData(){
     const accountsColRef = collection(db, "accounts");
-    let accounts = []
+    const [docID, setDocID] = useState([])
+    const [myArr, setMyArr] = useState([])
+
+     let accountData = [];
     getDoc(accountsColRef)
     .then(snapshot => {
         snapshot.forEach(account => {
-            setDoc(account)
-        })
-        return setDoc;
-    });
-    
+            setDocID = account;
+        });
+    }); 
+    accountData.push(setDocID)
+    // arrayUnion(setDocID, accountsColRef)   
+    return accountData;
 }
 
 export function getTestData(){
 let accountTestData = [];
-accountTestData.push(new Account("Bananas",19,"edibles","Objects capable of being comsumed",14265,false));
+accountTestData.push(new Account("12345",19,"edibles","Objects capable of being comsumed",14265,true));
+accountTestData.push(new Account("Bananas",19,"edibles","Objects capable of being comsumed",14265,true));
 accountTestData.push(new Account("Weggs",765,"diffrent edibles","diffrent Objects capable of being comsumed",14885,false));
 accountTestData.push(new Account("Anime",1337,"UwU","I hate myself for making this",12345,false));
 accountTestData.push(new Account("Rocks",4,"not edibles","Objects you should not comsume",11,false));
 accountTestData.push(new Account("Unlisted",420,"NOT DRUGS","I said its not drugs",69420,false));
+accountTestData.push(new Account("Unlisted",420,"NOT DRUGS","I said its not drugs",69420,false));
+
 return accountTestData;
 }
 
@@ -78,7 +83,7 @@ export function AdminHome(){
 export function AdminViewAcct(){
      
     const testAccounts = [...getTestData()];
-    const accounts = [...getAccountData()];
+    const accounts = [...GetAccountData()];
 
     // const accountsColRef = collection(db, "accounts");
     // let count = accountsColRef.size;
@@ -87,8 +92,8 @@ export function AdminViewAcct(){
         <>
         <h1>ADMIN view accounts</h1>
         <div className="d-inline-flex p-2">
-       {/* {testAccounts.map(account => getAccountCards(account))} */}
-       {accounts.map(account => getAccountCards(account))}
+         {/*{testAccounts.map(account => getAccountCards(account))} */}
+        {/* {accounts.map(account => getAccountCards(account))} */}
         
         </div>
 
@@ -108,7 +113,7 @@ function getAccountCards(account){
                   Subcategory : {children: account.subCategory},
                   AccountDescription : {children: account.description},
                   Balance : {children: account.balance},
-                  SwitchField: {isDisabled: account.isActive},
+                  SwitchField: {defaultChecked: account.isActive},
                 }
               }></AccountCard>
 </>
