@@ -14,6 +14,8 @@ import {getUserGroup,ElevateAccount,GetUser} from "./AdminFunctions"
 import ReactDropdown from "react-dropdown";
 import "./Dev.css"
 
+
+
 // Test Data
 export function getTestData(){
     let accountTestData = [];
@@ -98,22 +100,23 @@ constructor(name,number,subCategory,description,balance,isActive){
     //End of Functions
 
     //Pages
-export function Home(){
+export function Home(props){
      //Constants
      const location = useLocation();
      const navigation = useNavigate();
      //End of Constants
 
-     switch(localStorage.getItem('role')){
+     switch(props.level){
         case 'Administrators':
             return (
                 <>
+
                 <h1>Admins</h1>
                 <PageHeader
        overrides={{
          PageHeader: {width:"100%"},
          Background:{width: "100%"},
-         PageTitle: {children: "Expired Passwords"},
+         PageTitle: {children: "Home"},
          SubNavigation:{children: <Link to="/Reports">Reports{" > "} </Link> }
          
      }}/>
@@ -131,13 +134,13 @@ export function Home(){
             return(<h1>Access Denied</h1>)
         }}
 
-export function NewAcct(){
-  //Constants
+export function Journals(props){
+     //Constants
   const location = useLocation();
   const navigation = useNavigate();
   //End of Constants
 
-  switch(localStorage.getItem('role')){
+  switch(props.level){
     case 'Administrators':
         return (
             <>
@@ -146,7 +149,41 @@ export function NewAcct(){
        overrides={{
          PageHeader: {width:"100%"},
          Background:{width: "100%"},
-         PageTitle: {children: "Expired Passwords"},
+         PageTitle: {children: "Journals"},
+         SubNavigation:{children:""}
+         
+     }}/>
+        </> );
+    case 'Managers':
+        return(
+        <h1>Managers</h1>
+        )
+    case 'Accountant':
+        return(
+            <h1>Accountant</h1>
+            )
+    default:
+        return(<h1>Access Denied</h1>)
+    }
+}
+
+
+export function NewAcct(props){
+  //Constants
+  const location = useLocation();
+  const navigation = useNavigate();
+  //End of Constants
+
+  switch(props.level){
+    case 'Administrators':
+        return (
+            <>
+            <h1>Admins</h1>
+            <PageHeader  
+       overrides={{
+         PageHeader: {width:"100%"},
+         Background:{width: "100%"},
+         PageTitle: {children: "Create A New Account"},
          SubNavigation:{children: <Link to="/Reports">Reports{" > "} </Link> }
          
      }}/>
@@ -164,7 +201,7 @@ export function NewAcct(){
     }
 }
 
-export function Users(){
+export function Users(props){
   //Constants
   const location = useLocation();
   const navigation = useNavigate();
@@ -177,7 +214,7 @@ export function Users(){
   ]
   //End of Constants
 
-  switch(localStorage.getItem('role')){
+  switch(props.level){
     case 'Administrators':
         return (
             <>
@@ -186,7 +223,7 @@ export function Users(){
        overrides={{
          PageHeader: {width:"100%"},
          Background:{width: "100%"},
-         PageTitle: {children: "Expired Passwords"},
+         PageTitle: {children: "Users"},
          SubNavigation:{children: <Link to="/Reports">Reports{" > "} </Link> }
    
      }}/>
@@ -215,14 +252,14 @@ export function Users(){
  
 }
 
-export function Reports(){
+export function Reports(props){
   //Constants
   const [currentPage,setCurrentPage] = useState("Passwords")
     const location = useLocation();
   const navigation = useNavigate();
   //End of Constants
 
-  switch(localStorage.getItem('role')){
+  switch(props.level){
     case 'Administrators':
         return (
             <>
@@ -231,7 +268,7 @@ export function Reports(){
        overrides={{
          PageHeader: {width:"100%"},
          Background:{width: "100%"},
-         PageTitle: {children: "Expired Passwords"},
+         PageTitle: {children: "Reports"},
          SubNavigation:{children: <Link to="/Reports">Reports{" > "} </Link> }
          
      }}/>
@@ -250,13 +287,13 @@ export function Reports(){
  
 }
 
-export function ExpiredPasswords(){
+export function ExpiredPasswords(props){
     //Constants
     const location = useLocation();
     const navigation = useNavigate();
     //End of Constants
 
-    switch(localStorage.getItem('role')){
+    switch(props.level){
         case 'Administrators':
             return (
                 <>
@@ -284,13 +321,13 @@ export function ExpiredPasswords(){
    
   }
 
-export function NewUser(){
+export function NewUser(props){
   //Constants
   const location = useLocation();
   const navigation = useNavigate();
   //End of Constants
 
-  switch(localStorage.getItem('role')){
+  switch(props.level){
     case 'Administrators':
         return (
             <>
@@ -317,14 +354,15 @@ export function NewUser(){
 
 }
 
-export function ViewAcct(){
+export function ViewAcct(props){
     //Constants
     const location = useLocation();
     const navigation = useNavigate();
     const testAccounts = [...getTestData()];
+    const [modal,setModal] = useState(false)
     //End of Constants
  
-switch(localStorage.getItem('role')){
+switch(props.level){
 case 'Administrators':
     return (
         <>
@@ -332,7 +370,7 @@ case 'Administrators':
         <PageHeader overrides={{
          PageHeader: {width:"100%"},
          Background:{width: "100%"},
-         PageTitle: {children: "Accounts"}
+         PageTitle: {children: <Link to="/Journals">New Journal Entry</Link>}
      }}/>
         <div className="arrangeAccounts">
        {testAccounts.map(account => getAccountCards(account))}

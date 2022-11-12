@@ -5,7 +5,7 @@ import { Authenticator, Heading} from '@aws-amplify/ui-react';
 import '@aws-amplify/ui-react/styles.css';
 import {Routes,Route, Navigate, Outlet, redirect,useNavigate, Link } from "react-router-dom";  
 import { useEffect, useState } from 'react';
-import {ViewAcct,Home,NewAcct,NewUser,Users,Reports,ExpiredPasswords} from './AdminView';
+import {ViewAcct,Home,NewAcct,NewUser,Users,Reports,ExpiredPasswords, Journals} from './AdminView';
 import Layout  from './Layout';
 import TestNav from './testnav';
 import {Navigation,Logo} from './ui-components'
@@ -31,7 +31,7 @@ useEffect(()=>{
 
 useEffect(()=>{
  localStorage.setItem('role',level);
-},[level])
+},[])
 
 
 
@@ -186,12 +186,14 @@ const services={
   
   <Routes>
     <Route path="/" element={<Layout />}>
-        <Route path='/Accounts' element={<ProtectedRoute allowed={level === "Administrators" || level === "Managers"} redirectPath="*"><ViewAcct/></ProtectedRoute>}/>
-        <Route path='/Home' element={<Home></Home>}/>
-        <Route path='/Users' element={<ProtectedRoute allowed={level === "Administrators" || level === "Managers"} redirectPath="*"><Users/></ProtectedRoute>}/>
-        <Route path='/Reports' element={<ProtectedRoute allowed={level === "Administrators" || level === "Managers"} redirectPath="*"><Reports/></ProtectedRoute>}></Route>
-        <Route path='/ExpiredPasswords' element={<ProtectedRoute allowed={level === "Administrators" || level === "Managers"} redirectPath="*"><ExpiredPasswords/></ProtectedRoute>}></Route>
-        
+        <Route path='/Accounts' element={<ProtectedRoute allowed={level === "Administrators" || level === "Managers"} redirectPath="*"><ViewAcct level={level} /></ProtectedRoute>}/>
+        <Route path='/Home' element={<Home level={level}></Home>}/>
+        <Route path='/Users' element={<ProtectedRoute allowed={level === "Administrators" || level === "Managers"} redirectPath="*"><Users level={level}/></ProtectedRoute>}/>
+        <Route path='/Reports' element={<ProtectedRoute allowed={level === "Administrators" || level === "Managers"} redirectPath="*"><Reports level={level}/></ProtectedRoute>}></Route>
+        <Route path='/ExpiredPasswords' element={<ProtectedRoute allowed={level === "Administrators" || level === "Managers"} redirectPath="*"><ExpiredPasswords level={level} /></ProtectedRoute>}></Route>
+        <Route path='/Journals' element={<ProtectedRoute allowed={level === "Administrators" || level === "Managers"} redirectPath="*"><Journals level={level} /></ProtectedRoute>}></Route>
+        <Route path='/NewAccount' element={<ProtectedRoute allowed={level === "Administrators" || level === "Managers"} redirectPath="*"><NewAcct level={level} /></ProtectedRoute>}></Route>
+        <Route path='/NewUser' element={<ProtectedRoute allowed={level === "Administrators" || level === "Managers"} redirectPath="*"><NewUser level={level} /></ProtectedRoute>}></Route>
         
         <Route path='/404' element={<h1>This Link has not been assigned</h1>}></Route>
         <Route path="*" element={<Navigate to="/Home"/>}/>
