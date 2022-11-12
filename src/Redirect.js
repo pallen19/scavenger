@@ -1,7 +1,7 @@
 import React from "react";
 import { useEffect } from "react";
 import {useNavigate,Navigate ,Link} from "react-router-dom";
-
+{/*Dead Component */}
 
 function Redirection(type){
     let nav = useNavigate();
@@ -27,7 +27,7 @@ function Redirection(type){
     if(props.accountType === 'Administrators'){
         return(
             <>
-            <Navigate to="/admin"></Navigate>
+            <Navigate to="/Home"></Navigate>
             </>
         )
     }

@@ -5,7 +5,7 @@
  **************************************************************************/
 
 /* eslint-disable */
-import * as React from "react";
+import React from "react";
 import { getOverrideProps } from "@aws-amplify/ui-react/internal";
 import { Badge, Icon, Text, View } from "@aws-amplify/ui-react";
 export default function UserCardSmall(props) {
@@ -100,8 +100,8 @@ export default function UserCardSmall(props) {
         right="62.68%"
         padding="0px 0px 0px 0px"
         whiteSpace="pre-wrap"
-        children="John Smith"
-        {...getOverrideProps(overrides, "John Smith")}
+        children="Account Name:"
+        {...getOverrideProps(overrides, "AccountName")}
       ></Text>
       <Text
         fontFamily="Poppins"
@@ -124,13 +124,13 @@ export default function UserCardSmall(props) {
         right="58.22%"
         padding="0px 0px 0px 0px"
         whiteSpace="pre-wrap"
-        children="UserID: 098989898"
-        {...getOverrideProps(overrides, "UserID: 098989898")}
+        children="UserID"
+        {...getOverrideProps(overrides, "UserID")}
       ></Text>
       <Text
         fontFamily="Poppins"
         fontSize="14px"
-        fontWeight="400"
+        fontWeight="600"
         color="rgba(0,0,0,1)"
         lineHeight="21px"
         textAlign="left"
@@ -148,8 +148,32 @@ export default function UserCardSmall(props) {
         right="43.19%"
         padding="0px 0px 0px 0px"
         whiteSpace="pre-wrap"
-        children="Password Expiration: 10/31/2022"
-        {...getOverrideProps(overrides, "Password Expiration: 10/31/2022")}
+        children="PasswordExpiration"
+        {...getOverrideProps(overrides, "PasswordExpiration")}
+      ></Text>
+      <Text
+        fontFamily="Poppins"
+        fontSize="14px"
+        fontWeight="600"
+        color="rgba(0,0,0,1)"
+        lineHeight="21px"
+        textAlign="left"
+        display="block"
+        direction="column"
+        justifyContent="unset"
+        width="195px"
+        height="24px"
+        gap="unset"
+        alignItems="unset"
+        position="absolute"
+        top="73.81%"
+        bottom="11.9%"
+        left="3.76%"
+        right="50.47%"
+        padding="0px 0px 0px 0px"
+        whiteSpace="pre-wrap"
+        children="DateofGeneratedReport"
+        {...getOverrideProps(overrides, "DateofGeneratedReport")}
       ></Text>
     </View>
   );

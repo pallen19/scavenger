@@ -5,7 +5,7 @@
  **************************************************************************/
 
 /* eslint-disable */
-import * as React from "react";
+import React from "react";
 import {
   getOverrideProps,
   getOverridesFromVariants,
@@ -62,6 +62,7 @@ export default function EmailButton(props) {
         right="0%"
         padding="0px 0px 0px 0px"
         objectFit="cover"
+        src="Images/EmailButtonIcon.png"
         {...getOverrideProps(overrides, "image 1")}
       ></Image>
     </View>

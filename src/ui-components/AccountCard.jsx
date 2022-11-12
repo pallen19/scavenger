@@ -5,7 +5,7 @@
  **************************************************************************/
 
 /* eslint-disable */
-import * as React from "react";
+import React from "react";
 import { getOverrideProps } from "@aws-amplify/ui-react/internal";
 import { Flex, SwitchField, Text, View } from "@aws-amplify/ui-react";
 import Edit from "./Edit";
@@ -101,15 +101,15 @@ export default function AccountCard(props) {
         display="block"
         direction="column"
         justifyContent="unset"
-        width="271px"
-        height="unset"
+        width="235px"
+        height="22px"
         gap="unset"
         alignItems="unset"
         position="absolute"
         top="48.77%"
-        bottom="38.27%"
+        bottom="37.65%"
         left="3.85%"
-        right="44.04%"
+        right="50.96%"
         padding="0px 0px 0px 0px"
         whiteSpace="pre-wrap"
         children="Subcategory"
@@ -234,7 +234,6 @@ export default function AccountCard(props) {
         {...getOverrideProps(overrides, "Frame 436")}
       >
         <SwitchField
-          onClick={()=>{this.props.onClick}}
           display="flex"
           gap="8px"
           direction="row"

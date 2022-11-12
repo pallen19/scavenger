@@ -4,10 +4,12 @@
  * Any changes to this file will be overwritten when running amplify pull. *
  **************************************************************************/
 
-import * as React from "react";
+import React from "react";
 import { EscapeHatchProps } from "@aws-amplify/ui-react/internal";
 import { ViewProps } from "@aws-amplify/ui-react";
 export declare type NavigationProps = React.PropsWithChildren<Partial<ViewProps> & {
+    className?: String;
+} & {
     property1?: "Default";
 } & {
     overrides?: EscapeHatchProps | undefined | null;
