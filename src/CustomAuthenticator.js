@@ -11,7 +11,7 @@ import Admin from './pages/Admin';
 import { AdminViewUserF} from './pages/AdminViewUserF';
 import { AdminViewNewAccount} from './pages/AdminViewNewAccount';
 import placeHolder from './components/placeHolder.png';
-import {AdminViewAcct,AdminHome,AdminNewAcct,AdminNewUser} from './AdminView';
+import {AdminViewAcct,AdminHome,AdminNewAcct,AdminNewUser, AdminReport} from './AdminView';
 import Layout  from './Layout';
 import TestNav from './testnav';
 import {Navigation} from './ui-components'
@@ -182,10 +182,11 @@ const services={
   <Routes>
     <Route path="/" element={<Layout />}>
         <Route path='/Accounts' element={<ProtectedRoute allowed={level === "Administrators"} redirectPath="*"><AdminViewAcct/></ProtectedRoute>}/>
-        <Route path='/Reports' element={<ProtectedRoute allowed={level === "Administrators"} redirectPath="*"><emailForm/></ProtectedRoute>}/>
+        {/*<Route path='/Reports' element={<ProtectedRoute allowed={level === "Administrators"} redirectPath="*"><emailForm/></ProtectedRoute>}/>*/}
         <Route path='/admin' element={<ProtectedRoute allowed={level === "Administrators"} redirectPath="*"></ProtectedRoute>}/>
         <Route path='/Users' element={<ProtectedRoute allowed={level === "Administrators"} redirectPath="*"></ProtectedRoute>}/>
-        <Route path='/Reports' element={<ProtectedRoute allowed={level === "Administrators"} redirectPath="*"></ProtectedRoute>}/>
+        <Route path='/Reports' element={<ProtectedRoute allowed={level === "Administrators"} redirectPath="*"><AdminReport/></ProtectedRoute>}/>
+        <Route path='/JournalEntry' element={<ProtectedRoute allowed={level === "Administrators"} redirectPath="*"></ProtectedRoute>}/>
       <Route path="*" element={<Redirect accountType={level}/>}/>
     </Route>
   </Routes>

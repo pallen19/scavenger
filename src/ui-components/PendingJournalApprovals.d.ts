@@ -7,7 +7,7 @@
 import React from "react";
 import { EscapeHatchProps } from "@aws-amplify/ui-react/internal";
 import { ViewProps } from "@aws-amplify/ui-react";
-export declare type AdminViewNewUser2Props = React.PropsWithChildren<Partial<ViewProps> & {
+export declare type PendingJournalApprovalsProps = React.PropsWithChildren<Partial<ViewProps> & {
     overrides?: EscapeHatchProps | undefined | null;
 }>;
-export default function AdminViewNewUser2(props: AdminViewNewUser2Props): React.ReactElement;
+export default function PendingJournalApprovals(props: PendingJournalApprovalsProps): React.ReactElement;

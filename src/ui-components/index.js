@@ -33,6 +33,7 @@ export { default as ButtonCreateNewAccount } from "./ButtonCreateNewAccount";
 export { default as AdminViewNewAcct } from "./AdminViewNewAcct";
 export { default as Logo } from "./Logo";
 export { default as Navigation } from "./Navigation";
+export { default as PendingJournalApprovals } from "./PendingJournalApprovals";
 export { default as Edit } from "./Edit";
 export { default as ButtonGeneric1 } from "./ButtonGeneric1";
 export { default as NewUser2 } from "./NewUser2";

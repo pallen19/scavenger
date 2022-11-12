@@ -36,3 +36,68 @@
     transform: rotate(360deg);
   }
 }
+
+
+
+
+
+
+
+
+.overlay{
+  background-color: rgba(0, 0, 0, 0.6);
+  position: absolute;
+  width: 120%;
+  height: 180%;
+  top:13rem;
+ 
+}
+.modalContainer{
+  max-width: 600px;
+  width: 100%;
+  position: fixed;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  display: flex;
+  background-color: white;
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.75);
+}
+
+.modalRight{
+  width: 100%;
+
+}
+
+.closeBtn{
+  position: fixed;
+  top:8px;
+  right: 8px;
+}
+
+.content{
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: center;
+  text-align: left;
+  margin-top:  1rem;
+  padding: 1rem 2rem;
+
+}
+.inputBox{
+  justify-content: right;
+  text-align: left;
+}
+.btnContainer{
+  display: flex;
+  padding:1rem 1rem;
+
+}
+
+.btnContainer{
+  width:100%;
+  margin: .5rem;
+  padding: 16px;
+  border: none;
+  color: #fff;
+}

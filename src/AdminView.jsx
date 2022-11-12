@@ -1,12 +1,14 @@
 import { Button, Flex } from "@aws-amplify/ui-react";
 import React from "react";
-import { AccountCard } from "./ui-components";
+import { AccountCard, Edit, UserCardSmall } from "./ui-components";
 import { useState } from "react";
 import { db, storage } from './database/firebase';
 import * as firebase from 'firebase/app';
 import { collection, getDocs, getDoc, updateDoc, query, where, arrayUnion, documentId, doc, arrayRemove, addDoc } from 'firebase/firestore';
 import "firebase/firestore";
 import { ref, uploadBytes } from 'firebase/storage';
+import Modal from "./Modal";
+//import './Modal.css';
 
 class Account{
 constructor(name,number,subCategory,description,balance,isActive){
@@ -17,6 +19,19 @@ constructor(name,number,subCategory,description,balance,isActive){
     this.balance = balance;
     this.isActive = isActive;
 }
+
+
+
+
+}
+class ExpiredPassword{
+   constructor(name,userID,dateGenerated,passwordExpiration){
+    this.name = name;
+    this.userID = userID;
+    this.dateGenerated =dateGenerated;
+    this.passwordExpiration =passwordExpiration;
+}
+
 
 }
 
@@ -80,9 +95,15 @@ export function AdminHome(){
 }
 
 export function AdminViewAcct(){
-     
     const testAccounts = [...getTestData()];
-    const accounts = [...GetAccountData()];
+  //  const [openModal, setOpenModal]= useState(false)
+     {/*const AdminEditAccount=(props)=>{
+    
+    
+        {/*setOpenModal(props)*/
+      
+}
+    {/*const accounts = [...GetAccountData()];*/}
 
     // const accountsColRef = collection(db, "accounts");
     // let count = accountsColRef.size;
@@ -91,30 +112,56 @@ export function AdminViewAcct(){
         <>
         <h1>ADMIN view accounts</h1>
         <div className="d-inline-flex p-2">
-         {/*{testAccounts.map(account => getAccountCards(account))} */}
-        {/* {accounts.map(account => getAccountCards(account))} */}
+         {testAccounts.map(account => getAccountCards(account))}
+
+       {/*  {accounts.map(account => getAccountCards(account))} 
+
+       
         
-        </div>
+      <div>
+      
+       {/*<button className="modalBtn" onClick={() => setOpenModal(true)}>Modal</button>
+                <Modal open={openModal} onClose={()=> setOpenModal(false)}/>
+                </div>
+  
+            */} 
+            </div>
 
+    {/* <AccountCard overrides={
+         
+         
+         
+         {edit: {onClick:()=>setOpenModal(true)}}
+         
+         
+         
+        }></AccountCard>*/}
+        
         </>
-
-     )
+        )
 }
-
-function getAccountCards(account){
+const handleClick=()=>{
+}
+function getAccountCards(account,props){  
+    
     return ( 
         <>
         
               <AccountCard
               overrides={                
+                
                   {AccountName: {children: account.name},
                   AccountNumber : {children: account.number},
                   Subcategory : {children: account.subCategory},
                   AccountDescription : {children: account.description},
                   Balance : {children: account.balance},
-                  SwitchField: {defaultChecked: account.isActive},
-                }
+                  SwitchField: {defaultChecked: account.isActive},  
+                 'edit': {onClick: () => {handleClick()}
+              }}
               }></AccountCard>
+
+            
+
 </>
     
        )
@@ -133,4 +180,52 @@ export function AdminNewUser(){
     )
     
 
+}
+
+export function AdminReport(){
+    const testExpiredPasswords = [...getPasswordReport()];
+    const [openModal, setOpenModal]= useState(false)
+    return (
+        <>
+        <h1>Admin Reports</h1>
+        <div className="d-inline-flex p-2">
+            <h2>im here</h2>
+             {/*{testExpiredPasswords.map(account1=>getPasswordReport(account1))} */}
+             {testExpiredPasswords.map(account1=>Reports(account1))}
+        </div>
+        </>
+    )
+}
+function Reports(account1){
+return(
+    <>
+    <UserCardSmall 
+         overrides={
+        {               
+                  AccountName : {children: account1.name},
+                  UserID : {children: account1.userID},
+                  PasswordExpiration : {children: account1.passwordExpiration},
+                }
+            }></UserCardSmall>
+    </>
+    )
+}
+
+export function AdminJournalEntry(){
+
+}
+
+export function getPasswordReport(){
+let passwordReport = [];
+passwordReport.push(new ExpiredPassword("name",5001,"10/21/21","3 days"));
+passwordReport.push(new ExpiredPassword("juke",1000,"9/1/22","1 day"));
+passwordReport.push(new ExpiredPassword("dave",9,"2/2/20","30 days"));
+passwordReport.push(new ExpiredPassword("steve",1,"8/2/20","123 days"));
+passwordReport.push(new ExpiredPassword("spencer",11,"7/3/23","305 days"));
+passwordReport.push(new ExpiredPassword("dave",1011,"8/3/23","180 days"));
+passwordReport.push(new ExpiredPassword("sean",1092,"12/21/23","300 days"));
+
+return passwordReport;
+
+    
 }
