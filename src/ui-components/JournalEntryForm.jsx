@@ -7,92 +7,73 @@
 /* eslint-disable */
 import React from "react";
 import { getOverrideProps } from "@aws-amplify/ui-react/internal";
-import { Heading, SelectField, TextField, View } from "@aws-amplify/ui-react";
+import { Flex, Heading, SelectField, TextField } from "@aws-amplify/ui-react";
 import ButtonSubmit from "./ButtonSubmit";
 export default function JournalEntryForm(props) {
   const { overrides, ...rest } = props;
   return (
-    <View
-      width="643px"
-      height="840px"
-      display="block"
-      gap="unset"
-      alignItems="unset"
-      justifyContent="unset"
+    <Flex
+      gap="33px"
+      direction="column"
+      width="unset"
+      height="unset"
+      justifyContent="flex-start"
+      alignItems="center"
       position="relative"
-      padding="0px 0px 0px 0px"
+      padding="44px 110px 44px 110px"
+      backgroundColor="rgba(255,255,255,1)"
       {...rest}
       {...getOverrideProps(overrides, "JournalEntryForm")}
     >
-      <View
-        width="643px"
-        height="840px"
-        display="block"
-        gap="unset"
-        alignItems="unset"
-        justifyContent="unset"
-        position="absolute"
-        top="0%"
-        bottom="0%"
-        left="0%"
-        right="0%"
-        padding="0px 0px 0px 0px"
-        backgroundColor="rgba(255,255,255,1)"
-        {...getOverrideProps(overrides, "Rectangle 507")}
-      ></View>
-      <ButtonSubmit
+      <Heading
         display="flex"
         gap="0"
         direction="row"
-        width="unset"
-        height="unset"
-        justifyContent="flex-start"
-        alignItems="flex-start"
-        position="absolute"
-        top="733px"
-        left="229px"
+        width="423px"
+        height="40px"
+        shrink="0"
+        position="relative"
         padding="0px 0px 0px 0px"
-        {...getOverrideProps(overrides, "ButtonSubmit")}
-      ></ButtonSubmit>
+        level="3"
+        children="Request New Journal Entry"
+        {...getOverrideProps(overrides, "Journal Entry Requests")}
+      ></Heading>
+      <SelectField
+        display="flex"
+        gap="8px"
+        direction="column"
+        width="361px"
+        height="83px"
+        justifyContent="center"
+        alignItems="flex-start"
+        shrink="0"
+        position="relative"
+        borderRadius="7px"
+        padding="0px 0px 0px 0px"
+        size="default"
+        isDisabled={false}
+        labelHidden={false}
+        variation="default"
+        {...getOverrideProps(overrides, "SelectAccount")}
+      ></SelectField>
       <TextField
         display="flex"
         gap="8px"
         direction="column"
         width="361px"
-        height="73px"
+        height="93px"
         justifyContent="center"
         alignItems="flex-start"
-        position="absolute"
-        top="614px"
-        left="141px"
+        shrink="0"
+        position="relative"
         padding="0px 0px 0px 0px"
-        label="Credit"
-        placeholder="Enter Credit"
+        label="Refrence #"
+        placeholder="Enter Reference Number"
         size="default"
         isDisabled={false}
         labelHidden={false}
         variation="default"
-        {...getOverrideProps(overrides, "Credit")}
-      ></TextField>
-      <TextField
-        display="flex"
-        gap="8px"
-        direction="column"
-        width="361px"
-        height="107px"
-        justifyContent="center"
-        alignItems="flex-start"
-        position="absolute"
-        top="476px"
-        left="141px"
-        padding="0px 0px 0px 0px"
-        label="Debit"
-        placeholder="Enter Debit Amount"
-        size="default"
-        isDisabled={false}
-        labelHidden={false}
-        variation="default"
-        {...getOverrideProps(overrides, "Debit")}
+        {...getOverrideProps(overrides, "Reference#")}
       ></TextField>
       <TextField
         display="flex"
@@ -102,9 +83,8 @@ export default function JournalEntryForm(props) {
         height="87px"
         justifyContent="center"
         alignItems="flex-start"
-        position="absolute"
-        top="354px"
-        left="141px"
+        shrink="0"
+        position="relative"
         padding="0px 0px 0px 0px"
         label="Entry Date"
         placeholder="Enter Entry Date"
@@ -119,54 +99,52 @@ export default function JournalEntryForm(props) {
         gap="8px"
         direction="column"
         width="361px"
-        height="93px"
+        height="107px"
         justifyContent="center"
         alignItems="flex-start"
-        position="absolute"
-        top="226px"
-        left="141px"
+        shrink="0"
+        position="relative"
         padding="0px 0px 0px 0px"
-        label="Refrence #"
-        placeholder="Enter Refrence Number"
+        label="Debit"
+        placeholder="Enter Debit Amount"
         size="default"
         isDisabled={false}
         labelHidden={false}
         variation="default"
-        {...getOverrideProps(overrides, "Reference#")}
+        {...getOverrideProps(overrides, "Debit")}
       ></TextField>
-      <SelectField
+      <TextField
         display="flex"
         gap="8px"
         direction="column"
         width="361px"
-        height="83px"
+        height="73px"
         justifyContent="center"
         alignItems="flex-start"
-        position="absolute"
-        top="117px"
-        left="141px"
-        borderRadius="7px"
+        shrink="0"
+        position="relative"
         padding="0px 0px 0px 0px"
+        label="Credit"
+        placeholder="Enter Credit"
         size="default"
         isDisabled={false}
         labelHidden={false}
         variation="default"
-        {...getOverrideProps(overrides, "SelectAccount")}
-      ></SelectField>
-      <Heading
+        {...getOverrideProps(overrides, "Credit")}
+      ></TextField>
+      <ButtonSubmit
         display="flex"
         gap="0"
         direction="row"
-        width="423px"
-        height="40px"
-        position="absolute"
-        top="51px"
-        left="110px"
+        width="unset"
+        height="unset"
+        justifyContent="flex-start"
+        alignItems="flex-start"
+        shrink="0"
+        position="relative"
         padding="0px 0px 0px 0px"
-        level="3"
-        children="Request New Journal Entry"
-        {...getOverrideProps(overrides, "Journal Entry Requests")}
-      ></Heading>
-    </View>
+        {...getOverrideProps(overrides, "ButtonSubmit")}
+      ></ButtonSubmit>
+    </Flex>
   );
 }

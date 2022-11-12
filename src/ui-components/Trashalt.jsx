@@ -6,10 +6,14 @@
 
 /* eslint-disable */
 import React from "react";
-import { getOverrideProps } from "@aws-amplify/ui-react/internal";
+import {
+  getOverrideProps,
+  useNavigateAction,
+} from "@aws-amplify/ui-react/internal";
 import { Icon } from "@aws-amplify/ui-react";
 export default function Trashalt(props) {
   const { overrides, ...rest } = props;
+  const trashaltOnClick = useNavigateAction({ type: "url", url: "" });
   return (
     <Icon
       width="16.5px"
@@ -29,6 +33,9 @@ export default function Trashalt(props) {
           style: { transform: "translate(0%, 0%)" },
         },
       ]}
+      onClick={() => {
+        trashaltOnClick();
+      }}
       {...rest}
       {...getOverrideProps(overrides, "Trashalt")}
     ></Icon>
