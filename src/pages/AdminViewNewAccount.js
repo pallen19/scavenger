@@ -1,5 +1,5 @@
 import {React,useState} from 'react'
-import { db } from '../database/firebase'
+import { db } from '../firestore-config'
 import { AdminViewNewAcct2 } from '../ui-components'
 import AdminViewNewAcct from '../ui-components/AdminViewNewAcct'
 import { Firestore, collection, addDoc} from 'firebase/firestore'

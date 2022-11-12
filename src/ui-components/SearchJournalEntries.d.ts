@@ -7,9 +7,7 @@
 import * as React from "react";
 import { EscapeHatchProps } from "@aws-amplify/ui-react/internal";
 import { ViewProps } from "@aws-amplify/ui-react";
-export declare type PageHeaderProps = React.PropsWithChildren<Partial<ViewProps> & {
-    width?: String;
-} & {
+export declare type SearchJournalEntriesProps = React.PropsWithChildren<Partial<ViewProps> & {
     overrides?: EscapeHatchProps | undefined | null;
 }>;
-export default function PageHeader(props: PageHeaderProps): React.ReactElement;
+export default function SearchJournalEntries(props: SearchJournalEntriesProps): React.ReactElement;

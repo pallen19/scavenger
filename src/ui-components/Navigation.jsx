@@ -10,13 +10,14 @@ import {
   getOverrideProps,
   getOverridesFromVariants,
   mergeVariantsAndOverrides,
+  useNavigateAction,
 } from "@aws-amplify/ui-react/internal";
 import Logo from "./Logo";
 import { Button, Flex, View } from "@aws-amplify/ui-react";
 import EmailButton from "./EmailButton";
 import UserProfileButton from "./UserProfileButton";
 export default function Navigation(props) {
-  const { overrides: overridesProp, ...rest } = props;
+  const { className, overrides: overridesProp, ...rest } = props;
   const variants = [
     {
       overrides: {
@@ -38,6 +39,10 @@ export default function Navigation(props) {
     getOverridesFromVariants(variants, props),
     overridesProp || {}
   );
+  const homeOnClick = useNavigateAction({ type: "url", url: "/404" });
+  const accountsOnClick = useNavigateAction({ type: "url", url: "/404" });
+  const usersOnClick = useNavigateAction({ type: "url", url: "/404" });
+  const reportsOnClick = useNavigateAction({ type: "url", url: "/404" });
   return (
     <View
       width="1165px"
@@ -137,6 +142,9 @@ export default function Navigation(props) {
           isDisabled={false}
           variation="link"
           children="Home"
+          onClick={() => {
+            homeOnClick();
+          }}
           {...getOverrideProps(overrides, "Home")}
         ></Button>
         <Button
@@ -153,6 +161,9 @@ export default function Navigation(props) {
           isDisabled={false}
           variation="link"
           children="Accounts"
+          onClick={() => {
+            accountsOnClick();
+          }}
           {...getOverrideProps(overrides, "Accounts")}
         ></Button>
         <Button
@@ -169,6 +180,9 @@ export default function Navigation(props) {
           isDisabled={false}
           variation="link"
           children="Users"
+          onClick={() => {
+            usersOnClick();
+          }}
           {...getOverrideProps(overrides, "Users")}
         ></Button>
         <Button
@@ -185,6 +199,9 @@ export default function Navigation(props) {
           isDisabled={false}
           variation="link"
           children="Reports"
+          onClick={() => {
+            reportsOnClick();
+          }}
           {...getOverrideProps(overrides, "Reports")}
         ></Button>
       </Flex>

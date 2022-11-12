@@ -9,7 +9,7 @@ import * as React from "react";
 import { getOverrideProps } from "@aws-amplify/ui-react/internal";
 import { Text, View } from "@aws-amplify/ui-react";
 export default function PageHeader(props) {
-  const { overrides, ...rest } = props;
+  const { width = '"100%"', overrides, ...rest } = props;
   return (
     <View
       width="1124px"
