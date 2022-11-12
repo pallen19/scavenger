@@ -1,6 +1,6 @@
 import { Button, Flex,View} from "@aws-amplify/ui-react";
 import React from "react";
-import { AccountCard,PageHeader,UserCardSmall} from "./ui-components";
+import { AccountCard,PageHeader,UserCardSmall,JournalEntryForm} from "./ui-components";
 import { useState,useEffect } from "react";
 import { db, storage } from './firestore-config';
 import { deleteDoc,collection, getDocs, getDoc, updateDoc, query, where, arrayUnion, documentId, doc, arrayRemove, addDoc } from 'firebase/firestore';
@@ -41,15 +41,27 @@ export function getTestData(){
    
 
     //Classes
-class Account{
-constructor(name,number,subCategory,description,balance,isActive){
-    this.name = name;
-    this.number = number;
-    this.subCategory = subCategory;
-    this.description = description;
-    this.balance = balance;
-    this.isActive = isActive;
-}}
+    class Account {
+        constructor(accountName, accountNumber, accountSubcategory, accountDescription, accountCreation, order, statement, comments, userID, normalSide, initialBalance,
+            debit, credit, balance, isActive, ) {
+    
+            this.accountName = accountName;
+            this.accountNumber = accountNumber;
+            this.accountSubcategory = accountSubcategory;
+            this.accountDescription = accountDescription;
+            this.accountCreation = accountCreation;
+            this.order = order;
+            this.statement = statement;
+            this.comments = comments;
+            this.userID = userID;
+            this.normalSide = normalSide;
+            this.initialBalance = initialBalance;
+            this.debit = debit;
+            this.credit = credit;
+            this.balance = balance;
+            this.isActive = isActive;
+        }
+    }
     //End of Classes
 
     //Functions
@@ -73,7 +85,8 @@ constructor(name,number,subCategory,description,balance,isActive){
     function ReportsCard(account1) {
         return (
         
-        <><UserCardSmall
+        <>
+        <UserCardSmall
             overrides={
                 {
                     AccountName: { children: account1.name },
@@ -88,7 +101,7 @@ constructor(name,number,subCategory,description,balance,isActive){
     
     
     
-    function getAccountCards(account){
+    function getAccountCards(account,props){
         return ( 
             <>
             <div className="whiteSpace">
@@ -110,7 +123,8 @@ constructor(name,number,subCategory,description,balance,isActive){
                         Debit: {children: account.debit},
                         Credit: {children: account.credit},
                         Balance: { children: account.balance },
-                        SwitchField: { defaultChecked: account.isActive }
+                        SwitchField: { defaultChecked: account.isActive },
+                        edit:{onClick: ()=> props.setModal(!props.modal),style:{cursor:"pointer"}}
                     }
                 }></AccountCard>
             </div>
@@ -162,8 +176,47 @@ export function Home(props){
 
 export function Journals(props){
      //Constants
-  const location = useLocation();
-  const navigation = useNavigate();
+     const [account, setaccount] = useState("");
+     const [referenceNumber, setreferenceNumber] = useState("");
+     const [entryDate, setEntryDate] = useState("")
+     const [debit, setdebit] = useState("")
+     const [credit, setCredit] = useState("")
+     const [onSubmit, setOnSubmit] = useState("")
+     const [defaultView,setDefaultView]= useState(true)
+     const accountsColRef = collection(db, "journalEntry")
+     const addAccount = async (account, referenceNumber, entryDate, debit, credit) => {
+        
+        await addDoc(accountsColRef, { AccountName : account, ReferenceNumber : referenceNumber, EntryDate : entryDate,
+            Debit : debit, Credit : credit
+      })
+    
+    }
+
+    const addToDB=() =>{
+        {addDoc(account, referenceNumber, entryDate, debit, credit)}
+          console.log("add accounts worked");
+      }
+      const addAccountToDB = async () => {
+        await addDoc(accountsColRef, {AccountName : account, ReferenceNumber : referenceNumber, EntryDate : entryDate,
+            Debit : debit, Credit : credit})
+      }
+      
+
+    const DefaultView=(props)=>{
+        if(defaultView){
+          <JournalEntryForm style={{position:'relative' , left:'30em'}}
+          overrides={{'SelectAccount' : {onChange : (event) => {setaccount(event.target.value)}},
+          'Reference#' : {onChange : (event) => {setreferenceNumber(event.target.value) }},
+          'Entry Date': {onChange  : (event) => {setEntryDate(event.target.value)}},
+          'Debit' : {onChange : (event) => {setdebit(event.target.value)}},
+          'Credit':{onChange   : (event) => {setCredit(event.target.value)}},
+          'ButtonOnSubmit':{onClick : addAccountToDB}
+          
+          // 'Button34533256':{onClick:onNextButton},
+         }}/> 
+    
+        }
+      }
   //End of Constants
 
   switch(props.level){
@@ -179,6 +232,19 @@ export function Journals(props){
          SubNavigation:{children:""}
          
      }}/>
+
+<JournalEntryForm style={{position:'relative' , left:'30em'}}
+          overrides={{'SelectAccount' : {onChange : (event) => {setaccount(event.target.value)}},
+          'Reference#' : {onChange : (event) => {setreferenceNumber(event.target.value) }},
+          'Entry Date': {onChange  : (event) => {setEntryDate(event.target.value)}},
+          'Debit' : {onChange : (event) => {setdebit(event.target.value)}},
+          'Credit':{onChange   : (event) => {setCredit(event.target.value)}},
+          'ButtonOnSubmit':{onClick : ()=> {addToDB()} } //{/*addAccountToDB*/}
+          
+          // 'Button34533256':{onClick:onNextButton},
+         }}/> 
+         <button onClick = {addAccountToDB}>A Button</button>
+
         </> );
     case 'Managers':
         return(
@@ -436,8 +502,8 @@ case 'Administrators':
          PageTitle: {children: <Link to="/Journals">New Journal Entry</Link>}
      }}/>
         <div className="arrangeAccounts">
-       {testAccounts.map(account => getAccountCards(account))}
-       {/*{accounts.map(account => getAccountCards(account))} */}
+       {/* {testAccounts.map(account => getAccountCards(account))} */}
+       {accounts.map(account => getAccountCards(account))}
         </div>
         </>
      );
