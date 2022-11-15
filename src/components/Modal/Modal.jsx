@@ -8,8 +8,6 @@ const Modal = ({show,onClose,props}) => {
     return null;
   return (
     <>
-<h1>Modal</h1>
-
 <div className="overlay">
   
     <div className="modalContainer">
@@ -18,8 +16,7 @@ const Modal = ({show,onClose,props}) => {
             <p onClick={onClose} className="closebtn" >X</p>
             <div className="content">
                
-               
-             
+               //populate data here
             </div>
             <div className="btnContatiner">
                 <button className='btnPrimary'>
