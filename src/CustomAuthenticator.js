@@ -5,12 +5,11 @@ import { Authenticator, Heading} from '@aws-amplify/ui-react';
 import '@aws-amplify/ui-react/styles.css';
 import {Routes,Route, Navigate, Outlet, redirect,useNavigate, Link } from "react-router-dom";  
 import { useEffect, useState } from 'react';
-import {ViewAcct,Home,NewAcct,NewUser,Users,Reports,ExpiredPasswords, Journals} from './AdminView';
+import {Home,NewAcct,NewUser,Users,Reports,ExpiredPasswords, Journals} from './AdminView';
+import { ViewAcct } from './Pages/Accounts/Accounts';
 import Layout  from './Layout';
 import TestNav from './testnav';
 import {Navigation,Logo} from './ui-components'
-import { connectStorageEmulator } from 'firebase/storage';
-import { async } from '@firebase/util';
 
 
 
