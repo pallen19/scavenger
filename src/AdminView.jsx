@@ -9,7 +9,8 @@ import { useLocation,useNavigate,useHistory ,Link, redirect} from "react-router-
 import {getUserGroup,ElevateAccount,GetUser} from "./AdminFunctions"
 import ReactDropdown from "react-dropdown";
 import "./Dev.css"
-import DropdownMenu from "./Components/DropdownMenu/DropdownMenu";
+import DropdownMenu from "./components/DropdownMenu/DropdownMenu";
+
 
 
 
@@ -510,7 +511,7 @@ export function Users(props){
     menuClassName="dropDownMenuFrame" 
     className="dropDownFrame" options={menuOptions}  value={""} placeholder="choose one"/>
 
-    sa
+    <DropdownMenu options={menuOptions2}/>
      
         </> );
     case 'Managers':
@@ -567,10 +568,7 @@ export function Reports(props){
 
 export function ExpiredPasswords(props){
     //Constants
-    const location = useLocation();
-    const navigation = useNavigate();
    
-
     const [userInfo, setUserInfo] = useState([]);
 
     const usersColRef = collection(db, "testUsers");

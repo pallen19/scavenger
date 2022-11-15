@@ -5,8 +5,10 @@ import { Authenticator, Heading} from '@aws-amplify/ui-react';
 import '@aws-amplify/ui-react/styles.css';
 import {Routes,Route, Navigate, Outlet, redirect,useNavigate, Link } from "react-router-dom";  
 import { useEffect, useState } from 'react';
-import {Home,NewAcct,NewUser,Users,Reports,ExpiredPasswords, Journals} from './AdminView';
-import { ViewAcct } from './Pages/Accounts/Accounts';
+import {NewAcct,NewUser,Reports,ExpiredPasswords, Journals} from './AdminView';
+import { ViewAcct } from './pages/Accounts/Accounts';
+import { Home } from './pages/Homepage/Homepage';
+import {Users} from './pages/Users/Users'
 import Layout  from './Layout';
 import TestNav from './testnav';
 import {Navigation,Logo} from './ui-components'
