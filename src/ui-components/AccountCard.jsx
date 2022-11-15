@@ -5,7 +5,7 @@
  **************************************************************************/
 
 /* eslint-disable */
-import * as React from "react";
+import React from "react";
 import { getOverrideProps } from "@aws-amplify/ui-react/internal";
 import { Flex, SwitchField, Text, View } from "@aws-amplify/ui-react";
 import Edit from "./Edit";
@@ -234,7 +234,6 @@ export default function AccountCard(props) {
         {...getOverrideProps(overrides, "Frame 436")}
       >
         <SwitchField
-          onClick={()=>{this.props.onClick}}
           display="flex"
           gap="8px"
           direction="row"

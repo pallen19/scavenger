@@ -5,204 +5,183 @@
  **************************************************************************/
 
 /* eslint-disable */
-import * as React from "react";
-import { getOverrideProps } from "@aws-amplify/ui-react/internal";
-import Logo from "./Logo";
-import { Flex, Image, Text } from "@aws-amplify/ui-react";
-export default function OldNavBar(props) {
-  const { overrides, ...rest } = props;
+import React from "react";
+import {
+  getOverrideProps,
+  getOverridesFromVariants,
+  mergeVariantsAndOverrides,
+} from "@aws-amplify/ui-react/internal";
+import { View } from "@aws-amplify/ui-react";
+import OldNavBarB from "./OldNavBarB";
+export default function OldNavbar(props) {
+  const { overrides: overridesProp, ...rest } = props;
+  const variants = [
+    {
+      overrides: {
+        "Rectangle 3": {},
+        OldNavBarB: {},
+        "Rectangle 478": {},
+        OldNavbar: {},
+      },
+      variantValues: { property1: "Default" },
+    },
+    {
+      overrides: {
+        "Rectangle 3": {},
+        OldNavBarB: {},
+        "Rectangle 478": { backgroundColor: "rgba(89,157,149,1)" },
+        OldNavbar: {},
+      },
+      variantValues: { property1: "AdminViewHomeBar" },
+    },
+    {
+      overrides: {
+        "Rectangle 3": {},
+        OldNavBarB: {},
+        "Rectangle 478": {
+          width: "48px",
+          left: "32.21%",
+          right: "64.26%",
+          backgroundColor: "rgba(89,157,149,1)",
+        },
+        OldNavbar: {},
+      },
+      variantValues: { property1: "AdminViewUser" },
+    },
+    {
+      overrides: {
+        "Rectangle 3": {},
+        OldNavBarB: {},
+        "Rectangle 478": {
+          width: "48px",
+          left: "32.21%",
+          right: "64.26%",
+          backgroundColor: "rgba(89,157,149,1)",
+        },
+        OldNavbar: {},
+      },
+      variantValues: { property1: "ManagerViewUserBar" },
+    },
+    {
+      overrides: {
+        "Rectangle 3": {},
+        OldNavBarB: {},
+        "Rectangle 478": {
+          width: "77px",
+          left: "38.31%",
+          right: "56.03%",
+          backgroundColor: "rgba(89,157,149,1)",
+        },
+        OldNavbar: {},
+      },
+      variantValues: { property1: "ManagerViewAcctsBar" },
+    },
+    {
+      overrides: {
+        "Rectangle 3": {},
+        OldNavBarB: {},
+        "Rectangle 478": { backgroundColor: "rgba(89,157,149,1)" },
+        OldNavbar: {},
+      },
+      variantValues: { property1: "ManagerViewHomeBar" },
+    },
+    {
+      overrides: {
+        "Rectangle 3": {},
+        OldNavBarB: {},
+        "Rectangle 478": {
+          width: "77px",
+          left: "38.31%",
+          right: "56.03%",
+          backgroundColor: "rgba(89,157,149,1)",
+        },
+        OldNavbar: {},
+      },
+      variantValues: { property1: "AdminViewAcctsBar" },
+    },
+    {
+      overrides: {
+        "Rectangle 3": {},
+        OldNavBarB: {},
+        "Rectangle 478": {
+          width: "206px",
+          left: "46.76%",
+          right: "38.09%",
+          backgroundColor: "rgba(89,157,149,1)",
+        },
+        OldNavbar: {},
+      },
+      variantValues: { property1: "AdminViewPwBar" },
+    },
+  ];
+  const overrides = mergeVariantsAndOverrides(
+    getOverridesFromVariants(variants, props),
+    overridesProp || {}
+  );
   return (
-    <Flex
-      gap="20px"
-      direction="row"
-      width="1165px"
-      height="117px"
-      justifyContent="center"
-      alignItems="center"
+    <View
+      width="1360px"
+      height="373px"
+      display="block"
+      gap="unset"
+      alignItems="unset"
+      justifyContent="unset"
       position="relative"
-      padding="24px 32px 24px 32px"
-      backgroundColor="rgba(255,255,255,1)"
+      padding="0px 0px 0px 0px"
       {...rest}
-      {...getOverrideProps(overrides, "OldNavBar")}
+      {...getOverrideProps(overrides, "OldNavbar")}
     >
-      <Logo
+      <View
+        width="1360px"
+        height="373px"
+        display="block"
+        gap="unset"
+        alignItems="unset"
+        justifyContent="unset"
+        position="absolute"
+        top="0%"
+        bottom="0%"
+        left="100%"
+        right="-100%"
+        transformOrigin="top left"
+        transform="rotate(180deg)"
+        border="2px SOLID rgba(21,150,0,1)"
+        borderRadius="8px"
+        padding="0px 0px 0px 0px"
+        {...getOverrideProps(overrides, "Rectangle 3")}
+      ></View>
+      <OldNavBarB
         display="flex"
-        gap="2px"
+        gap="20px"
         direction="row"
-        width="unset"
-        height="69px"
+        width="1165px"
+        height="117px"
         justifyContent="center"
         alignItems="center"
-        shrink="0"
-        position="relative"
-        padding="0px 0px 0px 0px"
-        {...getOverrideProps(overrides, "Logo")}
-      ></Logo>
-      <Flex
-        gap="40px"
-        direction="row"
-        width="unset"
-        height="unset"
-        justifyContent="flex-start"
-        alignItems="center"
-        grow="1"
-        shrink="1"
-        basis="0"
-        position="relative"
-        padding="0px 0px 0px 0px"
-        {...getOverrideProps(overrides, "Frame 32134483150")}
-      >
-        <Text
-          fontFamily="Inter"
-          fontSize="16px"
-          fontWeight="400"
-          color="rgba(0,0,0,1)"
-          lineHeight="24px"
-          textAlign="left"
-          display="block"
-          direction="column"
-          justifyContent="unset"
-          letterSpacing="0.01px"
-          width="unset"
-          height="unset"
-          gap="unset"
-          alignItems="unset"
-          shrink="0"
-          position="relative"
-          padding="0px 0px 0px 0px"
-          whiteSpace="pre-wrap"
-          children="Home"
-          {...getOverrideProps(overrides, "Home")}
-        ></Text>
-        <Text
-          fontFamily="Inter"
-          fontSize="16px"
-          fontWeight="400"
-          color="rgba(0,0,0,1)"
-          lineHeight="24px"
-          textAlign="left"
-          display="block"
-          direction="column"
-          justifyContent="unset"
-          letterSpacing="0.01px"
-          width="unset"
-          height="unset"
-          gap="unset"
-          alignItems="unset"
-          shrink="0"
-          position="relative"
-          padding="0px 0px 0px 0px"
-          whiteSpace="pre-wrap"
-          children="Users"
-          {...getOverrideProps(overrides, "Users")}
-        ></Text>
-        <Text
-          fontFamily="Inter"
-          fontSize="16px"
-          fontWeight="400"
-          color="rgba(0,0,0,1)"
-          lineHeight="24px"
-          textAlign="left"
-          display="block"
-          direction="column"
-          justifyContent="unset"
-          letterSpacing="0.01px"
-          width="unset"
-          height="unset"
-          gap="unset"
-          alignItems="unset"
-          shrink="0"
-          position="relative"
-          padding="0px 0px 0px 0px"
-          whiteSpace="pre-wrap"
-          children="Accounts"
-          {...getOverrideProps(overrides, "Accounts")}
-        ></Text>
-        <Text
-          fontFamily="Inter"
-          fontSize="16px"
-          fontWeight="400"
-          color="rgba(0,0,0,1)"
-          lineHeight="24px"
-          textAlign="left"
-          display="block"
-          direction="column"
-          justifyContent="unset"
-          letterSpacing="0.01px"
-          width="unset"
-          height="unset"
-          gap="unset"
-          alignItems="unset"
-          shrink="0"
-          position="relative"
-          padding="0px 0px 0px 0px"
-          whiteSpace="pre-wrap"
-          children="Reports"
-          {...getOverrideProps(overrides, "Reports")}
-        ></Text>
-      </Flex>
-      <Image
-        width="51px"
-        height="39px"
+        position="absolute"
+        top="50.13%"
+        bottom="18.5%"
+        left="7.13%"
+        right="7.21%"
+        padding="24px 32px 24px 32px"
+        backgroundColor="rgba(255,255,255,1)"
+        {...getOverrideProps(overrides, "OldNavBarB")}
+      ></OldNavBarB>
+      <View
+        width="50px"
+        height="2px"
         display="block"
         gap="unset"
         alignItems="unset"
         justifyContent="unset"
-        shrink="0"
-        position="relative"
+        position="absolute"
+        top="68.63%"
+        bottom="30.83%"
+        left="25.81%"
+        right="70.51%"
         padding="0px 0px 0px 0px"
-        objectFit="cover"
-        {...getOverrideProps(overrides, "image 1")}
-      ></Image>
-      <Flex
-        gap="32px"
-        direction="row"
-        width="45px"
-        height="unset"
-        justifyContent="flex-end"
-        alignItems="center"
-        shrink="0"
-        position="relative"
-        padding="0px 0px 0px 0px"
-        {...getOverrideProps(overrides, "Frame 32134483155")}
-      >
-        <Image
-          width="45px"
-          height="45px"
-          display="block"
-          gap="unset"
-          alignItems="unset"
-          justifyContent="unset"
-          shrink="0"
-          position="relative"
-          borderRadius="160px"
-          padding="0px 0px 0px 0px"
-          objectFit="cover"
-          {...getOverrideProps(overrides, "image")}
-        ></Image>
-      </Flex>
-      <Text
-        fontFamily="Inter"
-        fontSize="16px"
-        fontWeight="700"
-        color="rgba(0,0,0,1)"
-        lineHeight="24px"
-        textAlign="left"
-        display="block"
-        direction="column"
-        justifyContent="unset"
-        letterSpacing="0.01px"
-        width="unset"
-        height="unset"
-        gap="unset"
-        alignItems="unset"
-        shrink="0"
-        position="relative"
-        padding="0px 0px 0px 0px"
-        whiteSpace="pre-wrap"
-        children="John Smith"
-        {...getOverrideProps(overrides, "John Smith")}
-      ></Text>
-    </Flex>
+        {...getOverrideProps(overrides, "Rectangle 478")}
+      ></View>
+    </View>
   );
 }
