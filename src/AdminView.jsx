@@ -10,6 +10,8 @@ import {getUserGroup,ElevateAccount,GetUser} from "./AdminFunctions"
 import ReactDropdown from "react-dropdown";
 import "./Dev.css"
 import DropdownMenu from "./components/DropdownMenu/DropdownMenu";
+import Modal from "./components/Modal/Modal.jsx"
+
 
 
 
@@ -533,6 +535,7 @@ export function Users(props){
 
 export function Reports(props){
   //Constants
+  const [modal,setModal] = useState(false);
   const [currentPage,setCurrentPage] = useState("Passwords")
     const location = useLocation();
   const navigation = useNavigate();
@@ -551,7 +554,11 @@ export function Reports(props){
          SubNavigation:{children:""}
          
      }}/>
-        </> );
+ 
+     <Button onClick={()=> setModal(true)}>Modal</Button>
+    <Modal show={modal} onClose={()=>setModal(false)} />
+        </> 
+        );
     case 'Managers':
         return(
         <h1>Managers</h1>
@@ -658,7 +665,7 @@ export function ViewAcct(props){
     const location = useLocation();
     const navigation = useNavigate();
     const testAccounts = [...getTestData()];
-    const [modal,setModal] = useState(false);
+   
     const [accounts, setAccounts] = useState([]);
 
     const testAccountsColRef = collection(db, "accounts")

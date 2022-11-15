@@ -1,5 +1,5 @@
 .overlay{
-    background-color: rgba(0, 0, 0, 0.9);
+    background-color: rgba(0, 0, 0, 0.0);
     position: fixed;
     width: 100%;
     height: 100%;
@@ -13,7 +13,7 @@
     transform: translate(-50%,-50%);
     display: flex;
     background-color: white;
-    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.75);
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
   }
 
   .modalRight{
@@ -25,6 +25,8 @@
     position: fixed;
     top:8px;
     right: 8px;
+    left: 3rem;
+    
   }
 
   .content{
