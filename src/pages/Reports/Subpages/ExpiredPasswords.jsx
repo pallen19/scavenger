@@ -2,6 +2,7 @@ import {collection,getDocs,} from 'firebase/firestore';
 import {db} from '../../firestore-config'
 import {PageHeader} from '../../ui-components';
 import {useState,useEffect} from 'react';
+import { Outlet } from 'react-router-dom';
 
 export function ExpiredPasswords(props){
     //Constants
@@ -38,6 +39,7 @@ export function ExpiredPasswords(props){
          SubNavigation:{children:""}
          
      }}/>
+     <Outlet></Outlet>
      <div className="d-inline-flex p-2">
                 {/*{testExpiredPasswords.map(account1=>getPasswordReport(account1))} */}
                 {userInfo.map(account1 => ReportsCard(account1))}
