@@ -10,7 +10,7 @@ import {
   getOverrideProps,
   useNavigateAction,
 } from "@aws-amplify/ui-react/internal";
-import { Flex, Image, Text } from "@aws-amplify/ui-react";
+import { Flex, Image } from "@aws-amplify/ui-react";
 export default function Logo(props) {
   const { overrides, ...rest } = props;
   const imageOnClick = useNavigateAction({ type: "url", url: "/404" });
@@ -44,28 +44,6 @@ export default function Logo(props) {
         }}
         {...getOverrideProps(overrides, "image")}
       ></Image>
-      <Text
-        fontFamily="Inter"
-        fontSize="20px"
-        fontWeight="600"
-        color="rgba(0,0,0,1)"
-        textTransform="capitalize"
-        lineHeight="24.204544067382812px"
-        textAlign="left"
-        display="block"
-        direction="column"
-        justifyContent="unset"
-        width="unset"
-        height="unset"
-        gap="unset"
-        alignItems="unset"
-        shrink="0"
-        position="relative"
-        padding="0px 0px 0px 0px"
-        whiteSpace="pre-wrap"
-        children=" BitterBean"
-        {...getOverrideProps(overrides, "BitterBean")}
-      ></Text>
     </Flex>
   );
 }
