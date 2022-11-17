@@ -11,6 +11,7 @@ import ReactDropdown from "react-dropdown";
 import "./Dev.css"
 import DropdownMenu from "./components/DropdownMenu/DropdownMenu";
 import Modal from "./components/Modal/Modal.jsx"
+import CustomTabs from "./components/AccountsTab/CustomTabs.jsx"
 
 
 
@@ -546,6 +547,7 @@ export function Reports(props){
         return (
             <>
             <h1>Admins</h1>
+            <CustomTabs/>
             <PageHeader  
        overrides={{
          PageHeader: {width:"100%"},
@@ -600,6 +602,8 @@ export function ExpiredPasswords(props){
             return (
                 <>
                 <h1>Admins</h1>
+                
+                <CustomTabs/>
                 <PageHeader  
        overrides={{
          PageHeader: {width:"100%"},
@@ -687,11 +691,14 @@ case 'Administrators':
     return (
         <>
         <h1>Admins</h1>
+        <CustomTabs/>
         <PageHeader overrides={{
          PageHeader: {width:"100%"},
          Background:{width: "100%"},
          PageTitle: {children: <Link to="/Journals">New Journal Entry</Link>}
+         
      }}/>
+     
         <div className="arrangeAccounts">
        {/* {testAccounts.map(account => getAccountCards(account))} */}
        {accounts.map(account => getAccountCards(account))}
