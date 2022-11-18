@@ -40,13 +40,8 @@ export default function MenuCard(props) {
         {...getOverrideProps(overrides, "CardFrame")}
       ></View>
       <Button
-        display="flex"
-        gap="0"
-        direction="row"
         width="300px"
         height="36px"
-        justifyContent="center"
-        alignItems="center"
         position="absolute"
         top="74.88%"
         bottom="8.37%"
@@ -56,6 +51,7 @@ export default function MenuCard(props) {
         size="default"
         isDisabled={false}
         variation="primary"
+        children="ButtonLabel"
         {...getOverrideProps(overrides, "Button")}
       ></Button>
       <Text
@@ -108,18 +104,12 @@ export default function MenuCard(props) {
         {...getOverrideProps(overrides, "MenuLabel")}
       ></Text>
       <Divider
-        width="300px"
         height="2px"
-        display="block"
-        gap="unset"
-        alignItems="unset"
-        justifyContent="unset"
         position="absolute"
         top="60.93%"
         bottom="38.14%"
         left="13.37%"
         right="6.42%"
-        padding="0px 0px 0px 0px"
         size="small"
         orientation="horizontal"
         {...getOverrideProps(overrides, "Divider")}

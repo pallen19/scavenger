@@ -46,33 +46,17 @@ export default function EmailForm(props) {
       ></View>
       <Divider
         width="373px"
-        height="1px"
-        display="block"
-        gap="unset"
-        alignItems="unset"
-        justifyContent="unset"
         position="absolute"
         top="99px"
         left="0px"
-        padding="0px 0px 0px 0px"
         size="small"
         orientation="horizontal"
         {...getOverrideProps(overrides, "Divider")}
       ></Divider>
       <Button
-        display="flex"
-        gap="0"
-        direction="row"
-        width="unset"
-        height="unset"
-        justifyContent="center"
-        alignItems="center"
         position="absolute"
         top="134px"
         left="195px"
-        border="1px SOLID rgba(174,179,183,1)"
-        borderRadius="5px"
-        padding="8px 16px 8px 16px"
         size="default"
         isDisabled={false}
         variation="default"
@@ -80,13 +64,6 @@ export default function EmailForm(props) {
         {...getOverrideProps(overrides, "AddressBookButton")}
       ></Button>
       <Button
-        display="flex"
-        gap="0"
-        direction="row"
-        width="unset"
-        height="unset"
-        justifyContent="center"
-        alignItems="center"
         position="absolute"
         top="566px"
         left="264px"
@@ -97,18 +74,10 @@ export default function EmailForm(props) {
         {...getOverrideProps(overrides, "Button36574439")}
       ></Button>
       <TextField
-        display="flex"
-        gap="8px"
-        direction="column"
-        width="300px"
-        height="unset"
-        justifyContent="center"
-        alignItems="flex-start"
+        label="Subject:"
         position="absolute"
         top="277px"
         left="37px"
-        padding="0px 0px 0px 0px"
-        label="Subject:"
         placeholder=""
         size="default"
         isDisabled={false}
@@ -117,18 +86,10 @@ export default function EmailForm(props) {
         {...getOverrideProps(overrides, "TextField36574432")}
       ></TextField>
       <TextAreaField
-        display="flex"
-        gap="8px"
-        direction="column"
-        width="300px"
-        height="unset"
-        justifyContent="center"
-        alignItems="flex-start"
+        label="Body:"
         position="absolute"
         top="379px"
         left="37px"
-        padding="0px 0px 0px 0px"
-        label="Body:"
         placeholder=""
         size="default"
         isDisabled={false}
@@ -137,19 +98,12 @@ export default function EmailForm(props) {
         {...getOverrideProps(overrides, "TextAreaField")}
       ></TextAreaField>
       <TextField
-        display="flex"
-        gap="8px"
-        direction="column"
+        label="To:"
+        placeholder="Enter email address"
         width="unset"
-        height="unset"
-        justifyContent="center"
-        alignItems="flex-start"
         position="absolute"
         top="175px"
         left="37px"
-        padding="0px 0px 0px 0px"
-        label="To:"
-        placeholder="Enter email address"
         size="default"
         isDisabled={false}
         labelHidden={false}
@@ -179,19 +133,9 @@ export default function EmailForm(props) {
         {...getOverrideProps(overrides, "Title")}
       ></Text>
       <Button
-        display="flex"
-        gap="0"
-        direction="row"
-        width="unset"
-        height="unset"
-        justifyContent="center"
-        alignItems="center"
         position="absolute"
         top="565px"
         left="142px"
-        border="1px SOLID rgba(174,179,183,1)"
-        borderRadius="5px"
-        padding="8px 16px 8px 16px"
         size="default"
         isDisabled={false}
         variation="default"

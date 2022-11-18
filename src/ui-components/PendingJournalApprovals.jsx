@@ -41,9 +41,6 @@ export default function PendingJournalApprovals(props) {
         {...getOverrideProps(overrides, "Rectangle 508")}
       ></View>
       <Heading
-        display="flex"
-        gap="0"
-        direction="row"
         width="422.78px"
         height="45.79px"
         position="absolute"
@@ -51,7 +48,6 @@ export default function PendingJournalApprovals(props) {
         bottom="92.47%"
         left="25.1%"
         right="32.96%"
-        padding="0px 0px 0px 0px"
         level="3"
         children="Entires Pending Approval"
         {...getOverrideProps(overrides, "Heading")}
@@ -74,21 +70,16 @@ export default function PendingJournalApprovals(props) {
         {...getOverrideProps(overrides, "AccountCard37443413")}
       ></AccountCard>
       <Button
-        display="flex"
-        gap="0"
-        direction="row"
         width="103.09px"
         height="37.97px"
-        justifyContent="center"
-        alignItems="center"
         position="absolute"
+        border="4px SOLID rgba(184,206,249,1)"
+        borderRadius="4px"
+        padding="4px 12px 4px 12px"
         top="30.26%"
         bottom="65.32%"
         left="43.8%"
         right="45.97%"
-        border="4px SOLID rgba(184,206,249,1)"
-        borderRadius="4px"
-        padding="4px 12px 4px 12px"
         size="default"
         isDisabled={false}
         variation="default"
@@ -113,21 +104,16 @@ export default function PendingJournalApprovals(props) {
         {...getOverrideProps(overrides, "AccountCard37443448")}
       ></AccountCard>
       <Button
-        display="flex"
-        gap="0"
-        direction="row"
         width="103.09px"
         height="37.97px"
-        justifyContent="center"
-        alignItems="center"
         position="absolute"
+        border="4px SOLID rgba(184,206,249,1)"
+        borderRadius="4px"
+        padding="4px 12px 4px 12px"
         top="60.65%"
         bottom="34.94%"
         left="43.8%"
         right="45.97%"
-        border="4px SOLID rgba(184,206,249,1)"
-        borderRadius="4px"
-        padding="4px 12px 4px 12px"
         size="default"
         isDisabled={false}
         variation="default"
@@ -152,21 +138,16 @@ export default function PendingJournalApprovals(props) {
         {...getOverrideProps(overrides, "AccountCard37443469")}
       ></AccountCard>
       <Button
-        display="flex"
-        gap="0"
-        direction="row"
         width="105.17px"
         height="42.44px"
-        justifyContent="center"
-        alignItems="center"
         position="absolute"
+        border="4px SOLID rgba(184,206,249,1)"
+        borderRadius="4px"
+        padding="4px 12px 4px 12px"
         top="84.81%"
         bottom="10.26%"
         left="43.49%"
         right="46.07%"
-        border="4px SOLID rgba(184,206,249,1)"
-        borderRadius="4px"
-        padding="4px 12px 4px 12px"
         size="default"
         isDisabled={false}
         variation="default"
@@ -174,21 +155,14 @@ export default function PendingJournalApprovals(props) {
         {...getOverrideProps(overrides, "RejectButton37443506")}
       ></Button>
       <Button
-        display="flex"
-        gap="0"
-        direction="row"
-        width="unset"
-        height="unset"
-        justifyContent="center"
-        alignItems="center"
         position="absolute"
+        border="4px SOLID rgba(184,206,249,1)"
+        borderRadius="4px"
+        padding="4px 12px 4px 12px"
         top="78.19%"
         bottom="17.15%"
         left="43.8%"
         right="46.38%"
-        border="4px SOLID rgba(184,206,249,1)"
-        borderRadius="4px"
-        padding="4px 12px 4px 12px"
         size="default"
         isDisabled={false}
         variation="default"
@@ -196,21 +170,14 @@ export default function PendingJournalApprovals(props) {
         {...getOverrideProps(overrides, "ApproveButton37443498")}
       ></Button>
       <Button
-        display="flex"
-        gap="0"
-        direction="row"
-        width="unset"
-        height="unset"
-        justifyContent="center"
-        alignItems="center"
         position="absolute"
+        border="4px SOLID rgba(184,206,249,1)"
+        borderRadius="4px"
+        padding="4px 12px 4px 12px"
         top="21.96%"
         bottom="73.39%"
         left="44%"
         right="46.17%"
-        border="4px SOLID rgba(184,206,249,1)"
-        borderRadius="4px"
-        padding="4px 12px 4px 12px"
         size="default"
         isDisabled={false}
         variation="default"
@@ -218,21 +185,14 @@ export default function PendingJournalApprovals(props) {
         {...getOverrideProps(overrides, "ApproveButton37443494")}
       ></Button>
       <Button
-        display="flex"
-        gap="0"
-        direction="row"
-        width="unset"
-        height="unset"
-        justifyContent="center"
-        alignItems="center"
         position="absolute"
+        border="4px SOLID rgba(184,206,249,1)"
+        borderRadius="4px"
+        padding="4px 12px 4px 12px"
         top="52.87%"
         bottom="42.48%"
         left="43.8%"
         right="46.38%"
-        border="4px SOLID rgba(184,206,249,1)"
-        borderRadius="4px"
-        padding="4px 12px 4px 12px"
         size="default"
         isDisabled={false}
         variation="default"

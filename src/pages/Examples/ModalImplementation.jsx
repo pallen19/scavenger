@@ -18,9 +18,10 @@ export function TestA(props){
             <button onClick={()=>{setShowModal(!showModal)}}></button>
             <Modal show={showModal} onClose={()=>onClose()}>
 
-                {/*The page content you want to render will be laced here*/}
+                {/*The page content you want to render will be placed here*/}
 
             </Modal>
+
         </div>
     )
 }
