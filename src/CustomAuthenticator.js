@@ -12,7 +12,8 @@ import {Users} from './pages/Users/Users';
 import {Reports} from './pages/Reports/Reports'
 import Layout  from './Layout';
 import TestNav from './testnav';
-import {Navigation,Logo} from './ui-components'
+import {Navigation,Logo, UserProfileButton} from './ui-components'
+import { CustomDropdown } from './components/DropdownMenu/DropdownMenu';
 import {TestA} from './pages/Reports/Subpages/testa'
 import {TestB} from './pages/Reports/Subpages/testb'
 import {TestC} from './pages/Reports/Subpages/testc'
@@ -171,30 +172,15 @@ const services={
   
    
   <div>
-  
-  
-
-  <Heading level={1}>Hello {user.username}</Heading>
-  
-  <TestNav></TestNav>
   <Navigation  overrides={{
     Home:{onClick:() => {navigate('/Home')}},
     Accounts:{onClick:() => {navigate('/Accounts')}},
     Users:{onClick:() => {navigate('/Users')}},
-    Reports:{onClick:() => {navigate('/Reports')}}
+    Reports:{onClick:() => {navigate('/Reports')}},
+    UserProfileButton:{children:<button onClick={signOut}>Sign Out</button>}
   }}/>
  
-
   
-  <p>account level is {level}</p>
-  {console.log("is currently " + level )}
-  <button onClick={signOut}>Sign Out</button>
-  <a  href='/Reports/testA'><button>TabA</button></a>
-  <a  href='/Reports/testB'><button>TabB</button></a>
-  <a  href='/Reports/testC'><button>TabC</button></a>
-  <Link to="Reports/testC">Test-C</Link>
-
-
   
   <Routes>
     <Route path="/" element={<Layout />}>

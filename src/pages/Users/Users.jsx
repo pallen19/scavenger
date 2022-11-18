@@ -25,7 +25,7 @@ export function Users(props){
       case 'Administrators':
           return (
               <>
-              <h1>Admins</h1>
+              
               <PageHeader  
          overrides={{
            PageHeader: {width:"100%"},
@@ -46,12 +46,12 @@ export function Users(props){
           </> );
       case 'Managers':
           return(
-          <h1>Managers</h1>
+          <></>
           )
       case 'Accountant':
           return(
-              <h1>Accountant</h1>
-              )
+            <></> 
+             )
       default:
           return(<h1>Access Denied</h1>)
       }

@@ -5,6 +5,7 @@ import {PageHeader} from '../../ui-components';
 import {getAccountCards,GetAccountData} from './AccountFunctions'
 import {useState,useEffect} from 'react';
 import {useNavigate,useLocation,Link} from 'react-router-dom'
+import TabWindow from '../../components/TabWindow/TabWindow';
 
 
 
@@ -62,7 +63,7 @@ export function getTestData(){
 export function ViewAcct(props){
     //Constants
     const location = useLocation();
-    const navigation = useNavigate();
+    const navigate = useNavigate();
     const testAccounts = [...getTestData()];
     const [modal,setModal] = useState(false);
     const [accounts, setAccounts] = useState([]);
@@ -85,16 +86,17 @@ switch(props.level){
 case 'Administrators':
     return (
         <>
-        <h1>Admins</h1>
         <PageHeader overrides={{
          PageHeader: {width:"100%"},
          Background:{width: "100%"},
-         PageTitle: {children: <Link to="/Journals">New Journal Entry</Link>}
+         PageTitle: {children:"Accounts"}
      }}/>
-        <div className="arrangeAccounts">
-       {testAccounts.map(account => getAccountCards(account))}
+     
+     <TabWindow innerStyle="arrangeAccounts">{testAccounts.map(account => getAccountCards(account))}</TabWindow>
+    
+  
        {/* {accounts.map(account => getAccountCards(account))} */}
-        </div>
+        
         </>
      );
 case 'Managers':

@@ -14,7 +14,7 @@ export function Reports(props){
       case 'Administrators':
           return (
               <>
-              <h1>Admins</h1>
+             
               <PageHeader  
          overrides={{
            PageHeader: {width:"100%"},
@@ -27,14 +27,14 @@ export function Reports(props){
       case 'Managers':
           return(
           <>
-          <h1>Managers</h1>
+          
           <Outlet/>
           </>
           )
       case 'Accountant':
           return(
             <>
-              <h1>Accountant</h1>
+             
               <Outlet/>
             </>
               )

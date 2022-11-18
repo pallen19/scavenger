@@ -45,40 +45,26 @@ export default function NewUser(props) {
         {...getOverrideProps(overrides, "Component 1")}
       >
         <Card
-          display="flex"
-          gap="0"
-          direction="column"
           width="449px"
           height="881px"
-          justifyContent="center"
-          alignItems="flex-start"
           position="absolute"
           top="0%"
           bottom="0%"
           left="0%"
           right="0%"
-          padding="16px 16px 16px 16px"
-          backgroundColor="rgba(255,255,255,1)"
           opacity="0.4699999988079071"
           variation="default"
           {...getOverrideProps(overrides, "Card")}
         ></Card>
         <TextField
-          display="flex"
-          gap="8px"
-          direction="column"
+          label="Phone Number"
+          placeholder="(___) ___ - _____"
           width="337px"
-          height="unset"
-          justifyContent="center"
-          alignItems="flex-start"
           position="absolute"
           top="30.42%"
           bottom="61.41%"
           left="12.47%"
           right="12.47%"
-          padding="0px 0px 0px 0px"
-          label="Phone Number"
-          placeholder="(___) ___ - _____"
           size="default"
           isDisabled={false}
           labelHidden={false}
@@ -86,21 +72,14 @@ export default function NewUser(props) {
           {...getOverrideProps(overrides, "TextField35564529")}
         ></TextField>
         <TextField
-          display="flex"
-          gap="8px"
-          direction="column"
+          label="Street Address"
+          placeholder="Enter street address"
           width="337px"
-          height="unset"
-          justifyContent="center"
-          alignItems="flex-start"
           position="absolute"
           top="40.86%"
           bottom="50.96%"
           left="12.47%"
           right="12.47%"
-          padding="0px 0px 0px 0px"
-          label="Street Address"
-          placeholder="Enter street address"
           size="default"
           isDisabled={false}
           labelHidden={false}
@@ -108,21 +87,14 @@ export default function NewUser(props) {
           {...getOverrideProps(overrides, "TextField35564530")}
         ></TextField>
         <TextField
-          display="flex"
-          gap="8px"
-          direction="column"
+          label="City"
+          placeholder="Enter city"
           width="337px"
-          height="unset"
-          justifyContent="center"
-          alignItems="flex-start"
           position="absolute"
           top="51.31%"
           bottom="40.52%"
           left="12.47%"
           right="12.47%"
-          padding="0px 0px 0px 0px"
-          label="City"
-          placeholder="Enter city"
           size="default"
           isDisabled={false}
           labelHidden={false}
@@ -130,21 +102,14 @@ export default function NewUser(props) {
           {...getOverrideProps(overrides, "TextField35564531")}
         ></TextField>
         <TextField
-          display="flex"
-          gap="8px"
-          direction="column"
+          label="State"
+          placeholder="Enter state"
           width="337px"
-          height="unset"
-          justifyContent="center"
-          alignItems="flex-start"
           position="absolute"
           top="61.75%"
           bottom="30.08%"
           left="12.47%"
           right="12.47%"
-          padding="0px 0px 0px 0px"
-          label="State"
-          placeholder="Enter state"
           size="default"
           isDisabled={false}
           labelHidden={false}
@@ -152,21 +117,14 @@ export default function NewUser(props) {
           {...getOverrideProps(overrides, "TextField35564532")}
         ></TextField>
         <TextField
-          display="flex"
-          gap="8px"
-          direction="column"
+          label="Country"
+          placeholder="Enter country"
           width="337px"
-          height="unset"
-          justifyContent="center"
-          alignItems="flex-start"
           position="absolute"
           top="72.19%"
           bottom="19.64%"
           left="12.47%"
           right="12.47%"
-          padding="0px 0px 0px 0px"
-          label="Country"
-          placeholder="Enter country"
           size="default"
           isDisabled={false}
           labelHidden={false}
@@ -174,21 +132,14 @@ export default function NewUser(props) {
           {...getOverrideProps(overrides, "TextField35564533")}
         ></TextField>
         <TextField
-          display="flex"
-          gap="8px"
-          direction="column"
+          label="Email Address"
+          placeholder="Enter email address"
           width="337px"
-          height="unset"
-          justifyContent="center"
-          alignItems="flex-start"
           position="absolute"
           top="20.09%"
           bottom="71.74%"
           left="12.47%"
           right="12.47%"
-          padding="0px 0px 0px 0px"
-          label="Email Address"
-          placeholder="Enter email address"
           size="default"
           isDisabled={false}
           labelHidden={false}
@@ -196,21 +147,14 @@ export default function NewUser(props) {
           {...getOverrideProps(overrides, "TextField35564534")}
         ></TextField>
         <TextField
-          display="flex"
-          gap="8px"
-          direction="column"
+          label="Full Name"
+          placeholder="Enter full name"
           width="337px"
-          height="unset"
-          justifyContent="center"
-          alignItems="flex-start"
           position="absolute"
           top="9.54%"
           bottom="82.29%"
           left="12.47%"
           right="12.47%"
-          padding="0px 0px 0px 0px"
-          label="Full Name"
-          placeholder="Enter full name"
           size="default"
           isDisabled={false}
           labelHidden={false}
@@ -278,18 +222,9 @@ export default function NewUser(props) {
           {...getOverrideProps(overrides, "Frame 429")}
         >
           <Button
-            display="flex"
-            gap="0"
-            direction="row"
             width="152px"
-            height="unset"
-            justifyContent="center"
-            alignItems="center"
-            shrink="0"
-            position="relative"
             border="1px SOLID rgba(0,85,102,1)"
-            borderRadius="5px"
-            padding="8px 16px 8px 16px"
+            shrink="0"
             size="default"
             isDisabled={false}
             variation="default"
@@ -313,15 +248,8 @@ export default function NewUser(props) {
           {...getOverrideProps(overrides, "Frame 421")}
         >
           <Button
-            display="flex"
-            gap="0"
-            direction="row"
             width="150px"
-            height="unset"
-            justifyContent="center"
-            alignItems="center"
             shrink="0"
-            position="relative"
             size="default"
             isDisabled={false}
             variation="primary"
