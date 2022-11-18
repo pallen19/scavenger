@@ -3,7 +3,7 @@ import React from 'react'
 import "./Modal.css"
 
 
-const Modal = ({show,onClose,props}) => {
+const Modal = ({show,onClose,children},props) => {
     if(!show)
     return null;
   return (
@@ -15,8 +15,7 @@ const Modal = ({show,onClose,props}) => {
         <div className="modalRight">
             <p onClick={onClose} className="closebtn" >X</p>
             <div className="content">
-               
-               //populate data here
+               {children}
             </div>
             <div className="btnContatiner">
                 <button className='btnPrimary'>

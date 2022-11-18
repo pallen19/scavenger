@@ -11,6 +11,7 @@ import ReactDropdown from "react-dropdown";
 import "./Dev.css"
 import DropdownMenu from "./components/DropdownMenu/DropdownMenu";
 import Modal from "./components/Modal/Modal.jsx"
+import CustomTabs from "./components/AccountsTab/CustomTabs.jsx"
 
 
 
@@ -569,22 +570,23 @@ export function Reports(props) {
 
   switch (props.level) {
     case 'Administrators':
-      return (
-        <>
-          <h1>Admins</h1>
-          <PageHeader
-            overrides={{
-              PageHeader: { width: "100%" },
-              Background: { width: "100%" },
-              PageTitle: { children: "Reports" },
-              SubNavigation: { children: "" }
-
-            }} />
-
-          <Button onClick={() => setModal(true)}>Modal</Button>
-          <Modal show={modal} onClose={() => setModal(false)} />
-        </>
-      );
+        return (
+            <>
+            <h1>Admins</h1>
+            <CustomTabs/>
+            <PageHeader  
+       overrides={{
+         PageHeader: {width:"100%"},
+         Background:{width: "100%"},
+         PageTitle: {children: "Reports"},
+         SubNavigation:{children:""}
+         
+     }}/>
+ 
+     <Button onClick={()=> setModal(true)}>Modal</Button>
+    <Modal show={modal} onClose={()=>setModal(false)} />
+        </> 
+        );
     case 'Managers':
       return (
         <h1>Managers</h1>
@@ -621,37 +623,37 @@ export function ExpiredPasswords(props) {
   }, [])
   //End of Constants
 
-  switch (props.level) {
-    case 'Administrators':
-      return (
-        <>
-          <h1>Admins</h1>
-          <PageHeader
-            overrides={{
-              PageHeader: { width: "100%" },
-              Background: { width: "100%" },
-              PageTitle: { children: "Expired Passwords" },
-              SubNavigation: { children: "" }
-
-            }} />
-          <div className="d-inline-flex p-2">
-            {/*{testExpiredPasswords.map(account1=>getPasswordReport(account1))} */}
-            {userInfo.map(account1 => ReportsCard(account1))}
-          </div>
-        </>);
-    case 'Managers':
-      return (
-        <h1>Managers</h1>
-      )
-    case 'Accountant':
-      return (
-        <h1>Accountant</h1>
-      )
-    default:
-      return (<h1>Access Denied</h1>)
+    switch(props.level){
+        case 'Administrators':
+            return (
+                <>
+                <h1>Admins</h1>
+                <PageHeader  
+       overrides={{
+         PageHeader: {width:"100%"},
+         Background:{width: "100%"},
+         PageTitle: {children: "Expired Passwords"},
+         SubNavigation:{children:""}
+         
+     }}/>
+     <div className="d-inline-flex p-2">
+                {/*{testExpiredPasswords.map(account1=>getPasswordReport(account1))} */}
+                {userInfo.map(account1 => ReportsCard(account1))}
+    </div>
+            </> );
+        case 'Managers':
+            return(
+            <h1>Managers</h1>
+            )
+        case 'Accountant':
+            return(
+                <h1>Accountant</h1>
+                )
+        default:
+            return(<h1>Access Denied</h1>)
+        }
+   
   }
-
-}
 
 export function NewUser(props) {
   //Constants
@@ -712,16 +714,16 @@ export function ViewAcct(props) {
     case 'Administrators':
       return (
         <>
-          <h1>Admins</h1>
-          <PageHeader overrides={{
-            PageHeader: { width: "100%" },
-            Background: { width: "100%" },
-            PageTitle: { children: <Link to="/Journals">New Journal Entry</Link> }
-          }} />
-          <div className="arrangeAccounts">
-            {/* {testAccounts.map(account => getAccountCards(account))} */}
-            {accounts.map(account => getAccountCards(account))}
-          </div>
+        <h1>Admins</h1>
+        <PageHeader overrides={{
+         PageHeader: {width:"100%"},
+         Background:{width: "100%"},
+         PageTitle: {children: <Link to="/Journals">New Journal Entry</Link>}
+     }}/>
+        <div className="arrangeAccounts">
+       {/* {testAccounts.map(account => getAccountCards(account))} */}
+       {accounts.map(account => getAccountCards(account))}
+        </div>
         </>
       );
     case 'Managers':

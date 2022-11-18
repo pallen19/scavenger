@@ -5,13 +5,17 @@ import { Authenticator, Heading} from '@aws-amplify/ui-react';
 import '@aws-amplify/ui-react/styles.css';
 import {Routes,Route, Navigate, Outlet, redirect,useNavigate, Link } from "react-router-dom";  
 import { useEffect, useState } from 'react';
-import {NewAcct,NewUser,Reports,ExpiredPasswords, Journals} from './AdminView';
-import { ViewAcct } from './pages/Accounts/Accounts';
-import { Home } from './pages/Homepage/Homepage';
-import {Users} from './pages/Users/Users'
+import {NewAcct,NewUser,ExpiredPasswords, Journals} from './AdminView';
+import {ViewAcct} from './pages/Accounts/Accounts';
+import {Home} from './pages/Homepage/Homepage';
+import {Users} from './pages/Users/Users';
+import {Reports} from './pages/Reports/Reports'
 import Layout  from './Layout';
 import TestNav from './testnav';
 import {Navigation,Logo} from './ui-components'
+import {TestA} from './pages/Reports/Subpages/testa'
+import {TestB} from './pages/Reports/Subpages/testb'
+import {TestC} from './pages/Reports/Subpages/testc'
 
 
 
@@ -24,6 +28,7 @@ const [level,setLevel] = useState("");
 const [userData,setUserData] = useState([]);
 const [currentUser,setCurrentUser] = useState(localStorage.getItem("CognitoIdentityServiceProvider.3dlpcfa5febo59u7ht43jg8jgv.LastAuthUser"))
 const [accountType,setAccountType] = useState([]);
+const [tabID,setTab] = useState(":TestA");
 
 useEffect(()=>{
   console.log("current user is : "  + currentUser);
@@ -184,18 +189,28 @@ const services={
   <p>account level is {level}</p>
   {console.log("is currently " + level )}
   <button onClick={signOut}>Sign Out</button>
+  <a  href='/Reports/testA'><button>TabA</button></a>
+  <a  href='/Reports/testB'><button>TabB</button></a>
+  <a  href='/Reports/testC'><button>TabC</button></a>
+  <Link to="Reports/testC">Test-C</Link>
+
+
   
   <Routes>
     <Route path="/" element={<Layout />}>
-        <Route path='/Accounts' element={<ProtectedRoute allowed={level === "Administrators" || level === "Managers"} redirectPath="*"><ViewAcct level={level} /></ProtectedRoute>}/>
-        <Route path='/Home' element={<Home level={level}></Home>}/>
-        <Route path='/Users' element={<ProtectedRoute allowed={level === "Administrators" || level === "Managers"} redirectPath="*"><Users level={level}/></ProtectedRoute>}/>
-        <Route path='/Reports' element={<ProtectedRoute allowed={level === "Administrators" || level === "Managers"} redirectPath="*"><Reports level={level}/></ProtectedRoute>}></Route>
+        <Route path='Accounts' element={<ProtectedRoute allowed={level === "Administrators" || level === "Managers"} redirectPath="*"><ViewAcct level={level} /></ProtectedRoute>}/>
+        <Route path='Home' element={<Home level={level}></Home>}/>
+        <Route path='Users' element={<ProtectedRoute allowed={level === "Administrators" || level === "Managers"} redirectPath="*"><Users level={level}/></ProtectedRoute>}/>
+        <Route path='Reports/*' element={<Reports level={level}/>}>
+          <Route path="testA" element={<TestA/>}/>
+          <Route path='testB' element={<TestB/>}/>
+          <Route path='testC' element={<TestC/>}/>
+          <Route path='*' element={<div>No Page hit</div>}/>
+        </Route>
         <Route path='/ExpiredPasswords' element={<ProtectedRoute allowed={level === "Administrators" || level === "Managers"} redirectPath="*"><ExpiredPasswords level={level} /></ProtectedRoute>}></Route>
         <Route path='/Journals' element={<ProtectedRoute allowed={level === "Administrators" || level === "Managers"} redirectPath="*"><Journals level={level} /></ProtectedRoute>}></Route>
         <Route path='/NewAccount' element={<ProtectedRoute allowed={level === "Administrators" || level === "Managers"} redirectPath="*"><NewAcct level={level} /></ProtectedRoute>}></Route>
         <Route path='/NewUser' element={<ProtectedRoute allowed={level === "Administrators" || level === "Managers"} redirectPath="*"><NewUser level={level} /></ProtectedRoute>}></Route>
-        
         <Route path='/404' element={<h1>This Link has not been assigned</h1>}></Route>
         <Route path="*" element={<Navigate to="/Home"/>}/>
     </Route>

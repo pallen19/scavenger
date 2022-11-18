@@ -26,6 +26,16 @@ export async function deleteAccount(id) {
     await deleteDoc(testAccountsDoc);
 }
 
+export const createAccount= (props) => {
+
+    return(
+        <div>
+            <div className="createAccount">
+                <h1>Create New Account</h1>
+            </div>
+        </div>
+    )
+}
 export function getAccountCards(account,props){
     return ( 
         <>
