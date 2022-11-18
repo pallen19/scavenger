@@ -12,6 +12,7 @@
     "aws-sdk": "^2.1246.0",
     "firebase": "^9.13.0",
     "react": "^18.2.0",
+    "react-data-table-component": "^7.5.3",
     "react-dom": "^18.2.0",
     "react-dropdown": "^1.11.0",
     "react-router-dom": "^6.4.3",

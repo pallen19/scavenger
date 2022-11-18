@@ -10,6 +10,7 @@ export default function TestNav(){
     <Link to="Home">   adminHome  </Link>
     <Link to="NewUser">   adminNewUser  </Link>
     <Link to="NewAccount">   AdminNewAccount  </Link>
+    <Link to="ChartOfAccounts">   ChartofAccounts  </Link>
     </div>
  
  )
