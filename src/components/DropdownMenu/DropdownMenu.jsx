@@ -12,6 +12,7 @@ return(
     <>
     <ReactDropdown options={ListItems}
     controlClassName="dropDownControlFrame" 
+    placeholder={props.placeholder}
     menuClassName="dropDownMenuFrame" 
     className="dropDownFrame"/>
     </>
