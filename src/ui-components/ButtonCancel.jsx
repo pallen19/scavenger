@@ -24,18 +24,9 @@ export default function ButtonCancel(props) {
       {...getOverrideProps(overrides, "ButtonCancel")}
     >
       <Button
-        display="flex"
-        gap="0"
-        direction="row"
         width="152px"
-        height="unset"
-        justifyContent="center"
-        alignItems="center"
-        shrink="0"
-        position="relative"
         border="1px SOLID rgba(0,85,102,1)"
-        borderRadius="5px"
-        padding="8px 16px 8px 16px"
+        shrink="0"
         size="default"
         isDisabled={false}
         variation="default"

@@ -181,15 +181,7 @@ export default function Navigation(props) {
         {...getOverrideProps(overrides, "Frame 433")}
       >
         <Button
-          display="flex"
-          direction="row"
-          width="unset"
-          height="unset"
-          justifyContent="center"
-          alignItems="center"
           shrink="0"
-          position="relative"
-          padding="8px 16px 8px 16px"
           size="default"
           isDisabled={false}
           variation="link"
@@ -200,15 +192,7 @@ export default function Navigation(props) {
           {...getOverrideProps(overrides, "Home")}
         ></Button>
         <Button
-          display="flex"
-          direction="row"
-          width="unset"
-          height="unset"
-          justifyContent="center"
-          alignItems="center"
           shrink="0"
-          position="relative"
-          padding="8px 16px 8px 16px"
           size="default"
           isDisabled={false}
           variation="link"
@@ -219,15 +203,7 @@ export default function Navigation(props) {
           {...getOverrideProps(overrides, "Accounts")}
         ></Button>
         <Button
-          display="flex"
-          direction="row"
-          width="unset"
-          height="unset"
-          justifyContent="center"
-          alignItems="center"
           shrink="0"
-          position="relative"
-          padding="8px 16px 8px 16px"
           size="default"
           isDisabled={false}
           variation="link"
@@ -238,15 +214,7 @@ export default function Navigation(props) {
           {...getOverrideProps(overrides, "Users")}
         ></Button>
         <Button
-          display="flex"
-          direction="row"
-          width="unset"
-          height="unset"
-          justifyContent="center"
-          alignItems="center"
           shrink="0"
-          position="relative"
-          padding="8px 16px 8px 16px"
           size="default"
           isDisabled={false}
           variation="link"

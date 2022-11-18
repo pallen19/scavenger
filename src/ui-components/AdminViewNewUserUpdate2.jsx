@@ -40,20 +40,13 @@ export default function AdminViewNewUserUpdate2(props) {
         {...getOverrideProps(overrides, "NewUserForm2")}
       >
         <TextField
-          display="flex"
-          gap="8px"
-          direction="column"
+          label="Confirm Password"
           width="337px"
-          height="unset"
-          justifyContent="center"
-          alignItems="flex-start"
           position="absolute"
           top="18.06%"
           bottom="74.5%"
           left="14.03%"
           right="10.91%"
-          padding="0px 0px 0px 0px"
-          label="Confirm Password"
           size="default"
           isDisabled={false}
           labelHidden={false}
@@ -61,20 +54,13 @@ export default function AdminViewNewUserUpdate2(props) {
           {...getOverrideProps(overrides, "TextField36404857")}
         ></TextField>
         <TextField
-          display="flex"
-          gap="8px"
-          direction="column"
+          label="Password"
           width="337px"
-          height="unset"
-          justifyContent="center"
-          alignItems="flex-start"
           position="absolute"
           top="8.56%"
           bottom="84%"
           left="14.7%"
           right="10.24%"
-          padding="0px 0px 0px 0px"
-          label="Password"
           size="default"
           isDisabled={false}
           labelHidden={false}
@@ -129,19 +115,12 @@ export default function AdminViewNewUserUpdate2(props) {
           {...getOverrideProps(overrides, "label36404860")}
         ></Text>
         <TextField
-          display="flex"
-          gap="8px"
-          direction="column"
           width="337px"
-          height="unset"
-          justifyContent="center"
-          alignItems="flex-start"
           position="absolute"
           top="52.69%"
           bottom="43.18%"
           left="14.03%"
           right="10.91%"
-          padding="0px 0px 0px 0px"
           size="default"
           isDisabled={false}
           labelHidden={false}
@@ -149,19 +128,12 @@ export default function AdminViewNewUserUpdate2(props) {
           {...getOverrideProps(overrides, "TextField36404863")}
         ></TextField>
         <TextField
-          display="flex"
-          gap="8px"
-          direction="column"
           width="337px"
-          height="unset"
-          justifyContent="center"
-          alignItems="flex-start"
           position="absolute"
           top="36.88%"
           bottom="58.99%"
           left="14.03%"
           right="10.91%"
-          padding="0px 0px 0px 0px"
           size="default"
           isDisabled={false}
           labelHidden={false}
@@ -169,19 +141,12 @@ export default function AdminViewNewUserUpdate2(props) {
           {...getOverrideProps(overrides, "TextField36404864")}
         ></TextField>
         <TextField
-          display="flex"
-          gap="8px"
-          direction="column"
           width="337px"
-          height="unset"
-          justifyContent="center"
-          alignItems="flex-start"
           position="absolute"
           top="69.11%"
           bottom="26.76%"
           left="14.03%"
           right="10.91%"
-          padding="0px 0px 0px 0px"
           size="default"
           isDisabled={false}
           labelHidden={false}

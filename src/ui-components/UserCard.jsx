@@ -214,20 +214,14 @@ export default function UserCard(props) {
         </View>
       </View>
       <SwitchField
-        display="flex"
-        gap="8px"
-        direction="row"
+        label="Active"
         width="96px"
         height="29px"
-        justifyContent="center"
-        alignItems="center"
         position="absolute"
         top="9.88%"
         bottom="72.22%"
         left="73%"
         right="13.29%"
-        padding="8px 8px 8px 8px"
-        label="Active"
         size="default"
         defaultChecked={true}
         isDisabled={false}

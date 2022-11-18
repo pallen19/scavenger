@@ -330,17 +330,10 @@ export default function AccountCard(props) {
         {...getOverrideProps(overrides, "Frame 436")}
       >
         <SwitchField
-          display="flex"
-          gap="8px"
-          direction="row"
+          label="Active"
           width="96px"
           height="29px"
-          justifyContent="center"
-          alignItems="center"
           shrink="0"
-          position="relative"
-          padding="8px 8px 8px 8px"
-          label="Active"
           size="default"
           defaultChecked={true}
           isDisabled={false}

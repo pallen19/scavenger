@@ -1,7 +1,7 @@
 
 import {collection,getDocs,} from 'firebase/firestore';
 import {db} from '../../firestore-config'
-import {PageHeader} from '../../ui-components';
+import {CreateNewAccountNew, PageHeader} from '../../ui-components';
 import {getAccountCards,GetAccountData} from './AccountFunctions'
 import {useState,useEffect} from 'react';
 import {useNavigate,useLocation,Link} from 'react-router-dom'
@@ -95,6 +95,7 @@ case 'Administrators':
        {testAccounts.map(account => getAccountCards(account))}
        {/* {accounts.map(account => getAccountCards(account))} */}
         </div>
+        <CreateNewAccountNew/>
         </>
      );
 case 'Managers':
