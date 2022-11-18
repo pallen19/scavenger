@@ -5,7 +5,7 @@
  **************************************************************************/
 
 /* eslint-disable */
-import React from "react";
+import * as React from "react";
 import { getOverrideProps } from "@aws-amplify/ui-react/internal";
 import { Flex, Text, TextField, View } from "@aws-amplify/ui-react";
 export default function CreateNewAccountNew(props) {
@@ -53,7 +53,7 @@ export default function CreateNewAccountNew(props) {
         isDisabled={false}
         labelHidden={false}
         variation="default"
-        {...getOverrideProps(overrides, "TextField38794097")}
+        {...getOverrideProps(overrides, "accountDescription")}
       ></TextField>
       <TextField
         label="Account Category"
@@ -67,7 +67,7 @@ export default function CreateNewAccountNew(props) {
         isDisabled={false}
         labelHidden={false}
         variation="default"
-        {...getOverrideProps(overrides, "TextField38794098")}
+        {...getOverrideProps(overrides, "accountCategory")}
       ></TextField>
       <TextField
         label="Account Subcategory"
@@ -81,21 +81,7 @@ export default function CreateNewAccountNew(props) {
         isDisabled={false}
         labelHidden={false}
         variation="default"
-        {...getOverrideProps(overrides, "TextField38794099")}
-      ></TextField>
-      <TextField
-        label="User ID"
-        placeholder="enter user ID"
-        width="262px"
-        height="71px"
-        position="absolute"
-        top="600px"
-        left="53px"
-        size="default"
-        isDisabled={false}
-        labelHidden={false}
-        variation="default"
-        {...getOverrideProps(overrides, "TextField38794100")}
+        {...getOverrideProps(overrides, "accountSubcategory")}
       ></TextField>
       <TextField
         label="Account Number"
@@ -109,7 +95,7 @@ export default function CreateNewAccountNew(props) {
         isDisabled={false}
         labelHidden={false}
         variation="default"
-        {...getOverrideProps(overrides, "TextField38794101")}
+        {...getOverrideProps(overrides, "accountNumberLabel")}
       ></TextField>
       <TextField
         label="Account Name"
@@ -123,7 +109,7 @@ export default function CreateNewAccountNew(props) {
         isDisabled={false}
         labelHidden={false}
         variation="default"
-        {...getOverrideProps(overrides, "TextField38794102")}
+        {...getOverrideProps(overrides, "accountNameLabel")}
       ></TextField>
       <Flex
         gap="0"
@@ -197,52 +183,35 @@ export default function CreateNewAccountNew(props) {
         isDisabled={false}
         labelHidden={false}
         variation="default"
-        {...getOverrideProps(overrides, "TextField38794148")}
+        {...getOverrideProps(overrides, "order")}
       ></TextField>
       <TextField
         label="Comments"
         placeholder="Enter comments "
-        width="297px"
+        width="298px"
         height="74px"
         position="absolute"
-        top="597px"
-        left="369px"
+        top="503px"
+        left="368px"
         size="default"
         isDisabled={false}
         labelHidden={false}
         variation="default"
-        {...getOverrideProps(overrides, "TextField38794149")}
+        {...getOverrideProps(overrides, "comments")}
       ></TextField>
-      <TextField
-        label="Account Creation"
-        placeholder="MM/DD/YYY hh:mm:ss"
-        width="297px"
-        height="74px"
-        position="absolute"
-        top="497px"
-        left="369px"
-        size="default"
-        isDisabled={false}
-        labelHidden={false}
-        variation="default"
-        {...getOverrideProps(overrides, "TextField38794150")}
-      ></TextField>
-      <View
-        {...getOverrideProps(overrides, "Listbox Component/Statement Dropdown")}
-      ></View>
       <TextField
         label="Debit"
         placeholder="$0.00"
         width="143px"
         height="71px"
         position="absolute"
-        top="273px"
-        left="374px"
+        top="304px"
+        left="371px"
         size="default"
         isDisabled={false}
         labelHidden={false}
         variation="default"
-        {...getOverrideProps(overrides, "TextField38794152")}
+        {...getOverrideProps(overrides, "debit")}
       ></TextField>
       <TextField
         label="Credit"
@@ -250,13 +219,13 @@ export default function CreateNewAccountNew(props) {
         width="143px"
         height="71px"
         position="absolute"
-        top="273px"
+        top="305px"
         left="523px"
         size="default"
         isDisabled={false}
         labelHidden={false}
         variation="default"
-        {...getOverrideProps(overrides, "TextField38794153")}
+        {...getOverrideProps(overrides, "credit")}
       ></TextField>
       <TextField
         label="Ending Balance"
@@ -264,13 +233,13 @@ export default function CreateNewAccountNew(props) {
         width="142px"
         height="74px"
         position="absolute"
-        top="374px"
+        top="402px"
         left="524px"
         size="default"
         isDisabled={false}
         labelHidden={false}
         variation="default"
-        {...getOverrideProps(overrides, "TextField38794154")}
+        {...getOverrideProps(overrides, "endBalance")}
       ></TextField>
       <TextField
         label="Beginning Balance"
@@ -278,13 +247,13 @@ export default function CreateNewAccountNew(props) {
         width="144px"
         height="74px"
         position="absolute"
-        top="374px"
+        top="402px"
         left="370px"
         size="default"
         isDisabled={false}
         labelHidden={false}
         variation="default"
-        {...getOverrideProps(overrides, "TextField38794155")}
+        {...getOverrideProps(overrides, "beginBalance")}
       ></TextField>
       <Flex
         gap="0"
@@ -323,6 +292,20 @@ export default function CreateNewAccountNew(props) {
           {...getOverrideProps(overrides, "label38794230")}
         ></Text>
       </Flex>
+      <View
+        width="297px"
+        height="41px"
+        display="block"
+        gap="unset"
+        alignItems="unset"
+        justifyContent="unset"
+        overflow="hidden"
+        position="absolute"
+        top="236px"
+        left="368px"
+        padding="0px 0px 0px 0px"
+        {...getOverrideProps(overrides, "dropdownFrame")}
+      ></View>
     </View>
   );
 }
