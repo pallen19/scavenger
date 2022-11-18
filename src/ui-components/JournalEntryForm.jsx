@@ -26,30 +26,18 @@ export default function JournalEntryForm(props) {
       {...getOverrideProps(overrides, "JournalEntryForm")}
     >
       <Heading
-        display="flex"
-        gap="0"
-        direction="row"
         width="423px"
         height="40px"
         shrink="0"
-        position="relative"
-        padding="0px 0px 0px 0px"
         level="3"
         children="Request New Journal Entry"
         {...getOverrideProps(overrides, "Journal Entry Requests")}
       ></Heading>
       <SelectField
-        display="flex"
-        gap="8px"
-        direction="column"
         width="361px"
         height="83px"
-        justifyContent="center"
-        alignItems="flex-start"
         shrink="0"
-        position="relative"
         borderRadius="7px"
-        padding="0px 0px 0px 0px"
         size="default"
         isDisabled={false}
         labelHidden={false}
@@ -57,18 +45,11 @@ export default function JournalEntryForm(props) {
         {...getOverrideProps(overrides, "SelectAccount")}
       ></SelectField>
       <TextField
-        display="flex"
-        gap="8px"
-        direction="column"
+        label="Refrence #"
+        placeholder="Enter Refrence Number"
         width="361px"
         height="93px"
-        justifyContent="center"
-        alignItems="flex-start"
         shrink="0"
-        position="relative"
-        padding="0px 0px 0px 0px"
-        label="Refrence #"
-        placeholder="Enter Reference Number"
         size="default"
         isDisabled={false}
         labelHidden={false}
@@ -76,18 +57,11 @@ export default function JournalEntryForm(props) {
         {...getOverrideProps(overrides, "Reference#")}
       ></TextField>
       <TextField
-        display="flex"
-        gap="8px"
-        direction="column"
-        width="361px"
-        height="87px"
-        justifyContent="center"
-        alignItems="flex-start"
-        shrink="0"
-        position="relative"
-        padding="0px 0px 0px 0px"
         label="Entry Date"
         placeholder="Enter Entry Date"
+        width="361px"
+        height="87px"
+        shrink="0"
         size="default"
         isDisabled={false}
         labelHidden={false}
@@ -95,18 +69,11 @@ export default function JournalEntryForm(props) {
         {...getOverrideProps(overrides, "Entry Date")}
       ></TextField>
       <TextField
-        display="flex"
-        gap="8px"
-        direction="column"
-        width="361px"
-        height="107px"
-        justifyContent="center"
-        alignItems="flex-start"
-        shrink="0"
-        position="relative"
-        padding="0px 0px 0px 0px"
         label="Debit"
         placeholder="Enter Debit Amount"
+        width="361px"
+        height="107px"
+        shrink="0"
         size="default"
         isDisabled={false}
         labelHidden={false}
@@ -114,18 +81,11 @@ export default function JournalEntryForm(props) {
         {...getOverrideProps(overrides, "Debit")}
       ></TextField>
       <TextField
-        display="flex"
-        gap="8px"
-        direction="column"
-        width="361px"
-        height="73px"
-        justifyContent="center"
-        alignItems="flex-start"
-        shrink="0"
-        position="relative"
-        padding="0px 0px 0px 0px"
         label="Credit"
         placeholder="Enter Credit"
+        width="361px"
+        height="73px"
+        shrink="0"
         size="default"
         isDisabled={false}
         labelHidden={false}

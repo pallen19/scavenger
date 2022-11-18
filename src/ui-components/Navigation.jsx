@@ -13,7 +13,7 @@ import {
   useNavigateAction,
 } from "@aws-amplify/ui-react/internal";
 import Logo from "./Logo";
-import { Button, Flex, View } from "@aws-amplify/ui-react";
+import { Button, Flex, Text, View } from "@aws-amplify/ui-react";
 import EmailButton from "./EmailButton";
 import UserProfileButton from "./UserProfileButton";
 export default function Navigation(props) {
@@ -23,8 +23,10 @@ export default function Navigation(props) {
       overrides: {
         Logo: {},
         "Frame 432": {},
+        FullName: {},
         EmailButton: {},
         UserProfileButton: {},
+        Welcome: {},
         Home: {},
         Accounts: {},
         Users: {},
@@ -74,7 +76,7 @@ export default function Navigation(props) {
       <Flex
         gap="0"
         direction="row"
-        width="358px"
+        width="97px"
         height="unset"
         justifyContent="flex-start"
         alignItems="flex-start"
@@ -85,6 +87,31 @@ export default function Navigation(props) {
         display="flex"
         {...getOverrideProps(overrides, "Frame 432")}
       ></Flex>
+      <Text
+        fontFamily="Inter"
+        fontSize="16px"
+        fontWeight="700"
+        color="rgba(0,0,0,1)"
+        lineHeight="24px"
+        textAlign="left"
+        display="block"
+        direction="column"
+        justifyContent="unset"
+        letterSpacing="0.01px"
+        width="176px"
+        height="unset"
+        gap="unset"
+        alignItems="unset"
+        position="absolute"
+        top="39.32%"
+        bottom="40.17%"
+        left="19.57%"
+        right="65.32%"
+        padding="0px 0px 0px 0px"
+        whiteSpace="pre-wrap"
+        children="FullName"
+        {...getOverrideProps(overrides, "FullName")}
+      ></Text>
       <EmailButton
         width="41px"
         height="31px"
@@ -114,6 +141,31 @@ export default function Navigation(props) {
         padding="0px 0px 0px 0px"
         {...getOverrideProps(overrides, "UserProfileButton")}
       ></UserProfileButton>
+      <Text
+        fontFamily="Inter"
+        fontSize="16px"
+        fontWeight="700"
+        color="rgba(0,0,0,1)"
+        lineHeight="24px"
+        textAlign="left"
+        display="block"
+        direction="column"
+        justifyContent="unset"
+        letterSpacing="0.01px"
+        width="unset"
+        height="unset"
+        gap="unset"
+        alignItems="unset"
+        position="absolute"
+        top="39.32%"
+        bottom="40.17%"
+        left="12.19%"
+        right="81.03%"
+        padding="0px 0px 0px 0px"
+        whiteSpace="pre-wrap"
+        children="Welcome,"
+        {...getOverrideProps(overrides, "Welcome")}
+      ></Text>
       <Flex
         gap="0"
         direction="row"
@@ -123,21 +175,13 @@ export default function Navigation(props) {
         alignItems="flex-start"
         position="absolute"
         top="39px"
-        left="307px"
+        left="404px"
         padding="0px 0px 0px 0px"
         display="flex"
         {...getOverrideProps(overrides, "Frame 433")}
       >
         <Button
-          display="flex"
-          direction="row"
-          width="unset"
-          height="unset"
-          justifyContent="center"
-          alignItems="center"
           shrink="0"
-          position="relative"
-          padding="8px 16px 8px 16px"
           size="default"
           isDisabled={false}
           variation="link"
@@ -148,15 +192,7 @@ export default function Navigation(props) {
           {...getOverrideProps(overrides, "Home")}
         ></Button>
         <Button
-          display="flex"
-          direction="row"
-          width="unset"
-          height="unset"
-          justifyContent="center"
-          alignItems="center"
           shrink="0"
-          position="relative"
-          padding="8px 16px 8px 16px"
           size="default"
           isDisabled={false}
           variation="link"
@@ -167,15 +203,7 @@ export default function Navigation(props) {
           {...getOverrideProps(overrides, "Accounts")}
         ></Button>
         <Button
-          display="flex"
-          direction="row"
-          width="unset"
-          height="unset"
-          justifyContent="center"
-          alignItems="center"
           shrink="0"
-          position="relative"
-          padding="8px 16px 8px 16px"
           size="default"
           isDisabled={false}
           variation="link"
@@ -186,15 +214,7 @@ export default function Navigation(props) {
           {...getOverrideProps(overrides, "Users")}
         ></Button>
         <Button
-          display="flex"
-          direction="row"
-          width="unset"
-          height="unset"
-          justifyContent="center"
-          alignItems="center"
           shrink="0"
-          position="relative"
-          padding="8px 16px 8px 16px"
           size="default"
           isDisabled={false}
           variation="link"

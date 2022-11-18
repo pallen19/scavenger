@@ -2,6 +2,7 @@ import{useState} from 'react'
 import {db} from '../../firestore-config';
 import {deleteDoc,collection,doc,getDoc} from 'firebase/firestore';
 import {AccountCard} from '../../ui-components'
+import Modal from '../../components/Modal/Modal'
 
 
 export function GetAccountData(){
@@ -26,7 +27,28 @@ export async function deleteAccount(id) {
     await deleteDoc(testAccountsDoc);
 }
 
-export function getAccountCards(account,props){
+export const createAccount= (props) => {
+
+    return(
+        <div>
+            <div className="createAccount">
+                <h1>Create New Account</h1>
+            </div>
+        </div>
+    )
+}
+
+// Parameters (1) account_id, (2) All Create Account Fields,
+async function editAccount(accountID) {
+
+    //const docToBeEdited = doc(db, "accounts", accountID)
+
+    console.log(accountID);
+
+
+}
+
+export function getAccountCards(account, callback){
     return ( 
         <>
         <div className="whiteSpace">
@@ -49,7 +71,7 @@ export function getAccountCards(account,props){
                     Credit: {children: account.credit},
                     Balance: { children: account.balance },
                     SwitchField: { defaultChecked: account.isActive },
-                    edit:{onClick: ()=> props.setModal(!props.modal),style:{cursor:"pointer"}},
+                    edit: {onClick: ()=> callback(account), style:{cursor:"pointer"}},
                     
                 }
             }></AccountCard> 

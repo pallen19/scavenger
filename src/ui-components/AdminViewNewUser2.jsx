@@ -47,21 +47,14 @@ export default function AdminViewNewUser2(props) {
         {...getOverrideProps(overrides, "NewUserForm2")}
       >
         <TextField
-          display="flex"
-          gap="8px"
-          direction="column"
+          label="Confirm Password"
+          placeholder="Re-enter password"
           width="337px"
-          height="unset"
-          justifyContent="center"
-          alignItems="flex-start"
           position="absolute"
           top="18.06%"
           bottom="74.5%"
           left="14.03%"
           right="10.91%"
-          padding="0px 0px 0px 0px"
-          label="Confirm Password"
-          placeholder="Re-enter password"
           size="default"
           isDisabled={false}
           labelHidden={false}
@@ -69,21 +62,14 @@ export default function AdminViewNewUser2(props) {
           {...getOverrideProps(overrides, "TextField35564789")}
         ></TextField>
         <TextField
-          display="flex"
-          gap="8px"
-          direction="column"
+          label="Password"
+          placeholder="Enter password"
           width="337px"
-          height="unset"
-          justifyContent="center"
-          alignItems="flex-start"
           position="absolute"
           top="8.56%"
           bottom="84%"
           left="14.7%"
           right="10.24%"
-          padding="0px 0px 0px 0px"
-          label="Password"
-          placeholder="Enter password"
           size="default"
           isDisabled={false}
           labelHidden={false}
@@ -153,15 +139,8 @@ export default function AdminViewNewUser2(props) {
           {...getOverrideProps(overrides, "Frame 420")}
         >
           <Button
-            display="flex"
-            gap="0"
-            direction="row"
             width="150px"
-            height="unset"
-            justifyContent="center"
-            alignItems="center"
             shrink="0"
-            position="relative"
             size="default"
             isDisabled={false}
             variation="primary"
@@ -170,20 +149,13 @@ export default function AdminViewNewUser2(props) {
           ></Button>
         </Flex>
         <TextField
-          display="flex"
-          gap="8px"
-          direction="column"
+          placeholder="Enter security question answer"
           width="337px"
-          height="unset"
-          justifyContent="center"
-          alignItems="flex-start"
           position="absolute"
           top="52.69%"
           bottom="43.18%"
           left="14.03%"
           right="10.91%"
-          padding="0px 0px 0px 0px"
-          placeholder="Enter security question answer"
           size="default"
           isDisabled={false}
           labelHidden={false}
@@ -191,20 +163,13 @@ export default function AdminViewNewUser2(props) {
           {...getOverrideProps(overrides, "TextField35564796")}
         ></TextField>
         <TextField
-          display="flex"
-          gap="8px"
-          direction="column"
+          placeholder="Enter security question answer"
           width="337px"
-          height="unset"
-          justifyContent="center"
-          alignItems="flex-start"
           position="absolute"
           top="36.88%"
           bottom="58.99%"
           left="14.03%"
           right="10.91%"
-          padding="0px 0px 0px 0px"
-          placeholder="Enter security question answer"
           size="default"
           isDisabled={false}
           labelHidden={false}
@@ -212,20 +177,13 @@ export default function AdminViewNewUser2(props) {
           {...getOverrideProps(overrides, "TextField35564797")}
         ></TextField>
         <TextField
-          display="flex"
-          gap="8px"
-          direction="column"
+          placeholder="Enter security question answer"
           width="337px"
-          height="unset"
-          justifyContent="center"
-          alignItems="flex-start"
           position="absolute"
           top="69.11%"
           bottom="26.76%"
           left="14.03%"
           right="10.91%"
-          padding="0px 0px 0px 0px"
-          placeholder="Enter security question answer"
           size="default"
           isDisabled={false}
           labelHidden={false}
@@ -233,19 +191,12 @@ export default function AdminViewNewUser2(props) {
           {...getOverrideProps(overrides, "TextField35564798")}
         ></TextField>
         <SelectField
-          display="flex"
-          gap="8px"
-          direction="column"
+          label="Security Question 1"
+          placeholder="Select Security Question"
           width="337px"
-          height="unset"
-          justifyContent="center"
-          alignItems="flex-start"
           position="absolute"
           top="274px"
           left="63px"
-          padding="0px 0px 0px 0px"
-          label="Security Question 1"
-          placeholder="Select Security Question"
           size="default"
           isDisabled={false}
           labelHidden={false}
@@ -253,19 +204,12 @@ export default function AdminViewNewUser2(props) {
           {...getOverrideProps(overrides, "SelectField35564799")}
         ></SelectField>
         <SelectField
-          display="flex"
-          gap="8px"
-          direction="column"
+          label="Security Question 2"
+          placeholder="Select Security Question"
           width="337px"
-          height="unset"
-          justifyContent="center"
-          alignItems="flex-start"
           position="absolute"
           top="425px"
           left="63px"
-          padding="0px 0px 0px 0px"
-          label="Security Question 2"
-          placeholder="Select Security Question"
           size="default"
           isDisabled={false}
           labelHidden={false}
@@ -273,19 +217,12 @@ export default function AdminViewNewUser2(props) {
           {...getOverrideProps(overrides, "SelectField35564800")}
         ></SelectField>
         <SelectField
-          display="flex"
-          gap="8px"
-          direction="column"
+          label="Security Question 3"
+          placeholder="Select Security Question"
           width="337px"
-          height="unset"
-          justifyContent="center"
-          alignItems="flex-start"
           position="absolute"
           top="585px"
           left="63px"
-          padding="0px 0px 0px 0px"
-          label="Security Question 3"
-          placeholder="Select Security Question"
           size="default"
           isDisabled={false}
           labelHidden={false}
@@ -293,19 +230,12 @@ export default function AdminViewNewUser2(props) {
           {...getOverrideProps(overrides, "SelectField35564801")}
         ></SelectField>
         <SelectField
-          display="flex"
-          gap="8px"
-          direction="column"
+          label="User Type"
+          placeholder="Select User Type"
           width="337px"
-          height="unset"
-          justifyContent="center"
-          alignItems="flex-start"
           position="absolute"
           top="736px"
           left="63px"
-          padding="0px 0px 0px 0px"
-          label="User Type"
-          placeholder="Select User Type"
           size="default"
           isDisabled={false}
           labelHidden={false}
@@ -313,21 +243,13 @@ export default function AdminViewNewUser2(props) {
           {...getOverrideProps(overrides, "SelectField35564773")}
         ></SelectField>
         <Button
-          display="flex"
-          gap="0"
-          direction="row"
           width="152px"
-          height="unset"
-          justifyContent="center"
-          alignItems="center"
           position="absolute"
+          border="1px SOLID rgba(0,85,102,1)"
           top="88.33%"
           bottom="7.33%"
           left="10.91%"
           right="55.23%"
-          border="1px SOLID rgba(0,85,102,1)"
-          borderRadius="5px"
-          padding="8px 16px 8px 16px"
           size="default"
           isDisabled={false}
           variation="default"

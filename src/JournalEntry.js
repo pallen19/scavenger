@@ -1,17 +1,18 @@
 import React, {useState} from 'react'
 import { JournalEntryForm } from './ui-components';
 import {db} from './firestore-config'
-import { Firestore, collection, addDoc} from 'firebase/firestore'
+import { Firestore, collection, addDoc, doc} from 'firebase/firestore'
 
 export const AdminJournalEntry = () => {
-     const [account, setaccount] = useState("");
-     const [referenceNumber, setreferenceNumber] = useState("");
+     const [account, setAccount] = useState("");
+     const [referenceNumber, setReferenceNumber] = useState("");
      const [entryDate, setEntryDate] = useState("")
-     const [debit, setdebit] = useState("")
+     const [debit, setDebit] = useState("")
      const [credit, setCredit] = useState("")
      const [onSubmit, setOnSubmit] = useState("")
      const [defaultView,setDefaultView]= useState(true)
-     const accountsColRef = collection(db, "journalEntry")
+
+     const pendingJournalColRef = collection(db, "journalEntry")
 
      const addAccount = async (account, referenceNumber, entryDate, debit, credit) => {
         
@@ -26,7 +27,7 @@ export const AdminJournalEntry = () => {
           console.log("add accounts worked");
       }
       const addAccountToDB = async () => {
-        await addDoc(accountsColRef, {AccountName : account, ReferenceNumber : referenceNumber, EntryDate : entryDate,
+        await addDoc(pendingJournalColRef, {accountName : account, ReferenceNumber : referenceNumber, EntryDate : entryDate,
             Debit : debit, Credit : credit})
       }
       
@@ -34,10 +35,10 @@ export const AdminJournalEntry = () => {
     const DefaultView=(props)=>{
         if(defaultView){
           <JournalEntryForm style={{position:'relative' , left:'30em'}}
-          overrides={{'SelectAccount' : {onChange : (event) => {setaccount(event.target.value)}},
-          'Reference#' : {onChange : (event) => {setreferenceNumber(event.target.value) }},
+          overrides={{'SelectAccount' : {onChange : (event) => {setAccount(event.target.value)}},
+          'Reference#' : {onChange : (event) => {setReferenceNumber(event.target.value) }},
           'Entry Date': {onChange  : (event) => {setEntryDate(event.target.value)}},
-          'Debit' : {onChange : (event) => {setdebit(event.target.value)}},
+          'Debit' : {onChange : (event) => {setDebit(event.target.value)}},
           'Credit':{onChange   : (event) => {setCredit(event.target.value)}},
           'ButtonOnSubmit':{onClick : addAccountToDB}
           

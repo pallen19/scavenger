@@ -24,15 +24,8 @@ export default function ButtonSubmit(props) {
       {...getOverrideProps(overrides, "ButtonSubmit")}
     >
       <Button
-        display="flex"
-        gap="0"
-        direction="row"
         width="150px"
-        height="unset"
-        justifyContent="center"
-        alignItems="center"
         shrink="0"
-        position="relative"
         size="default"
         isDisabled={false}
         variation="primary"

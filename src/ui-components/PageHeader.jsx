@@ -8,6 +8,7 @@
 import React from "react";
 import { getOverrideProps } from "@aws-amplify/ui-react/internal";
 import { Text, View } from "@aws-amplify/ui-react";
+import Calendar from "./Calendar";
 export default function PageHeader(props) {
   const { width = '"100%"', overrides, ...rest } = props;
   return (
@@ -83,6 +84,20 @@ export default function PageHeader(props) {
         children="SubNavigation"
         {...getOverrideProps(overrides, "SubNavigation")}
       ></Text>
+      <Calendar
+        width="330px"
+        height="95px"
+        display="block"
+        gap="unset"
+        alignItems="unset"
+        justifyContent="unset"
+        overflow="hidden"
+        position="absolute"
+        top="0px"
+        left="794px"
+        padding="0px 0px 0px 0px"
+        {...getOverrideProps(overrides, "Calendar")}
+      ></Calendar>
     </View>
   );
 }

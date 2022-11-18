@@ -41,21 +41,15 @@ export default function SearchJournalEntries(props) {
         {...getOverrideProps(overrides, "Rectangle 509")}
       ></View>
       <SearchField
-        display="flex"
-        gap="8px"
-        direction="column"
+        label="Date"
+        placeholder="MM/DD/YYYY"
         width="275.81px"
         height="75px"
-        justifyContent="flex-start"
-        alignItems="flex-start"
         position="absolute"
         top="24.31%"
         bottom="23.61%"
         left="2.73%"
         right="68.36%"
-        padding="0px 0px 0px 0px"
-        label="Date"
-        placeholder="MM/DD/YYYY"
         size="default"
         isDisabled={false}
         labelHidden={false}
@@ -63,21 +57,14 @@ export default function SearchJournalEntries(props) {
         {...getOverrideProps(overrides, "SearchField37483528")}
       ></SearchField>
       <SearchField
-        display="flex"
-        gap="8px"
-        direction="column"
+        label="AccountName"
+        placeholder="Name"
         width="300.19px"
-        height="unset"
-        justifyContent="flex-start"
-        alignItems="flex-start"
         position="absolute"
         top="25%"
         bottom="25%"
         left="34.28%"
         right="34.26%"
-        padding="0px 0px 0px 0px"
-        label="AccountName"
-        placeholder="Name"
         size="default"
         isDisabled={false}
         labelHidden={false}
@@ -85,20 +72,13 @@ export default function SearchJournalEntries(props) {
         {...getOverrideProps(overrides, "SearchField37483540")}
       ></SearchField>
       <SearchField
-        display="flex"
-        gap="8px"
-        direction="column"
+        label="Amount"
+        placeholder="Amount"
         width="286px"
-        height="unset"
-        justifyContent="flex-start"
-        alignItems="flex-start"
         position="absolute"
         top="calc(50% - 36px - -0.5px)"
         left="68.34%"
         right="1.68%"
-        padding="0px 0px 0px 0px"
-        label="Amount"
-        placeholder="Amount"
         size="default"
         isDisabled={false}
         labelHidden={false}

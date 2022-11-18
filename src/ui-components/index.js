@@ -5,11 +5,14 @@
  **************************************************************************/
 
 export { default as Trashalt } from "./Trashalt";
+export { default as Calendar } from "./Calendar";
 export { default as ForgotPassword } from "./ForgotPassword";
 export { default as ButtonViewExpiredPassword } from "./ButtonViewExpiredPassword";
 export { default as PageHeader } from "./PageHeader";
+export { default as CreateNewAccountNew } from "./CreateNewAccountNew";
 export { default as ButtonCancel } from "./ButtonCancel";
 export { default as UserProfileButton } from "./UserProfileButton";
+export { default as NewAccount } from "./NewAccount";
 export { default as OldNavbar } from "./OldNavbar";
 export { default as AdminViewNewUserUpdate } from "./AdminViewNewUserUpdate";
 export { default as UserCardSmall } from "./UserCardSmall";

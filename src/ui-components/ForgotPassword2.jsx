@@ -87,21 +87,14 @@ export default function ForgotPassword2(props) {
         {...getOverrideProps(overrides, "label35564999")}
       ></Text>
       <TextField
-        display="flex"
-        gap="8px"
-        direction="column"
+        label="Who was your childhood best friend?"
+        placeholder="Enter security question answer"
         width="337px"
-        height="unset"
-        justifyContent="center"
-        alignItems="flex-start"
         position="absolute"
         top="28.35%"
         bottom="59.28%"
         left="15.35%"
         right="16.57%"
-        padding="0px 0px 0px 0px"
-        label="Who was your childhood best friend?"
-        placeholder="Enter security question answer"
         size="default"
         isDisabled={false}
         labelHidden={false}
@@ -109,21 +102,14 @@ export default function ForgotPassword2(props) {
         {...getOverrideProps(overrides, "TextField35564970")}
       ></TextField>
       <TextField
-        display="flex"
-        gap="8px"
-        direction="column"
+        label="What was the name of your first pet?"
+        placeholder="Enter security question answer"
         width="337px"
-        height="unset"
-        justifyContent="center"
-        alignItems="flex-start"
         position="absolute"
         top="45.02%"
         bottom="42.61%"
         left="15.35%"
         right="16.57%"
-        padding="0px 0px 0px 0px"
-        label="What was the name of your first pet?"
-        placeholder="Enter security question answer"
         size="default"
         isDisabled={false}
         labelHidden={false}
@@ -131,21 +117,14 @@ export default function ForgotPassword2(props) {
         {...getOverrideProps(overrides, "TextField35564971")}
       ></TextField>
       <TextField
-        display="flex"
-        gap="8px"
-        direction="column"
+        label="What is your mother’s maiden name?"
+        placeholder="Enter security question answer"
         width="337px"
-        height="unset"
-        justifyContent="center"
-        alignItems="flex-start"
         position="absolute"
         top="63.92%"
         bottom="23.71%"
         left="15.35%"
         right="16.57%"
-        padding="0px 0px 0px 0px"
-        label="What is your mother’s maiden name?"
-        placeholder="Enter security question answer"
         size="default"
         isDisabled={false}
         labelHidden={false}
@@ -153,13 +132,7 @@ export default function ForgotPassword2(props) {
         {...getOverrideProps(overrides, "TextField35564992")}
       ></TextField>
       <Button
-        display="flex"
-        gap="0"
-        direction="row"
         width="150px"
-        height="unset"
-        justifyContent="center"
-        alignItems="center"
         position="absolute"
         top="495px"
         left="265px"
@@ -170,21 +143,13 @@ export default function ForgotPassword2(props) {
         {...getOverrideProps(overrides, "Button35564972")}
       ></Button>
       <Button
-        display="flex"
-        gap="0"
-        direction="row"
         width="152px"
-        height="unset"
-        justifyContent="center"
-        alignItems="center"
         position="absolute"
+        border="1px SOLID rgba(0,85,102,1)"
         top="84.88%"
         bottom="7.9%"
         left="14.95%"
         right="54.34%"
-        border="1px SOLID rgba(0,85,102,1)"
-        borderRadius="5px"
-        padding="8px 16px 8px 16px"
         size="default"
         isDisabled={false}
         variation="default"
