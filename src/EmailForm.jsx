@@ -1,7 +1,9 @@
 import React, { Fragment, PureComponent, Component } from "react";
 import ReactDOM from 'react-dom/client';
-import  {SendEmailCommand } from '@aws-sdk/client-ses';
-import  {sesClient } from './libs/sesClient';
+import  SendEmailCommand  from '@aws-sdk/client-ses';
+import  sesClient  from './libs/sesClient.js';
+import { PureComponent, Fragment, Component } from 'react';
+
 
 //const DEFAULT_TEMPLATE_IMG = '/content/images/CS.jpg';
 const sourceEmail = 'hotajed147@lidely.com';
