@@ -192,7 +192,7 @@ export default function OldNavBarB(props) {
         direction="column"
         justifyContent="unset"
         letterSpacing="0.01px"
-        width="unset"
+        width="90px"
         height="unset"
         gap="unset"
         alignItems="unset"
@@ -200,8 +200,8 @@ export default function OldNavBarB(props) {
         position="relative"
         padding="0px 0px 0px 0px"
         whiteSpace="pre-wrap"
-        children="John Smith"
-        {...getOverrideProps(overrides, "John Smith")}
+        children="Username"
+        {...getOverrideProps(overrides, "Username")}
       ></Text>
     </Flex>
   );

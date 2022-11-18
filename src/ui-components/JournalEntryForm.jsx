@@ -68,7 +68,7 @@ export default function JournalEntryForm(props) {
         position="relative"
         padding="0px 0px 0px 0px"
         label="Refrence #"
-        placeholder="Enter Reference Number"
+        placeholder="Enter Refrence Number"
         size="default"
         isDisabled={false}
         labelHidden={false}
