@@ -6,6 +6,7 @@ import { getAccountCards, GetAccountData } from './AccountFunctions'
 import { useState, useEffect } from 'react';
 import { useNavigate, useLocation, Link } from 'react-router-dom'
 import { TextField } from '@aws-amplify/ui-react';
+import TabWindow from '../../components/TabWindow/TabWindow';
 
 
 
@@ -63,7 +64,7 @@ export function getTestData() {
 export function ViewAcct(props) {
     //Constants
     const location = useLocation();
-    const navigation = useNavigate();
+    const navigate = useNavigate();
     const testAccounts = [...getTestData()];
     const [modal, setModal] = useState(false);
     const [accounts, setAccounts] = useState([]);
@@ -181,23 +182,20 @@ export function ViewAcct(props) {
 
     }, [])
     //End of Constants
-
-    switch (props.level) {
-        case 'Administrators':
-            return (
-                <>
-                    <h1>Admins</h1>
-                    <PageHeader overrides={{
-                        PageHeader: { width: "100%" },
-                        Background: { width: "100%" },
-                        PageTitle: { children: <Link to="/Journals">New Journal Entry</Link> }
-                    }} />
-                    <div className="arrangeAccounts">
-                        {/* {testAccounts.map(account => getAccountCards(account))} */}
-                        {accounts.map(account => getAccountCards(account, editAccount))}
-                    </div>
-
-                    <Modal show={modal} onClose={() => onClose()}>
+ 
+switch(props.level){
+case 'Administrators':
+    return (
+        <>
+        <h1>Admins</h1>
+        <PageHeader overrides={{
+         PageHeader: {width:"100%"},
+         Background:{width: "100%"},
+         PageTitle: {children:"Accounts"}
+     }}/>
+     <TabWindow innerStyle="arrangeAccounts">{testAccounts.map(account => getAccountCards(account))}</TabWindow>
+       {/* {accounts.map(account => getAccountCards(account))} */}
+       <Modal show={modal} onClose={() => onClose()}>
                         <input placeholder={"Account ID: " + activeAccount.id} 
                             onChange={(event) => setID(event.target.value)}></input>
 
@@ -243,18 +241,18 @@ export function ViewAcct(props) {
                         <button onClick={addAccount}>Update Account</button>
 
                     </Modal>
-                </>
-            );
-        case 'Managers':
-            return (
-                <h1>Admins</h1>
-            )
-        case 'Accountant':
-            return (
-                <h1>Accountant</h1>
-            )
-        default:
-            return (<h1>Access Denied</h1>)
-    }
+        </>
+     );
+case 'Managers':
+    return(
+    <h1>Admins</h1>
+    )
+case 'Accountant':
+    return(
+        <h1>Accountant</h1>
+        )
+default:
+    return(<h1>Access Denied</h1>)
+}   
 }
 //End of Page

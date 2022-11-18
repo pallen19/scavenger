@@ -1,19 +1,19 @@
 import { useNavigate,useLocation } from "react-router-dom";
 import { useState,useEffect } from "react";
-import { PageHeader } from "../../ui-components";
+import { MenuCard, PageHeader } from "../../ui-components";
+import "./Homepage.css"
+import CustomTabs from "../../components/AccountsTab/CustomTabs";
 
 export function Home(props){
     //Constants
     const location = useLocation();
-    const navigation = useNavigate();
+    const navigate = useNavigate();
     //End of Constants
 
     switch(props.level){
        case 'Administrators':
            return (
                <>
-
-               <h1>Admins</h1>
                <PageHeader
       overrides={{
         PageHeader: {width:"100%"},
@@ -22,6 +22,31 @@ export function Home(props){
         SubNavigation:{children:""}
         
     }}/>
+    
+    <div className="ShortcutFrame">
+    <div className="ShortcutItem">
+    <MenuCard overrides={{
+        MenuLabel:{children:"Ledger"},
+        MenuDescription:{children:"Shortcut to General Ledger"},
+        Button:{onClick:()=>navigate("/404"),children:"Get Started"}
+    }}></MenuCard>
+    </div>
+    <div className="ShortcutItem">
+    <MenuCard overrides={{
+        MenuLabel:{children:"New Account"},
+        MenuDescription:{children:"Shortcut to Make a new Account"},
+        Button:{onClick:()=>navigate("/NewAccount"),children:"Get Started"}
+    }}></MenuCard>
+    </div>
+    <div className="ShortcutItem">
+    <MenuCard overrides={{
+        MenuLabel:{children:"Event Log"},
+        MenuDescription:{children:"Shortcut to event log"},
+        Button:{onClick:()=>navigate("/404"),children:"Get Started"}
+    }}></MenuCard>
+    </div>
+    </div>
+    
     </>
             );
        case 'Managers':

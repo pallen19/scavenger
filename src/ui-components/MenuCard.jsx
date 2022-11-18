@@ -51,6 +51,7 @@ export default function MenuCard(props) {
         size="default"
         isDisabled={false}
         variation="primary"
+        children="ButtonLabel"
         {...getOverrideProps(overrides, "Button")}
       ></Button>
       <Text

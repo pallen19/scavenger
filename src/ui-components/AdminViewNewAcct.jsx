@@ -7,7 +7,7 @@
 /* eslint-disable */
 import React from "react";
 import { getOverrideProps } from "@aws-amplify/ui-react/internal";
-import { Card, Flex, Text, TextField, View } from "@aws-amplify/ui-react";
+import { Flex, Text, TextField, View } from "@aws-amplify/ui-react";
 export default function AdminViewNewAcct(props) {
   const { overrides, ...rest } = props;
   return (
