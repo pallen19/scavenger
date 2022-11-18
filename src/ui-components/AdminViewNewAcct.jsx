@@ -54,6 +54,18 @@ export default function AdminViewNewAcct(props) {
           padding="0px 0px 0px 0px"
           {...getOverrideProps(overrides, "Component1")}
         >
+          <Card
+            width="449px"
+            height="788px"
+            position="absolute"
+            top="0%"
+            bottom="0%"
+            left="0%"
+            right="0%"
+            opacity="0.4699999988079071"
+            variation="default"
+            {...getOverrideProps(overrides, "Card")}
+          ></Card>
           <Text
             fontFamily="Inter"
             fontSize="24px"
