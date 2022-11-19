@@ -1,0 +1,257 @@
+/* Input */
+
+/* Auto layout */
+.form{
+    max-width: 450px;
+    width: 100%;
+    height: 525px;
+    position: fixed;
+    /* top: 40%;
+    left: 50%;
+    transform: translate(-50%,-50%); */
+    display: inline-block;
+    background-color: white;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
+filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+}
+#title{
+    position: relative;
+width: 367px;
+height: 92px;
+left: 75px;
+top: 22px;
+color: white;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 700;
+font-size: 50px;
+line-height: 120%;
+
+/* or 60px */
+display: block;
+/* align-items: center;
+text-align: center; */
+
+color: #000000;
+}
+#recipientLabel{
+
+    position: absolute;
+    width: 29px;
+    left: calc(50% - 29px/2 - 179px);
+    top: 21.63%;
+    bottom: 74.47%;
+    
+    /* components/field/default */
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 150%;
+    
+    /* identical to box height, or 24px */
+    
+    /* components/field/label/color */
+    color: #304050;
+}
+#recipient{
+/* EmailLabel */
+
+
+
+
+/* Input */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+padding: 8px 16px;
+gap: 10px;
+
+position: absolute;
+width: 367px;
+left: calc(50% - 367px/2 - 10px);
+top: 26.34%;
+bottom: 67.15%;
+
+/* components/fieldcontrol/borderColor */
+border: 1px solid #AEB3B7;
+filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+border-radius: 4px;
+}
+#subject{
+/* Input */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+padding: 8px 16px;
+gap: 10px;
+
+position: absolute;
+width: 367px;
+left: calc(50% - 367px/2 - 10px);
+top: 42.6%;
+bottom: 50.89%;
+
+/* components/fieldcontrol/borderColor */
+border: 1px solid #AEB3B7;
+filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+border-radius: 4px;
+}
+#addressBook{  
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 8px 8px 8px 16px;
+
+position: absolute;
+width: 141px;
+height: 32px;
+left: 296px;
+top: 128px;
+
+/* components/button/borderColor */
+border: 1px solid #AEB3B7;
+border-radius: 4px;
+}
+#sendEmail{
+   
+    /* components/button/primary/backgroundColor */
+    background: #047D95;
+    font-family: 'Inter';
+font-style: normal;
+font-weight: 700;
+font-size: 16px;
+line-height: 150%;
+
+/* identical to box height, or 24px */
+
+/* components/button/color */
+color: #0D1A26;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 8px 16px;
+    
+    position: absolute;
+    width: 120px;
+    height: 40px;
+    left: 245px;
+    top: 460px;
+    
+    /* components/button/borderColor */
+    border: 1px solid #AEB3B7;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    border-radius: 4px;
+}
+#cancel{
+    font-family: 'Inter';
+font-style: normal;
+font-weight: 700;
+font-size: 16px;
+line-height: 150%;
+
+/* identical to box height, or 24px */
+
+/* components/button/color */
+color: #0D1A26;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 8px 16px;
+    
+    position: absolute;
+    width: 120px;
+    height: 40px;
+    left: 85px;
+    top: 460px;
+    
+    /* components/button/borderColor */
+    border: 1px solid #AEB3B7;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    border-radius: 4px;
+}
+#body{
+   
+    /* Auto layout */
+    /* Auto layout */
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+padding: 0px;
+position: relative;
+left: 32px;
+bottom: -110px;
+
+
+width: 368px;
+height: 106px;
+
+filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+
+/* Inside auto layout */
+flex: none;
+order: 2;
+flex-grow: 0;
+}
+#bodyLabel{
+    position: absolute;
+    width: 67px;
+    left: calc(50% - 67px/2 - 160px);
+
+    bottom: 215px;
+    
+    /* components/field/default */
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 150%;
+    
+    /* identical to box height, or 24px */
+    
+    /* components/field/label/color */
+    color: #304050;
+}
+#subjectLabel{
+
+    position: absolute;
+    width: 67px;
+    left: calc(50% - 67px/2 - 160px);
+    top: 37.24%;
+    bottom: 58.86%;
+    
+    /* components/field/default */
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 150%;
+    
+    /* identical to box height, or 24px */
+    
+    /* components/field/label/color */
+    color: #304050;
+}

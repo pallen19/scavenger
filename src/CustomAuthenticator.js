@@ -5,20 +5,22 @@ import { Authenticator, Heading} from '@aws-amplify/ui-react';
 import '@aws-amplify/ui-react/styles.css';
 import {Routes,Route, Navigate, Outlet, redirect,useNavigate, Link } from "react-router-dom";  
 import { useEffect, useState } from 'react';
-import {NewAcct,NewUser,ExpiredPasswords, Journals} from './AdminView';
+import {NewAcct,NewUser} from './AdminView';
 import {ViewAcct} from './pages/Accounts/Accounts';
+import { Journals } from './pages/Accounts/Subpages/Journals';
+import { GeneralLedger } from './pages/Accounts/Subpages/GeneralLedger';
 import {Home} from './pages/Homepage/Homepage';
 import {Users} from './pages/Users/Users';
 import {Reports} from './pages/Reports/Reports'
+import { ExpiredPasswords } from './pages/Reports/Subpages/ExpiredPasswords';
 import Layout  from './Layout';
 import TestNav from './testnav';
 import {Navigation,Logo, UserProfileButton} from './ui-components'
-import { CustomDropdown } from './components/DropdownMenu/DropdownMenu';
-import {TestA} from './pages/Reports/Subpages/testa'
-import {TestB} from './pages/Reports/Subpages/testb'
-import {TestC} from './pages/Reports/Subpages/testc'
-import ChartOfAccounts from './pages/Accounts/ChartOfAccounts';
-import AccountSummary from './pages/Accounts/Subpages/AccountSummary';
+import ChartOfAccounts from './pages/Accounts/Subpages/ChartOfAccounts';
+import {AccountSummary} from './pages/Accounts/Subpages/AccountSummary'
+import Modal from './components/Modal/Modal';
+import EmailForm from './components/EmailForm/EmailForm' 
+import CreateAccount from './pages/Accounts/Subpages/CreateAccount';
 
 
 
@@ -31,6 +33,7 @@ const [level,setLevel] = useState("");
 const [userData,setUserData] = useState([]);
 const [currentUser,setCurrentUser] = useState(localStorage.getItem("CognitoIdentityServiceProvider.3dlpcfa5febo59u7ht43jg8jgv.LastAuthUser"))
 const [accountType,setAccountType] = useState([]);
+const [modal,setModal] = useState(false);
 
 
 useEffect(()=>{
@@ -42,6 +45,9 @@ useEffect(()=>{
  localStorage.setItem('role',level);
 },[])
 
+const onClose=()=>{
+  setModal(false);
+}
 
 
   function generatedUserName(firstname,lastname){
@@ -179,22 +185,27 @@ const services={
     Accounts:{onClick:() => {navigate('/Accounts')}},
     Users:{onClick:() => {navigate('/Users')}},
     Reports:{onClick:() => {navigate('/Reports')}},
-    UserProfileButton:{children:<button onClick={signOut}>Sign Out</button>}
+    UserProfileButton:{children:<button onClick={signOut}>Sign Out</button>},
+    EmailButton:{onClick:() => {setModal(true)}},
   }}/>
  
   
   
   <Routes>
     <Route path="/" element={<Layout />}>
-        <Route path='Accounts' element={<ProtectedRoute allowed={level === "Administrators" || level === "Managers"} redirectPath="*"><ViewAcct level={level} /></ProtectedRoute>}>
-            <Route path='AccountSummary' element={<AccountSummary/>}/>
+        <Route path='Accounts/*' element={<ProtectedRoute allowed={level === "Administrators" || level === "Managers"} redirectPath="*"><ViewAcct level={level} /></ProtectedRoute>}>
+            <Route path='Account Summary' element={<AccountSummary/>}/>
+            <Route path='Journals' element={<Journals/>}/>
+            <Route path='General Ledger' element={<GeneralLedger/>}/>
+            <Route path='Create Account' element={<CreateAccount/>}/>
         </Route>
         <Route path='Home' element={<Home level={level}></Home>}/>
         <Route path='Users' element={<ProtectedRoute allowed={level === "Administrators" || level === "Managers"} redirectPath="*"><Users level={level}/></ProtectedRoute>}/>
         <Route path='Reports/*' element={<Reports level={level}/>}>
-          <Route path="testA" element={<TestA/>}/>
-          <Route path='testB' element={<TestB/>}/>
-          <Route path='testC' element={<TestC/>}/>
+            <Route path='Expired Passwords' element={<ExpiredPasswords/>}/>
+          {/* <Route path="testA" element={<TestA/>}/>
+          
+          <Route path='testC' element={<TestC/>}/> */}
           <Route path='*' element={<div>No Page hit</div>}/>
         </Route>
         <Route path='/ExpiredPasswords' element={<ProtectedRoute allowed={level === "Administrators" || level === "Managers"} redirectPath="*"><ExpiredPasswords level={level} /></ProtectedRoute>}></Route>
@@ -206,12 +217,17 @@ const services={
         <Route path="*" element={<Navigate to="/Home"/>}/>
     </Route>
   </Routes>
-  
+
+  <Modal show={modal} onClose={()=>onClose()}>
+  <EmailForm/>
+  </Modal>
   </div>
   
   )
   
 }
+
+
 
 </Authenticator>
 

@@ -28,14 +28,14 @@ export function Home(props){
     <MenuCard overrides={{
         MenuLabel:{children:"Ledger"},
         MenuDescription:{children:"Shortcut to General Ledger"},
-        Button:{onClick:()=>navigate("/404"),children:"Get Started"}
+        Button:{onClick:()=>navigate("/Accounts/General Ledger"),children:"Get Started"}
     }}></MenuCard>
     </div>
     <div className="ShortcutItem">
     <MenuCard overrides={{
         MenuLabel:{children:"New Account"},
         MenuDescription:{children:"Shortcut to Make a new Account"},
-        Button:{onClick:()=>navigate("/NewAccount"),children:"Get Started"}
+        Button:{onClick:()=>navigate("/Accounts/Create Account"),children:"Get Started"}
     }}></MenuCard>
     </div>
     <div className="ShortcutItem">

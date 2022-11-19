@@ -1,8 +1,8 @@
 import { useState } from 'react'
-import CreateNewAccountNew from '../../ui-components/CreateNewAccountNew'
+import CreateNewAccountNew from '../../../ui-components/CreateNewAccountNew'
 import { Firestore, collection, addDoc} from 'firebase/firestore'
-import { db } from '../../firestore-config'
-import DropdownMenu from '../../components/DropdownMenu/DropdownMenu'
+import { db } from '../../../firestore-config'
+import DropdownMenu from '../../../components/DropdownMenu/DropdownMenu'
 
 const CreateAccount = () => {
 

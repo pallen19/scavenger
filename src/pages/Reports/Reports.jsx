@@ -1,6 +1,7 @@
 import {Outlet,useNavigate,useLocation, Routes, Route} from "react-router-dom";
 import {useState} from "react";
 import { PageHeader } from "../../ui-components";
+import { TabWindow } from "../../components/TabWindow/TabWindow";
 import { TestA } from "./Subpages/testa";
 
 export function Reports(props){
@@ -21,8 +22,11 @@ export function Reports(props){
            Background:{width: "100%"},
            PageTitle: {children: "Reports"},
            SubNavigation:{children:""}}}/>
-           
-           <Outlet/>
+           Tab
+           <TabWindow 
+                        options={["Expired Passwords", "Event Log"]}>
+                        <Outlet />
+                </TabWindow>
           </> );
       case 'Managers':
           return(
