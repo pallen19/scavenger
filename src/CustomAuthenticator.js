@@ -17,6 +17,7 @@ import { CustomDropdown } from './components/DropdownMenu/DropdownMenu';
 import {TestA} from './pages/Reports/Subpages/testa'
 import {TestB} from './pages/Reports/Subpages/testb'
 import {TestC} from './pages/Reports/Subpages/testc'
+import AccountSummary from './pages/Accounts/Subpages/AccountSummary';
 
 
 
@@ -29,7 +30,7 @@ const [level,setLevel] = useState("");
 const [userData,setUserData] = useState([]);
 const [currentUser,setCurrentUser] = useState(localStorage.getItem("CognitoIdentityServiceProvider.3dlpcfa5febo59u7ht43jg8jgv.LastAuthUser"))
 const [accountType,setAccountType] = useState([]);
-const [tabID,setTab] = useState(":TestA");
+
 
 useEffect(()=>{
   console.log("current user is : "  + currentUser);
@@ -184,7 +185,9 @@ const services={
   
   <Routes>
     <Route path="/" element={<Layout />}>
-        <Route path='Accounts' element={<ProtectedRoute allowed={level === "Administrators" || level === "Managers"} redirectPath="*"><ViewAcct level={level} /></ProtectedRoute>}/>
+        <Route path='Accounts' element={<ProtectedRoute allowed={level === "Administrators" || level === "Managers"} redirectPath="*"><ViewAcct level={level} /></ProtectedRoute>}>
+            <Route path='AccountSummary' element={<AccountSummary/>}/>
+        </Route>
         <Route path='Home' element={<Home level={level}></Home>}/>
         <Route path='Users' element={<ProtectedRoute allowed={level === "Administrators" || level === "Managers"} redirectPath="*"><Users level={level}/></ProtectedRoute>}/>
         <Route path='Reports/*' element={<Reports level={level}/>}>

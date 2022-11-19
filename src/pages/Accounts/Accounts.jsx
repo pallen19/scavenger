@@ -4,7 +4,7 @@ import { db } from '../../firestore-config'
 import { PageHeader } from '../../ui-components';
 import { getAccountCards, GetAccountData } from './AccountFunctions'
 import { useState, useEffect } from 'react';
-import { useNavigate, useLocation, Link } from 'react-router-dom'
+import { useNavigate, useLocation, Link, Outlet } from 'react-router-dom'
 import { TextField } from '@aws-amplify/ui-react';
 import TabWindow from '../../components/TabWindow/TabWindow';
 
@@ -193,8 +193,9 @@ case 'Administrators':
          Background:{width: "100%"},
          PageTitle: {children:"Accounts"}
      }}/>
-     <TabWindow innerStyle="arrangeAccounts">{testAccounts.map(account => getAccountCards(account))}</TabWindow>
-       {/* {accounts.map(account => getAccountCards(account))} */}
+     <TabWindow innerStyle="arrangeAccounts"><Outlet/></TabWindow>
+     {/* <TabWindow innerStyle="arrangeAccounts">{testAccounts.map(account => getAccountCards(account,editAccount))}</TabWindow> */}
+     {/*<TabWindow innerStyle="arrangeAccounts" list={["One","Two","Three"]}>{accounts.map(account => getAccountCards(account,editAccount))}</TabWindow> */}
        <Modal show={modal} onClose={() => onClose()}>
                         <input placeholder={"Account ID: " + activeAccount.id} 
                             onChange={(event) => setID(event.target.value)}></input>
