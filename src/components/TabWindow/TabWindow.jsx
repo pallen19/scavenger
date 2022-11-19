@@ -1,15 +1,21 @@
-import { useState } from "react";
+import { useEffect } from "react";
+import { useState ,setState} from "react";
+import { useNavigate } from "react-router-dom";
 import "./TabWindow.css"
 
-export default function TabWindow({innerStyle,children},props){
-    const [activeTab,setActiveTab] = useState(props.currentTab);
+export default function TabWindow({innerStyle,buttonStyle,children}){
+    const navigate = useNavigate();
+    const [options,setList] = useState(["1"]);
+    const [activeTab,setActiveTab] = useState("");
+    
+
+    
 
     return(
+        
         <div className="OuterWindow">
-        <div className="ButtonBar">
-            <button>Tab 1</button>
-            <button>Tab 2</button>
-            <button>Tab 3</button>
+        <div className="buttonBar">
+            {options.map(tab => <button className={buttonStyle} onClick={() => navigate({tab})}>{tab}</button>)}
         <div className={innerStyle}>
         {children}
         </div>
