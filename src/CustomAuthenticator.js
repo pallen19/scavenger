@@ -20,7 +20,7 @@ import ChartOfAccounts from './pages/Accounts/Subpages/ChartOfAccounts';
 import {AccountSummary} from './pages/Accounts/Subpages/AccountSummary'
 import Modal from './components/Modal/Modal';
 import Table from './components/Table/Table'
-import CreateAccount from './pages/Accounts/CreateAccount';
+import CreateAccount from './pages/Accounts/Subpages/CreateAccount'
 import EmailForm from './components/EmailForm/EmailForm' 
 
 
