@@ -19,8 +19,10 @@ import {Navigation,Logo, UserProfileButton} from './ui-components'
 import ChartOfAccounts from './pages/Accounts/Subpages/ChartOfAccounts';
 import {AccountSummary} from './pages/Accounts/Subpages/AccountSummary'
 import Modal from './components/Modal/Modal';
+import Table from './components/Table/Table'
+import CreateAccount from './pages/Accounts/CreateAccount';
 import EmailForm from './components/EmailForm/EmailForm' 
-import CreateAccount from './pages/Accounts/Subpages/CreateAccount';
+
 
 
 
@@ -214,6 +216,10 @@ const services={
         <Route path='/NewUser' element={<ProtectedRoute allowed={level === "Administrators" || level === "Managers"} redirectPath="*"><NewUser level={level} /></ProtectedRoute>}></Route>
         <Route path='/ChartOfAccounts' element={<ProtectedRoute allowed={level === "Administrators" || level === "Managers"} redirectPath="*"><ChartOfAccounts level={level} /></ProtectedRoute>}></Route>
         <Route path='/404' element={<h1>This Link has not been assigned</h1>}></Route>
+
+        <Route path='/Table' element={<Table/>} ></Route>
+        <Route path='/CreateAccount' element={<CreateAccount/>}/>
+
         <Route path="*" element={<Navigate to="/Home"/>}/>
     </Route>
   </Routes>
