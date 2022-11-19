@@ -193,7 +193,7 @@ case 'Administrators':
          Background:{width: "100%"},
          PageTitle: {children:"Accounts"}
      }}/>
-     <TabWindow innerStyle="arrangeAccounts">{testAccounts.map(account => getAccountCards(account))}</TabWindow>
+     <TabWindow innerStyle="arrangeAccounts">{testAccounts.map(account => getAccountCards(account, editAccount))}</TabWindow>
        {/* {accounts.map(account => getAccountCards(account))} */}
        <Modal show={modal} onClose={() => onClose()}>
                         <input placeholder={"Account ID: " + activeAccount.id} 

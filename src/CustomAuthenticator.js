@@ -17,6 +17,8 @@ import { CustomDropdown } from './components/DropdownMenu/DropdownMenu';
 import {TestA} from './pages/Reports/Subpages/testa'
 import {TestB} from './pages/Reports/Subpages/testb'
 import {TestC} from './pages/Reports/Subpages/testc'
+import Table from './components/Table/Table'
+import CreateAccount from './pages/Accounts/CreateAccount';
 import ChartOfAccounts from './pages/Accounts/ChartOfAccounts';
 
 
@@ -200,6 +202,10 @@ const services={
         <Route path='/NewUser' element={<ProtectedRoute allowed={level === "Administrators" || level === "Managers"} redirectPath="*"><NewUser level={level} /></ProtectedRoute>}></Route>
         <Route path='/ChartOfAccounts' element={<ProtectedRoute allowed={level === "Administrators" || level === "Managers"} redirectPath="*"><ChartOfAccounts level={level} /></ProtectedRoute>}></Route>
         <Route path='/404' element={<h1>This Link has not been assigned</h1>}></Route>
+
+        <Route path='/Table' element={<Table/>} ></Route>
+        <Route path='/CreateAccount' element={<CreateAccount/>}/>
+
         <Route path="*" element={<Navigate to="/Home"/>}/>
     </Route>
   </Routes>

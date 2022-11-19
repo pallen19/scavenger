@@ -51,7 +51,7 @@ const CreateAccount = () => {
                     'beginBalance' : { onChange: (event) => { setBeginBalance(event.target.value) } },
                     'endBalance' : { onChange: (event) => { setEndBalance(event.target.value) } },
                     'comments' : { onChange: (event) => { setComments(event.target.value) } },
-                    'btnsubmit': {onClick : () => { createAccount() }},
+                    'btnsubmit': {onClick : () => { createAccount() }, style:{cursor:"pointer"}},
                     'dropdownFrame' : {children : <DropdownMenu placeholder="statement" options={["Test1","Test2","Test3"]}/>}
                 }} />
 
