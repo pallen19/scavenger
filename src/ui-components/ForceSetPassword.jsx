@@ -87,13 +87,7 @@ export default function ForceSetPassword(props) {
         {...getOverrideProps(overrides, "label35604391")}
       ></Text>
       <Button
-        display="flex"
-        gap="0"
-        direction="row"
         width="395px"
-        height="unset"
-        justifyContent="center"
-        alignItems="center"
         position="absolute"
         top="509px"
         left="47px"
@@ -104,19 +98,11 @@ export default function ForceSetPassword(props) {
         {...getOverrideProps(overrides, "Button35604343")}
       ></Button>
       <PasswordField
-        display="flex"
-        gap="8px"
-        direction="column"
-        width="300px"
-        height="unset"
-        justifyContent="flex-start"
-        alignItems="flex-start"
+        label="Password"
+        placeholder="Enter password"
         position="absolute"
         top="119px"
         left="98px"
-        padding="0px 0px 0px 0px"
-        label="Password"
-        placeholder="Enter password"
         size="default"
         isDisabled={false}
         labelHidden={false}
@@ -176,18 +162,7 @@ export default function ForceSetPassword(props) {
             {...getOverrideProps(overrides, "placeholder")}
           ></Text>
           <Button
-            display="flex"
-            gap="0"
-            direction="row"
-            width="unset"
-            height="unset"
-            justifyContent="center"
-            alignItems="center"
             shrink="0"
-            position="relative"
-            border="1px SOLID rgba(174,179,183,1)"
-            borderRadius="5px"
-            padding="8px 16px 8px 16px"
             size="default"
             isDisabled={false}
             variation="default"

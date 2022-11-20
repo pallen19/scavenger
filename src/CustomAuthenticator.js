@@ -5,17 +5,24 @@ import { Authenticator, Heading} from '@aws-amplify/ui-react';
 import '@aws-amplify/ui-react/styles.css';
 import {Routes,Route, Navigate, Outlet, redirect,useNavigate, Link } from "react-router-dom";  
 import { useEffect, useState } from 'react';
-import {NewAcct,NewUser,ExpiredPasswords, Journals} from './AdminView';
+import {NewAcct,NewUser} from './AdminView';
 import {ViewAcct} from './pages/Accounts/Accounts';
+import { Journals } from './pages/Accounts/Subpages/Journals';
+import { GeneralLedger } from './pages/Accounts/Subpages/GeneralLedger';
 import {Home} from './pages/Homepage/Homepage';
 import {Users} from './pages/Users/Users';
 import {Reports} from './pages/Reports/Reports'
+import { ExpiredPasswords } from './pages/Reports/Subpages/ExpiredPasswords';
 import Layout  from './Layout';
 import TestNav from './testnav';
-import {Navigation,Logo} from './ui-components'
-import {TestA} from './pages/Reports/Subpages/testa'
-import {TestB} from './pages/Reports/Subpages/testb'
-import {TestC} from './pages/Reports/Subpages/testc'
+import {Navigation,Logo, UserProfileButton} from './ui-components'
+import ChartOfAccounts from './pages/Accounts/Subpages/ChartOfAccounts';
+import {AccountSummary} from './pages/Accounts/Subpages/AccountSummary'
+import Modal from './components/Modal/Modal';
+import Table from './components/Table/Table'
+import CreateAccount from './pages/Accounts/Subpages/CreateAccount'
+import EmailForm from './components/EmailForm/EmailForm' 
+
 
 
 
@@ -28,7 +35,8 @@ const [level,setLevel] = useState("");
 const [userData,setUserData] = useState([]);
 const [currentUser,setCurrentUser] = useState(localStorage.getItem("CognitoIdentityServiceProvider.3dlpcfa5febo59u7ht43jg8jgv.LastAuthUser"))
 const [accountType,setAccountType] = useState([]);
-const [tabID,setTab] = useState(":TestA");
+const [modal,setModal] = useState(false);
+
 
 useEffect(()=>{
   console.log("current user is : "  + currentUser);
@@ -39,6 +47,9 @@ useEffect(()=>{
  localStorage.setItem('role',level);
 },[])
 
+const onClose=()=>{
+  setModal(false);
+}
 
 
   function generatedUserName(firstname,lastname){
@@ -171,56 +182,58 @@ const services={
   
    
   <div>
-  
-  
-
-  <Heading level={1}>Hello {user.username}</Heading>
-  
-  <TestNav></TestNav>
   <Navigation  overrides={{
     Home:{onClick:() => {navigate('/Home')}},
     Accounts:{onClick:() => {navigate('/Accounts')}},
     Users:{onClick:() => {navigate('/Users')}},
-    Reports:{onClick:() => {navigate('/Reports')}}
+    Reports:{onClick:() => {navigate('/Reports')}},
+    UserProfileButton:{children:<button onClick={signOut}>Sign Out</button>},
+    EmailButton:{onClick:() => {setModal(true)}},
   }}/>
  
-
   
-  <p>account level is {level}</p>
-  {console.log("is currently " + level )}
-  <button onClick={signOut}>Sign Out</button>
-  <a  href='/Reports/testA'><button>TabA</button></a>
-  <a  href='/Reports/testB'><button>TabB</button></a>
-  <a  href='/Reports/testC'><button>TabC</button></a>
-  <Link to="Reports/testC">Test-C</Link>
-
-
   
   <Routes>
     <Route path="/" element={<Layout />}>
-        <Route path='Accounts' element={<ProtectedRoute allowed={level === "Administrators" || level === "Managers"} redirectPath="*"><ViewAcct level={level} /></ProtectedRoute>}/>
+        <Route path='Accounts/*' element={<ProtectedRoute allowed={level === "Administrators" || level === "Managers"} redirectPath="*"><ViewAcct level={level} /></ProtectedRoute>}>
+            <Route path='Account Summary' element={<AccountSummary/>}/>
+            <Route path='Journals' element={<Journals/>}/>
+            <Route path='General Ledger' element={<GeneralLedger/>}/>
+            <Route path='Create Account' element={<CreateAccount/>}/>
+        </Route>
         <Route path='Home' element={<Home level={level}></Home>}/>
         <Route path='Users' element={<ProtectedRoute allowed={level === "Administrators" || level === "Managers"} redirectPath="*"><Users level={level}/></ProtectedRoute>}/>
         <Route path='Reports/*' element={<Reports level={level}/>}>
-          <Route path="testA" element={<TestA/>}/>
-          <Route path='testB' element={<TestB/>}/>
-          <Route path='testC' element={<TestC/>}/>
+            <Route path='Expired Passwords' element={<ExpiredPasswords/>}/>
+          {/* <Route path="testA" element={<TestA/>}/>
+          
+          <Route path='testC' element={<TestC/>}/> */}
           <Route path='*' element={<div>No Page hit</div>}/>
         </Route>
         <Route path='/ExpiredPasswords' element={<ProtectedRoute allowed={level === "Administrators" || level === "Managers"} redirectPath="*"><ExpiredPasswords level={level} /></ProtectedRoute>}></Route>
         <Route path='/Journals' element={<ProtectedRoute allowed={level === "Administrators" || level === "Managers"} redirectPath="*"><Journals level={level} /></ProtectedRoute>}></Route>
         <Route path='/NewAccount' element={<ProtectedRoute allowed={level === "Administrators" || level === "Managers"} redirectPath="*"><NewAcct level={level} /></ProtectedRoute>}></Route>
         <Route path='/NewUser' element={<ProtectedRoute allowed={level === "Administrators" || level === "Managers"} redirectPath="*"><NewUser level={level} /></ProtectedRoute>}></Route>
+        <Route path='/ChartOfAccounts' element={<ProtectedRoute allowed={level === "Administrators" || level === "Managers"} redirectPath="*"><ChartOfAccounts level={level} /></ProtectedRoute>}></Route>
         <Route path='/404' element={<h1>This Link has not been assigned</h1>}></Route>
+
+        <Route path='/Table' element={<Table/>} ></Route>
+        <Route path='/CreateAccount' element={<CreateAccount/>}/>
+
         <Route path="*" element={<Navigate to="/Home"/>}/>
     </Route>
   </Routes>
-  
+
+  <Modal show={modal} onClose={()=>onClose()}>
+  <EmailForm/>
+  </Modal>
   </div>
   
   )
   
 }
+
+
 
 </Authenticator>
 

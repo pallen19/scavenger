@@ -1,9 +1,5 @@
-import {React, PureComponent, Component, Fragment} from 'react';
-import ReactDOM from 'react-dom/client';
-import  SendEmailCommand  from '@aws-sdk/client-ses';
-import  sesClient  from './libs/sesClient.js';
-import { PureComponent, Fragment, Component } from 'react';
-
+import React, { Fragment, PureComponent, Component } from "react";
+import './EmailForm.css'
 
 //const DEFAULT_TEMPLATE_IMG = '/content/images/CS.jpg';
 const sourceEmail = 'superpannah@gmail.com';
@@ -135,9 +131,8 @@ export default class PersonalizationComponent extends PureComponent {
     return (
       <Fragment>
 <div className = 'form'>
-  <label id='title'>Send Message</label><br />
   {/* Email Recipient */}
-  <label htmlFor="recipient" id='recipientLabel'>To: </label>
+  <label htmlFor="recipient">To: </label>
   {/* <input type="email" id="recipient" name="recipient" /><br /><br /> */}
   <input
                 id="recipient"
@@ -151,7 +146,7 @@ export default class PersonalizationComponent extends PureComponent {
               />
               <br /><br />
   {/* Subject */}
-  <label htmlFor="subject" id='subjectLabel'>Subject: </label>
+  <label htmlFor="subject">Subject: </label>
 {/* <input type="text" id="subject" name="subject" /><br /><br /> */}
   <input
                 id="subject"
@@ -165,7 +160,7 @@ export default class PersonalizationComponent extends PureComponent {
               />
               <br /><br />
   {/* Email Body */}
-  <label htmlFor="body" id='bodyLabel'>Message: </label>
+  <label htmlFor="body">Message: </label>
   <textarea 
   id="body" 
   name="body" 

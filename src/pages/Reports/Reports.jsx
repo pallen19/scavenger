@@ -1,6 +1,7 @@
 import {Outlet,useNavigate,useLocation, Routes, Route} from "react-router-dom";
 import {useState} from "react";
 import { PageHeader } from "../../ui-components";
+import { TabWindow } from "../../components/TabWindow/TabWindow";
 import { TestA } from "./Subpages/testa";
 
 export function Reports(props){
@@ -14,27 +15,30 @@ export function Reports(props){
       case 'Administrators':
           return (
               <>
-              <h1>Admins</h1>
+             
               <PageHeader  
          overrides={{
            PageHeader: {width:"100%"},
            Background:{width: "100%"},
            PageTitle: {children: "Reports"},
            SubNavigation:{children:""}}}/>
-           
-           <Outlet/>
+           Tab
+           <TabWindow 
+                        options={["Expired Passwords", "Event Log"]}>
+                        <Outlet />
+                </TabWindow>
           </> );
       case 'Managers':
           return(
           <>
-          <h1>Managers</h1>
+          
           <Outlet/>
           </>
           )
       case 'Accountant':
           return(
             <>
-              <h1>Accountant</h1>
+             
               <Outlet/>
             </>
               )

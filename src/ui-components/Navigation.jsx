@@ -15,7 +15,6 @@ import {
 import Logo from "./Logo";
 import { Button, Flex, Text, View } from "@aws-amplify/ui-react";
 import EmailButton from "./EmailButton";
-import UserProfileButton from "./UserProfileButton";
 export default function Navigation(props) {
   const { className, overrides: overridesProp, ...rest } = props;
   const variants = [
@@ -25,13 +24,13 @@ export default function Navigation(props) {
         "Frame 432": {},
         FullName: {},
         EmailButton: {},
-        UserProfileButton: {},
         Welcome: {},
         Home: {},
         Accounts: {},
         Users: {},
         Reports: {},
         "Frame 433": {},
+        UserProfileButton: {},
         Navigation: {},
       },
       variantValues: { property1: "Default" },
@@ -128,19 +127,6 @@ export default function Navigation(props) {
         property3="Default"
         {...getOverrideProps(overrides, "EmailButton")}
       ></EmailButton>
-      <UserProfileButton
-        width="150px"
-        height="45px"
-        display="block"
-        gap="unset"
-        alignItems="unset"
-        justifyContent="unset"
-        position="absolute"
-        top="36px"
-        left="992px"
-        padding="0px 0px 0px 0px"
-        {...getOverrideProps(overrides, "UserProfileButton")}
-      ></UserProfileButton>
       <Text
         fontFamily="Inter"
         fontSize="16px"
@@ -181,15 +167,7 @@ export default function Navigation(props) {
         {...getOverrideProps(overrides, "Frame 433")}
       >
         <Button
-          display="flex"
-          direction="row"
-          width="unset"
-          height="unset"
-          justifyContent="center"
-          alignItems="center"
           shrink="0"
-          position="relative"
-          padding="8px 16px 8px 16px"
           size="default"
           isDisabled={false}
           variation="link"
@@ -200,15 +178,7 @@ export default function Navigation(props) {
           {...getOverrideProps(overrides, "Home")}
         ></Button>
         <Button
-          display="flex"
-          direction="row"
-          width="unset"
-          height="unset"
-          justifyContent="center"
-          alignItems="center"
           shrink="0"
-          position="relative"
-          padding="8px 16px 8px 16px"
           size="default"
           isDisabled={false}
           variation="link"
@@ -219,15 +189,7 @@ export default function Navigation(props) {
           {...getOverrideProps(overrides, "Accounts")}
         ></Button>
         <Button
-          display="flex"
-          direction="row"
-          width="unset"
-          height="unset"
-          justifyContent="center"
-          alignItems="center"
           shrink="0"
-          position="relative"
-          padding="8px 16px 8px 16px"
           size="default"
           isDisabled={false}
           variation="link"
@@ -238,15 +200,7 @@ export default function Navigation(props) {
           {...getOverrideProps(overrides, "Users")}
         ></Button>
         <Button
-          display="flex"
-          direction="row"
-          width="unset"
-          height="unset"
-          justifyContent="center"
-          alignItems="center"
           shrink="0"
-          position="relative"
-          padding="8px 16px 8px 16px"
           size="default"
           isDisabled={false}
           variation="link"
@@ -257,6 +211,20 @@ export default function Navigation(props) {
           {...getOverrideProps(overrides, "Reports")}
         ></Button>
       </Flex>
+      <View
+        width="150px"
+        height="45px"
+        display="block"
+        gap="unset"
+        alignItems="unset"
+        justifyContent="unset"
+        overflow="hidden"
+        position="absolute"
+        top="33px"
+        left="984px"
+        padding="0px 0px 0px 0px"
+        {...getOverrideProps(overrides, "UserProfileButton")}
+      ></View>
     </View>
   );
 }

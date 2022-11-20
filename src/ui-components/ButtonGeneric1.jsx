@@ -24,15 +24,9 @@ export default function ButtonGeneric1(props) {
       {...getOverrideProps(overrides, "ButtonGeneric1")}
     >
       <Button
-        display="flex"
-        gap="0"
-        direction="row"
         width="300px"
         height="36px"
-        justifyContent="center"
-        alignItems="center"
         shrink="0"
-        position="relative"
         backgroundColor="rgba(0,64,77,1)"
         size="default"
         isDisabled={false}
