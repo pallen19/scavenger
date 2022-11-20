@@ -1,4 +1,4 @@
-import React, { Fragment, PureComponent, Component } from "react";
+import {React, PureComponent, Component, Fragment} from 'react';
 import ReactDOM from 'react-dom/client';
 import  SendEmailCommand  from '@aws-sdk/client-ses';
 import  sesClient  from './libs/sesClient.js';
@@ -6,7 +6,7 @@ import { PureComponent, Fragment, Component } from 'react';
 
 
 //const DEFAULT_TEMPLATE_IMG = '/content/images/CS.jpg';
-const sourceEmail = 'hotajed147@lidely.com';
+const sourceEmail = 'superpannah@gmail.com';
 
 
 export default class PersonalizationComponent extends PureComponent {
@@ -17,7 +17,7 @@ export default class PersonalizationComponent extends PureComponent {
 
   constructor(props) {
     super(props);
-
+    
     this.state = {
         emailForm: {
             recipient: "",
@@ -33,6 +33,15 @@ export default class PersonalizationComponent extends PureComponent {
     }
     
 
+    //idk if this is needed but for the love of god
+    var AWS = require("aws-sdk");
+    AWS.config.update({
+        accessKeyId: "AKIA2ZP4XPBPVAM7BG5J",
+        secretAccessKey: "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",
+        "region": "us-east-2"  
+    })
+
+    //ensure all form fields are filled out
     this.validateEmailForm = () => {
         let form = {...this.state.emailForm};
         let validationMessages = [];
@@ -66,6 +75,8 @@ export default class PersonalizationComponent extends PureComponent {
         });
     }
 
+
+    //Submit Email Form
     this.submit = () => {
         let validationMessages = this.validateEmailForm();
         if(validationMessages.length > 0)
@@ -73,17 +84,23 @@ export default class PersonalizationComponent extends PureComponent {
             this.setState({emailForm: {...this.state.emailForm, validationMessages: validationMessages}} );  
         }
         else{
-            let sendEmailCommand = createSendEmailCommand(...this.state.emailForm)
+            
             try {
-                return sesClient.send(sendEmailCommand);
+                var email = Email(this.state.emailForm)
+                var sendPromise = new AWS.SES({apiVersion: '2010-12-01'}).sendEmail(email).promise();
+                alert('Email Sent Successfully!')
+                this.clear()
+                return sendPromise;
             } catch (e) {
                 console.log("Failed to send email.");
                 return e;
             }
-       }
+      }
 
     }
 
+
+    //Onclick essentially
     this.handleEmailFormChange = (event, callback) => {
         let value = event.target.value;
         const name = event.target.name;
@@ -118,8 +135,9 @@ export default class PersonalizationComponent extends PureComponent {
     return (
       <Fragment>
 <div className = 'form'>
+  <label id='title'>Send Message</label><br />
   {/* Email Recipient */}
-  <label htmlFor="recipient">To: </label>
+  <label htmlFor="recipient" id='recipientLabel'>To: </label>
   {/* <input type="email" id="recipient" name="recipient" /><br /><br /> */}
   <input
                 id="recipient"
@@ -133,7 +151,7 @@ export default class PersonalizationComponent extends PureComponent {
               />
               <br /><br />
   {/* Subject */}
-  <label htmlFor="subject">Subject: </label>
+  <label htmlFor="subject" id='subjectLabel'>Subject: </label>
 {/* <input type="text" id="subject" name="subject" /><br /><br /> */}
   <input
                 id="subject"
@@ -147,7 +165,7 @@ export default class PersonalizationComponent extends PureComponent {
               />
               <br /><br />
   {/* Email Body */}
-  <label htmlFor="body">Message: </label>
+  <label htmlFor="body" id='bodyLabel'>Message: </label>
   <textarea 
   id="body" 
   name="body" 
@@ -167,7 +185,7 @@ export default class PersonalizationComponent extends PureComponent {
 </Fragment>
     );
 }
-}
+  }
 
 class FieldValidationErrorMessageComponent extends Component {
     constructor(props) {
@@ -184,39 +202,35 @@ class FieldValidationErrorMessageComponent extends Component {
     }
 };
 
-const createSendEmailCommand = (email) => {
-    return new SendEmailCommand({
-      Destination: {
-        /* required */
-        CcAddresses: [
-          /* more items */
-        ],
-        ToAddresses: [
-          email.recipient,
-          /* more To-email addresses */
-        ],
-      },
-      Message: {
-        /* required */
-        Body: {
-          /* required */
-          Html: {
-            Charset: "UTF-8",
-            Data: email.body,
-          },
-          Text: {
-            Charset: "UTF-8",
-            Data: email.body,
-          },
+const Email=(email)=>{
+var params = {
+    Destination: { /* required */
+      ToAddresses: [
+        email.recipient,
+        /* more items */
+      ]
+    },
+    Message: { /* required */
+      Body: { /* required */
+        Html: {
+         Charset: "UTF-8",
+         Data: JSON.stringify(email.body)
         },
-        Subject: {
-          Charset: "UTF-8",
-          Data: email.subject,
-        },
+        Text: {
+         Charset: "UTF-8",
+         Data: JSON.stringify(email.body)
+        }
+       },
+       Subject: {
+        Charset: 'UTF-8',
+        Data: JSON.stringify(email.subject)
+       }
       },
-      Source: sourceEmail,
-      ReplyToAddresses: [
-        sourceEmail,
-      ],
-    });
-};
+    Source: sourceEmail, /* required */
+    ReplyToAddresses: [
+       'superpannah@gmail.com',
+      /* more items */
+    ],
+  };
+  return params;
+}
