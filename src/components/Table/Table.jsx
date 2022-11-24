@@ -3,10 +3,11 @@ import { React, Component, useState, useEffect } from 'react'
 import { render } from '@testing-library/react';
 import Modal from '../../components/Modal/Modal'
 import JournalEntryForm from '../../ui-components/JournalEntryForm';
-import { db } from '../../firestore-config'
+import { db, storage } from '../../firestore-config'
 import { deleteDoc, collection, getDocs, getDoc, updateDoc, query, where, arrayUnion, documentId, doc, arrayRemove, addDoc } from 'firebase/firestore';
 import DropdownMenu from '../DropdownMenu/DropdownMenu';
 import { PendingJournalApprovals } from '../../ui-components';
+import { ref, uploadBytes } from 'firebase/storage'
 // A super simple expandable component.
 
 export default function Table(props) {
@@ -16,22 +17,23 @@ export default function Table(props) {
     const [modal, setModal] = useState(false)
     const [debit, setDebit] = useState("")
     const [credit, setCredit] = useState("")
+    const [imageUpload, setImageUpload] = useState(null)
+
 
     const pendingJournalEntries = collection(db, "pendingJournalEntries")
     const accountsColRef = collection(db, "accounts")
 
     const accountNames = []
 
-    const onOpen = async () =>
-    {  
+    const onOpen = async () => {
         setModal(true)
-        
+
         await getAccountNames();
         console.log(accountNames)
     }
 
     const onClose = () => {
-        
+
         setModal(false);
     }
 
@@ -55,6 +57,17 @@ export default function Table(props) {
         else {
             alert("Debits and Credits are not equal")
         }
+    }
+
+    const uploadImage = () => {
+
+        if (imageUpload == null) return;
+
+        const imageRef = ref(storage, `images/${imageUpload.name}`)
+
+        uploadBytes(imageRef, imageUpload).then(() => {
+            alert("Image uploaded")
+        })
     }
 
     const columns = [
@@ -108,6 +121,8 @@ export default function Table(props) {
 
     useEffect(() => {
 
+        getAccountNames()
+
     }, [accountNames])
 
 
@@ -125,13 +140,19 @@ export default function Table(props) {
                 <JournalEntryForm
                     overrides={
                         {
-                            dropdownFrame: { children: <DropdownMenu placeholder="Select An Account" options={accountNames} /> },
+                            dropdownFrame: { children: <DropdownMenu placeholder="Select An Account" options={accountNames[0]} /> },
                             Debit: { onChange: (event) => setDebit(event.target.value) },
                             Credit: { onChange: (event) => setCredit(event.target.value) },
                             ButtonSubmit: { onClick: () => submitJournal() }
                         }
                     }>
                 </JournalEntryForm>
+
+                <div>
+                    <input type="file" onChange={(event) => { setImageUpload(event.target.files[0]) }} />
+                    <button onClick={uploadImage} > uploadImage </button>
+                </div>
+
             </Modal>
 
             <button onClick={() => onOpen()}>Button</button>
