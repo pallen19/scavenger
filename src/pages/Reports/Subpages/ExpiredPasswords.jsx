@@ -28,6 +28,27 @@ export function ExpiredPasswords(props) {
     }, [])
 
     function getExpiredUsers(userDate) {
+        
+        const userCreationDate = new Date(userDate);
+        
+        const currDate = new Date();
+
+        const oneDay = 1000 * 60 * 60 * 24;
+
+        const diffInTime = currDate.getTime() - userCreationDate.getTime()
+
+        const diffInDays = Math.round(diffInTime / oneDay)
+
+        console.log("days since creation: " + diffInDays)
+
+        if(diffInDays >= 30)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
 
     }
 
@@ -37,11 +58,12 @@ export function ExpiredPasswords(props) {
 
     return (
         <div>
-            <p>Expired Passwords</p>
+            <p>Expired Passwords (Past 30 Days)</p>
 
             {userInfo.map((user) => {
                 return (
-                    ((new Date().getDate() - new Date(user.creationDate).getDate()) > 90   ) ?
+                    (getExpiredUsers(user.creationDate)) ?
+                    // new Date().getDate() - new Date(user.creationDate).getDate()) > 90   
                         <div>
                             {" "}
                             <h1>Name: {user.firstName}</h1>
