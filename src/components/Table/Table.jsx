@@ -22,13 +22,14 @@ export default function Table(props) {
 
     const pendingJournalEntries = collection(db, "pendingJournalEntries")
     const accountsColRef = collection(db, "accounts")
+    const eventLogColRef = collection(db, "eventLog")
 
     const accountNames = []
 
     const onOpen = async () => {
         setModal(true)
 
-        await getAccountNames();
+        //await getAccountNames();
         console.log(accountNames)
     }
 
@@ -37,22 +38,31 @@ export default function Table(props) {
         setModal(false);
     }
 
-    const getAccountNames = async () => {
+    useEffect(() => {
 
-        await getDocs(accountsColRef)
-            .then(snapshot => {
-                snapshot.forEach(accounts => {
-                    accountNames.push(accounts.data().accountName)
+        const getAccountNames = async () => {
+
+            await getDocs(accountsColRef)
+                .then(snapshot => {
+                    snapshot.forEach(accounts => {
+                        accountNames.push(accounts.data().accountName)
+                    })
                 })
-            })
-    }
+        }
+
+        getAccountNames()
+
+    }, [])
 
     const submitJournal = async () => {
 
         const currDate = new Date()
+        const enteredDate = currDate.toString().substring(0, 15)
 
         if (parseInt(debit) === parseInt(credit)) {
+
             await addDoc(pendingJournalEntries, { accountName: "", debit: debit, credit: credit, entryDate: currDate, status: "pending" })
+            await addDoc(eventLogColRef, {altered : "Journal", changes : "Creation", dateAltered : enteredDate})
         }
         else {
             alert("Debits and Credits are not equal")
@@ -118,12 +128,6 @@ export default function Table(props) {
             Account: 'few'
         }
     ]
-
-    useEffect(() => {
-
-        getAccountNames()
-
-    }, [accountNames])
 
 
     return (

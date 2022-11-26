@@ -13,6 +13,7 @@ import {Home} from './pages/Homepage/Homepage';
 import {Users} from './pages/Users/Users';
 import {Reports} from './pages/Reports/Reports'
 import { ExpiredPasswords } from './pages/Reports/Subpages/ExpiredPasswords';
+import { EventLog } from './pages/Reports/Subpages/EventLog';
 import Layout  from './Layout';
 import TestNav from './testnav';
 import {Navigation,Logo, UserProfileButton} from './ui-components'
@@ -205,12 +206,14 @@ const services={
         <Route path='Users' element={<ProtectedRoute allowed={level === "Administrators" || level === "Managers"} redirectPath="*"><Users level={level}/></ProtectedRoute>}/>
         <Route path='Reports/*' element={<Reports level={level}/>}>
             <Route path='Expired Passwords' element={<ExpiredPasswords/>}/>
+            <Route path='Event Log' element={<EventLog/>}/>
           {/* <Route path="testA" element={<TestA/>}/>
           
           <Route path='testC' element={<TestC/>}/> */}
           <Route path='*' element={<div>No Page hit</div>}/>
         </Route>
         <Route path='/ExpiredPasswords' element={<ProtectedRoute allowed={level === "Administrators" || level === "Managers"} redirectPath="*"><ExpiredPasswords level={level} /></ProtectedRoute>}></Route>
+        <Route path='/EventLog' element={<ProtectedRoute allowed={level === "Administrators" || level === "Managers"} redirectPath="*"><EventLog level={level} /></ProtectedRoute>}></Route>
         <Route path='/Journals' element={<ProtectedRoute allowed={level === "Administrators" || level === "Managers"} redirectPath="*"><Journals level={level} /></ProtectedRoute>}></Route>
         <Route path='/NewAccount' element={<ProtectedRoute allowed={level === "Administrators" || level === "Managers"} redirectPath="*"><NewAcct level={level} /></ProtectedRoute>}></Route>
         <Route path='/NewUser' element={<ProtectedRoute allowed={level === "Administrators" || level === "Managers"} redirectPath="*"><NewUser level={level} /></ProtectedRoute>}></Route>

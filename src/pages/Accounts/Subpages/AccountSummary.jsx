@@ -1,6 +1,6 @@
 import { getAccountCards, GetAccountData } from '../AccountFunctions'
 import Modal from '../../../components/Modal/Modal'
-import { collection, getDocs, updateDoc, doc} from 'firebase/firestore';
+import { collection, getDocs, updateDoc, doc, addDoc} from 'firebase/firestore';
 import { db } from '../../../firestore-config'
 import { useState, useEffect } from 'react';
 
@@ -76,6 +76,8 @@ export function AccountSummary(props){
     const [debit, setDebit] = useState("")
     const [credit, setCredit] = useState("")
     const [balance, setBalance] = useState("")
+
+    const eventLogColRef = collection(db, "eventLog")
     
     const editAccount = (entireAccount) => {
 
@@ -85,20 +87,68 @@ export function AccountSummary(props){
 
     }
 
+    const getAccountID = async (randomNumber) => {
+
+        await getDocs(eventLogColRef)
+            .then(snapshot => {
+                snapshot.forEach(user => {
+                    //billybobID = user.id
+                    if (user.data().number === randomNumber) // searching for the document whose first name is "BILLY"
+                    {
+                        setID(user.id) // setting this variable to the document's ID you want to find - 'XsZ0SW2vOIfnosVyvGs3'
+                    }
+                })
+            })
+
+        return id;
+    }
+
     const addAccount = async () => {
         
         const docToBeEdited = doc(db, "accounts", activeAccount.id)
+
+        console.log("LOOK1")
+
+        const currDate = new Date()
+        const enteredDate = currDate.toString().substring(0, 15)
+        const ranNum = Math.floor(Math.random() * 100000) + 1;
+
+        console.log("LOOK2")
+
+        await addDoc(eventLogColRef, {altered : activeAccount.accountName, changes : "Edited", dateAltered : enteredDate, number : ranNum,
+            before : "", after : ""})
+
+        console.log("LOOK3")
+
+        const eventLogID = await getAccountID(ranNum);
+
+        console.log("LOOK4")
+
+        const eventLogToBeEdited = doc(db, "eventLog", eventLogID)
         
+        console.log("LOOK5")
+
         if(accountNumber != "")
         {
             const newAccountNumber = { accountNumber : accountNumber }
             await updateDoc(docToBeEdited, newAccountNumber)
+            await updateDoc(eventLogToBeEdited, {before : "accountNumber : " + activeAccount.accountNumber})
+            await updateDoc(eventLogToBeEdited, {after : "accountNumber : " + accountNumber})
         }
 
         if(accountSubcategory != "")
         {
             const newAccountSubcategory = { accountSubcategory : accountSubcategory }
-            await updateDoc(docToBeEdited, newAccountSubcategory)
+            await updateDoc(docToBeEdited, newAccountSubcategory).then(console.log("updated1"))
+
+            const beforeInfo = "accountSubcategory : " + activeAccount.accountSubcategory
+            const afterInfo = "accountSubcategory : " + accountSubcategory
+
+            console.log("before: " + beforeInfo)
+            console.log("after: " + afterInfo)
+
+            await updateDoc(eventLogToBeEdited, {before : beforeInfo}).then(console.log("updated2"))
+            await updateDoc(eventLogToBeEdited, {after : afterInfo}).then(console.log("updated3"))
         }
 
         if(accountDescription != "")
@@ -175,7 +225,7 @@ export function AccountSummary(props){
     //End of Constants
     return(
         <>
-        {testAccounts.map(account => getAccountCards(account,editAccount))}
+        {accounts.map(account => getAccountCards(account,editAccount))}
         <Modal show={modal} onClose={() => onClose()}>
                         <input placeholder={"Account ID: " + activeAccount.id} 
                             onChange={(event) => setID(event.target.value)}></input>
