@@ -188,11 +188,11 @@ export default function CreateNewAccountNew(props) {
       <TextField
         label="Comments"
         placeholder="Enter comments "
-        width="298px"
+        width="264px"
         height="74px"
         position="absolute"
-        top="503px"
-        left="368px"
+        top="593px"
+        left="53px"
         size="default"
         isDisabled={false}
         labelHidden={false}
@@ -205,8 +205,8 @@ export default function CreateNewAccountNew(props) {
         width="143px"
         height="71px"
         position="absolute"
-        top="304px"
-        left="371px"
+        top="499px"
+        left="368px"
         size="default"
         isDisabled={false}
         labelHidden={false}
@@ -219,8 +219,8 @@ export default function CreateNewAccountNew(props) {
         width="143px"
         height="71px"
         position="absolute"
-        top="305px"
-        left="523px"
+        top="499px"
+        left="535px"
         size="default"
         isDisabled={false}
         labelHidden={false}
@@ -233,8 +233,8 @@ export default function CreateNewAccountNew(props) {
         width="142px"
         height="74px"
         position="absolute"
-        top="402px"
-        left="524px"
+        top="593px"
+        left="535px"
         size="default"
         isDisabled={false}
         labelHidden={false}
@@ -247,8 +247,8 @@ export default function CreateNewAccountNew(props) {
         width="144px"
         height="74px"
         position="absolute"
-        top="402px"
-        left="370px"
+        top="594px"
+        left="369px"
         size="default"
         isDisabled={false}
         labelHidden={false}
@@ -294,7 +294,7 @@ export default function CreateNewAccountNew(props) {
       </Flex>
       <View
         width="297px"
-        height="41px"
+        height="238px"
         display="block"
         gap="unset"
         alignItems="unset"

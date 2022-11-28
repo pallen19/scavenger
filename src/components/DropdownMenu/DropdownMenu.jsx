@@ -2,18 +2,20 @@ import ReactDropdown from "react-dropdown";
 import { UserProfileButton } from "../../ui-components";
 import './DropdownMenu.css'
 
-export default function DropdownMenu(props) {
+export default function DropdownMenu({options,placeholder}) {
 const ListItems = []
 
-props.options.forEach(option => {
+options.forEach(option => {
+   
     ListItems.push({ value: option, label: option, className: 'dropDownOption' })
 });
 
 return(
     <>
+   
     <ReactDropdown options={ListItems}
     controlClassName="dropDownControlFrame" 
-    placeholder={props.placeholder}
+    placeholder={placeholder}
     menuClassName="dropDownMenuFrame" 
     className="dropDownFrame"/>
     </>

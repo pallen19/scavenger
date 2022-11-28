@@ -8,51 +8,46 @@ import { deleteDoc, collection, getDocs, getDoc, updateDoc, query, where, arrayU
 import DropdownMenu from '../DropdownMenu/DropdownMenu';
 import { PendingJournalApprovals } from '../../ui-components';
 import { ref, uploadBytes } from 'firebase/storage'
+import {getAccounts} from './TableFunctions'
 // A super simple expandable component.
 
 export default function Table(props) {
-
+    
     const ExpandedComponent = ({ data }) => <pre>{JSON.stringify(data, null, 2)}</pre>;
 
     const [modal, setModal] = useState(false)
     const [debit, setDebit] = useState("")
     const [credit, setCredit] = useState("")
     const [imageUpload, setImageUpload] = useState(null)
+    const [accountNames,setAccountNames] = useState([])
 
-
+    const accounts = getAccounts();
     const pendingJournalEntries = collection(db, "pendingJournalEntries")
     const accountsColRef = collection(db, "accounts")
     const eventLogColRef = collection(db, "eventLog")
 
-    const accountNames = []
-
     const onOpen = async () => {
-        setModal(true)
-
-        //await getAccountNames();
-        console.log(accountNames)
+        
+        let temp = []
+        accounts.forEach(account => {
+            console.log(account.accountName);
+            temp.push(account.accountName);
+        });
+        console.log(temp);
+        setAccountNames(temp);
+        setModal(true);
+        
     }
+    
 
     const onClose = () => {
-
+        
         setModal(false);
     }
 
     useEffect(() => {
-
-        const getAccountNames = async () => {
-
-            await getDocs(accountsColRef)
-                .then(snapshot => {
-                    snapshot.forEach(accounts => {
-                        accountNames.push(accounts.data().accountName)
-                    })
-                })
-        }
-
-        getAccountNames()
-
-    }, [])
+        
+    }, [modal])
 
     const submitJournal = async () => {
 
@@ -129,9 +124,10 @@ export default function Table(props) {
         }
     ]
 
-
+    const testb =["one","Two","three"]
     return (
         <>
+        
             <DataTable
                 columns={columns}
                 data={data}
@@ -144,7 +140,7 @@ export default function Table(props) {
                 <JournalEntryForm
                     overrides={
                         {
-                            dropdownFrame: { children: <DropdownMenu placeholder="Select An Account" options={accountNames[0]} /> },
+                            dropdownFrame: { children: <DropdownMenu placeholder="Select An Account" options={accountNames} /> },
                             Debit: { onChange: (event) => setDebit(event.target.value) },
                             Credit: { onChange: (event) => setCredit(event.target.value) },
                             ButtonSubmit: { onClick: () => submitJournal() }
@@ -160,6 +156,7 @@ export default function Table(props) {
             </Modal>
 
             <button onClick={() => onOpen()}>Button</button>
+
         </>
     );
 
