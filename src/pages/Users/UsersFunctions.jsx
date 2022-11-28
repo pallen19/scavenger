@@ -44,4 +44,6 @@ export function GetUser(username,method){
             "method": method
         })
       })
+      // .then((result) => result.json()).then((data) => {console.log(data)})
+       
     }
