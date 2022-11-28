@@ -153,6 +153,10 @@ export default function Table(props) {
                     <button onClick={uploadImage} > uploadImage </button>
                 </div>
 
+                <div>
+                    <button onClick={()=> onClose()} >Cancel</button>
+                </div>
+
             </Modal>
 
             <button onClick={() => onOpen()}>Button</button>
