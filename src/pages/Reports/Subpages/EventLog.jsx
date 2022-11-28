@@ -17,7 +17,7 @@ export function EventLog(props) {
 
         getEvents()
 
-    }, [events])
+    }, [])
 
     return (
         <div>
