@@ -1,4 +1,5 @@
 export function getUserGroup(Username){
+  let data = [];
     console.log("Fetcing user groups")
     fetch("https://dsxdo0hm4c.execute-api.us-east-2.amazonaws.com/default/",{
     method:'POST', 
@@ -13,8 +14,9 @@ export function getUserGroup(Username){
     return response.json();
   }).then(function(Data){
     //console.log(Data.Groups[0].GroupName);
-    return(Data.Groups[0].GroupName);
+    data = Data.Groups[0].GroupName;
   })
+  return data;
 }
     
 export function elevateAccount(Username,accountLevel,Method){
@@ -33,9 +35,10 @@ export function elevateAccount(Username,accountLevel,Method){
     
     
 
-export function GetUser(username,method){
+export async function GetUser(username,method){
+  let data = [];
       //put url of api in the fetch
-      fetch(" https://qdkw8owsn3.execute-api.us-east-2.amazonaws.com/default",{
+      await fetch(" https://qdkw8owsn3.execute-api.us-east-2.amazonaws.com/default",{
         method: 'POST',
         headers: {'Content-Type':"application/json"},
         body : JSON.stringify({
@@ -43,7 +46,11 @@ export function GetUser(username,method){
             "Username" : username,
             "method": method
         })
+      }).then((result) => result.json()).then((response) => {data = response;
       })
-      // .then((result) => result.json()).then((data) => {console.log(data)})
-       
+      console.log("data is: ");
+      console.log(data);
+      return data;
     }
+       
+    

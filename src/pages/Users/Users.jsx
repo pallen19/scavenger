@@ -5,6 +5,7 @@ import  ReactDropdown  from "react-dropdown";
 import DropdownMenu from '../../components/DropdownMenu/DropdownMenu'
 import {getUserGroup,elevateAccount } from "./UsersFunctions";
 import Modal from "../../components/Modal/Modal";
+import { GetUser } from "./UsersFunctions";
 
 export function Users(props){
     //Constants
@@ -14,27 +15,17 @@ export function Users(props){
     const [userList,setUserList] = useState([])
 
     const menuOptions2 =["Administrator","Manager","Accountant","Disabled","Unverified"]
+    
 
-function GetUser(username,method){
-        //put url of api in the fetch
-        fetch(" https://qdkw8owsn3.execute-api.us-east-2.amazonaws.com/default",{
-          method: 'POST',
-          headers: {'Content-Type':"application/json"},
-          body : JSON.stringify({
-              "UserPoolId": "us-east-2_yq4Klaavu",
-              "Username" : username,
-              "method": method
-          })
-        })
-         
-      }
   
     //End of Constants
    useEffect(() => {
 
     const getList = async () => {
-        const data = await GetUser("","all").then((result) => result.json()).then((data) => {setUserList(data);});  
-        
+        const data = await GetUser(" ","all")
+        setUserList(data)
+        console.log("Userlist = ")
+        console.log(data)
         console.log(userList)
     }
     getList()
@@ -46,7 +37,7 @@ function GetUser(username,method){
           return (
               <>
       
-        <PageHeader  
+        <PageHeader
          overrides={{
            PageHeader: {width:"100%"},
            Background:{width: "100%"},
