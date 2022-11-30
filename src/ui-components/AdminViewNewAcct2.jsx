@@ -5,7 +5,7 @@
  **************************************************************************/
 
 /* eslint-disable */
-import * as React from "react";
+import React from "react";
 import { getOverrideProps } from "@aws-amplify/ui-react/internal";
 import { Card, Flex, Text, TextField, View } from "@aws-amplify/ui-react";
 export default function AdminViewNewAcct2(props) {
@@ -40,20 +40,13 @@ export default function AdminViewNewAcct2(props) {
         {...getOverrideProps(overrides, "Component1")}
       >
         <Card
-          display="flex"
-          gap="0"
-          direction="column"
           width="449px"
           height="788px"
-          justifyContent="center"
-          alignItems="flex-start"
           position="absolute"
           top="-0.76%"
           bottom="0.89%"
           left="-2.45%"
           right="2.45%"
-          padding="16px 16px 16px 16px"
-          backgroundColor="rgba(255,255,255,1)"
           opacity="0.4699999988079071"
           variation="default"
           {...getOverrideProps(overrides, "Card")}
@@ -106,21 +99,14 @@ export default function AdminViewNewAcct2(props) {
           {...getOverrideProps(overrides, "label351912592")}
         ></Text>
         <TextField
-          display="flex"
-          gap="8px"
-          direction="column"
+          label="Order"
+          placeholder="Enter order "
           width="337px"
-          height="unset"
-          justifyContent="center"
-          alignItems="flex-start"
           position="absolute"
           top="10.98%"
           bottom="79.89%"
           left="13.14%"
           right="11.8%"
-          padding="0px 0px 0px 0px"
-          label="Order"
-          placeholder="Enter order "
           size="default"
           isDisabled={false}
           labelHidden={false}
@@ -128,21 +114,14 @@ export default function AdminViewNewAcct2(props) {
           {...getOverrideProps(overrides, "TextField351912593")}
         ></TextField>
         <TextField
-          display="flex"
-          gap="8px"
-          direction="column"
+          label="Comments"
+          placeholder="Enter comments "
           width="337px"
-          height="unset"
-          justifyContent="center"
-          alignItems="flex-start"
           position="absolute"
           top="71.19%"
           bottom="19.68%"
           left="13.14%"
           right="11.8%"
-          padding="0px 0px 0px 0px"
-          label="Comments"
-          placeholder="Enter comments "
           size="default"
           isDisabled={false}
           labelHidden={false}
@@ -150,21 +129,14 @@ export default function AdminViewNewAcct2(props) {
           {...getOverrideProps(overrides, "TextField351912594")}
         ></TextField>
         <TextField
-          display="flex"
-          gap="8px"
-          direction="column"
+          label="Account Creation"
+          placeholder="MM/DD/YYY hh:mm:ss"
           width="337px"
-          height="unset"
-          justifyContent="center"
-          alignItems="flex-start"
           position="absolute"
           top="58.81%"
           bottom="32.06%"
           left="13.14%"
           right="11.8%"
-          padding="0px 0px 0px 0px"
-          label="Account Creation"
-          placeholder="MM/DD/YYY hh:mm:ss"
           size="default"
           isDisabled={false}
           labelHidden={false}
@@ -172,37 +144,20 @@ export default function AdminViewNewAcct2(props) {
           {...getOverrideProps(overrides, "TextField351912595")}
         ></TextField>
         <View
-          width="377px"
-          height="210px"
-          display="block"
-          gap="unset"
-          alignItems="unset"
-          justifyContent="unset"
-          position="absolute"
-          top="167px"
-          left="46px"
-          padding="0px 0px 0px 0px"
           {...getOverrideProps(
             overrides,
             "Listbox Component/Statement Dropdown"
           )}
         ></View>
         <TextField
-          display="flex"
-          gap="8px"
-          direction="column"
+          label="Debit"
+          placeholder="$0.00"
           width="164px"
-          height="unset"
-          justifyContent="center"
-          alignItems="flex-start"
           position="absolute"
           top="31.18%"
           bottom="59.7%"
           left="14.48%"
           right="49%"
-          padding="0px 0px 0px 0px"
-          label="Debit"
-          placeholder="$0.00"
           size="default"
           isDisabled={false}
           labelHidden={false}
@@ -210,21 +165,14 @@ export default function AdminViewNewAcct2(props) {
           {...getOverrideProps(overrides, "TextField351912596")}
         ></TextField>
         <TextField
-          display="flex"
-          gap="8px"
-          direction="column"
+          label="Credit"
+          placeholder="$0.00"
           width="164px"
-          height="unset"
-          justifyContent="center"
-          alignItems="flex-start"
           position="absolute"
           top="31.18%"
           bottom="59.7%"
           left="53.01%"
           right="10.47%"
-          padding="0px 0px 0px 0px"
-          label="Credit"
-          placeholder="$0.00"
           size="default"
           isDisabled={false}
           labelHidden={false}
@@ -232,21 +180,15 @@ export default function AdminViewNewAcct2(props) {
           {...getOverrideProps(overrides, "TextField351912597")}
         ></TextField>
         <TextField
-          display="flex"
-          gap="8px"
-          direction="column"
+          label="Ending Balance"
+          placeholder="$0.00"
           width="161px"
           height="72px"
-          justifyContent="center"
-          alignItems="flex-start"
           position="absolute"
           top="43.73%"
           bottom="47.15%"
           left="52.34%"
           right="11.8%"
-          padding="0px 0px 0px 0px"
-          label="Ending Balance"
-          placeholder="$0.00"
           size="default"
           isDisabled={false}
           labelHidden={false}
@@ -254,21 +196,14 @@ export default function AdminViewNewAcct2(props) {
           {...getOverrideProps(overrides, "TextField351912598")}
         ></TextField>
         <TextField
-          display="flex"
-          gap="8px"
-          direction="column"
+          label="Beginning Balance"
+          placeholder="$0.00"
           width="164px"
-          height="unset"
-          justifyContent="center"
-          alignItems="flex-start"
           position="absolute"
           top="43.73%"
           bottom="47.15%"
           left="13.36%"
           right="50.11%"
-          padding="0px 0px 0px 0px"
-          label="Beginning Balance"
-          placeholder="$0.00"
           size="default"
           isDisabled={false}
           labelHidden={false}

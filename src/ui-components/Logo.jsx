@@ -5,11 +5,15 @@
  **************************************************************************/
 
 /* eslint-disable */
-import * as React from "react";
-import { getOverrideProps } from "@aws-amplify/ui-react/internal";
-import { Flex, Image, Text } from "@aws-amplify/ui-react";
+import React from "react";
+import {
+  getOverrideProps,
+  useNavigateAction,
+} from "@aws-amplify/ui-react/internal";
+import { Flex, Image } from "@aws-amplify/ui-react";
 export default function Logo(props) {
   const { overrides, ...rest } = props;
+  const imageOnClick = useNavigateAction({ type: "url", url: "/404" });
   return (
     <Flex
       gap="2px"
@@ -34,30 +38,12 @@ export default function Logo(props) {
         position="relative"
         padding="0px 0px 0px 0px"
         objectFit="cover"
+        src="/Images/BusinessLogo.jpg"
+        onClick={() => {
+          imageOnClick();
+        }}
         {...getOverrideProps(overrides, "image")}
       ></Image>
-      <Text
-        fontFamily="Inter"
-        fontSize="20px"
-        fontWeight="600"
-        color="rgba(0,0,0,1)"
-        textTransform="capitalize"
-        lineHeight="24.204544067382812px"
-        textAlign="left"
-        display="block"
-        direction="column"
-        justifyContent="unset"
-        width="unset"
-        height="unset"
-        gap="unset"
-        alignItems="unset"
-        shrink="0"
-        position="relative"
-        padding="0px 0px 0px 0px"
-        whiteSpace="pre-wrap"
-        children=" BitterBean"
-        {...getOverrideProps(overrides, "BitterBean")}
-      ></Text>
     </Flex>
   );
 }

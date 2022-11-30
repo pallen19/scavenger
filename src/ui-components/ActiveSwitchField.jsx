@@ -5,7 +5,7 @@
  **************************************************************************/
 
 /* eslint-disable */
-import * as React from "react";
+import React from "react";
 import { getOverrideProps } from "@aws-amplify/ui-react/internal";
 import { Flex, SwitchField } from "@aws-amplify/ui-react";
 export default function ActiveSwitchField(props) {
@@ -24,17 +24,10 @@ export default function ActiveSwitchField(props) {
       {...getOverrideProps(overrides, "ActiveSwitchField")}
     >
       <SwitchField
-        display="flex"
-        gap="8px"
-        direction="row"
+        label="Active"
         width="96px"
         height="29px"
-        justifyContent="center"
-        alignItems="center"
         shrink="0"
-        position="relative"
-        padding="8px 8px 8px 8px"
-        label="Active"
         size="default"
         defaultChecked={true}
         isDisabled={false}

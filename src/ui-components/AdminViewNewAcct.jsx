@@ -5,9 +5,9 @@
  **************************************************************************/
 
 /* eslint-disable */
-import * as React from "react";
+import React from "react";
 import { getOverrideProps } from "@aws-amplify/ui-react/internal";
-import { Card, Flex, Text, TextField, View } from "@aws-amplify/ui-react";
+import { Flex, Text, TextField, View } from "@aws-amplify/ui-react";
 export default function AdminViewNewAcct(props) {
   const { overrides, ...rest } = props;
   return (
@@ -54,25 +54,6 @@ export default function AdminViewNewAcct(props) {
           padding="0px 0px 0px 0px"
           {...getOverrideProps(overrides, "Component1")}
         >
-          <Card
-            display="flex"
-            gap="0"
-            direction="column"
-            width="449px"
-            height="788px"
-            justifyContent="center"
-            alignItems="flex-start"
-            position="absolute"
-            top="0%"
-            bottom="0%"
-            left="0%"
-            right="0%"
-            padding="16px 16px 16px 16px"
-            backgroundColor="rgba(255,255,255,1)"
-            opacity="0.4699999988079071"
-            variation="default"
-            {...getOverrideProps(overrides, "Card")}
-          ></Card>
           <Text
             fontFamily="Inter"
             fontSize="24px"
@@ -121,21 +102,14 @@ export default function AdminViewNewAcct(props) {
             {...getOverrideProps(overrides, "label34533252")}
           ></Text>
           <TextField
-            display="flex"
-            gap="8px"
-            direction="column"
+            label="Account Description"
+            placeholder="Enter account description"
             width="337px"
-            height="unset"
-            justifyContent="center"
-            alignItems="flex-start"
             position="absolute"
             top="35.41%"
             bottom="55.46%"
             left="14.7%"
             right="10.24%"
-            padding="0px 0px 0px 0px"
-            label="Account Description"
-            placeholder="Enter account description"
             size="default"
             isDisabled={false}
             labelHidden={false}
@@ -143,21 +117,14 @@ export default function AdminViewNewAcct(props) {
             {...getOverrideProps(overrides, "TextField34533245")}
           ></TextField>
           <TextField
-            display="flex"
-            gap="8px"
-            direction="column"
+            label="Account Category"
+            placeholder="Enter account category"
             width="337px"
-            height="unset"
-            justifyContent="center"
-            alignItems="flex-start"
             position="absolute"
             top="47.97%"
             bottom="42.89%"
             left="14.7%"
             right="10.24%"
-            padding="0px 0px 0px 0px"
-            label="Account Category"
-            placeholder="Enter account category"
             size="default"
             isDisabled={false}
             labelHidden={false}
@@ -165,21 +132,14 @@ export default function AdminViewNewAcct(props) {
             {...getOverrideProps(overrides, "TextField34533247")}
           ></TextField>
           <TextField
-            display="flex"
-            gap="8px"
-            direction="column"
+            label="Account Subcategory"
+            placeholder="Enter account subcategory"
             width="337px"
-            height="unset"
-            justifyContent="center"
-            alignItems="flex-start"
             position="absolute"
             top="60.41%"
             bottom="30.46%"
             left="15.14%"
             right="9.8%"
-            padding="0px 0px 0px 0px"
-            label="Account Subcategory"
-            placeholder="Enter account subcategory"
             size="default"
             isDisabled={false}
             labelHidden={false}
@@ -187,21 +147,14 @@ export default function AdminViewNewAcct(props) {
             {...getOverrideProps(overrides, "TextField34533248")}
           ></TextField>
           <TextField
-            display="flex"
-            gap="8px"
-            direction="column"
+            label="User ID"
+            placeholder="enter user ID"
             width="337px"
-            height="unset"
-            justifyContent="center"
-            alignItems="flex-start"
             position="absolute"
             top="73.22%"
             bottom="17.64%"
             left="14.7%"
             right="10.24%"
-            padding="0px 0px 0px 0px"
-            label="User ID"
-            placeholder="enter user ID"
             size="default"
             isDisabled={false}
             labelHidden={false}
@@ -209,20 +162,13 @@ export default function AdminViewNewAcct(props) {
             {...getOverrideProps(overrides, "TextField34692999")}
           ></TextField>
           <TextField
-            display="flex"
-            gap="8px"
-            direction="column"
+            label="Account Number"
+            placeholder="Enter account number"
             width="337px"
-            height="unset"
-            justifyContent="center"
-            alignItems="flex-start"
             position="absolute"
             top="calc(50% - 36px - 178.07px)"
             left="14.7%"
             right="10.24%"
-            padding="0px 0px 0px 0px"
-            label="Account Number"
-            placeholder="Enter account number"
             size="default"
             isDisabled={false}
             labelHidden={false}
@@ -230,21 +176,14 @@ export default function AdminViewNewAcct(props) {
             {...getOverrideProps(overrides, "TextField34533250")}
           ></TextField>
           <TextField
-            display="flex"
-            gap="8px"
-            direction="column"
+            label="Account Name"
+            placeholder="Enter account name"
             width="337px"
-            height="unset"
-            justifyContent="center"
-            alignItems="flex-start"
             position="absolute"
             top="10.28%"
             bottom="80.58%"
             left="14.7%"
             right="10.24%"
-            padding="0px 0px 0px 0px"
-            label="Account Name"
-            placeholder="Enter account name"
             size="default"
             isDisabled={false}
             labelHidden={false}

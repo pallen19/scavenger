@@ -5,7 +5,7 @@
  **************************************************************************/
 
 /* eslint-disable */
-import * as React from "react";
+import React from "react";
 import { getOverrideProps } from "@aws-amplify/ui-react/internal";
 import { Button, Divider, Icon, Text, View } from "@aws-amplify/ui-react";
 export default function OldManagerViewHome(props) {
@@ -194,13 +194,8 @@ export default function OldManagerViewHome(props) {
         {...getOverrideProps(overrides, "Rectangle 496")}
       ></View>
       <Button
-        display="flex"
-        gap="0"
-        direction="row"
         width="300px"
         height="36px"
-        justifyContent="center"
-        alignItems="center"
         position="absolute"
         top="565px"
         left="157px"
@@ -212,13 +207,8 @@ export default function OldManagerViewHome(props) {
         {...getOverrideProps(overrides, "Button35484474")}
       ></Button>
       <Button
-        display="flex"
-        gap="0"
-        direction="row"
         width="300px"
         height="36px"
-        justifyContent="center"
-        alignItems="center"
         position="absolute"
         top="565px"
         left="517px"
@@ -230,13 +220,8 @@ export default function OldManagerViewHome(props) {
         {...getOverrideProps(overrides, "Button35484475")}
       ></Button>
       <Button
-        display="flex"
-        gap="0"
-        direction="row"
         width="300px"
         height="36px"
-        justifyContent="center"
-        alignItems="center"
         position="absolute"
         top="565px"
         left="897px"
@@ -389,46 +374,28 @@ export default function OldManagerViewHome(props) {
         {...getOverrideProps(overrides, "My Account")}
       ></Text>
       <Divider
-        width="300px"
         height="2px"
-        display="block"
-        gap="unset"
-        alignItems="unset"
-        justifyContent="unset"
         position="absolute"
         top="537px"
         left="154px"
-        padding="0px 0px 0px 0px"
         size="small"
         orientation="horizontal"
         {...getOverrideProps(overrides, "Divider35484483")}
       ></Divider>
       <Divider
-        width="300px"
         height="2px"
-        display="block"
-        gap="unset"
-        alignItems="unset"
-        justifyContent="unset"
         position="absolute"
         top="535px"
         left="518px"
-        padding="0px 0px 0px 0px"
         size="small"
         orientation="horizontal"
         {...getOverrideProps(overrides, "Divider35484484")}
       ></Divider>
       <Divider
-        width="300px"
         height="2px"
-        display="block"
-        gap="unset"
-        alignItems="unset"
-        justifyContent="unset"
         position="absolute"
         top="535px"
         left="897px"
-        padding="0px 0px 0px 0px"
         size="small"
         orientation="horizontal"
         {...getOverrideProps(overrides, "Divider35484485")}
@@ -436,16 +403,11 @@ export default function OldManagerViewHome(props) {
       <Divider
         width="250px"
         height="2px"
-        display="block"
-        gap="unset"
-        alignItems="unset"
-        justifyContent="unset"
         position="absolute"
         top="611px"
         left="857px"
         transformOrigin="top left"
         transform="rotate(-90deg)"
-        padding="0px 0px 0px 0px"
         size="small"
         orientation="horizontal"
         {...getOverrideProps(overrides, "Divider35484486")}
@@ -453,16 +415,11 @@ export default function OldManagerViewHome(props) {
       <Divider
         width="250px"
         height="2px"
-        display="block"
-        gap="unset"
-        alignItems="unset"
-        justifyContent="unset"
         position="absolute"
         top="611px"
         left="486px"
         transformOrigin="top left"
         transform="rotate(-90deg)"
-        padding="0px 0px 0px 0px"
         size="small"
         orientation="horizontal"
         {...getOverrideProps(overrides, "Divider35484487")}

@@ -5,7 +5,7 @@
  **************************************************************************/
 
 /* eslint-disable */
-import * as React from "react";
+import React from "react";
 import { getOverrideProps } from "@aws-amplify/ui-react/internal";
 import { Button, Flex } from "@aws-amplify/ui-react";
 export default function ButtonViewExpiredPassword(props) {
@@ -24,15 +24,9 @@ export default function ButtonViewExpiredPassword(props) {
       {...getOverrideProps(overrides, "ButtonViewExpiredPassword")}
     >
       <Button
-        display="flex"
-        gap="0"
-        direction="row"
         width="300px"
         height="36px"
-        justifyContent="center"
-        alignItems="center"
         shrink="0"
-        position="relative"
         backgroundColor="rgba(0,64,77,1)"
         size="default"
         isDisabled={false}
