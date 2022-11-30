@@ -31,8 +31,7 @@
           "EMAIL",
           "FAMILY_NAME",
           "GIVEN_NAME",
-          "PHONE_NUMBER",
-          "ADDRESS" 
+          "PHONE_NUMBER"
         ],
         "passwordProtectionSettings": {
           "passwordPolicyMinLength": 8,
@@ -59,6 +58,13 @@
       "service": "amplifyhosting",
       "providerPlugin": "awscloudformation",
       "type": "manual"
+    }
+  },
+  "storage": {
+    "s3scavengerstorage482dd7d1": {
+      "service": "S3",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": []
     }
   }
 }
