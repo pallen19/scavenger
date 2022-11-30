@@ -73,12 +73,12 @@ const CreateAccount = () => {
                     'accountSubcategory': { onChange: (event) => { setAccountSubcategory(event.target.value) } },
                     'order': { onChange: (event) => { setOrder(event.target.value) } },
                     'debit': { onChange: (event) => { setDebit(event.target.value) } },
-                    'credit': { onChange: (event) => { setCredit(event.target.value) } },
-                    'beginBalance': { onChange: (event) => { setBeginBalance(event.target.value) } },
-                    'endBalance': { onChange: (event) => { setEndBalance(event.target.value) } },
-                    'comments': { onChange: (event) => { setComments(event.target.value) } },
-                    'btnsubmit': { onClick: () => { createAccount() }, style: { cursor: "pointer" } },
-                    'dropdownFrame': { children: <DropdownMenu placeholder="statement" options={["Test1", "Test2", "Test3"]} /> }
+                    'credit' : { onChange: (event) => { setCredit(event.target.value) } },
+                    'beginBalance' : { onChange: (event) => { setBeginBalance(event.target.value) } },
+                    'endBalance' : { onChange: (event) => { setEndBalance(event.target.value) } },
+                    'comments' : { onChange: (event) => { setComments(event.target.value) } },
+                    'btnsubmit': {onClick : () => { createAccount() }, style:{cursor:"pointer"}},
+                    'dropdownFrame' : {children : <DropdownMenu placeholder="Select Statement Type" options={["Income Statement","Balance Sheet","Retained Earnings"]}/>}
                 }} />
 
         </div>

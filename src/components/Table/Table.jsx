@@ -124,10 +124,10 @@ export default function Table(props) {
         }
     ]
 
-    const testb =["one","Two","three"]
+    
     return (
         <>
-        
+        {console.log(accounts)}
             <DataTable
                 columns={columns}
                 data={data}
