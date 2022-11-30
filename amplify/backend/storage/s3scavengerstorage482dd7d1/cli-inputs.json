@@ -1,0 +1,14 @@
+{
+  "resourceName": "s3scavengerstorage482dd7d1",
+  "bucketName": "scavenger-storage-482dd7d1",
+  "policyUUID": "c2b63594",
+  "storageAccess": "authAndGuest",
+  "guestAccess": [
+    "READ"
+  ],
+  "authAccess": [
+    "READ",
+    "CREATE_AND_UPDATE",
+    "DELETE"
+  ]
+}
