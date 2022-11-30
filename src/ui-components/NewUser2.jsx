@@ -5,7 +5,7 @@
  **************************************************************************/
 
 /* eslint-disable */
-import * as React from "react";
+import React from "react";
 import { getOverrideProps } from "@aws-amplify/ui-react/internal";
 import {
   Button,
@@ -109,15 +109,8 @@ export default function NewUser2(props) {
           {...getOverrideProps(overrides, "Frame 420")}
         >
           <Button
-            display="flex"
-            gap="0"
-            direction="row"
             width="150px"
-            height="unset"
-            justifyContent="center"
-            alignItems="center"
             shrink="0"
-            position="relative"
             size="default"
             isDisabled={false}
             variation="primary"
@@ -126,21 +119,13 @@ export default function NewUser2(props) {
           ></Button>
         </Flex>
         <Button
-          display="flex"
-          gap="0"
-          direction="row"
           width="152px"
-          height="unset"
-          justifyContent="center"
-          alignItems="center"
           position="absolute"
+          border="1px SOLID rgba(0,85,102,1)"
           top="83.09%"
           bottom="10.84%"
           left="10.91%"
           right="55.23%"
-          border="1px SOLID rgba(0,85,102,1)"
-          borderRadius="5px"
-          padding="8px 16px 8px 16px"
           size="default"
           isDisabled={false}
           variation="default"
@@ -148,20 +133,13 @@ export default function NewUser2(props) {
           {...getOverrideProps(overrides, "Button35564706")}
         ></Button>
         <TextField
-          display="flex"
-          gap="8px"
-          direction="column"
+          placeholder="Enter security question answer"
           width="337px"
-          height="unset"
-          justifyContent="center"
-          alignItems="flex-start"
           position="absolute"
           top="46.24%"
           bottom="47.98%"
           left="14.03%"
           right="10.91%"
-          padding="0px 0px 0px 0px"
-          placeholder="Enter security question answer"
           size="default"
           isDisabled={false}
           labelHidden={false}
@@ -169,20 +147,13 @@ export default function NewUser2(props) {
           {...getOverrideProps(overrides, "TextField35564707")}
         ></TextField>
         <TextField
-          display="flex"
-          gap="8px"
-          direction="column"
+          placeholder="Enter security question answer"
           width="337px"
-          height="unset"
-          justifyContent="center"
-          alignItems="flex-start"
           position="absolute"
           top="24.13%"
           bottom="70.09%"
           left="14.03%"
           right="10.91%"
-          padding="0px 0px 0px 0px"
-          placeholder="Enter security question answer"
           size="default"
           isDisabled={false}
           labelHidden={false}
@@ -190,20 +161,13 @@ export default function NewUser2(props) {
           {...getOverrideProps(overrides, "TextField35564708")}
         ></TextField>
         <TextField
-          display="flex"
-          gap="8px"
-          direction="column"
+          placeholder="Enter security question answer"
           width="337px"
-          height="unset"
-          justifyContent="center"
-          alignItems="flex-start"
           position="absolute"
           top="69.22%"
           bottom="25%"
           left="14.03%"
           right="10.91%"
-          padding="0px 0px 0px 0px"
-          placeholder="Enter security question answer"
           size="default"
           isDisabled={false}
           labelHidden={false}
@@ -211,19 +175,12 @@ export default function NewUser2(props) {
           {...getOverrideProps(overrides, "TextField35564709")}
         ></TextField>
         <SelectField
-          display="flex"
-          gap="8px"
-          direction="column"
+          label="Security Question 1"
+          placeholder="Select Security Question"
           width="337px"
-          height="unset"
-          justifyContent="center"
-          alignItems="flex-start"
           position="absolute"
           top="84px"
           left="63px"
-          padding="0px 0px 0px 0px"
-          label="Security Question 1"
-          placeholder="Select Security Question"
           size="default"
           isDisabled={false}
           labelHidden={false}
@@ -231,19 +188,12 @@ export default function NewUser2(props) {
           {...getOverrideProps(overrides, "SelectField35564710")}
         ></SelectField>
         <SelectField
-          display="flex"
-          gap="8px"
-          direction="column"
+          label="Security Question 2"
+          placeholder="Select Security Question"
           width="337px"
-          height="unset"
-          justifyContent="center"
-          alignItems="flex-start"
           position="absolute"
           top="235px"
           left="63px"
-          padding="0px 0px 0px 0px"
-          label="Security Question 2"
-          placeholder="Select Security Question"
           size="default"
           isDisabled={false}
           labelHidden={false}
@@ -251,19 +201,12 @@ export default function NewUser2(props) {
           {...getOverrideProps(overrides, "SelectField35564711")}
         ></SelectField>
         <SelectField
-          display="flex"
-          gap="8px"
-          direction="column"
+          label="Security Question 3"
+          placeholder="Select Security Question"
           width="337px"
-          height="unset"
-          justifyContent="center"
-          alignItems="flex-start"
           position="absolute"
           top="395px"
           left="63px"
-          padding="0px 0px 0px 0px"
-          label="Security Question 3"
-          placeholder="Select Security Question"
           size="default"
           isDisabled={false}
           labelHidden={false}

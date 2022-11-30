@@ -5,7 +5,7 @@
  **************************************************************************/
 
 /* eslint-disable */
-import * as React from "react";
+import React from "react";
 import { getOverrideProps } from "@aws-amplify/ui-react/internal";
 import { Button, Text, View } from "@aws-amplify/ui-react";
 export default function AcctRequestSuccess(props) {
@@ -87,13 +87,7 @@ export default function AcctRequestSuccess(props) {
         {...getOverrideProps(overrides, "label35565052")}
       ></Text>
       <Button
-        display="flex"
-        gap="0"
-        direction="row"
         width="150px"
-        height="unset"
-        justifyContent="center"
-        alignItems="center"
         position="absolute"
         top="163px"
         left="162px"

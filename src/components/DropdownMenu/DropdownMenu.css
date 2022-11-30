@@ -1,0 +1,19 @@
+.dropDownFrame{
+    border: 1px solid black;
+    border-radius: 8px;
+    width: 290px;
+    text-align: center;
+    cursor: pointer;
+}
+.dropDownMenuFrame{
+    border: 1px solid rgb(32, 173, 74);
+    cursor: pointer;
+}
+.dropDownOption:hover{
+
+    background-color: rgb(106, 119, 119);
+}
+
+.invisibleMenu{
+    background-color: orange;
+}

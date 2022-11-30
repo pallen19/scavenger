@@ -5,7 +5,7 @@
  **************************************************************************/
 
 /* eslint-disable */
-import * as React from "react";
+import React from "react";
 import { getOverrideProps } from "@aws-amplify/ui-react/internal";
 import { Card, Flex, Text, View } from "@aws-amplify/ui-react";
 export default function AdminViewNewUserUpdate(props) {
@@ -64,17 +64,9 @@ export default function AdminViewNewUserUpdate(props) {
             {...getOverrideProps(overrides, "Frame 421")}
           >
             <Card
-              display="flex"
-              gap="0"
-              direction="column"
               width="449px"
               height="907.74px"
-              justifyContent="center"
-              alignItems="flex-start"
               shrink="0"
-              position="relative"
-              padding="16px 16px 16px 16px"
-              backgroundColor="rgba(255,255,255,1)"
               opacity="0.4699999988079071"
               variation="default"
               {...getOverrideProps(overrides, "Card")}
