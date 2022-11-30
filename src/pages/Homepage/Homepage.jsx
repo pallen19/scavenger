@@ -42,7 +42,7 @@ export function Home(props){
     <MenuCard overrides={{
         MenuLabel:{children:"Event Log"},
         MenuDescription:{children:"Shortcut to event log"},
-        Button:{onClick:()=>navigate("/404"),children:"Get Started"}
+        Button:{onClick:()=>navigate("/Reports/Event Log"),children:"Get Started"}
     }}></MenuCard>
     </div>
     </div>
