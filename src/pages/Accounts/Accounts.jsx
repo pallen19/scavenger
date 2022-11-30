@@ -18,7 +18,7 @@ export function ViewAcct(props) {
                         PageTitle: { children: "Accounts" }
                 }}/>
                 <TabWindow 
-                        options={["Account Summary", "Journals", "General Ledger","Create Account"]}>
+                        options={["Account Summary", "Journals", "General Ledger","Chart Of Accounts","Create Account"]}>
                         <Outlet />
                 </TabWindow>
                 </>
@@ -32,7 +32,7 @@ export function ViewAcct(props) {
                         PageTitle: { children: "Accounts" }
                 }}/>
                 <TabWindow 
-                        options={["Account Summary", "Journals", "General Ledger","Create Account"]}>
+                        options={["Account Summary", "Journals", "General Ledger","Chart Of Accounts","Create Account"]}>
                         <Outlet />
                 </TabWindow>
                 </>
@@ -46,7 +46,7 @@ export function ViewAcct(props) {
                         PageTitle: { children: "Accounts" }
                 }}/>
                 <TabWindow 
-                        options={["Account Summary", "Journals", "General Ledger","Create Account"]}>
+                        options={["Account Summary", "Journals", "General Ledger","Chart Of Accounts","Create Account"]}>
                         <Outlet />
                 </TabWindow>
                 </>
