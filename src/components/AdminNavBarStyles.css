@@ -1,0 +1,97 @@
+
+nav{
+ display: flex;   
+ align-items: center;
+ justify-content: space-between;
+ background-color: white;
+ padding: 10px 80px;
+ box-shadow: 0 5px 15px rgba(0,0,0,0.06);
+}
+
+/* UNDERLINE NAVBAR ALIGNMENT*/
+#navBar{
+    display: flex;
+    align-items: center;
+    justify-content: left;
+
+}
+/* UNDERLINE NAVBAR REMOVE BULLET POINTS , ADD SPACING*/
+#navBar li{
+  list-style: none;
+  padding: 0 20px;
+  position: relative;
+    
+}
+/* UNDERLINE NAVBAR LIST COLOR*/
+#navBar li a{
+    text-decoration: none;
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: black;
+    transition: 0.3s ease-in-out;
+}
+/* UNDERLINE NAVBAR HOVER*/
+#navBar li a:hover,
+/*Keeps home page red*/
+#navBar li a.active{
+    color: red;
+}
+
+/* UNDERLINE NAVBAR UNDERLINE*/
+#navBar li a:hover::after,
+/*Keeps home page underlined*/
+#navBar li a.active::after{
+    content: "";
+    width: 30%;
+    height: 2px;
+    background: red;
+    position: absolute;
+    bottom: -4px;
+    left: 20px;
+}
+/*hides bar icon for mobile menu*/
+.mobile{
+    display:none;
+}
+.mobile i{
+    color:white;
+    align-items: center;
+
+}
+
+@media screen and (max-width:769px){
+
+    #navBar{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        position: fixed;
+        top: 90px;
+        right: -300px;
+        width: 300px;
+        height: 100vh;
+        background-color: grey;
+        box-shadow: 0 40px 60px rgba(0, 0, 0, 0.1);
+        padding: 40px 0 0 10px;
+        transition: 0.3s ease-in-out;
+
+    
+    }
+    
+    #navBar li{
+        margin-bottom: 25px;
+    }
+    #navBar.active{
+        right: 0px;
+    }
+
+.mobile{
+    display: block;
+}
+.mobile i{
+    font-size: 24px;
+    cursor: pointer;
+}
+
+}

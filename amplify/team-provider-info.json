@@ -1,29 +1,4 @@
 {
-  "dev": {
-    "awscloudformation": {
-      "AuthRoleName": "amplify-scavenger-dev-180113-authRole",
-      "UnauthRoleArn": "arn:aws:iam::741948749919:role/amplify-scavenger-dev-180113-unauthRole",
-      "AuthRoleArn": "arn:aws:iam::741948749919:role/amplify-scavenger-dev-180113-authRole",
-      "Region": "us-east-1",
-      "DeploymentBucketName": "amplify-scavenger-dev-180113-deployment",
-      "UnauthRoleName": "amplify-scavenger-dev-180113-unauthRole",
-      "StackName": "amplify-scavenger-dev-180113",
-      "StackId": "arn:aws:cloudformation:us-east-1:741948749919:stack/amplify-scavenger-dev-180113/918a3720-41d4-11ed-b242-12d4089cefb1",
-      "AmplifyAppId": "debwkzihtoeub"
-    },
-    "categories": {
-      "auth": {
-        "scavenger06631177": {}
-      },
-      "function": {
-        "AdminQueriesf7900f71": {
-          "deploymentBucketName": "amplify-scavenger-dev-180113-deployment",
-          "s3Key": "amplify-builds/AdminQueriesf7900f71-696f36726e5662436956-build.zip"
-        },
-        "scavenger06631177": {}
-      }
-    }
-  },
   "user": {
     "awscloudformation": {
       "AuthRoleName": "amplify-scavenger-user-154500-authRole",
@@ -51,6 +26,34 @@
       },
       "auth": {
         "scavengera8be8093a8be8093": {}
+      },
+      "storage": {
+        "s3scavengerstorage482dd7d1": {}
+      }
+    }
+  },
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-scavenger-dev-180113-authRole",
+      "UnauthRoleArn": "arn:aws:iam::741948749919:role/amplify-scavenger-dev-180113-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::741948749919:role/amplify-scavenger-dev-180113-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-scavenger-dev-180113-deployment",
+      "UnauthRoleName": "amplify-scavenger-dev-180113-unauthRole",
+      "StackName": "amplify-scavenger-dev-180113",
+      "StackId": "arn:aws:cloudformation:us-east-1:741948749919:stack/amplify-scavenger-dev-180113/918a3720-41d4-11ed-b242-12d4089cefb1",
+      "AmplifyAppId": "debwkzihtoeub"
+    },
+    "categories": {
+      "auth": {
+        "scavenger06631177": {}
+      },
+      "function": {
+        "AdminQueriesf7900f71": {
+          "deploymentBucketName": "amplify-scavenger-dev-180113-deployment",
+          "s3Key": "amplify-builds/AdminQueriesf7900f71-696f36726e5662436956-build.zip"
+        },
+        "scavenger06631177": {}
       }
     }
   }
