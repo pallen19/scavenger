@@ -206,7 +206,7 @@ const services={
     <Route path="/" element={<Layout />}>
         <Route path='Accounts/*' element={<ProtectedRoute allowed={level === "Administrators" || level === "Managers"} redirectPath="*"><ViewAcct level={level} /></ProtectedRoute>}>
             <Route path='Account Summary' element={<AccountSummary/>}/>
-            <Route path='Journals' element={<Journals/>}/>
+            <Route path='Journals' element={<Table/>}/>
             <Route path='General Ledger' element={<GeneralLedger/>}/>
             <Route path='Create Account' element={<CreateAccount/>}/>
         </Route>
@@ -224,7 +224,7 @@ const services={
         <Route path='/NewUser' element={<ProtectedRoute allowed={level === "Administrators" || level === "Managers"} redirectPath="*"><NewUser level={level} /></ProtectedRoute>}></Route>
         <Route path='/ChartOfAccounts' element={<ProtectedRoute allowed={level === "Administrators" || level === "Managers"} redirectPath="*"><ChartOfAccounts level={level} /></ProtectedRoute>}></Route>
         <Route path='/404' element={<h1>This Link has not been assigned</h1>}></Route>
-        <Route path='/Table' element={<Table/>} ></Route>
+
         <Route path='/CreateAccount' element={<CreateAccount/>}/>
 
         <Route path="*" element={<Navigate to="/Home"/>}/>

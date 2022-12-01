@@ -12,9 +12,9 @@ export default function Entrypoint() {
         <BrowserRouter>
         <Routes>
 
-            {<Route path = "/" element = {<Layout/>}>
+          
             <Route path = "*" element={<CustomAuthenticator/>}></Route>
-            </Route>}
+           
            
         </Routes>
         </BrowserRouter>

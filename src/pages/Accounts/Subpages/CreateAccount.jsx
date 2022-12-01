@@ -84,7 +84,7 @@ const CreateAccount = () => {
                     'comments' : { onChange: (event) => { setComments(event.target.value) } },
                     'btnsubmit': {onClick : () => { createAccount() }, style:{cursor:"pointer"}},
                     'dropdownFrame' : {children : <DropdownMenu placeholder="Select Statement Type" options={["Income Statement","Balance Sheet","Retained Earnings"]}
-                                    onChange = {onChange()} />}
+                                    onChange = {onChange} />}
                 }} />
 
         </div>
