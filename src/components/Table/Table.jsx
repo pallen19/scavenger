@@ -49,6 +49,7 @@ export default function Table(props) {
     const [deniedJournals,setDeniedJournals] = useState(getDeniedJournals)
 
     const [approvedJournals,setApprovedJournals] = useState(getApprovedJournals)
+    const [journalSelection,setJournalSelection] = useState(" ")
 
     const accounts = getAccounts();
     const names = getAccountNames();
@@ -59,7 +60,9 @@ export default function Table(props) {
 
     const eventLogColRef = collection(db, "eventLog")
 
- 
+ useEffect(()=>{
+    
+},[pendingJournals,deniedJournals,approvedJournals])
 
     const onOpen = async () => {
 
@@ -86,16 +89,17 @@ export default function Table(props) {
 
     }
 
+    const onChange = (selection) =>{
+        setJournalSelection(selection);
+    }
+
+
    
 
  
 
     const onClose = () => {
-
-       
-
-        setModal(false);
-
+     setModal(false);
     }
 
  
@@ -110,7 +114,7 @@ export default function Table(props) {
 
     const submitJournal = async () => {
 
- 
+        
 
         const currDate = new Date()
 
@@ -120,9 +124,9 @@ export default function Table(props) {
 
         if (parseInt(debit) === parseInt(credit)) {
 
- 
+            setModal(false)
 
-            await addDoc(pendingJournalEntries, { accountName: "", debit: debit, credit: credit, entryDate: currDate, status: "pending" })
+            await addDoc(pendingJournalEntries, { accountName:journalSelection.value, debit: debit, credit: credit, entryDate: enteredDate, status: "pending" })
 
             await addDoc(eventLogColRef, {altered : "Journal", changes : "Creation", dateAltered : enteredDate})
 
@@ -166,7 +170,7 @@ export default function Table(props) {
 
             name: 'Date Created',
 
-            selector: row => row.DateCreated,
+            selector: row => row.entryDate,
 
             sortable: true,
 
@@ -316,7 +320,7 @@ export default function Table(props) {
 
                         {
 
-                            dropdownFrame: { overflow:"visible",children: <DropdownMenu  placeholder="Select An Account" options={accountNames} /> },
+                            dropdownFrame: { overflow:"visible",children: <DropdownMenu onChange={onChange} placeholder="Select An Account" options={accountNames} /> },
 
                             Debit: { onChange: (event) => setDebit(event.target.value) },
 
