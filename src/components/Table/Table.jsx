@@ -20,7 +20,7 @@ import { PendingJournalApprovals } from '../../ui-components';
 
 import { ref, uploadBytes } from 'firebase/storage'
 
-import {getAccounts,getApprovedJournals, getDeniedJournals, getJournals} from './TableFunctions'
+import {getAccountNames, getAccounts,getApprovedJournals, getDeniedJournals, getJournals} from './TableFunctions'
 
 // A super simple expandable component.
 
@@ -51,6 +51,7 @@ export default function Table(props) {
     const [approvedJournals,setApprovedJournals] = useState(getApprovedJournals)
 
     const accounts = getAccounts();
+    const names = getAccountNames();
 
     const pendingJournalEntries = collection(db, "pendingJournalEntries")
 
@@ -65,15 +66,16 @@ export default function Table(props) {
        
 
         let temp = []
-
-        accounts.forEach(account => {
+        console.log("accounts name")
+        console.log(accounts)
+        names.forEach(account => {
 
             console.log(account.accountName);
 
             temp.push(account.accountName);
 
         });
-
+        console.log("temp account names is:")
         console.log(temp);
 
         setAccountNames(temp);
@@ -259,9 +261,9 @@ export default function Table(props) {
     return (
 
         <>
-
+        <button onClick={() => onOpen()}>New Journal Entry</button>
         {console.log(accounts)}
-
+            <h1>Pending Journals</h1>
             <DataTable
 
                 columns={columns}
@@ -275,7 +277,7 @@ export default function Table(props) {
                 selectableRows
 
             />
-
+            <h1>Approved Journals</h1>
                <DataTable
 
                 columns={columns}
@@ -289,7 +291,7 @@ export default function Table(props) {
                 selectableRows
 
             />
-
+            <h1>Denied Journals</h1>
                <DataTable
 
                 columns={columns}
@@ -314,7 +316,7 @@ export default function Table(props) {
 
                         {
 
-                            dropdownFrame: { children: <DropdownMenu placeholder="Select An Account" options={accountNames} /> },
+                            dropdownFrame: { overflow:"visible",children: <DropdownMenu  placeholder="Select An Account" options={accountNames} /> },
 
                             Debit: { onChange: (event) => setDebit(event.target.value) },
 
@@ -352,7 +354,7 @@ export default function Table(props) {
 
  
 
-            <button onClick={() => onOpen()}>Button</button>
+            
 
  
 
