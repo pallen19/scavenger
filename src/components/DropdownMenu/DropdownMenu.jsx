@@ -2,7 +2,7 @@ import ReactDropdown from "react-dropdown";
 import { UserProfileButton } from "../../ui-components";
 import './DropdownMenu.css'
 
-export default function DropdownMenu({options,placeholder}) {
+export default function DropdownMenu({options,placeholder,onChange}) {
 const ListItems = []
 
 options.forEach(option => {
@@ -16,6 +16,7 @@ return(
     <ReactDropdown options={ListItems}
     controlClassName="dropDownControlFrame" 
     placeholder={placeholder}
+    onChange={onChange}
     menuClassName="dropDownMenuFrame" 
     className="dropDownFrame"/>
     </>
