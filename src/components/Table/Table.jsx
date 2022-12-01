@@ -18,9 +18,10 @@ import DropdownMenu from '../DropdownMenu/DropdownMenu';
 
 import { PendingJournalApprovals } from '../../ui-components';
 
-import { ref, uploadBytes } from 'firebase/storage'
+import { ref, uploadBytes,} from 'firebase/storage'
 
-import {getAccounts,getApprovedJournals, getDeniedJournals, getJournals} from './TableFunctions'
+import {getAccountNames, getAccounts,getApprovedJournals, getDeniedJournals, getJournals} from './TableFunctions'
+
 
 // A super simple expandable component.
 
@@ -28,52 +29,60 @@ import {getAccounts,getApprovedJournals, getDeniedJournals, getJournals} from '.
 
 export default function Table(props) {
 
-   
-
     const ExpandedComponent = ({ data }) => <pre>{JSON.stringify(data, null, 2)}</pre>;
-
- 
-
     const [modal, setModal] = useState(false)
-
     const [debit, setDebit] = useState("")
-
     const [credit, setCredit] = useState("")
-
     const [imageUpload, setImageUpload] = useState(null)
-
     const [accountNames,setAccountNames] = useState([])
-
     const [pendingJournals,setPendingJournals] = useState(getJournals)
-
     const [deniedJournals,setDeniedJournals] = useState(getDeniedJournals)
-
     const [approvedJournals,setApprovedJournals] = useState(getApprovedJournals)
-
+    const [journalSelection,setJournalSelection] = useState(" ")
+    const [search,setSearch] = useState("");
     const accounts = getAccounts();
-
+    const names = getAccountNames();
     const pendingJournalEntries = collection(db, "pendingJournalEntries")
-
     const accountsColRef = collection(db, "accounts")
-
     const eventLogColRef = collection(db, "eventLog")
 
- 
+ useEffect(()=>{
+    console.log("Journals Changed")
+},[pendingJournals,deniedJournals,approvedJournals])
+
+const onSearch = async () =>{ 
+    
+    console.log(search);
+    const q = query(collection(db, "accounts"),where("accountName", "==", search));
+
+const querySnapshot = await getDocs(q);
+
+if(querySnapshot.empty) // this means the query did not find a field that the user typed in
+{
+console.log("Not Found")
+}
+else
+{
+    console.log("Found")
+}
+}
+    
 
     const onOpen = async () => {
 
        
 
         let temp = []
-
-        accounts.forEach(account => {
+        console.log("accounts name")
+        console.log(accounts)
+        names.forEach(account => {
 
             console.log(account.accountName);
 
             temp.push(account.accountName);
 
         });
-
+        console.log("temp account names is:")
         console.log(temp);
 
         setAccountNames(temp);
@@ -84,16 +93,17 @@ export default function Table(props) {
 
     }
 
+    const onChange = (selection) =>{
+        setJournalSelection(selection);
+    }
+
+
    
 
  
 
     const onClose = () => {
-
-       
-
-        setModal(false);
-
+     setModal(false);
     }
 
  
@@ -108,7 +118,7 @@ export default function Table(props) {
 
     const submitJournal = async () => {
 
- 
+        
 
         const currDate = new Date()
 
@@ -118,9 +128,9 @@ export default function Table(props) {
 
         if (parseInt(debit) === parseInt(credit)) {
 
- 
+            setModal(false)
 
-            await addDoc(pendingJournalEntries, { accountName: "", debit: debit, credit: credit, entryDate: currDate, status: "pending" })
+            await addDoc(pendingJournalEntries, { accountName:journalSelection.value, debit: debit, credit: credit, entryDate: enteredDate, status: "pending" })
 
             await addDoc(eventLogColRef, {altered : "Journal", changes : "Creation", dateAltered : enteredDate})
 
@@ -164,7 +174,7 @@ export default function Table(props) {
 
             name: 'Date Created',
 
-            selector: row => row.DateCreated,
+            selector: row => row.entryDate,
 
             sortable: true,
 
@@ -259,9 +269,14 @@ export default function Table(props) {
     return (
 
         <>
-
+        <button onClick={() => onOpen()}>New Journal Entry</button>
+        <div>
+            <p>Search:</p>
+            <input type="text" onChange={e=>setSearch(e.target.value)} />
+            <button onClick={onSearch}>Search</button>
+        </div>
         {console.log(accounts)}
-
+            <h1>Pending Journals</h1>
             <DataTable
 
                 columns={columns}
@@ -275,7 +290,7 @@ export default function Table(props) {
                 selectableRows
 
             />
-
+            <h1>Approved Journals</h1>
                <DataTable
 
                 columns={columns}
@@ -289,7 +304,7 @@ export default function Table(props) {
                 selectableRows
 
             />
-
+            <h1>Denied Journals</h1>
                <DataTable
 
                 columns={columns}
@@ -314,7 +329,7 @@ export default function Table(props) {
 
                         {
 
-                            dropdownFrame: { children: <DropdownMenu placeholder="Select An Account" options={accountNames} /> },
+                            dropdownFrame: { overflow:"visible",children: <DropdownMenu onChange={onChange} placeholder="Select An Account" options={accountNames} /> },
 
                             Debit: { onChange: (event) => setDebit(event.target.value) },
 
@@ -352,7 +367,7 @@ export default function Table(props) {
 
  
 
-            <button onClick={() => onOpen()}>Button</button>
+            
 
  
 
