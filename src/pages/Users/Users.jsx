@@ -1,23 +1,28 @@
 import { useNavigate,useLocation } from "react-router-dom";
-import { useState,useEffect,useRef } from "react";
+import { useState,useEffect,useRef,forwardRef } from "react";
 import { PageHeader } from "../../ui-components";
 import  ReactDropdown  from "react-dropdown";
 import DropdownMenu from '../../components/DropdownMenu/DropdownMenu'
 import {getUserGroup,elevateAccount } from "./UsersFunctions";
 import Modal from "../../components/Modal/Modal";
-import { GetUser } from "./UsersFunctions";
+import { GetUser,SetAccountLevel } from "./UsersFunctions";
 
 export function Users(props){
     //Constants
     const location = useLocation();
     const navigation = useNavigate();
     const [modal,setModal] = useState(false);
-    const [userList,setUserList] = useState([])
+    const [userList,setUserList] = useState([]);
+    const selectedUser = useRef("");
+    const [SelectedOption,setSelectedOption] = useState("");
 
     const menuOptions2 =["Administrator","Manager","Accountant","Disabled","Unverified"]
     
 
-  
+  const onChange = (selection)=>{
+
+    console.log(selection.value)
+  }
     //End of Constants
    useEffect(() => {
 
@@ -31,12 +36,17 @@ export function Users(props){
     getList()
    },[]);
 
+   const testFunc= (thing1,thing2)=>{
+   
+    console.log(thing1);
+    console.log(thing2);
+   }
+
   
     switch(props.level){
       case 'Administrators':
           return (
               <>
-      
         <PageHeader
          overrides={{
            PageHeader: {width:"100%"},
@@ -44,6 +54,13 @@ export function Users(props){
            PageTitle: {children: "Users"},
            SubNavigation:{children:""}
         }}/>
+        {/* change user account level */}
+        <form onSubmit={testFunc(SelectedOption,selectedUser.current.valueOf())}>
+            <label id="Username">Username</label>
+            <input ref={selectedUser} type="text"></input>
+            <DropdownMenu id="accountLevel" onChange={onChange} options={["Administrators","Accountant","Managers","Regular_User"]}/>
+            <button type="submit">Submit</button>
+        </form>
        
           </> );
       case 'Managers':

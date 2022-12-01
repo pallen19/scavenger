@@ -19,7 +19,7 @@ export function getUserGroup(Username){
   return data;
 }
     
-export function elevateAccount(Username,accountLevel,Method){
+export function SetAccountLevel(Username,accountLevel,Method){
       //account method should be add,remove, or disabled/enable
       fetch("https://7eiwgt5u32.execute-api.us-east-2.amazonaws.com/default/",{
         method: 'POST',

@@ -17,7 +17,7 @@ import { EventLog } from './pages/Reports/Subpages/EventLog';
 import Layout  from './Layout';
 import TestNav from './testnav';
 import {Navigation,Logo, UserProfileButton} from './ui-components'
-import ChartOfAccounts from './pages/Accounts/Subpages/ChartOfAccounts';
+import {ChartOfAccounts} from './pages/Accounts/Subpages/ChartOfAccounts';
 import {AccountSummary} from './pages/Accounts/Subpages/AccountSummary'
 import Modal from './components/Modal/Modal';
 import Table from './components/Table/Table'
@@ -37,6 +37,7 @@ const [userData,setUserData] = useState([]);
 const [currentUser,setCurrentUser] = useState(localStorage.getItem("CognitoIdentityServiceProvider.3dlpcfa5febo59u7ht43jg8jgv.LastAuthUser"))
 const [accountType,setAccountType] = useState([]);
 const [modal,setModal] = useState(false);
+const [fullName,setFullname] = useState("")
 
 
 useEffect(()=>{
@@ -47,6 +48,7 @@ useEffect(()=>{
 useEffect(()=>{
  localStorage.setItem('role',level);
 },[])
+
 
 const onClose=()=>{
   setModal(false);
@@ -183,14 +185,20 @@ const services={
   
    
   <div>
+  
   <Navigation  overrides={{
     Home:{onClick:() => {navigate('/Home')}},
     Accounts:{onClick:() => {navigate('/Accounts')}},
     Users:{onClick:() => {navigate('/Users')}},
     Reports:{onClick:() => {navigate('/Reports')}},
-    UserProfileButton:{children:<button onClick={signOut}>Sign Out</button>},
+    FullName:{children: user.attributes.given_name + " " + user.attributes.family_name},
+    UserProfileButton:{overflow:"visible",children:<><UserProfileButton overrides={{
+      Username:{children:user.username},
+    }}/><button onClick={signOut}>Sign Out</button></>},
     EmailButton:{onClick:() => {setModal(true)}},
+
   }}/>
+  <Link to="/ChartOfAccounts">COA</Link>
  
   
   
@@ -198,7 +206,7 @@ const services={
     <Route path="/" element={<Layout />}>
         <Route path='Accounts/*' element={<ProtectedRoute allowed={level === "Administrators" || level === "Managers"} redirectPath="*"><ViewAcct level={level} /></ProtectedRoute>}>
             <Route path='Account Summary' element={<AccountSummary/>}/>
-            <Route path='Journals' element={<Journals/>}/>
+            <Route path='Journals' element={<Table/>}/>
             <Route path='General Ledger' element={<GeneralLedger/>}/>
             <Route path='Create Account' element={<CreateAccount/>}/>
         </Route>
@@ -207,9 +215,6 @@ const services={
         <Route path='Reports/*' element={<Reports level={level}/>}>
             <Route path='Expired Passwords' element={<ExpiredPasswords/>}/>
             <Route path='Event Log' element={<EventLog/>}/>
-          {/* <Route path="testA" element={<TestA/>}/>
-          
-          <Route path='testC' element={<TestC/>}/> */}
           <Route path='*' element={<div>No Page hit</div>}/>
         </Route>
         <Route path='/ExpiredPasswords' element={<ProtectedRoute allowed={level === "Administrators" || level === "Managers"} redirectPath="*"><ExpiredPasswords level={level} /></ProtectedRoute>}></Route>
@@ -220,7 +225,6 @@ const services={
         <Route path='/ChartOfAccounts' element={<ProtectedRoute allowed={level === "Administrators" || level === "Managers"} redirectPath="*"><ChartOfAccounts level={level} /></ProtectedRoute>}></Route>
         <Route path='/404' element={<h1>This Link has not been assigned</h1>}></Route>
 
-        <Route path='/Table' element={<Table/>} ></Route>
         <Route path='/CreateAccount' element={<CreateAccount/>}/>
 
         <Route path="*" element={<Navigate to="/Home"/>}/>
