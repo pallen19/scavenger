@@ -337,8 +337,4 @@ export default function GeneralLedger(props) {
 
 }
         
-        </>
-    );
-};
-
 
