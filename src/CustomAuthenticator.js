@@ -8,7 +8,7 @@ import { useEffect, useState } from 'react';
 import {NewAcct,NewUser} from './AdminView';
 import {ViewAcct} from './pages/Accounts/Accounts';
 import { Journals } from './pages/Accounts/Subpages/Journals';
-import { GeneralLedger } from './pages/Accounts/Subpages/GeneralLedger';
+import  GeneralLedger  from './pages/Accounts/Subpages/GeneralLedger';
 import {Home} from './pages/Homepage/Homepage';
 import {Users} from './pages/Users/Users';
 import {Reports} from './pages/Reports/Reports'
