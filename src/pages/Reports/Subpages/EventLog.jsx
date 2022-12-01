@@ -1,7 +1,7 @@
 import { collection, getDocs } from 'firebase/firestore';
 import { db } from '../../../firestore-config'
 import { useState, useEffect, useRef } from 'react';
-import ReactToPrint, { useReactToPrint } from "react-to-print"
+import ReactToPrint, { useReactToPrint } from 'react-to-print'
 
 export function EventLog(props) {
 

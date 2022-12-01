@@ -79,7 +79,7 @@ export default function GeneralLedger(props) {
 
         setAccountNames(temp);
 
-        setModal(true);
+      setModal(true);
 
        
 
@@ -89,13 +89,10 @@ export default function GeneralLedger(props) {
 
  
 
-    const onClose = () => {
-
-       
-
-        setModal(false);
-
-    }
+     const onClose = () => {
+    
+         setModal(false)
+     }
 
  
 
@@ -103,7 +100,7 @@ export default function GeneralLedger(props) {
 
        
 
-    }, [modal])
+    }, [true])
 
  
 
@@ -279,7 +276,7 @@ export default function GeneralLedger(props) {
            
  
 
-            <Modal show={modal} onClose={() => onClose()}>
+             <Modal show={modal} onClose={() => onClose()}> 
 
                 <JournalEntryForm
 
@@ -298,7 +295,6 @@ export default function GeneralLedger(props) {
                         }
 
                     }>
-
                 </JournalEntryForm>
 
  
@@ -315,23 +311,17 @@ export default function GeneralLedger(props) {
 
                 <div>
 
-                    <button onClick={()=> onClose()} >Cancel</button>
+                     <button onClick={()=> onClose()} >Cancel</button> 
 
                 </div>
-
  
 
             </Modal>
 
- 
-
-            
-
- 
-
         </>
 
     );
+    
 
  
 
