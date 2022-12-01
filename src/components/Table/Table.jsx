@@ -140,7 +140,7 @@ export default function Table(props) {
                 <JournalEntryForm
                     overrides={
                         {
-                            dropdownFrame: { children: <DropdownMenu placeholder="Select An Account" options={accountNames} /> },
+                            dropdownFrame: { children: <DropdownMenu placeholder="Select An Account" options={["Test1","Test2","Test3","Test4"]} /> },
                             Debit: { onChange: (event) => setDebit(event.target.value) },
                             Credit: { onChange: (event) => setCredit(event.target.value) },
                             ButtonSubmit: { onClick: () => submitJournal() }

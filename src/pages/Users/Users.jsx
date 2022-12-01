@@ -55,7 +55,7 @@ export function Users(props){
         <form onSubmit={testFunc(SelectedOption.current,selectedUser.current.valueOf())}>
             <label id="Username">Username</label>
             <input ref={selectedUser} type="text"></input>
-            <DropdownMenu id="accountLevel" onChage={} options={["Administrators","Accountant","Managers","Regular_User"]}/>
+            <DropdownMenu id="accountLevel" options={["Administrators","Accountant","Managers","Regular_User"]}/>
         </form>
        
           </> );
