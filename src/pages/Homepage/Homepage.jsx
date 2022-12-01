@@ -42,7 +42,22 @@ export function Home(props){
     <MenuCard overrides={{
         MenuLabel:{children:"Event Log"},
         MenuDescription:{children:"Shortcut to event log"},
-        Button:{onClick:()=>navigate("/404"),children:"Get Started"}
+        Button:{onClick:()=>navigate("/Reports/Event Log"),children:"Get Started"}
+    }}></MenuCard>
+    <MenuCard overrides={{
+        MenuLabel:{children:"Journals"},
+        MenuDescription:{children:"Shortcut to journals"},
+        Button:{onClick:()=>navigate("/Accounts/Journals"),children:"Get Started"}
+    }}></MenuCard>
+     <MenuCard overrides={{
+        MenuLabel:{children:"Account Summary"},
+        MenuDescription:{children:"Shortcut to Account Summaries"},
+        Button:{onClick:()=>navigate("/Accounts/Account Summary"),children:"Get Started"}
+    }}></MenuCard>
+    <MenuCard overrides={{
+        MenuLabel:{children:"View Expired Passwords"},
+        MenuDescription:{children:"Go to Expired Passwords"},
+        Button:{onClick:()=>navigate("/Reports/Expired Passwords"),children:"Get Started"}
     }}></MenuCard>
     </div>
     </div>
