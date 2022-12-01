@@ -1,12 +1,15 @@
 import { collection, getDocs } from 'firebase/firestore';
 import { db } from '../../../firestore-config'
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
+import ReactToPrint, { useReactToPrint } from "react-to-print"
 
 export function EventLog(props) {
 
     const eventLogColRef = collection(db, "eventLog")
 
     const [events, setEvents] = useState([])
+
+    const componentRef = useRef()
 
     useEffect(() => {
 
@@ -20,22 +23,26 @@ export function EventLog(props) {
     }, [])
 
     return (
-        <div>
-            <p>Event Log</p>
+        <>
+            <ReactToPrint trigger={() => <button>Print / Download</button>}
+                content={() => componentRef.current} />
 
-            {events.map((eventChange) => {
-                return (
-                    <div>
-                        {" "}
-                        <h1>Altered Field: {eventChange.altered}</h1>
-                        <h2>Changes: {eventChange.changes}</h2>
-                        <h3>Date Changed: {eventChange.dateAltered}</h3>
-                    </div>
-                ); 
-            })}
+            <div ref={componentRef}>
 
-            <button onClick={() => console.log("hi")} >CLick</button>
-        </div>
+                <p>Event Log</p>
+
+                {events.map((eventChange) => {
+                    return (
+                        <div>
+                            {" "}
+                            <h1>Altered Field: {eventChange.altered}</h1>
+                            <h2>Changes: {eventChange.changes}</h2>
+                            <h3>Date Changed: {eventChange.dateAltered}</h3>
+                        </div>
+                    );
+                })}
+            </div>
+        </>
     )
 
 }
