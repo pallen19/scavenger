@@ -18,9 +18,10 @@ import DropdownMenu from '../DropdownMenu/DropdownMenu';
 
 import { PendingJournalApprovals } from '../../ui-components';
 
-import { ref, uploadBytes } from 'firebase/storage'
+import { ref, uploadBytes,} from 'firebase/storage'
 
 import {getAccountNames, getAccounts,getApprovedJournals, getDeniedJournals, getJournals} from './TableFunctions'
+
 
 // A super simple expandable component.
 
@@ -28,41 +29,44 @@ import {getAccountNames, getAccounts,getApprovedJournals, getDeniedJournals, get
 
 export default function Table(props) {
 
-   
-
     const ExpandedComponent = ({ data }) => <pre>{JSON.stringify(data, null, 2)}</pre>;
-
- 
-
     const [modal, setModal] = useState(false)
-
     const [debit, setDebit] = useState("")
-
     const [credit, setCredit] = useState("")
-
     const [imageUpload, setImageUpload] = useState(null)
-
     const [accountNames,setAccountNames] = useState([])
-
     const [pendingJournals,setPendingJournals] = useState(getJournals)
-
     const [deniedJournals,setDeniedJournals] = useState(getDeniedJournals)
-
     const [approvedJournals,setApprovedJournals] = useState(getApprovedJournals)
     const [journalSelection,setJournalSelection] = useState(" ")
-
+    const [search,setSearch] = useState("");
     const accounts = getAccounts();
     const names = getAccountNames();
-
     const pendingJournalEntries = collection(db, "pendingJournalEntries")
-
     const accountsColRef = collection(db, "accounts")
-
     const eventLogColRef = collection(db, "eventLog")
 
  useEffect(()=>{
-    
+    console.log("Journals Changed")
 },[pendingJournals,deniedJournals,approvedJournals])
+
+const onSearch = async () =>{ 
+    
+    console.log(search);
+    const q = query(collection(db, "accounts"),where("accountName", "==", search));
+
+const querySnapshot = await getDocs(q);
+
+if(querySnapshot.empty) // this means the query did not find a field that the user typed in
+{
+console.log("Not Found")
+}
+else
+{
+    console.log("Found")
+}
+}
+    
 
     const onOpen = async () => {
 
@@ -266,6 +270,11 @@ export default function Table(props) {
 
         <>
         <button onClick={() => onOpen()}>New Journal Entry</button>
+        <div>
+            <p>Search:</p>
+            <input type="text" onChange={e=>setSearch(e.target.value)} />
+            <button onClick={onSearch}>Search</button>
+        </div>
         {console.log(accounts)}
             <h1>Pending Journals</h1>
             <DataTable
