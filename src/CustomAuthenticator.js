@@ -23,6 +23,8 @@ import Modal from './components/Modal/Modal';
 import Table from './components/Table/Table'
 import CreateAccount from './pages/Accounts/Subpages/CreateAccount'
 import EmailForm from './components/EmailForm/EmailForm' 
+import UserProfile from './pages/Profile/UserProfile';
+import DropdownMenu from './components/DropdownMenu/DropdownMenu';
 
 
 
@@ -185,20 +187,27 @@ const services={
   
    
   <div>
-  
+  {/* <UserProfile name={user.attributes.given_name} /> */}
   <Navigation  overrides={{
     Home:{onClick:() => {navigate('/Home')}},
     Accounts:{onClick:() => {navigate('/Accounts')}},
     Users:{onClick:() => {navigate('/Users')}},
     Reports:{onClick:() => {navigate('/Reports')}},
     FullName:{children: user.attributes.given_name + " " + user.attributes.family_name},
-    UserProfileButton:{overflow:"visible",children:<><UserProfileButton overrides={{
+    UserProfileButton:{
+    overflow:"visible",children:<><UserProfileButton overrides={{
       Username:{children:user.username},
-    }}/><button onClick={signOut}>Sign Out</button></>},
-    EmailButton:{onClick:() => {setModal(true)}},
+
+      image:{style:{cursor:"pointer"},onClick:()=>{
+             navigate('/Profile') }}
+             
+      // image:{onClick:()=>{navigate('/Profile')}}
+    }}/><button style={{cursor:'pointer'}} onClick={signOut}>Sign Out</button></>},
+    EmailButton:{style:{cursor:'pointer'}, onClick:() => {setModal(true)}},
+
 
   }}/>
-  <Link to="/ChartOfAccounts">COA</Link>
+  {/* <Link to="/ChartOfAccounts">COA</Link> */}
  
   
   
@@ -223,7 +232,8 @@ const services={
         <Route path='/Journals' element={<ProtectedRoute allowed={level === "Administrators" || level === "Managers"} redirectPath="*"><Journals level={level} /></ProtectedRoute>}></Route>
         <Route path='/NewAccount' element={<ProtectedRoute allowed={level === "Administrators" || level === "Managers"} redirectPath="*"><NewAcct level={level} /></ProtectedRoute>}></Route>
         <Route path='/NewUser' element={<ProtectedRoute allowed={level === "Administrators" || level === "Managers"} redirectPath="*"><NewUser level={level} /></ProtectedRoute>}></Route>
-        
+        <Route path='/Profile' element={<ProtectedRoute allowed={level ==="Administrators" || level === "Accountant" || level === "Managers" } redirectPath="*"><UserProfile level={level} /></ProtectedRoute>}></Route>
+
         <Route path='/404' element={<h1>This Link has not been assigned</h1>}></Route>
 
         <Route path='/CreateAccount' element={<CreateAccount/>}/>

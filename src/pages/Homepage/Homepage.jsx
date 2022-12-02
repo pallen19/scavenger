@@ -3,6 +3,7 @@ import { useState,useEffect } from "react";
 import { MenuCard, PageHeader } from "../../ui-components";
 import "./Homepage.css"
 import CustomTabs from "../../components/AccountsTab/CustomTabs";
+import ReactTooltip from 'react-tooltip';
 
 export function Home(props){
     //Constants
@@ -31,13 +32,19 @@ export function Home(props){
         Button:{onClick:()=>navigate("/Accounts/General Ledger"),children:"Get Started"}
     }}></MenuCard>
     </div>
+  
     <div className="ShortcutItem">
+    <p data-tip="Click here to create account">  
     <MenuCard overrides={{
         MenuLabel:{children:"New Account"},
         MenuDescription:{children:"Shortcut to Make a new Account"},
+        
         Button:{onClick:()=>navigate("/Accounts/Create Account"),children:"Get Started"}
     }}></MenuCard>
-    </div>
+    </p>
+</div>
+    <ReactTooltip/>
+    
     <div className="ShortcutItem">
     <MenuCard overrides={{
         MenuLabel:{children:"Event Log"},
