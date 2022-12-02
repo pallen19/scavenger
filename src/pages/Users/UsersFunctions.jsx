@@ -48,8 +48,6 @@ export async function GetUser(username,method){
         })
       }).then((result) => result.json()).then((response) => {data = response;
       })
-      console.log("data is: ");
-      console.log(data);
       return data;
     }
        
