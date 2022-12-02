@@ -1,80 +1,82 @@
 
 
-import { getDocs,collection } from "firebase/firestore";
+import { getDocs, collection, deleteDoc, setDoc, addDoc } from "firebase/firestore";
 
 import { db } from '../../firestore-config'
 
- 
+const pendingJournalsColRef = collection(db, "pendingJournalEntries")
+const approvedJournalsColRef = collection(db, "approvedJournalEntries")
 
-export function getAccountNames(){
 
-    const accountsColRef = collection(db, "accounts")
-
-    const array = [];
-
- 
-
-getDocs(accountsColRef)
-
-            .then(snapshot => {
-
-                snapshot.forEach(account => {
-
-                    array.push( {"id": account.id ,"accountName": account.data().accountName })
-
-                })
-
-            })
-
-            return array;
-
-}
-
- 
-
-export function getAccounts(){
+export function getAccountNames() {
 
     const accountsColRef = collection(db, "accounts")
 
     const array = [];
 
- 
 
-getDocs(accountsColRef)
 
-            .then(snapshot => {
+    getDocs(accountsColRef)
 
-                snapshot.forEach(account => {
+        .then(snapshot => {
 
-                    array.push(account)
+            snapshot.forEach(account => {
 
-                })
+                array.push({ "id": account.id, "accountName": account.data().accountName })
 
             })
 
-            return array;
+        })
+
+    return array;
 
 }
 
- 
+
+
+export function getAccounts() {
+
+    const accountsColRef = collection(db, "accounts")
+
+    const array = [];
+
+
+
+    getDocs(accountsColRef)
+
+        .then(snapshot => {
+
+            snapshot.forEach(account => {
+
+                array.push(account)
+
+            })
+
+        })
+
+    return array;
+
+}
+
+
 
 //get pending journals
 
-export function getJournals(){
+export function getJournals(journal, callback) {
 
-    const pendingJournalsColRef = collection(db, "pendingJournalEntries")
 
     const array = [];
 
- 
 
-getDocs(pendingJournalsColRef)
 
-            .then(snapshot => {
+    getDocs(pendingJournalsColRef)
 
-                snapshot.forEach(account => {
+        .then(snapshot => {
 
-                    array.push( {"id": account.id ,"accountName": account.data().accountName,
+            snapshot.forEach(account => {
+
+                array.push({
+                    "id": account.id, "accountName": account.data().accountName,
 
                     'debit': account.data().debit,
 
@@ -84,37 +86,39 @@ getDocs(pendingJournalsColRef)
 
                     'actions': <><button className="actionButtons">View Journal</button>
 
-                    <button className="actionButtons">Approve</button>
+                        <button className="actionButtons" onClick={() => setJournalStatus(account)}>Approve</button>
 
-                    <button className="actionButtons">Deny</button></>})
-
+                        <button className="actionButtons" onClick={() => setJournalStatus(account)}>Deny</button></>
                 })
 
             })
 
-            return array;
+        })
+
+    return array;
 
 }
 
- 
+
 
 //get approved journals
 
-export function getApprovedJournals(){
+export function getApprovedJournals(journal, callback) {
 
     const approvedJournalsColRef = collection(db, "approvedJournalEntries")
 
     const array = [];
 
- 
 
-getDocs(approvedJournalsColRef)
 
-            .then(snapshot => {
+    getDocs(approvedJournalsColRef)
 
-                snapshot.forEach(account => {
+        .then(snapshot => {
 
-                    array.push( {"id": account.id ,"accountName": account.data().accountName,
+            snapshot.forEach(account => {
+
+                array.push({
+                    "id": account.id, "accountName": account.data().accountName,
 
                     'debit': account.data().debit,
 
@@ -122,35 +126,37 @@ getDocs(approvedJournalsColRef)
 
                     'entryDate': account.data().entryDate,
 
-                    'actions': <><button className="actionButtons">View Journal</button></>})
-
+                    'actions': <><button className="actionButtons" onClick={()=> callback(account)}>View Journal</button></>
                 })
 
             })
 
-            return array;
+        })
+
+    return array;
 
 }
 
- 
+
 
 //get denied journals
 
-export function getDeniedJournals(){
+export function getDeniedJournals(journal, callback) {
 
     const deniedJournalsColRef = collection(db, "deniedJournalEntries")
 
     const array = [];
 
- 
 
-getDocs(deniedJournalsColRef)
 
-            .then(snapshot => {
+    getDocs(deniedJournalsColRef)
 
-                snapshot.forEach(account => {
+        .then(snapshot => {
 
-                    array.push( {"id": account.id ,"accountName": account.data().accountName,
+            snapshot.forEach(account => {
+
+                array.push({
+                    "id": account.id, "accountName": account.data().accountName,
 
                     'debit': account.data().debit,
 
@@ -158,12 +164,26 @@ getDocs(deniedJournalsColRef)
 
                     'entryDate': account.data().entryDate,
 
-                    'actions': <><button className="actionButtons">View Journal</button></>})
-
+                    'actions': <><button className="actionButtons" onClick={()=>callback(journal)}>View Journal</button></>
                 })
 
             })
 
-            return array;
+        })
+
+    return array;
+
+}
+
+export async function setJournalStatus (journal)  {
+    //copy pending
+    // await addDoc(approvedJournalsColRef,{ id : journal.id,
+    //  accountName: journal.accountName, 
+    //  debit: journal.debit, credit: journal.credit,
+    //  actions: journal.actions,
+    //  entryDate: journal.entryDate})
+    console.log(journal.accountName)
+
+    // await deleteDoc('pendingJournalEntries', journal)
 
 }
