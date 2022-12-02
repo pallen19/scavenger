@@ -126,7 +126,7 @@ export function getApprovedJournals(journal, callback) {
 
                     'entryDate': account.data().entryDate,
 
-                    'actions': <><button className="actionButtons" onClick={()=> callback(account)}>View Journal</button></>
+                    'actions': <><button className="actionButtons" onClick={() => callback(account)}>View Journal</button></>
                 })
 
             })
@@ -164,7 +164,7 @@ export function getDeniedJournals(journal, callback) {
 
                     'entryDate': account.data().entryDate,
 
-                    'actions': <><button className="actionButtons" onClick={()=>callback(journal)}>View Journal</button></>
+                    'actions': <><button className="actionButtons" onClick={() => callback(journal)}>View Journal</button></>
                 })
 
             })
@@ -175,13 +175,11 @@ export function getDeniedJournals(journal, callback) {
 
 }
 
-export async function setJournalStatus (journal)  {
-    //copy pending
-    // await addDoc(approvedJournalsColRef,{ id : journal.id,
-    //  accountName: journal.accountName, 
-    //  debit: journal.debit, credit: journal.credit,
-    //  actions: journal.actions,
-    //  entryDate: journal.entryDate})
+export async function setJournalStatus(journal) {
+    // copy pending
+    await addDoc(approvedJournalsColRef, { id: journal.id, accountName: journal.accountName, debit: journal.debit, credit: journal.credit,
+        entryDate: journal.entryDate
+    }).then(console.log("I'm working"))
     console.log(journal.accountName)
 
     // await deleteDoc('pendingJournalEntries', journal)
