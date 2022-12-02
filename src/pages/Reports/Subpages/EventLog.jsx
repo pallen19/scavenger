@@ -35,9 +35,10 @@ export function EventLog(props) {
                     return (
                         <div>
                             {" "}
-                            <h1>Altered Field: {eventChange.altered}</h1>
-                            <h2>Changes: {eventChange.changes}</h2>
-                            <h3>Date Changed: {eventChange.dateAltered}</h3>
+                            <h2>Altered Field: {eventChange.altered}</h2>
+                            <h2>Before: {eventChange.before}</h2>
+                            <h2>After: {eventChange.after}</h2>
+                            <h2>Date Changed: {eventChange.dateAltered}</h2>
                         </div>
                     );
                 })}
