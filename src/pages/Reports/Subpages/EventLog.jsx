@@ -39,6 +39,7 @@ export function EventLog(props) {
                             <h2>Before: {eventChange.before}</h2>
                             <h2>After: {eventChange.after}</h2>
                             <h2>Date Changed: {eventChange.dateAltered}</h2>
+                            <h2>------------</h2>
                         </div>
                     );
                 })}
