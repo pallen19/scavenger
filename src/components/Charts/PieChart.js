@@ -2,7 +2,11 @@ import React from 'react'
 
 function PieChart() {
   return (
-    <div>PieChart</div>
+    <>
+    <div>
+      Financial Reports
+    </div>
+    </>
   )
 }
 

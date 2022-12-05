@@ -1,5 +1,3 @@
-
-
 import DataTable from 'react-data-table-component';
 
 import { React, Component, useState, useEffect } from 'react'
@@ -121,7 +119,6 @@ export default function Table(props) {
         else {
             alert("Debits and Credits are not equal")
         }
-
     }
     const uploadImage = () => {
 
@@ -130,11 +127,8 @@ export default function Table(props) {
         const imageRef = ref(storage, `images/${imageUpload.name}`)
 
         uploadBytes(imageRef, imageUpload).then(() => {
-
             alert("Image uploaded")
-
         })
-
     }
 
     const testAccountsColRef = collection(db, "testAccounts")
@@ -142,62 +136,38 @@ export default function Table(props) {
     const addToApproved = async (journal) => {
 
         await addDoc(approvedJournalEntries, {accountName: journal.accountName, debit: journal.debit, credit: journal.credit, entryDate : journal.entryDate});
-
         const docToBeDeleted = doc(db, "pendingJournalEntries", journal.id)
-
         await deleteDoc(docToBeDeleted)
     }
 
     const addToDenied = async (journal) => {
 
         await addDoc(deniedJournalEntries, {accountName: journal.accountName, debit: journal.debit, credit: journal.credit, entryDate : journal.entryDate});
-
         const docToBeDeleted = doc(db, "pendingJournalEntries", journal.id)
-
         await deleteDoc(docToBeDeleted)
     }
 
     const columns = [
         {
-
             name: 'Date Created',
-
             selector: row => row.entryDate,
-
             sortable: true,
-
         },
-
         {
-
             name: 'Account Name',
-
             selector: row => row.accountName,
-
             sortable: true,
-
         },
-
         {
-
             name: 'Debit',
-
             selector: row => row.debit,
-
             sortable: true,
-
         },
-
         {
-
             name: 'Credit',
-
             selector: row => row.credit,
-
             sortable: true,
-
         },
-
         {
             name: "Action",
             cell: row => (
@@ -211,19 +181,9 @@ export default function Table(props) {
             allowOverflow: true,
             button: true,
         }, {/*end*/ }
-
-
-
     ];
 
-
-
-
-
-
-
     return (
-
         <>
             <button onClick={() => onOpen()}>New Journal Entry</button>
             {console.log(accounts)}
@@ -235,49 +195,30 @@ export default function Table(props) {
                 data={pendingJournalEntries}
 
                 expandableRows
-
                 expandableRowsComponent={ExpandedComponent}
-
                 selectableRows
-
             />
             <h1>Approved Journals</h1>
             <DataTable
-
                 columns={columns}
-
                 data={approvedJournals}
-
                 expandableRows
-
                 expandableRowsComponent={ExpandedComponent}
-
                 selectableRows
-
             />
             <h1>Denied Journals</h1>
             <DataTable
-
                 columns={columns}
-
                 data={deniedJournals}
-
                 expandableRows
-
                 expandableRowsComponent={ExpandedComponent}
-
                 selectableRows
-
             />
-
-
 
             <Modal show={modal} onClose={() => onClose()}>
 
                 <JournalEntryForm
-
                     overrides={
-
                         {
 
                             dropdownFrame: { overflow: "visible", children:<> 
@@ -285,49 +226,22 @@ export default function Table(props) {
                             <label className='accountLabel'>Debit Account<DropdownMenu onChange={onModify} placeholder="Select An Account" options={accountNames} /></label></> },
 
                             Debit: { onChange: (event) => setDebit(event.target.value) },
-
                             Credit: { onChange: (event) => setCredit(event.target.value) },
-
                             ButtonSubmit: { onClick: () => submitJournal() }
-
                         }
-
                     }>
-
                 </JournalEntryForm>
 
-
-
                 <div>
-
                     <input type="file" onChange={(event) => { setImageUpload(event.target.files[0]) }} />
-
                     <button onClick={uploadImage} > uploadImage </button>
-
                 </div>
-
-
 
                 <div>
-
                     <button onClick={() => onClose()} >Cancel</button>
-
                 </div>
-
-
 
             </Modal>
-
-
-
-
-
-
-
         </>
-
     );
-
-
-
 }
