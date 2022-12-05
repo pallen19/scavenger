@@ -4,6 +4,7 @@ import { MenuCard, PageHeader } from "../../ui-components";
 import "./Homepage.css"
 import CustomTabs from "../../components/AccountsTab/CustomTabs";
 import ReactTooltip from 'react-tooltip';
+import BarChart from "../../components/Charts/BarChart";
 
 export function Home(props){
     //Constants
@@ -23,7 +24,7 @@ export function Home(props){
         SubNavigation:{children:""}
         
     }}/>
-    
+    {/* <BarChart/> */}
     <div className="ShortcutFrame">
     <div className="ShortcutItem">
     <MenuCard overrides={{
@@ -51,9 +52,13 @@ export function Home(props){
         MenuDescription:{children:"Shortcut to event log"},
         Button:{onClick:()=>navigate("/Reports/Event Log"),children:"Get Started"}
     }}></MenuCard>
+     
     </div>
     </div>
     
+   
+       
+   
     </>
             );
        case 'Managers':
