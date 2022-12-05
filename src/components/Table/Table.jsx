@@ -20,8 +20,8 @@ import { PendingJournalApprovals } from '../../ui-components';
 
 import { ref, uploadBytes } from 'firebase/storage'
 
-import { getAccountNames, setJournalStatus, getAccounts, getApprovedJournals, getDeniedJournals, getJournals } from './TableFunctions'
-
+import { getAccountNames, denyJournal, approveJournal, setJournalStatus, getAccounts, getApprovedJournals, getDeniedJournals, getJournals } from './TableFunctions'
+import './Table.css'
 // A super simple expandable component.
 
 
@@ -30,7 +30,14 @@ export default function Table(props) {
 
 
 
-    const ExpandedComponent = ({ data }) => <pre>{JSON.stringify(data, null, 2)}</pre>;
+    const ExpandedComponent = ({ data }) => <pre>{
+        
+    data.accountName.toString()
+        
+        
+        // JSON.stringify(data, null, 2)
+        
+        }</pre>;
 
     const [activeJournal, setActiveJournal] = useState("")
 
@@ -48,7 +55,7 @@ export default function Table(props) {
     const [deniedJournals, setDeniedJournals] = useState(getDeniedJournals)
     const [approvedJournals, setApprovedJournals] = useState(getApprovedJournals)
     const [journalSelection, setJournalSelection] = useState(" ")
-
+    const [accountSelection, setAccountSelection] = useState(" ")
 
     const accounts = getAccounts();
     const names = getAccountNames();
@@ -87,7 +94,9 @@ export default function Table(props) {
     const onChange = (selection) => {
         setJournalSelection(selection);
     }
-
+    const onModify = (selection) => {
+        setAccountSelection(selection);
+    }
     const onClose = () => {
         setModal(false);
     }
@@ -105,7 +114,7 @@ export default function Table(props) {
         if (parseInt(debit) === parseInt(credit)) {
 
             setModal(false)
-            await addDoc(pendingJournalEntries, { accountName: journalSelection.value, debit: debit, credit: credit, entryDate: enteredDate, status: "pending" })
+            await addDoc(pendingJournalEntries, { accountName: journalSelection.value, accountNameCredit: accountSelection.value, debit: debit, credit: credit, entryDate: enteredDate, status: "pending" })
             await addDoc(eventLogColRef, { altered: "Journal", changes: "Creation", dateAltered: enteredDate })
         }
 
@@ -193,8 +202,8 @@ export default function Table(props) {
             name: "Action",
             cell: row => (
                 <>
-                    <button onClick={() => addToApproved(row)} className='actionButtons'>Approve</button>
-                    <button onClick={() => addToDenied(row)} className='actionButtons'>Deny</button>
+                    <button onClick={() => approveJournal(row)} className='actionButtons'>Approve</button>
+                    <button onClick={() => denyJournal(row)} className='actionButtons'>Deny</button>
                 </>
             ),
 
@@ -223,7 +232,7 @@ export default function Table(props) {
 
                 columns={columns}
 
-                data={pendingJournals}
+                data={pendingJournalEntries}
 
                 expandableRows
 
@@ -271,7 +280,9 @@ export default function Table(props) {
 
                         {
 
-                            dropdownFrame: { overflow: "visible", children: <DropdownMenu onChange={onChange} placeholder="Select An Account" options={accountNames} /> },
+                            dropdownFrame: { overflow: "visible", children:<> 
+                            <label className='accountLabel'>Credit account<DropdownMenu onChange={onChange} placeholder="Select An Account" options={accountNames} /></label>
+                            <label className='accountLabel'>Debit Account<DropdownMenu onChange={onModify} placeholder="Select An Account" options={accountNames} /></label></> },
 
                             Debit: { onChange: (event) => setDebit(event.target.value) },
 
