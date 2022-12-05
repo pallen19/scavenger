@@ -2,6 +2,7 @@ import { collection, getDocs } from 'firebase/firestore';
 import { db } from '../../../firestore-config'
 import { useState, useEffect, useRef } from 'react';
 import ReactToPrint, { useReactToPrint } from 'react-to-print'
+import ReactTooltip from 'react-tooltip';
 
 export function EventLog(props) {
 
@@ -24,9 +25,11 @@ export function EventLog(props) {
 
     return (
         <>
+<p data-delay-show='250' data-delay-update='250' data-tip='Click here to PRINT/SAVE/DOWNLOAD'>
             <ReactToPrint trigger={() => <button>Print / Download</button>}
                 content={() => componentRef.current} />
-
+ </p>
+        <ReactTooltip/>
             <div ref={componentRef}>
 
                 <p>Event Log</p>
