@@ -92,71 +92,13 @@ body: JSON.stringify({
   //console.log(response)
   return response.json();
 }).then((data) => {
+  console.log("UserLevel")
   console.log(data.Groups[0].GroupName);
   setLevel(data.Groups[0].GroupName) 
 })
 }
 
-function elevateAccount(Username,accountLevel,Method){
-  //account method should be add,remove, or disabled/enable
-  fetch("https://7eiwgt5u32.execute-api.us-east-2.amazonaws.com/default/",{
-    method: 'POST',
-    headers: {'Content-Type':"application/json"},
-    body : JSON.stringify({
-      "UserName": Username,
-      "UserPoolId": 'us-east-2_yq4Klaavu',
-      "newGroup": accountLevel,
-      "method": Method
 
-    })
-  })
-}
-
-
-function TestApiCall(username,method){
-  //put url of api in the fetch
-  fetch(" https://qdkw8owsn3.execute-api.us-east-2.amazonaws.com/default",{
-    method: 'POST',
-    headers: {'Content-Type':"application/json"},
-    body : JSON.stringify({
-        "UserPoolId": "us-east-2_yq4Klaavu",
-        "Username" : username,
-        "method": method
-    })
-  }).then(function(response){
-
-    console.log(response)
-
-    return response.json();
-
-  }).then(function(JsonData){
-    console.log(JsonData);
-    setUserData(JsonData)
-  })
-}
-    
-
-async function GetUser(username,method){
-  //put url of api in the fetch
-  fetch(" https://qdkw8owsn3.execute-api.us-east-2.amazonaws.com/default",{
-    method: 'POST',
-    headers: {'Content-Type':"application/json"},
-    body : JSON.stringify({
-        "UserPoolId": "us-east-2_yq4Klaavu",
-        "Username" : username,
-        "method": method
-    })
-  }).then(function(response){
-
-    console.log(response)
-
-    return response.json();
-
-  }).then(function(JsonData){
-    console.log(JsonData);
-    setUserData(JsonData)
-  })
-}
 
 const navigate = useNavigate();
 

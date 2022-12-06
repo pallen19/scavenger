@@ -1,5 +1,3 @@
-
-
 import DataTable from 'react-data-table-component';
 
 import { React, Component, useState, useEffect } from 'react'
@@ -20,8 +18,8 @@ import { PendingJournalApprovals } from '../../ui-components';
 
 import { ref, uploadBytes } from 'firebase/storage'
 
-import { getAccountNames, setJournalStatus, getAccounts, getApprovedJournals, getDeniedJournals, getJournals } from './TableFunctions'
-
+import { getAccountNames, denyJournal, approveJournal, setJournalStatus, getAccounts, getApprovedJournals, getDeniedJournals, getJournals } from './TableFunctions'
+import './Table.css'
 // A super simple expandable component.
 
 
@@ -30,7 +28,14 @@ export default function Table(props) {
 
 
 
-    const ExpandedComponent = ({ data }) => <pre>{JSON.stringify(data, null, 2)}</pre>;
+    const ExpandedComponent = ({ data }) => <pre>{
+        
+    data.accountName.toString()
+        
+        
+        // JSON.stringify(data, null, 2)
+        
+        }</pre>;
 
     const [activeJournal, setActiveJournal] = useState("")
 
@@ -39,17 +44,14 @@ export default function Table(props) {
     const [debit, setDebit] = useState("")
 
     const [credit, setCredit] = useState("")
-
+    const [accountSelection,setAccountSelection] = useState("")
     const [imageUpload, setImageUpload] = useState(null)
-
-    const [accountNames, setAccountNames] = useState([])
-
-    const [pendingJournals, setPendingJournals] = useState(getJournals)
-    const [deniedJournals, setDeniedJournals] = useState(getDeniedJournals)
-    const [approvedJournals, setApprovedJournals] = useState(getApprovedJournals)
-    const [journalSelection, setJournalSelection] = useState(" ")
-
-
+    const [accountNames,setAccountNames] = useState([])
+    const [pendingJournals,setPendingJournals] = useState(getJournals)
+    const [deniedJournals,setDeniedJournals] = useState(getDeniedJournals)
+    const [approvedJournals,setApprovedJournals] = useState(getApprovedJournals)
+    const [journalSelection,setJournalSelection] = useState(" ")
+    const [search,setSearch] = useState("");
     const accounts = getAccounts();
     const names = getAccountNames();
 
@@ -61,9 +63,67 @@ export default function Table(props) {
 
     const eventLogColRef = collection(db, "eventLog")
 
-    useEffect(() => {
+useEffect(()=>{
+    const getData =() =>
+    {
+        setDeniedJournals(getDeniedJournals);
+    }
+    getData();
+},[])
 
-    }, [pendingJournals, deniedJournals, approvedJournals])
+useEffect(()=>{
+    const getData =() =>
+    {
+        setApprovedJournals(getApprovedJournals);
+    }
+    getData();
+},[])
+
+useEffect(()=>{
+    const getData =() =>
+    {
+        setPendingJournals(getJournals);
+    }
+    getData();
+},[])
+
+
+
+const onSearch = () => { 
+    let filteredPending =[]
+    let filteredApproved =[]
+    let filteredDenied =[]
+    console.log("searching")
+    pendingJournals.forEach(item => {
+        if(item.accountName === search){
+            filteredPending.push(item)
+        }
+    })
+    console.log(filteredPending)
+    setPendingJournals(filteredPending);
+
+    approvedJournals.forEach(item => {
+        if(item.accountName === search){
+            filteredApproved.push(item)
+        }
+    })
+    console.log(filteredPending)
+    setApprovedJournals(filteredApproved);
+
+   deniedJournals.forEach(item => {
+        if(item.accountName === search){
+            filteredDenied.push(item)
+        }
+    })
+    console.log(filteredDenied)
+    setDeniedJournals(filteredDenied);
+}
+  
+   
+    
+
+
+    
 
     const onOpen = async () => {
 
@@ -87,7 +147,9 @@ export default function Table(props) {
     const onChange = (selection) => {
         setJournalSelection(selection);
     }
-
+    const onModify = (selection) => {
+        setAccountSelection(selection);
+    }
     const onClose = () => {
         setModal(false);
     }
@@ -105,14 +167,13 @@ export default function Table(props) {
         if (parseInt(debit) === parseInt(credit)) {
 
             setModal(false)
-            await addDoc(pendingJournalEntries, { accountName: journalSelection.value, debit: debit, credit: credit, entryDate: enteredDate, status: "pending" })
+            await addDoc(pendingJournalEntries, { accountName: journalSelection.value, accountNameCredit: accountSelection.value, debit: debit, credit: credit, entryDate: enteredDate, status: "pending" })
             await addDoc(eventLogColRef, { altered: "Journal", changes: "Creation", dateAltered: enteredDate })
         }
 
         else {
             alert("Debits and Credits are not equal")
         }
-
     }
     const uploadImage = () => {
 
@@ -121,11 +182,8 @@ export default function Table(props) {
         const imageRef = ref(storage, `images/${imageUpload.name}`)
 
         uploadBytes(imageRef, imageUpload).then(() => {
-
             alert("Image uploaded")
-
         })
-
     }
 
     const testAccountsColRef = collection(db, "testAccounts")
@@ -133,68 +191,44 @@ export default function Table(props) {
     const addToApproved = async (journal) => {
 
         await addDoc(approvedJournalEntries, {accountName: journal.accountName, debit: journal.debit, credit: journal.credit, entryDate : journal.entryDate});
-
         const docToBeDeleted = doc(db, "pendingJournalEntries", journal.id)
-
         await deleteDoc(docToBeDeleted)
     }
 
     const addToDenied = async (journal) => {
 
         await addDoc(deniedJournalEntries, {accountName: journal.accountName, debit: journal.debit, credit: journal.credit, entryDate : journal.entryDate});
-
         const docToBeDeleted = doc(db, "pendingJournalEntries", journal.id)
-
         await deleteDoc(docToBeDeleted)
     }
 
     const columns = [
         {
-
             name: 'Date Created',
-
             selector: row => row.entryDate,
-
             sortable: true,
-
         },
-
         {
-
             name: 'Account Name',
-
             selector: row => row.accountName,
-
             sortable: true,
-
         },
-
         {
-
             name: 'Debit',
-
             selector: row => row.debit,
-
             sortable: true,
-
         },
-
         {
-
             name: 'Credit',
-
             selector: row => row.credit,
-
             sortable: true,
-
         },
-
         {
             name: "Action",
             cell: row => (
                 <>
-                    <button onClick={() => addToApproved(row)} className='actionButtons'>Approve</button>
-                    <button onClick={() => addToDenied(row)} className='actionButtons'>Deny</button>
+                    <button onClick={() => approveJournal(row)} className='actionButtons'>Approve</button>
+                    <button onClick={() => denyJournal(row)} className='actionButtons'>Deny</button>
                 </>
             ),
 
@@ -202,121 +236,69 @@ export default function Table(props) {
             allowOverflow: true,
             button: true,
         }, {/*end*/ }
-
-
-
     ];
 
-
-
-
-
-
-
     return (
-
         <>
             <button onClick={() => onOpen()}>New Journal Entry</button>
-            {console.log(accounts)}
+           
+           <input id="search" type="text" onChange={e => setSearch(e.target.value)}/>
+           <button onClick={() => onSearch()}>Search</button>
             <h1>Pending Journals</h1>
             <DataTable
 
                 columns={columns}
 
-                data={pendingJournals}
+                data={pendingJournalEntries}
 
                 expandableRows
-
                 expandableRowsComponent={ExpandedComponent}
-
                 selectableRows
-
             />
             <h1>Approved Journals</h1>
             <DataTable
-
                 columns={columns}
-
                 data={approvedJournals}
-
                 expandableRows
-
                 expandableRowsComponent={ExpandedComponent}
-
                 selectableRows
-
             />
             <h1>Denied Journals</h1>
             <DataTable
-
                 columns={columns}
-
                 data={deniedJournals}
-
                 expandableRows
-
                 expandableRowsComponent={ExpandedComponent}
-
                 selectableRows
-
             />
-
-
 
             <Modal show={modal} onClose={() => onClose()}>
 
                 <JournalEntryForm
-
                     overrides={
-
                         {
 
-                            dropdownFrame: { overflow: "visible", children: <DropdownMenu onChange={onChange} placeholder="Select An Account" options={accountNames} /> },
+                            dropdownFrame: { overflow: "visible", children:<> 
+                            <label className='accountLabel'>Credit account<DropdownMenu onChange={onChange} placeholder="Select An Account" options={accountNames} /></label>
+                            <label className='accountLabel'>Debit Account<DropdownMenu onChange={onModify} placeholder="Select An Account" options={accountNames} /></label></> },
 
                             Debit: { onChange: (event) => setDebit(event.target.value) },
-
                             Credit: { onChange: (event) => setCredit(event.target.value) },
-
                             ButtonSubmit: { onClick: () => submitJournal() }
-
                         }
-
                     }>
-
                 </JournalEntryForm>
 
-
-
                 <div>
-
                     <input type="file" onChange={(event) => { setImageUpload(event.target.files[0]) }} />
-
                     <button onClick={uploadImage} > uploadImage </button>
-
                 </div>
-
-
 
                 <div>
-
                     <button onClick={() => onClose()} >Cancel</button>
-
                 </div>
-
-
 
             </Modal>
-
-
-
-
-
-
-
         </>
-
     );
-
-
-
 }

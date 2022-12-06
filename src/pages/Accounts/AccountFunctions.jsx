@@ -92,7 +92,7 @@ export function getAccountCards(account, callback, count){
                     Balance: { children: account.balance },
                     SwitchField: { onClick:()=> {editSwitch(account,count)}, style:{cursor:"pointer"} },
                     edit: {onClick: ()=> callback(account), style:{cursor:"pointer"}},
-                    
+                    SwitchField: {onClick : ()=> console.log("Hello")},
                 }
             }></AccountCard> 
         </div>
