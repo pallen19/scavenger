@@ -7,6 +7,7 @@ import {getUserGroup,elevateAccount } from "./UsersFunctions";
 import Modal from "../../components/Modal/Modal";
 import { GetUser,SetAccountLevel } from "./UsersFunctions";
 import DataTable from "react-data-table-component";
+import "./Users.css"
 
 export function Users(props){
     //Constants
@@ -17,7 +18,7 @@ export function Users(props){
     const [selectedUser,setSelectedUser] = useState("");
     const [search,setSearch] = useState("");
     const [SelectedOption,setSelectedOption] = useState("");
-    const menuOptions2 =["Administrator","Manager","Accountant","Disabled","Unverified"]
+    const menuOptions2 =["Administrator","Manager","Accountant","Regular_User"]
     //set the selected dropdown option to the most recent option.
     const selectOption = (selection) => {
       console.log(selection.value)
@@ -43,7 +44,7 @@ export function Users(props){
         <button onClick={()=>changeAccountLevel(data.Username,data.Group,SelectedOption)}>Change Level</button>
         </div>
       <div className="ThirdCellSlot">
-      <button onClick={SetAccountLevel(data.Username," ","disable")}>Disable User</button>
+      <button onClick={()=>SetAccountLevel(data.Username," ","disable")}>Disable User</button>
       </div>
       </div>
       </pre>;
@@ -125,30 +126,6 @@ export function Users(props){
            PageTitle: {children: "Users"},
            SubNavigation:{children:""}
         }}/>
-
-        {/* change user account level */}
-        <form onSubmit={testFunc(SelectedOption,selectedUser.current.valueOf())}>
-            
-              <label id="Username">Username</label>
-             
-            <p data-delay-show='250' data-delay-update='250' data-tip='Enter the username'>
-            <input ref={selectedUser} type="text"></input>
-            </p>
-            <ReactTooltip/>
-            <p data-delay-show='250' data-delay-update='250' data-tip='Click to select an option'>
-            <DropdownMenu id="accountLevel" onChange={onChange} options={["Administrators","Accountant","Managers","Regular_User"]}/>
-            </p>
-            <ReactTooltip/>
-           <p data-delay-show='250' data-delay-update='250' data-tip='Click here to submit'>
-            <button type="submit">Submit</button>
-            </p>
-            <ReactTooltip/>
-        </form>
-        <input type="text" onChange={e => setSearch(e.target.value)}/>
-        <p data-delay-show='250' data-delay-update='250' data-tip='Click here to get user list'>
-        <button onClick={() => GetUser("","all")}>Get User List</button>
-        </p>
-        <ReactTooltip/>
         <DataTable 
         columns={columns}
         data={userList}
@@ -169,30 +146,6 @@ export function Users(props){
            PageTitle: {children: "Users"},
            SubNavigation:{children:""}
         }}/>
-
-        {/* change user account level */}
-        <form onSubmit={testFunc(SelectedOption,selectedUser.current.valueOf())}>
-            
-              <label id="Username">Username</label>
-             
-            <p data-delay-show='250' data-delay-update='250' data-tip='Enter the username'>
-            <input ref={selectedUser} type="text"></input>
-            </p>
-            <ReactTooltip/>
-            <p data-delay-show='250' data-delay-update='250' data-tip='Click to select an option'>
-            <DropdownMenu id="accountLevel" onChange={onChange} options={["Administrators","Accountant","Managers","Regular_User"]}/>
-            </p>
-            <ReactTooltip/>
-           <p data-delay-show='250' data-delay-update='250' data-tip='Click here to submit'>
-            <button type="submit">Submit</button>
-            </p>
-            <ReactTooltip/>
-        </form>
-        <input type="text" onChange={e => setSearch(e.target.value)}/>
-        <p data-delay-show='250' data-delay-update='250' data-tip='Click here to get user list'>
-        <button onClick={() => GetUser("","all")}>Get User List</button>
-        </p>
-        <ReactTooltip/>
         <DataTable 
         columns={columns}
         data={userList}
