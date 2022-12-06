@@ -118,7 +118,6 @@ export function Users(props){
       case 'Managers':
           return(
             <>
-            {/* CREATE PAGE HEADERS */}
             <PageHeader
          overrides={{
            PageHeader: {width:"100%"},
@@ -132,13 +131,12 @@ export function Users(props){
         expandableRows
         expandableRowsComponent={ExpandedComponent}
         selectableRows></DataTable>
-         
+          
             </> 
           )
       case 'Accountant':
           return(
             <>
-            {/* CREATE PAGE HEADERS */}
             <PageHeader
          overrides={{
            PageHeader: {width:"100%"},
@@ -152,7 +150,7 @@ export function Users(props){
         expandableRows
         expandableRowsComponent={ExpandedComponent}
         selectableRows></DataTable>
-         
+          
             </> 
              )
       default:
