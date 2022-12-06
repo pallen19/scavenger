@@ -46,15 +46,12 @@ export default function Table(props) {
     const [credit, setCredit] = useState("")
 
     const [imageUpload, setImageUpload] = useState(null)
-
-    const [accountNames, setAccountNames] = useState([])
-
-    const [pendingJournals, setPendingJournals] = useState(getJournals)
-    const [deniedJournals, setDeniedJournals] = useState(getDeniedJournals)
-    const [approvedJournals, setApprovedJournals] = useState(getApprovedJournals)
-    const [journalSelection, setJournalSelection] = useState(" ")
-    const [accountSelection, setAccountSelection] = useState(" ")
-
+    const [accountNames,setAccountNames] = useState([])
+    const [pendingJournals,setPendingJournals] = useState(getJournals)
+    const [deniedJournals,setDeniedJournals] = useState(getDeniedJournals)
+    const [approvedJournals,setApprovedJournals] = useState(getApprovedJournals)
+    const [journalSelection,setJournalSelection] = useState(" ")
+    const [search,setSearch] = useState("");
     const accounts = getAccounts();
     const names = getAccountNames();
 
@@ -66,9 +63,48 @@ export default function Table(props) {
 
     const eventLogColRef = collection(db, "eventLog")
 
-    useEffect(() => {
+useEffect(()=>{
+    const getData =() =>
+    {
+        setDeniedJournals(getDeniedJournals);
+    }
+    getData();
+},[])
 
-    }, [pendingJournals, deniedJournals, approvedJournals])
+useEffect(()=>{
+    const getData =() =>
+    {
+        setApprovedJournals(getApprovedJournals);
+    }
+    getData();
+},[])
+
+useEffect(()=>{
+    const getData =() =>
+    {
+        setPendingJournals(getJournals);
+    }
+    getData();
+},[])
+
+
+const onSearch = async () =>{ 
+    
+    console.log(search);
+    const q = query(collection(db, "accounts"),where("accountName", "==", search));
+
+const querySnapshot = await getDocs(q);
+
+if(querySnapshot.empty) // this means the query did not find a field that the user typed in
+{
+console.log("Not Found")
+}
+else
+{
+    console.log("Found")
+}
+}
+    
 
     const onOpen = async () => {
 

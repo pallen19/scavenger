@@ -1,0 +1,22 @@
+.TableCellContainer{
+    background-color: aliceblue;
+    width:100%;
+    height:150px;
+  overflow: visible;
+  display:flex;
+   
+}
+
+.FirstCellSlot{
+    background-color:  aliceblue;
+    width: 33.33%;
+}
+.SecondCellSlot{
+    background-color:  aliceblue;
+    width: 33.33%;
+}
+ 
+.ThirdCellSlot{
+    background-color:  aliceblue;
+    width: 33.33%;
+}
