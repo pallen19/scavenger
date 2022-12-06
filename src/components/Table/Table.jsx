@@ -44,7 +44,7 @@ export default function Table(props) {
     const [debit, setDebit] = useState("")
 
     const [credit, setCredit] = useState("")
-
+    const [accountSelection,setAccountSelection] = useState("")
     const [imageUpload, setImageUpload] = useState(null)
     const [accountNames,setAccountNames] = useState([])
     const [pendingJournals,setPendingJournals] = useState(getJournals)
@@ -88,22 +88,41 @@ useEffect(()=>{
 },[])
 
 
-const onSearch = async () =>{ 
+
+const onSearch = () => { 
+    let filteredPending =[]
+    let filteredApproved =[]
+    let filteredDenied =[]
+    console.log("searching")
+    pendingJournals.forEach(item => {
+        if(item.accountName === search){
+            filteredPending.push(item)
+        }
+    })
+    console.log(filteredPending)
+    setPendingJournals(filteredPending);
+
+    approvedJournals.forEach(item => {
+        if(item.accountName === search){
+            filteredApproved.push(item)
+        }
+    })
+    console.log(filteredPending)
+    setApprovedJournals(filteredApproved);
+
+   deniedJournals.forEach(item => {
+        if(item.accountName === search){
+            filteredDenied.push(item)
+        }
+    })
+    console.log(filteredDenied)
+    setDeniedJournals(filteredDenied);
+}
+  
+   
     
-    console.log(search);
-    const q = query(collection(db, "accounts"),where("accountName", "==", search));
 
-const querySnapshot = await getDocs(q);
 
-if(querySnapshot.empty) // this means the query did not find a field that the user typed in
-{
-console.log("Not Found")
-}
-else
-{
-    console.log("Found")
-}
-}
     
 
     const onOpen = async () => {
@@ -222,7 +241,9 @@ else
     return (
         <>
             <button onClick={() => onOpen()}>New Journal Entry</button>
-            {console.log(accounts)}
+           
+           <input id="search" type="text" onChange={e => setSearch(e.target.value)}/>
+           <button onClick={() => onSearch()}>Search</button>
             <h1>Pending Journals</h1>
             <DataTable
 
