@@ -35,9 +35,9 @@ export default function Table(props) {
     const [credit, setCredit] = useState("")
     const [imageUpload, setImageUpload] = useState(null)
     const [accountNames,setAccountNames] = useState([])
-    const [pendingJournals,setPendingJournals] = useState(getJournals)
-    const [deniedJournals,setDeniedJournals] = useState(getDeniedJournals)
-    const [approvedJournals,setApprovedJournals] = useState(getApprovedJournals)
+    const [pendingJournals,setPendingJournals] = useState([])
+    const [deniedJournals,setDeniedJournals] = useState([])
+    const [approvedJournals,setApprovedJournals] = useState([])
     const [journalSelection,setJournalSelection] = useState(" ")
     const [search,setSearch] = useState("");
     const accounts = getAccounts();
@@ -46,9 +46,30 @@ export default function Table(props) {
     const accountsColRef = collection(db, "accounts")
     const eventLogColRef = collection(db, "eventLog")
 
- useEffect(()=>{
-    console.log("Journals Changed")
-},[pendingJournals,deniedJournals,approvedJournals])
+useEffect(()=>{
+    const getData =() =>
+    {
+        setDeniedJournals(getDeniedJournals);
+    }
+    getData();
+},[])
+
+useEffect(()=>{
+    const getData =() =>
+    {
+        setApprovedJournals(getApprovedJournals);
+    }
+    getData();
+},[])
+
+useEffect(()=>{
+    const getData =() =>
+    {
+        setPendingJournals(getJournals);
+    }
+    getData();
+},[])
+
 
 const onSearch = async () =>{ 
     

@@ -1,12 +1,13 @@
 import { useNavigate,useLocation } from "react-router-dom";
 import { useState,useEffect,useRef,forwardRef } from "react";
-import { PageHeader } from "../../ui-components";
+import { NewAccount, PageHeader } from "../../ui-components";
 import  ReactDropdown  from "react-dropdown";
 import DropdownMenu from '../../components/DropdownMenu/DropdownMenu'
 import {getUserGroup,elevateAccount } from "./UsersFunctions";
 import Modal from "../../components/Modal/Modal";
 import { GetUser,SetAccountLevel } from "./UsersFunctions";
 import DataTable from "react-data-table-component";
+import "./Users.css"
 
 export function Users(props){
     //Constants
@@ -14,46 +15,86 @@ export function Users(props){
     const navigation = useNavigate();
     const [modal,setModal] = useState(false);
     const [userList,setUserList] = useState([]);
-    const selectedUser = useRef("");
+    const [selectedUser,setSelectedUser] = useState("");
     const [search,setSearch] = useState("");
     const [SelectedOption,setSelectedOption] = useState("");
-    const ExpandedComponent = ({ data }) => <pre>{JSON.stringify(data, null, 2)}</pre>;
     const menuOptions2 =["Administrator","Manager","Accountant","Disabled","Unverified"]
-    const columns = [{name:'Username',
-                    selector: row=> row.UserName,
-                    sortable: true}]
-  const onChange = (selection)=>{
+    //set the selected dropdown option to the most recent option.
+    const selectOption = (selection) => {
+      console.log(selection.value)
+      setSelectedOption(selection.value);
+    }
 
-    console.log(selection.value)
-  }
+    const changeAccountLevel=(user,currentGroup,newGroup)=>{
+      SetAccountLevel(user,currentGroup,"remove");
+      SetAccountLevel(user,newGroup,"add");
+    }
+
+    const ExpandedComponent = ({ data }) => <pre><div className="TableCellContainer" >
+      <div className="FirstCellSlot">
+        <p>Group:{data.Group}</p>
+        
+      </div>
+      
+      <div className="SecondCellSlot">
+        <label>Set Account Level</label>
+        {console.log("group is")}
+        {console.log(data)}
+        <DropdownMenu  id="DropdownField" onChange={()=>selectOption} options={menuOptions2}></DropdownMenu>
+        <button onClick={()=>changeAccountLevel(data.Username,data.Group,SelectedOption)}>Change Level</button>
+        </div>
+      <div className="ThirdCellSlot">
+      <button onClick={SetAccountLevel(data.Username," ","disable")}>Disable User</button>
+      </div>
+      </div>
+      </pre>;
+
+    
+    const columns = [{
+                  name:'Username',
+                  selector: row=> row.Username,
+                  sortable: true
+                  },{
+                  name:'Name',
+                  selector: row=> row.Name,
+                  sortable: true
+                },{
+                  name:'Last Modified',
+                  selector: row=> row.Modified,
+                  sortable: true
+                },{
+                  name:'Status',
+                  selector: row=> row.Enabled,
+                  sortable: true
+                }]
+
+
+
     //End of Constants
-   useEffect(() => {
 
+    //update the list of users when the page updates
+   useEffect(() => {
     const getList = async () => {
         const data = await GetUser(" ","all");
-        console.log("data is")
-        console.log(data.Users)
         let fields =[]
-        data.Users.forEach(property => {
-          fields.push({"Username": property.Username
+        data.Users.forEach(User => {
+          let group = getUserGroup(User.Username)
+          console.log(group)
+          fields.push({
+          "Username": User.Username,
+          "Name": User.Attributes[5].Value + " " + User.Attributes[6].Value,
+          "Modified": new Date(User.UserLastModifiedDate).toLocaleDateString(),
+          "Group": group.GroupName,
+          "Enabled": User.Enabled.toString(),
         })
-          console.log(property)
+          console.log(User)
         })
 
-        setUserList(fields)
-        console.log("Userlist = ")
-        console.log(userList)
+        setUserList(fields) 
     }
     getList()
    },[]);
-
-   const testFunc= (thing1,thing2)=>{
-   
-    console.log(thing1);
-    console.log(thing2);
-   }
-
-  
+//conditional rendering of the page based on the users account level.
     switch(props.level){
       case 'Administrators':
           return (
@@ -66,14 +107,7 @@ export function Users(props){
            SubNavigation:{children:""}
         }}/>
         {/* change user account level */}
-        <form onSubmit={testFunc(SelectedOption,selectedUser.current.valueOf())}>
-            <label id="Username">Username</label>
-            <input ref={selectedUser} type="text"></input>
-            <DropdownMenu id="accountLevel" onChange={onChange} options={["Administrators","Accountant","Managers","Regular_User"]}/>
-            <button type="submit">Submit</button>
-        </form>
-        <input type="text" onChange={e => setSearch(e.target.value)}/>
-        <button onClick={() => GetUser("","all")}>Get User List</button>
+        
         <DataTable 
         columns={columns}
         data={userList}
