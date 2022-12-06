@@ -32,6 +32,14 @@ import DropdownMenu from './components/DropdownMenu/DropdownMenu';
 
 
 Amplify.configure(awsExports);
+const passwordCounter =(error)=>{
+  if(error = err){
+     var err="x-amzn-errormessage: Incorrect username or password."
+  this.count+=1;
+  console.log(error)
+}
+}
+
 
 export default function CustomAuthenticator(){
 const [level,setLevel] = useState("");
@@ -40,6 +48,7 @@ const [currentUser,setCurrentUser] = useState(localStorage.getItem("CognitoIdent
 const [accountType,setAccountType] = useState([]);
 const [modal,setModal] = useState(false);
 const [fullName,setFullname] = useState("")
+
 
 
 useEffect(()=>{
@@ -124,15 +133,16 @@ const services={
 
   return (
 
+
 <Authenticator services={services} initialState="signUp">
 
 
  
-{
-  ({signOut, user}) => (
+{  ({signOut, user}) => (
   
    
   <div>
+    
   {/* <UserProfile name={user.attributes.given_name} /> */}
   <Navigation  overrides={{
     Home:{onClick:() => {navigate('/Home')}},
@@ -159,7 +169,7 @@ const services={
   
   <Routes>
     <Route path="/" element={<Layout />}>
-        <Route path='Accounts/*' element={<ProtectedRoute allowed={level === "Administrators" || level === "Managers"} redirectPath="*"><ViewAcct level={level} /></ProtectedRoute>}>
+        <Route path='Accounts/*' element={<ProtectedRoute allowed={level === "Administrators" || level === "Managers"|| level === "Accountant"} redirectPath="*"><ViewAcct level={level} /></ProtectedRoute>}>
             <Route path='Account Summary' element={<AccountSummary/>}/>
             <Route path='Journals' element={<Table/>}/>
             <Route path='General Ledger' element={<GeneralLedger/>}/>
@@ -167,7 +177,7 @@ const services={
             <Route path='Chart Of Accounts' element={<ChartOfAccounts level={level} />}></Route>
         </Route>
         <Route path='Home' element={<Home level={level}></Home>}/>
-        <Route path='Users' element={<ProtectedRoute allowed={level === "Administrators" || level === "Managers"} redirectPath="*"><Users level={level}/></ProtectedRoute>}/>
+        <Route path='Users' element={<ProtectedRoute allowed={level === "Administrators" || level === "Managers"|| level === "Accountant"} redirectPath="*"><Users level={level}/></ProtectedRoute>}/>
         <Route path='Reports/*' element={<Reports level={level}/>}>
             <Route path='Expired Passwords' element={<ExpiredPasswords/>}/>
             <Route path='Event Log' element={<EventLog/>}/>
@@ -200,6 +210,8 @@ const services={
 
 
 </Authenticator>
+
+
 
 
   );

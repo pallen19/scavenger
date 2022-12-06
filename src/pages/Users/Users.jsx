@@ -116,12 +116,44 @@ export function Users(props){
           </> );
       case 'Managers':
           return(
-          <>
-          </>
+            <>
+            <PageHeader
+         overrides={{
+           PageHeader: {width:"100%"},
+           Background:{width: "100%"},
+           PageTitle: {children: "Users"},
+           SubNavigation:{children:""}
+        }}/>
+        {/* change user account level */}
+        
+        <DataTable 
+        columns={columns}
+        data={userList}
+        expandableRows
+        expandableRowsComponent={ExpandedComponent}
+        selectableRows></DataTable>
+          
+            </> 
           )
       case 'Accountant':
           return(
             <>
+            <PageHeader
+         overrides={{
+           PageHeader: {width:"100%"},
+           Background:{width: "100%"},
+           PageTitle: {children: "Users"},
+           SubNavigation:{children:""}
+        }}/>
+        {/* change user account level */}
+        
+        <DataTable 
+        columns={columns}
+        data={userList}
+        expandableRows
+        expandableRowsComponent={ExpandedComponent}
+        selectableRows></DataTable>
+          
             </> 
              )
       default:
