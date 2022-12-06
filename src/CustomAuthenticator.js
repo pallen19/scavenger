@@ -227,7 +227,7 @@ const services={
   
   <Routes>
     <Route path="/" element={<Layout />}>
-        <Route path='Accounts/*' element={<ProtectedRoute allowed={level === "Administrators" || level === "Managers"} redirectPath="*"><ViewAcct level={level} /></ProtectedRoute>}>
+        <Route path='Accounts/*' element={<ProtectedRoute allowed={level === "Administrators" || level === "Managers"|| level === "Accountant"} redirectPath="*"><ViewAcct level={level} /></ProtectedRoute>}>
             <Route path='Account Summary' element={<AccountSummary/>}/>
             <Route path='Journals' element={<Table/>}/>
             <Route path='General Ledger' element={<GeneralLedger/>}/>
@@ -235,7 +235,7 @@ const services={
             <Route path='Chart Of Accounts' element={<ChartOfAccounts level={level} />}></Route>
         </Route>
         <Route path='Home' element={<Home level={level}></Home>}/>
-        <Route path='Users' element={<ProtectedRoute allowed={level === "Administrators" || level === "Managers"} redirectPath="*"><Users level={level}/></ProtectedRoute>}/>
+        <Route path='Users' element={<ProtectedRoute allowed={level === "Administrators" || level === "Managers"|| level === "Accountant"} redirectPath="*"><Users level={level}/></ProtectedRoute>}/>
         <Route path='Reports/*' element={<Reports level={level}/>}>
             <Route path='Expired Passwords' element={<ExpiredPasswords/>}/>
             <Route path='Event Log' element={<EventLog/>}/>
