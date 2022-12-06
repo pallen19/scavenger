@@ -6,7 +6,7 @@ import CustomTabs from "../../components/AccountsTab/CustomTabs";
 import ReactTooltip from 'react-tooltip';
 import BarChart from "../../components/Charts/BarChart";
 import PieChart from "../../components/Charts/PieChart";
-import { Tooltip } from "chart.js";
+// import { Tooltip } from "chart.js";
 
 export function Home(props){
     //Constants

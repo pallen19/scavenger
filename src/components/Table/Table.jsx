@@ -29,13 +29,13 @@ export default function Table(props) {
 
 
     const ExpandedComponent = ({ data }) => <pre>{
-        
-    data.accountName.toString()
-        
-        
+
+        data.accountName.toString()
+
+
         // JSON.stringify(data, null, 2)
-        
-        }</pre>;
+
+    }</pre>;
 
     const [activeJournal, setActiveJournal] = useState("")
 
@@ -46,12 +46,14 @@ export default function Table(props) {
     const [credit, setCredit] = useState("")
     const [accountSelection,setAccountSelection] = useState("")
     const [imageUpload, setImageUpload] = useState(null)
-    const [accountNames,setAccountNames] = useState([])
-    const [pendingJournals,setPendingJournals] = useState(getJournals)
-    const [deniedJournals,setDeniedJournals] = useState(getDeniedJournals)
-    const [approvedJournals,setApprovedJournals] = useState(getApprovedJournals)
-    const [journalSelection,setJournalSelection] = useState(" ")
-    const [search,setSearch] = useState("");
+    const [accountNames, setAccountNames] = useState([])
+    const [pendingJournals, setPendingJournals] = useState(getJournals)
+    const [deniedJournals, setDeniedJournals] = useState(getDeniedJournals)
+    const [approvedJournals, setApprovedJournals] = useState(getApprovedJournals)
+    const [journalSelection, setJournalSelection] = useState(" ")
+    const [search, setSearch] = useState("");
+
+
     const accounts = getAccounts();
     const names = getAccountNames();
 
@@ -63,29 +65,26 @@ export default function Table(props) {
 
     const eventLogColRef = collection(db, "eventLog")
 
-useEffect(()=>{
-    const getData =() =>
-    {
-        setDeniedJournals(getDeniedJournals);
-    }
-    getData();
-},[])
+    useEffect(() => {
+        const getData = () => {
+            setDeniedJournals(getDeniedJournals);
+        }
+        getData();
+    }, [])
 
-useEffect(()=>{
-    const getData =() =>
-    {
-        setApprovedJournals(getApprovedJournals);
-    }
-    getData();
-},[])
+    useEffect(() => {
+        const getData = () => {
+            setApprovedJournals(getApprovedJournals);
+        }
+        getData();
+    }, [])
 
-useEffect(()=>{
-    const getData =() =>
-    {
-        setPendingJournals(getJournals);
-    }
-    getData();
-},[])
+    useEffect(() => {
+        const getData = () => {
+            setPendingJournals(getJournals);
+        }
+        getData();
+    }, [])
 
 
 
@@ -148,7 +147,8 @@ const onSearch = () => {
         setJournalSelection(selection);
     }
     const onModify = (selection) => {
-        setAccountSelection(selection);
+        // setJournalSelection(selection);
+        setAccountSelection(selection)
     }
     const onClose = () => {
         setModal(false);
@@ -190,14 +190,14 @@ const onSearch = () => {
 
     const addToApproved = async (journal) => {
 
-        await addDoc(approvedJournalEntries, {accountName: journal.accountName, debit: journal.debit, credit: journal.credit, entryDate : journal.entryDate});
+        await addDoc(approvedJournalEntries, { accountName: journal.accountName, debit: journal.debit, credit: journal.credit, entryDate: journal.entryDate });
         const docToBeDeleted = doc(db, "pendingJournalEntries", journal.id)
         await deleteDoc(docToBeDeleted)
     }
 
     const addToDenied = async (journal) => {
 
-        await addDoc(deniedJournalEntries, {accountName: journal.accountName, debit: journal.debit, credit: journal.credit, entryDate : journal.entryDate});
+        await addDoc(deniedJournalEntries, { accountName: journal.accountName, debit: journal.debit, credit: journal.credit, entryDate: journal.entryDate });
         const docToBeDeleted = doc(db, "pendingJournalEntries", journal.id)
         await deleteDoc(docToBeDeleted)
     }
@@ -246,11 +246,8 @@ const onSearch = () => {
            <button onClick={() => onSearch()}>Search</button>
             <h1>Pending Journals</h1>
             <DataTable
-
                 columns={columns}
-
-                data={pendingJournalEntries}
-
+                data={pendingJournals}
                 expandableRows
                 expandableRowsComponent={ExpandedComponent}
                 selectableRows
@@ -278,9 +275,11 @@ const onSearch = () => {
                     overrides={
                         {
 
-                            dropdownFrame: { overflow: "visible", children:<> 
-                            <label className='accountLabel'>Credit account<DropdownMenu onChange={onChange} placeholder="Select An Account" options={accountNames} /></label>
-                            <label className='accountLabel'>Debit Account<DropdownMenu onChange={onModify} placeholder="Select An Account" options={accountNames} /></label></> },
+                            dropdownFrame: {
+                                overflow: "visible", children: <>
+                                    <label className='accountLabel'>Credit account<DropdownMenu onChange={onChange} placeholder="Select An Account" options={accountNames} /></label>
+                                    <label className='accountLabel'>Debit Account<DropdownMenu onChange={onModify} placeholder="Select An Account" options={accountNames} /></label></>
+                            },
 
                             Debit: { onChange: (event) => setDebit(event.target.value) },
                             Credit: { onChange: (event) => setCredit(event.target.value) },
