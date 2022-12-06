@@ -1,13 +1,13 @@
 .ShortcutFrame{
     border: 1px solid black;
-    margin: 1rem;
-    padding: 1rem 1rem;
+    margin: 0.5rem;
+    padding: 1rem .5rem;
     text-align: center;
 }
 
 .ShortcutItem{
   display: inline-block;
   border: 1px solid black;
-  padding: 1rem 1rem;
+  padding: 2rem 2.5rem;
   vertical-align: middle;
 }

@@ -36,6 +36,7 @@ export function Home(props){
         Button:{onClick:()=>navigate("/Accounts/General Ledger"),children:"Get Started"}
     }}></MenuCard>
     </p>
+    <ReactTooltip/>
     </div>
   
     <div className="ShortcutItem">
@@ -57,10 +58,44 @@ export function Home(props){
         MenuDescription:{children:"Shortcut to event log"},
         Button:{onClick:()=>navigate("/Reports/Event Log"),children:"Get Started"}
     }}></MenuCard>
-     </p>
+    </p>
+    <ReactTooltip/>
     </div>
-     <ReactTooltip/>
+
+<div className="ShortcutItem">
+     <p data-delay-show='250' data-delay-update='250' data-tip="Click here to go to Journals" >
+    <MenuCard overrides={{
+        MenuLabel:{children:"Journals"},
+        MenuDescription:{children:"Shortcut to journals"},
+        Button:{onClick:()=>navigate("/Accounts/Journals"),children:"Get Started"}
+    }}></MenuCard> 
+    </p>
+    <ReactTooltip/>
     </div>
+<div className="ShortcutItem">
+     <p data-delay-show='250' data-delay-update='250' data-tip="Click here to go to Account Summary" >
+     <MenuCard overrides={{
+        MenuLabel:{children:"Account Summary"},
+        MenuDescription:{children:"Shortcut to Account Summaries"},
+        Button:{onClick:()=>navigate("/Accounts/Account Summary"),children:"Get Started"}
+    }}></MenuCard> 
+    </p>
+    <ReactTooltip/>
+    </div>
+
+    <div className="ShortcutItem">
+         <p data-delay-show='250' data-delay-update='250' data-tip="Click here to view Expired Passwords" >
+    <MenuCard overrides={{
+        MenuLabel:{children:"View Expired Passwords"},
+        MenuDescription:{children:"Go to Expired Passwords"},
+        Button:{onClick:()=>navigate("/Reports/Expired Passwords"),children:"Get Started"}
+    }}></MenuCard> 
+    </p>
+    <ReactTooltip/>
+    </div>
+     
+    </div>
+    
     
    
         

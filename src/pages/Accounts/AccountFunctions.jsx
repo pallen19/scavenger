@@ -3,13 +3,16 @@ import {db} from '../../firestore-config';
 import {deleteDoc,collection,doc,getDoc} from 'firebase/firestore';
 import {AccountCard} from '../../ui-components'
 import Modal from '../../components/Modal/Modal'
+import { isDisabled } from '@testing-library/user-event/dist/utils';
 
 
 export function GetAccountData(){
     const accountsColRef = collection(db, "accounts");
     const [docID, setDocID] = useState([])
     const [myArr, setMyArr] = useState([])
-
+    const [value, setvalue] = useState(false);
+    var count=0;
+    count=+1;
     let accountData = [];
     getDoc(accountsColRef)
     .then(snapshot => {
@@ -48,7 +51,24 @@ async function editAccount(accountID) {
 
 }
 
-export function getAccountCards(account, callback){
+const editSwitch = (account,count) =>{
+    count=count+=1;
+  if(count%2==0){
+   console.log((count));
+   }
+  else{
+    count=count+=1;
+  console.log((count))
+  count=count+=1;
+  console.log((count))
+  }
+alert("render")
+}
+
+export function getAccountCards(account, callback, count){
+    var save= (!account.defaultChecked)
+    
+    var count=1;
     return ( 
         <>
         <div className="whiteSpace">
@@ -70,7 +90,7 @@ export function getAccountCards(account, callback){
                     Debit: {children: account.debit},
                     Credit: {children: account.credit},
                     Balance: { children: account.balance },
-                    SwitchField: { defaultChecked: account.isActive },
+                    SwitchField: { onClick:()=> {editSwitch(account,count)}, style:{cursor:"pointer"} },
                     edit: {onClick: ()=> callback(account), style:{cursor:"pointer"}},
                     
                 }
