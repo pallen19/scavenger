@@ -1,6 +1,6 @@
 import { getAccountCards, GetAccountData } from '../AccountFunctions'
 import Modal from '../../../components/Modal/Modal'
-import { collection, getDocs, updateDoc, doc, addDoc} from 'firebase/firestore';
+import { collection, getDocs, updateDoc, doc, addDoc, arrayUnion} from 'firebase/firestore';
 import { db } from '../../../firestore-config'
 import { useState, useEffect } from 'react';
 
@@ -107,26 +107,17 @@ export function AccountSummary(props){
         
         const docToBeEdited = doc(db, "accounts", activeAccount.id)
 
-        console.log("LOOK1")
-
         const currDate = new Date()
         const enteredDate = currDate.toString().substring(0, 15)
         const ranNum = Math.floor(Math.random() * 100000) + 1;
 
-        console.log("LOOK2")
-
         await addDoc(eventLogColRef, {altered : activeAccount.accountName, changes : "Edited", dateAltered : enteredDate, number : ranNum,
             before : "", after : ""})
 
-        console.log("LOOK3")
-
         const eventLogID = await getAccountID(ranNum);
 
-        console.log("LOOK4")
-
         const eventLogToBeEdited = doc(db, "eventLog", eventLogID)
-        
-        console.log("LOOK5")
+
 
         if(accountNumber != "")
         {
@@ -141,68 +132,122 @@ export function AccountSummary(props){
             const newAccountSubcategory = { accountSubcategory : accountSubcategory }
             await updateDoc(docToBeEdited, newAccountSubcategory).then(console.log("updated1"))
 
-            const beforeInfo = "accountSubcategory : " + activeAccount.accountSubcategory
-            const afterInfo = "accountSubcategory : " + accountSubcategory
+            const beforeInfo = "accountSubcategory : " + activeAccount.accountSubcategory + ", "
+            const afterInfo = "accountSubcategory : " + accountSubcategory + ", "
 
             console.log("before: " + beforeInfo)
             console.log("after: " + afterInfo)
 
-            await updateDoc(eventLogToBeEdited, {before : beforeInfo}).then(console.log("updated2"))
-            await updateDoc(eventLogToBeEdited, {after : afterInfo}).then(console.log("updated3"))
+            await updateDoc(eventLogToBeEdited, {before: arrayUnion(beforeInfo)})
+            await updateDoc(eventLogToBeEdited, {after : arrayUnion(afterInfo)})
         }
 
         if(accountDescription != "")
         {
             const newAccountDescription  = { accountDescription : accountDescription }
             await updateDoc(docToBeEdited, newAccountDescription)
+
+            const beforeInfo = "accountDescription : " + activeAccount.accountDescription + ", "
+            const afterInfo = "accountDescription : " + accountDescription + ", "
+
+            await updateDoc(eventLogToBeEdited, {before: arrayUnion(beforeInfo)})
+            await updateDoc(eventLogToBeEdited, {after: arrayUnion(afterInfo)})
         }
 
         if(accountOrder != "")
         {
             const newAccountOrder = { accountOrder : accountOrder }
             await updateDoc(docToBeEdited, newAccountOrder)
+
+            const beforeInfo = "accountOrder : " + activeAccount.accountOrder + ", "
+            const afterInfo = "accountOrder : " + accountOrder + ", "
+
+            await updateDoc(eventLogToBeEdited, {before: arrayUnion(beforeInfo)})
+            await updateDoc(eventLogToBeEdited, {after: arrayUnion(afterInfo)})
         }
 
         if(statement != "")
         {
             const newStatement = { statement : statement }
             await updateDoc(docToBeEdited, newStatement)
+
+            const beforeInfo = "statement : " + activeAccount.statement + ", "
+            const afterInfo = "statement : " + statement + ", "
+
+            await updateDoc(eventLogToBeEdited, {before: arrayUnion(beforeInfo)})
+            await updateDoc(eventLogToBeEdited, {after: arrayUnion(afterInfo)})
         }
 
         if(comments != "")
         {
             const newComments = { comments : comments }
             await updateDoc(docToBeEdited, newComments)
+
+            const beforeInfo = "comments : " + activeAccount.comments + ", "
+            const afterInfo = "comments : " + comments + ", "
+
+            await updateDoc(eventLogToBeEdited, {before: arrayUnion(beforeInfo)})
+            await updateDoc(eventLogToBeEdited, {after: arrayUnion(afterInfo)})
         }
 
         if(normalSide != "")
         {
             const newNormalSide = { normalSide : normalSide }
             await updateDoc(docToBeEdited, newNormalSide)
+
+            const beforeInfo = "normalSide : " + activeAccount.normalSide + ", "
+            const afterInfo = "normalSide : " + normalSide + ", "
+
+            await updateDoc(eventLogToBeEdited, {before: arrayUnion(beforeInfo)})
+            await updateDoc(eventLogToBeEdited, {after: arrayUnion(afterInfo)})
         }
 
         if(initialBalance != "")
         {
             const newInitialBalance = { initialBalance : initialBalance }
             await updateDoc(docToBeEdited, newInitialBalance)
+
+            const beforeInfo = "initialBalance : " + activeAccount.initialBalance + ", "
+            const afterInfo = "initialBalance : " + initialBalance + ", "
+
+            await updateDoc(eventLogToBeEdited, {before: arrayUnion(beforeInfo)})
+            await updateDoc(eventLogToBeEdited, {after: arrayUnion(afterInfo)})
         }
 
         if(debit != "")
         {
             const newDebit = { debit : debit }
             await updateDoc(docToBeEdited, newDebit)
+
+            const beforeInfo = "debit : " + activeAccount.debit + ", "
+            const afterInfo = "debit : " + debit + ", "
+
+            await updateDoc(eventLogToBeEdited, {before: arrayUnion(beforeInfo)})
+            await updateDoc(eventLogToBeEdited, {after: arrayUnion(afterInfo)})
         }
 
         if(credit != "")
         {
             const newCredit = { credit : credit }
             await updateDoc(docToBeEdited, newCredit)
+
+            const beforeInfo = "credit : " + activeAccount.credit + ", "
+            const afterInfo = "credit : " + credit + ", "
+
+            await updateDoc(eventLogToBeEdited, {before: arrayUnion(beforeInfo)})
+            await updateDoc(eventLogToBeEdited, {after: arrayUnion(afterInfo)})
         }
 
         if(balance != "")
         {
             const newBalance = { balance : balance }
             await updateDoc(docToBeEdited, newBalance)
+
+            const beforeInfo = "balance : " + activeAccount.balance + ", "
+            const afterInfo = "balance : " + balance + ", "
+
+            await updateDoc(eventLogToBeEdited, {before: arrayUnion(beforeInfo)})
+            await updateDoc(eventLogToBeEdited, {after: arrayUnion(afterInfo)})
         }
     }
 

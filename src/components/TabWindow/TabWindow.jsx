@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useState ,setState} from "react";
 import { useNavigate } from "react-router-dom";
+import ReactTooltip from "react-tooltip";
 import "./TabWindow.css"
 
 export function TabWindow({innerStyle,buttonStyle,children,options}){
@@ -16,7 +17,11 @@ export function TabWindow({innerStyle,buttonStyle,children,options}){
         
         <div className="OuterWindow">
         <div className="buttonBar">
-            {list.map((tab) => <button className={buttonStyle} onClick={() => navigate(tab)}>{tab}</button>)}
+        
+            {list.map((tab) =><><p data-delay-show='250' data-tip="Click here to view tab" > <button className={buttonStyle} onClick={() => navigate(tab)}>{tab}</button></p><ReactTooltip/></>)}
+
+        
+        
         <div className={innerStyle}>
         {children}
         </div>

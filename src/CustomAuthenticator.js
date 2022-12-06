@@ -109,11 +109,12 @@ const services={
     let {username,password,attributes} = formData;
     
     username = generatedUserName(attributes.given_name,attributes.family_name.toLowerCase());
-    
+    alert("Account has been created! Your new username is: "+ username)
     return Auth.signUp({
       username,
       password,
       attributes,
+      
     });
   },
 };
@@ -124,6 +125,8 @@ const services={
   return (
 
 <Authenticator services={services} initialState="signUp">
+
+
  
 {
   ({signOut, user}) => (

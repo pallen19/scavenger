@@ -72,7 +72,7 @@ export function getAccountCards(account, callback){
                     Balance: { children: account.balance },
                     SwitchField: { defaultChecked: account.isActive },
                     edit: {onClick: ()=> callback(account), style:{cursor:"pointer"}},
-                    
+                    SwitchField: {onClick : ()=> console.log("Hello")},
                 }
             }></AccountCard> 
         </div>

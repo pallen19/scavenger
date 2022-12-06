@@ -7,7 +7,6 @@ import {getUserGroup,elevateAccount } from "./UsersFunctions";
 import Modal from "../../components/Modal/Modal";
 import { GetUser,SetAccountLevel } from "./UsersFunctions";
 import DataTable from "react-data-table-component";
-import "./Users.css"
 
 export function Users(props){
     //Constants
