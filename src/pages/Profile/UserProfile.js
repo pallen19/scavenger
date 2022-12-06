@@ -44,7 +44,11 @@ export default function UserProfile(props){
             <li>
             <img src={placeHolder} style={{width:'400px'}}/>
             <br/>
+            <p data-delay-show='250' data-delay-update='250' data-tip="Click here to Edit Profile">
                <button onClick= {() => {setModal(true)}}>Edit Profile</button>
+
+               </p>
+               <ReactTooltip/>
             </li>
         </ul>
             {/* <p data-tip="Click here">

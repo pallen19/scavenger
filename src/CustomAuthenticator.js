@@ -32,6 +32,14 @@ import DropdownMenu from './components/DropdownMenu/DropdownMenu';
 
 
 Amplify.configure(awsExports);
+const passwordCounter =(error)=>{
+  if(error = err){
+     var err="x-amzn-errormessage: Incorrect username or password."
+  this.count+=1;
+  console.log(error)
+}
+}
+
 
 export default function CustomAuthenticator(){
 const [level,setLevel] = useState("");
@@ -40,6 +48,7 @@ const [currentUser,setCurrentUser] = useState(localStorage.getItem("CognitoIdent
 const [accountType,setAccountType] = useState([]);
 const [modal,setModal] = useState(false);
 const [fullName,setFullname] = useState("")
+
 
 
 useEffect(()=>{
@@ -103,6 +112,7 @@ function elevateAccount(Username,accountLevel,Method){
   })
 }
 
+
 function TestApiCall(username,method){
   //put url of api in the fetch
   fetch(" https://qdkw8owsn3.execute-api.us-east-2.amazonaws.com/default",{
@@ -124,7 +134,7 @@ function TestApiCall(username,method){
     setUserData(JsonData)
   })
 }
-
+    
 
 async function GetUser(username,method){
   //put url of api in the fetch
@@ -181,12 +191,12 @@ const services={
 
   return (
 
+
 <Authenticator services={services} initialState="signUp">
 
 
  
-{
-  ({signOut, user}) => (
+{  ({signOut, user}) => (
   
    
   <div>
@@ -257,6 +267,8 @@ const services={
 
 
 </Authenticator>
+
+
 
 
   );
